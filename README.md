@@ -31,6 +31,12 @@ To create a Trajectory object with "traj.xtc" and "index.ndx":
 
     Trajectory traj("traj.xtc","index.ndx");
 
+You could also make it a pointer:
+
+    Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
+
+In that case just remember to use "->" instead of "." when calling its methods.
+
 To get the coordinates of the 2nd atom of the 3rd frame of index group "C" and
 store in three dimensional vector a.
 
