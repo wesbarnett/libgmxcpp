@@ -151,3 +151,10 @@ int Trajectory::GetNAtoms() {
 int Trajectory::GetNFrames() {
 	return nframes;
 }
+float Trajectory::GetTime(int frame) {
+	return frameArray[frame].GetTime();
+}
+
+int Trajectory::GetStep(int frame) {
+	return frameArray[frame].GetStep();
+}

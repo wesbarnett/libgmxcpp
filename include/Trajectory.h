@@ -37,6 +37,8 @@ class Trajectory {
 		int GetNAtoms(string group);
 		int GetNFrames();
 		int GetGroupSize(string group);
+		float GetTime(int frame);
+		int GetStep(int frame);
         void GetXYZ(int frame, int atom, rvec xyz);
 		void GetXYZ(int frame, string group, int atom, rvec xyz);
 		void GetBox(int frame, matrix box);

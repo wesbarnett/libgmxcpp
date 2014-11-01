@@ -7,6 +7,10 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
+    const string group = "C";
+    const int first = 0;
+    const int last = 5;
+
 	string xtcfile;
     if(!getArgument(argc,argv,"-f",&xtcfile)) return -1;
 
@@ -18,17 +22,26 @@ int main(int argc, char* argv[]) {
     rvec xyz;
     matrix box;
 
-    cout << "Printing all coordinates from C group for frame 0: " << endl;
-    for (int i=0;i<traj.GetNAtoms("C");i++) {
-        traj.GetXYZ(0,"C",i,xyz);
-        cout << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
-    }
+    for (int frame=first; frame<=last; frame++) {
+        cout << endl;
+        cout << "Time: " << traj.GetTime(frame) << endl;
+        cout << "Step: " << traj.GetStep(frame) << endl;
+        cout << endl;
 
-    cout << "Box size for frame 0: " << endl;
-    traj.GetBox(0,box);
-    for (int j=0; j<3; j++) {
-        for (int k=0; k<3; k++) {
-            cout << box[j][k] << " ";
+        cout << "Coordinates for group " << group << ":" << endl;
+        for (int i=0;i<traj.GetNAtoms(group);i++) {
+            traj.GetXYZ(frame,group,i,xyz);
+            cout << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
+        }
+        cout << endl;
+
+        cout << "Box: " << endl;
+        traj.GetBox(frame,box);
+        for (int j=0; j<DIM; j++) {
+            for (int k=0; k<DIM; k++) {
+                cout << box[j][k] << " ";
+            }
+            cout << endl;
         }
         cout << endl;
     }
