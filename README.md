@@ -5,8 +5,10 @@ use in analyzing the results. [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdr
 
 ##Installation
 
-To install go into the src directory and do:
+To install do:
 
+    git clone git@github.com:wesbarnett/libgmxcpp.git
+    cd libgmxcpp/src
     make
     sudo make install
 
