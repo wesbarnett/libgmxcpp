@@ -65,7 +65,7 @@ the simulation.
 To get the box dimensions for the first frame do:
 
     matrix box;
-    traj.GetBox(0.box);
+    traj.GetBox(0,box);
 
 matrix is a three by three array.
 
