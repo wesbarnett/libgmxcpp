@@ -1,4 +1,4 @@
-##libgmxcpp
+#libgmxcpp
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. The [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. This basically interfaces with the xdrfile and implements an object-oriented style.
@@ -48,6 +48,9 @@ Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
 
 In that case just remember to use "->" instead of "." when calling its methods.
 
+Upon construction of a Trajectory object both the xtc file and the index file
+are read into memory. The following sections detail how to access the data.
+
 ###Atomic Coordinates
 
 To get the coordinates of an atom use GetXYZ() method:
@@ -69,8 +72,7 @@ To print out the coordinates you would then do:
 cout << a[X] << " " << a[Y] << " " << a[Z] << endl;
 ```
 
-Now the variable a contains the coordinates of the 2nd atom in the 3rd frame of
-the simulation.
+Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 
 ###Box Dimensions
 
