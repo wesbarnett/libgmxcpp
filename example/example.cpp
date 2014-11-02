@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
         cout << "Coordinates for group " << group << ":" << endl;
         for (int i=0;i<traj->GetNAtoms(group);i++) {
             traj->GetXYZ(frame,group,i,xyz);
+            traj->GetXYZ(group,frame,i,xyz);
             cout << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
         }
         cout << endl;

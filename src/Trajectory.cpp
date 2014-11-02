@@ -126,6 +126,11 @@ void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) {
     return;
 }
 
+void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) {
+    this->GetXYZ(frame,group,atom,xyz);
+    return;
+}
+
 // Gets the box dimensions for a specific frame
 void Trajectory::GetBox(int frame, matrix box) {
 	for (int i=0; i<3; i++) {
