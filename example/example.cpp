@@ -21,10 +21,11 @@ int main(int argc, char* argv[]) {
 
     rvec xyz;
     matrix box;
+    cout << fixed << setprecision(3);
 
     for (int frame=first; frame<=last; frame++) {
         cout << endl;
-        cout << "Time: " << traj->GetTime(frame) << endl;
+        cout << "Time: " << traj->GetTime(frame) << " ps" << endl;
         cout << "Step: " << traj->GetStep(frame) << endl;
         cout << endl;
 
