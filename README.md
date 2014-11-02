@@ -30,9 +30,9 @@ The main idea is that you create a Trajectory object which contains all the
 information from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
 
-#Construction
+###Construction
 
-To create a Trajectory object:
+First, you should create a Trajectory object:
 
 ```c++
 // Creates a Trajectory object with "traj.xtc" and "index.ndx"
@@ -48,7 +48,7 @@ Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
 
 In that case just remember to use "->" instead of "." when calling its methods.
 
-#Atomic Coordinates
+###Atomic Coordinates
 
 To get the coordinates of an atom use GetXYZ() method:
 
@@ -72,7 +72,7 @@ cout << a[X] << " " << a[Y] << " " << a[Z] << endl;
 Now the variable a contains the coordinates of the 2nd atom in the 3rd frame of
 the simulation.
 
-#Box Dimensions
+###Box Dimensions
 
 To get the box dimensions use GetBox() method:
 
@@ -82,7 +82,7 @@ matrix box; // matrix is a three by three float array from xdrfile library
 traj.GetBox(0,box);
 ```
 
-#Number of Frames
+###Number of Frames
 
 To get the number of frames in the simulation use GetNFrames():
 
@@ -90,7 +90,7 @@ To get the number of frames in the simulation use GetNFrames():
 int nframes = traj.GetNFrames();
 ```
 
-#Number of Atoms
+###Number of Atoms
 To get the number of atoms in the entire system use GetNAtoms():
 
 ```c++
@@ -106,7 +106,7 @@ int solsize = traj.GetNAtoms("SOL"):
 ```
 
 
-#Time and Step
+###Time and Step
 To get the time (in ps) corresponding with a frame use GetTime(*frame*):
 
 ```c++
