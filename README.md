@@ -41,6 +41,7 @@ First, you should create a Trajectory object:
 ```c++
 // Creates a Trajectory object with "traj.xtc" and "index.ndx"
 // The index file is optional
+// Both arguments are C++ strings
 Trajectory traj("traj.xtc","index.ndx");
 ```
 
