@@ -4,15 +4,13 @@
 
 #include <cstring>
 #include <string>
+#include <iostream>
 #include "Frame.h"
 #include "Index.h"
+#include "Utils.h"
 #include "xdrfile.h"
 #include "xdrfile_xtc.h"
 using namespace std;
-
-const int X = 0;
-const int Y = 1;
-const int Z = 2;
 
 // A trajectory object contains an array of frames, plus other info
 // on the simulation (number of atoms). It also contains the special xd

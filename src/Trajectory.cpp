@@ -1,9 +1,5 @@
 
 #include "Trajectory.h"
-#include <cstring>
-#include <string>
-#include <iostream>
-using namespace std;
 
 Trajectory::Trajectory() {}
 
