@@ -32,9 +32,11 @@ object methods are then used for analyzing the data.
 
 To create a Trajectory object:
 
-    // Creates a Trajectory object with "traj.xtc" and "index.ndx"
-    // The index file is optional
-    Trajectory traj("traj.xtc","index.ndx");
+```c++
+// Creates a Trajectory object with "traj.xtc" and "index.ndx"
+// The index file is optional
+Trajectory traj("traj.xtc","index.ndx");
+```
 
 You could also make it a pointer:
 
