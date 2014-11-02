@@ -2,8 +2,8 @@
 #include "Index.h"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 using namespace std;
-
 
 Index::Index() {
 	return;
@@ -15,14 +15,18 @@ Index::Index(string ndxfile) {
 }
 
 // TODO: figure out how to use maps
-// Reads in the index file, first getting the headers. Then reads in the index
-// file a second time, storing the locations in a two dimensional array.
+// Reads in the index file, first getting the headers so that the locations
+// vector can be properly sized. Then the index file is read again; if the line
+// is a header, increment the group counter. Any other line is read in with a
+// string stream into integers that are added to the vector located in this
+// location in the locations vector.
 void Index::Set(string ndxfile) {
 
 	cout << "Reading in " << ndxfile << "." << endl;
     ifstream iFS;
+    istringstream linestream;
     string line, header;
-    int a, num;
+    int num;
     int groupNum = 0;
 
     iFS.open(ndxfile.c_str());
@@ -47,17 +51,10 @@ void Index::Set(string ndxfile) {
         if (isHeader(line)) { 
             groupNum++;
         } else if (line.length() != 0) {
-            for (int i=0; i<line.length(); i++) {
-				if (i == 0) {
-					a = i;
-				} else {
-					if (line.at(i-1) == ' ' && line.at(i) != ' ') {
-						a = i;
-					} else if (line.at(i-1) != ' ' && line.at(i) == ' ') {
-                        num = atoi(line.substr(a,i).c_str());
-                        locations.at(groupNum).push_back(num);
-					}
-				}
+            linestream.clear();
+            linestream.str(line);
+            while (linestream >> num) {
+                locations.at(groupNum).push_back(num);
             }
         }
     }
