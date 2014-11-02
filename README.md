@@ -30,6 +30,8 @@ The main idea is that you create a Trajectory object which contains all the
 information from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
 
+#Construction
+
 To create a Trajectory object:
 
 ```c++
@@ -45,6 +47,8 @@ Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
 ```
 
 In that case just remember to use "->" instead of "." when calling its methods.
+
+#Atomic Coordinates
 
 To get the coordinates of an atom use GetXYZ() method:
 
@@ -68,6 +72,8 @@ cout << a[X] << " " << a[Y] << " " << a[Z] << endl;
 Now the variable a contains the coordinates of the 2nd atom in the 3rd frame of
 the simulation.
 
+#Box Dimensions
+
 To get the box dimensions use GetBox() method:
 
 ```c++
@@ -76,33 +82,41 @@ matrix box; // matrix is a three by three float array from xdrfile library
 traj.GetBox(0,box);
 ```
 
-To get the number of frames in the simulation:
+#Number of Frames
+
+To get the number of frames in the simulation use GetNFrames():
 
 ```c++
 int nframes = traj.GetNFrames();
 ```
 
-To get the number of atoms:
+#Number of Atoms
+To get the number of atoms in the entire system use GetNAtoms():
 
 ```c++
 int natoms = traj.GetNAtoms();
 ```
 
-To get the size (number of atoms in) group "SOL":
+To get the size (number of atoms in) a specific group pass the index name as an
+argument:
 
 ```c++
+// Gets the number of atoms in group "SOL"
 int solsize = traj.GetNAtoms("SOL"):
 ```
 
-To get the time (in ps) corresponding with a frame (in this case the 5th frame)
-do:
+
+#Time and Step
+To get the time (in ps) corresponding with a frame use GetTime(*frame*):
 
 ```c++
+// Gets the time of the 5th frame
 float time = traj.GetTime(4);
 ```
 
-To get the step for that frame:
+To get the step for a frame use GetStep(*frame*):
 
 ```c++
+// Gets the step corresponding with the 5th frame
 int step = traj.GetStep(4);
 ```
