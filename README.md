@@ -30,8 +30,10 @@ The main idea is that you create a Trajectory object which contains all the
 information from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
 
-To create a Trajectory object with "traj.xtc" and "index.ndx":
+To create a Trajectory object:
 
+    // Creates a Trajectory object with "traj.xtc" and "index.ndx"
+    // The index file is optional
     Trajectory traj("traj.xtc","index.ndx");
 
 You could also make it a pointer:
@@ -40,35 +42,29 @@ You could also make it a pointer:
 
 In that case just remember to use "->" instead of "." when calling its methods.
 
-To get the coordinates of the 2nd atom of the 3rd frame of index group "C" and
-store in three dimensional vector a.
+To get the coordinates of an atom use GetXYZ() method:
 
-    rvec a;
+    rvec a; // rvec comes from xdrfile library and is a three dimensional float array
+    // Gets the 2nd atom of the 3rd frame of index group "C"
+    // Arguments are frame, group name, atom number, rvec variable with coordinates stored
     traj.GetXYZ(2,"C",1,a);
 
-Frame is specified, then group name, then atom number in that group. Lastly, the
-rvec variable where the coordinates are stored is specified.
+    // You can omit the group, getting the 2nd atom in the entire system
+    traj.GetXYZ(2,1,a);
 
 To print out the coordinates you would then do:
 
+    // X, Y, and Z are constants in Utils.h, equiv. to 0, 1, and 2
     cout << a[X] << " " << a[Y] << " " << a[Z] << endl;
-
-X, Y, and Z are constants specified in Trajectory.h, equal to 0, 1, and 2
-respectively.
-
-You can omit the group name from the call:
-
-    traj.GetXYZ(2,1,a);
 
 Now the variable a contains the coordinates of the 2nd atom in the 3rd frame of
 the simulation.
 
-To get the box dimensions for the first frame do:
+To get the box dimensions use GetBox() method:
 
-    matrix box;
+    matrix box; // matrix is a three by three float array from xdrfile library
+    // Gets the box dimensions from the first frame:
     traj.GetBox(0,box);
-
-matrix is a three by three array.
 
 To get the number of frames in the simulation:
 
