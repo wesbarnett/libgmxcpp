@@ -66,6 +66,9 @@ rvec a; // rvec comes from xdrfile library and is a three dimensional float arra
 // Arguments are frame, group name, atom number, rvec variable with coordinates stored
 traj.GetXYZ(2,"C",1,a);
 
+// You can reverse the first two arguments:
+traj.GetXYZ("C",2,1,a);
+
 // You can omit the group, getting the 2nd atom in the entire system
 traj.GetXYZ(2,1,a);
 ```
