@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 using namespace std;
 
 // Contains all information from an index file. When constructed the index

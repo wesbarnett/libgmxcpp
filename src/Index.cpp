@@ -1,9 +1,5 @@
 
 #include "Index.h"
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-using namespace std;
 
 Index::Index() {
 	return;
