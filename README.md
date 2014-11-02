@@ -1,7 +1,11 @@
 #libgmxcpp
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
-use in analyzing the results. The [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. This basically interfaces with the xdrfile and implements an object-oriented style.
+use in analyzing the results. This basically interfaces with the xdrfile and implements an object-oriented style.
+
+##Requirements
+
+The [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. 
 
 ##Installation
 
