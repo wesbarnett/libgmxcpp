@@ -17,7 +17,8 @@ you'll have to modify the Makefile.
 
 Check out the example program in the example directory. To compile it do:
 
-    g++ main.cpp -I/usr/local/include/xdrfile -lgmxcpp -lxdrfile
+    cd libgmxcpp/example
+    make
 
 Then you can run the program on an example xtc file and ndx file.
 
