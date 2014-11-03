@@ -1,11 +1,10 @@
 
-AC_PREREQ(2.50)
 AC_INIT(gmxcpp,1.0.0,[jbarnet4@tulane.edu])
 AC_CONFIG_SRCDIR(src/CommandLine.cpp)
 AC_CONFIG_AUX_DIR(config)
 AC_CANONICAL_HOST
 
-AM_INIT_AUTOMAKE{[1.6.1]}
+AM_INIT_AUTOMAKE
 AC_PREFIX_DEFAULT(/usr/local/)
 
 #AC_CONFIG_MACRO_DIR([m4])
