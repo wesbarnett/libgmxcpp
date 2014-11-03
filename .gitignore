@@ -9,3 +9,5 @@ libgmxcpp.la
 *.swp
 autom4te*
 config.status
+include/Makefile
+src/Makefile
