@@ -596,7 +596,6 @@ PACKAGE_BUGREPORT='jbarnet4@tulane.edu'
 PACKAGE_URL=''
 
 ac_unique_file="src/CommandLine.cpp"
-ac_default_prefix=/usr/local/
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
@@ -2977,7 +2976,6 @@ am__tar='$${TAR-tar} chof - "$$tardir"' am__untar='$${TAR-tar} xf -'
 
 
 
-{1.6.1}
 
 
 #AC_CONFIG_MACRO_DIR([m4])
@@ -15179,6 +15177,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 # Only expand once:
+
 
 
 ac_config_files="$ac_config_files Makefile"
