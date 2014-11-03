@@ -8,3 +8,4 @@ Makefile
 libgmxcpp.la
 *.swp
 autom4te*
+config.status
