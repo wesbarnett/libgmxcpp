@@ -6,3 +6,5 @@ Makefile
 *.log
 .deps
 libgmxcpp.la
+*.swp
+autom4te*

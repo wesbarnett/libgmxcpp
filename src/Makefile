@@ -60,10 +60,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/src-commandline-cpp
-pkgincludedir = $(includedir)/src-commandline-cpp
-pkglibdir = $(libdir)/src-commandline-cpp
-pkglibexecdir = $(libexecdir)/src-commandline-cpp
+pkgdatadir = $(datadir)/gmxcpp
+pkgincludedir = $(includedir)/gmxcpp
+pkglibdir = $(libdir)/gmxcpp
+pkglibexecdir = $(libexecdir)/gmxcpp
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -80,7 +80,7 @@ build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(top_srcdir)/depcomp
+	$(top_srcdir)/config/depcomp
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -117,6 +117,7 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
+libgmxcpp_la_LIBADD =
 am_libgmxcpp_la_OBJECTS = CommandLine.lo Index.lo Frame.lo \
 	Trajectory.lo Utils.lo
 libgmxcpp_la_OBJECTS = $(am_libgmxcpp_la_OBJECTS)
@@ -140,7 +141,7 @@ am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))
 am__v_at_0 = @
 am__v_at_1 = 
 DEFAULT_INCLUDES = -I.
-depcomp = $(SHELL) $(top_srcdir)/depcomp
+depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
@@ -188,13 +189,13 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/wes/libgmxcpp/missing aclocal-1.13
+ACLOCAL = ${SHELL} /home/wes/libgmxcpp/config/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/wes/libgmxcpp/missing autoconf
-AUTOHEADER = ${SHELL} /home/wes/libgmxcpp/missing autoheader
-AUTOMAKE = ${SHELL} /home/wes/libgmxcpp/missing automake-1.13
+AUTOCONF = ${SHELL} /home/wes/libgmxcpp/config/missing autoconf
+AUTOHEADER = ${SHELL} /home/wes/libgmxcpp/config/missing autoheader
+AUTOMAKE = ${SHELL} /home/wes/libgmxcpp/config/missing automake-1.13
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -206,7 +207,7 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"src/CommandLine.cpp\" -DPACKAGE_TARNAME=\"src-commandline-cpp\" -DPACKAGE_VERSION=\"1.0.0\" -DPACKAGE_STRING=\"src/CommandLine.cpp\ 1.0.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"src-commandline-cpp\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DSTDC_HEADERS=1 -DHAVE_LIBXDRFILE=1 -DHAVE_XDRFILE_XDRFILE_H=1 -DHAVE_XDRFILE_XDRFILE_XTC_H=1
+DEFS = -DPACKAGE_NAME=\"gmxcpp\" -DPACKAGE_TARNAME=\"gmxcpp\" -DPACKAGE_VERSION=\"1.0.0\" -DPACKAGE_STRING=\"gmxcpp\ 1.0.0\" -DPACKAGE_BUGREPORT=\"jbarnet4@tulane.edu\" -DPACKAGE_URL=\"\" -DPACKAGE=\"gmxcpp\" -DVERSION=\"1.0.0\" -DSTDC_HEADERS=1 -DHAVE_LIBXDRFILE=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_XDRFILE_XDRFILE_H=1 -DHAVE_XDRFILE_XDRFILE_XTC_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -231,7 +232,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/wes/libgmxcpp/missing makeinfo
+MAKEINFO = ${SHELL} /home/wes/libgmxcpp/config/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -240,11 +241,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = src-commandline-cpp
-PACKAGE_BUGREPORT = 
-PACKAGE_NAME = src/CommandLine.cpp
-PACKAGE_STRING = src/CommandLine.cpp 1.0.0
-PACKAGE_TARNAME = src-commandline-cpp
+PACKAGE = gmxcpp
+PACKAGE_BUGREPORT = jbarnet4@tulane.edu
+PACKAGE_NAME = gmxcpp
+PACKAGE_STRING = gmxcpp 1.0.0
+PACKAGE_TARNAME = gmxcpp
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.0.0
 PATH_SEPARATOR = :
@@ -266,8 +267,8 @@ ac_ct_DUMPBIN =
 am__include = include
 am__leading_dot = .
 am__quote = 
-am__tar = tar --format=ustar -chf - "$$tardir"
-am__untar = tar -xf -
+am__tar = $${TAR-tar} chof - "$$tardir"
+am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
 build = x86_64-unknown-linux-gnu
 build_alias = 
@@ -288,7 +289,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/wes/libgmxcpp/install-sh
+install_sh = ${SHELL} /home/wes/libgmxcpp/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -297,7 +298,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr/local/
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -311,8 +312,9 @@ top_srcdir = ..
 AM_CPPFLAGS = -I$(top_srcdir)/include
 lib_LTLIBRARIES = libgmxcpp.la
 LDADD = $(lib_LTLIBRARIES)
-libgmxcpp_la_LIBADD = 
-libgmxcpp_la_DEPENDENCIES = 
+
+#libgmxcpp_la_LIBADD         = 
+#libgmxcpp_la_DEPENDENCIES   = 
 libgmxcpp_la_LDFLAGS = -version-info 0:0:0
 libgmxcpp_la_SOURCES = \
 			CommandLine.cpp	\
