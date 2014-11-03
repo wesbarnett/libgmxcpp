@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <stdexcept>
 using namespace std;
 
 // Contains all information from an index file. When constructed the index
@@ -21,11 +22,12 @@ class Index {
 		bool isHeader(string line);
         int GetHeaderIndex(string header);
 		void PrintInfo();
+		bool IsIndexFile(string ndxfile);
 	public:
 		Index(string ndxfile);
 		Index();
 		int GetGroupSize(string grpa);
         int GetLocation(string header, int i);
-		void Set(string filename);
+		bool Set(string filename);
 };
 #endif

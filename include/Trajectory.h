@@ -10,6 +10,7 @@
 #include "Utils.h"
 #include "xdrfile.h"
 #include "xdrfile_xtc.h"
+#include <stdexcept>
 using namespace std;
 
 // A trajectory object contains an array of frames, plus other info

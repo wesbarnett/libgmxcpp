@@ -14,15 +14,11 @@ Trajectory::Trajectory(string filename, int initialFrames) {
 	}
 	cfilename[filename.size()] = '\0';
 	cout << "Initializing trajectory object with " << filename << "." << endl;
-    int status = read_xtc_natoms(cfilename,&natoms);
-	if (status == 0) {
-		xd = xdrfile_open(cfilename,"r");
-		this->initialFrames = initialFrames;
-		nframes = 0;
-		read();
-	} else {
-		cout << "ERROR: Cannot open " << filename << "." << endl;
-	}
+	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	xd = xdrfile_open(cfilename,"r");
+	this->initialFrames = initialFrames;
+	nframes = 0;
+	read();
 	return;
 }
 
@@ -33,15 +29,11 @@ Trajectory::Trajectory(string filename) {
 	}
 	cfilename[filename.size()] = '\0';
 	cout << "Initializing trajectory object with " << filename << "." << endl;
-    int status = read_xtc_natoms(cfilename,&natoms);
-	if (status == 0) {
-		xd = xdrfile_open(cfilename,"r");
-		initialFrames = 100000;
-		nframes = 0;
-		read();
-	} else {
-		cout << "ERROR: Cannot open " << filename << "." << endl;
-	}
+	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	xd = xdrfile_open(cfilename,"r");
+	initialFrames = 100000;
+	nframes = 0;
+	read();
 	return;
 }
 
@@ -53,15 +45,11 @@ Trajectory::Trajectory(string filename, string ndxfile) {
 	cfilename[filename.size()] = '\0';
 	index.Set(ndxfile);
 	cout << "Initializing trajectory object with " << filename << "." << endl;
-    int status = read_xtc_natoms(cfilename,&natoms);
-	if (status == 0) {
-		xd = xdrfile_open(cfilename,"r");
-		initialFrames = 100000;
-		nframes = 0;
-		read();
-	} else {
-		cout << "ERROR: Cannot open " << filename << "." << endl;
-	}
+	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	xd = xdrfile_open(cfilename,"r");
+	initialFrames = 100000;
+	nframes = 0;
+	read();
 	return;
 }
 

@@ -16,7 +16,7 @@ Index::Index(string ndxfile) {
 // is a header, increment the group counter. Any other line is read in with a
 // string stream into integers that are added to the vector located in this
 // location in the locations vector.
-void Index::Set(string ndxfile) {
+bool Index::Set(string ndxfile) {
 
 	cout << "Reading in " << ndxfile << "." << endl;
     ifstream iFS;
@@ -25,12 +25,12 @@ void Index::Set(string ndxfile) {
     int num;
     int groupNum = 0;
 
+    if (!IsIndexFile(ndxfile)) throw runtime_error("Not a valid index file.");
+
     iFS.open(ndxfile.c_str());
 
-	if (!iFS.is_open()) {
-		cout << "ERROR: Cannot open " << ndxfile << "." << endl;
-		return;
-	}
+	if (!iFS.is_open()) throw runtime_error("Cannot open index file.");
+
     while (getline(iFS,line)) {
         if (isHeader(line)) { 
             header = line.substr(2,line.length()-4);
@@ -60,7 +60,7 @@ void Index::Set(string ndxfile) {
 	PrintInfo();
 	cout << "Finished reading in index file." << endl;
 
-    return;
+    return true;
 
 }
 
@@ -74,6 +74,19 @@ void Index::PrintInfo() {
 	}
 	return;
 
+}
+
+bool Index::IsIndexFile(string ndxfile) {
+    ifstream iFS;
+    string line;
+
+    iFS.open(ndxfile.c_str());
+    getline(iFS,line);
+    iFS.close();
+
+    if (isHeader(line)) return true;
+
+    return false;
 }
 
 // Translates the string name of a header to its correct index integer
