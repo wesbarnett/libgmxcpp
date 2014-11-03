@@ -1,8 +1,8 @@
 
 #ifndef FRAME_H
 #define FRAME_H
-#include "xdrfile.h"
-#include "xdrfile_xtc.h"
+#include "xdrfile/xdrfile.h"
+#include "xdrfile/xdrfile_xtc.h"
 
 // A frame contains the information on the time, the step, and the
 // coordinates and box for that time/step. rvec and matrix types come 

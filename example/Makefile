@@ -1,6 +1,6 @@
 CPP=g++
 LIBS=-lgmxcpp -lxdrfile
-CFLAGS=-I/usr/local/include/xdrfile
+#CFLAGS=-I/usr/local/include/xdrfile
 TARGET=example
 
 OBJ=$(patsubst %.cpp, %.o, $(wildcard *.cpp))

@@ -8,8 +8,8 @@
 #include "Frame.h"
 #include "Index.h"
 #include "Utils.h"
-#include "xdrfile.h"
-#include "xdrfile_xtc.h"
+#include "xdrfile/xdrfile.h"
+#include "xdrfile/xdrfile_xtc.h"
 #include <stdexcept>
 using namespace std;
 

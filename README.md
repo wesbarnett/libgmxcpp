@@ -5,19 +5,17 @@ use in analyzing the results. This basically interfaces with the xdrfile and imp
 
 ##Requirements
 
-The [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. 
+The [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. It will need to be 
+enabled as a shared library.
 
 ##Installation
 
 To install do:
 
     git clone git@github.com:wesbarnett/libgmxcpp.git
-    cd libgmxcpp/src
+    ./configure
     make
     sudo make install
-
-I'm assuming the xdrfile header files are in /usr/local/include/xdrfile. If not,
-you'll have to modify the Makefile.
 
 Check out the example program in the example directory. To compile it do:
 

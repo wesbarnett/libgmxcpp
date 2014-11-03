@@ -2,8 +2,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include "xdrfile.h"
-#include "xdrfile_xtc.h"
+#include "xdrfile/xdrfile.h"
+#include "xdrfile/xdrfile_xtc.h"
 #include <math.h>
 #include <cmath>
 #include <sys/stat.h>
