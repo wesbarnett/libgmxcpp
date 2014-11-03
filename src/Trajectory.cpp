@@ -13,8 +13,16 @@ Trajectory::Trajectory(string filename, int initialFrames) {
 		cfilename[i] = filename[i];
 	}
 	cfilename[filename.size()] = '\0';
-	cout << "Initializing trajectory object with " << filename << "." << endl;
-	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+
+	try {
+		cout << "Opening xtc file " << filename << "...";
+		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	cout << "OK" << endl;
+
 	xd = xdrfile_open(cfilename,"r");
 	this->initialFrames = initialFrames;
 	nframes = 0;
@@ -28,8 +36,16 @@ Trajectory::Trajectory(string filename) {
 		cfilename[i] = filename[i];
 	}
 	cfilename[filename.size()] = '\0';
-	cout << "Initializing trajectory object with " << filename << "." << endl;
-	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+
+	try {
+		cout << "Opening xtc file " << filename << "...";
+		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	cout << "OK" << endl;
+
 	xd = xdrfile_open(cfilename,"r");
 	initialFrames = 100000;
 	nframes = 0;
@@ -43,9 +59,17 @@ Trajectory::Trajectory(string filename, string ndxfile) {
 		cfilename[i] = filename[i];
 	}
 	cfilename[filename.size()] = '\0';
-	index.Set(ndxfile);
-	cout << "Initializing trajectory object with " << filename << "." << endl;
-	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+
+	try {
+		index.Set(ndxfile);
+		cout << "Opening xtc file " << filename << "...";
+		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	cout << "OK." << endl;
+
 	xd = xdrfile_open(cfilename,"r");
 	initialFrames = 100000;
 	nframes = 0;

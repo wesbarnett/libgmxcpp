@@ -18,14 +18,16 @@ Index::Index(string ndxfile) {
 // location in the locations vector.
 bool Index::Set(string ndxfile) {
 
-	cout << "Reading in " << ndxfile << "." << endl;
     ifstream iFS;
     istringstream linestream;
     string line, header;
     int num;
     int groupNum = 0;
 
+	cout << "Reading in index file " << ndxfile << "...";
+
     if (!IsIndexFile(ndxfile)) throw runtime_error("Not a valid index file.");
+    
 
     iFS.open(ndxfile.c_str());
 
@@ -55,6 +57,8 @@ bool Index::Set(string ndxfile) {
         }
     }
     iFS.close();
+
+    cout << "OK" << endl;
 
 	cout << "Found the following groups: " << endl;
 	PrintInfo();
