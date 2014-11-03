@@ -8,6 +8,7 @@ Makefile
 libgmxcpp.la
 *.swp
 autom4te*
+autom4te.cache/requests
 config.status
 include/Makefile
 src/Makefile
