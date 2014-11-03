@@ -10,5 +10,6 @@ using namespace std;
 // a string. Returns false if the flag is not found or the argument is not
 // specified.
 bool getArgument(int argc, char* argv[], string flag, string *argToReturn);
+bool checkHelpArg(int argc, char* argv[], string flag);
 
 #endif

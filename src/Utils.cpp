@@ -31,3 +31,8 @@ void cross(rvec a, rvec b, rvec r) {
 	r[Y] = a[Z]*b[X]-a[X]*b[Z];
 	r[Z] = a[X]*b[Y]-a[Y]*b[X];
 }
+
+bool fileExists(string filename) {
+	ifstream infile(filename.c_str());
+	return infile.good();
+}

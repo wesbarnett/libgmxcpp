@@ -19,3 +19,15 @@ bool getArgument(int argc, char* argv[], string flag, string *argToReturn) {
 	return false;
 }
 
+bool checkHelpArg(int argc, char* argv[], string flag) {
+
+	string arg;
+	for (int i=1;i<argc;i++) {
+		arg = argv[i];
+		if (arg == flag) {
+            return true;
+		}
+	}
+
+    return false;
+}
