@@ -26,6 +26,7 @@ class Trajectory {
 		Frame *frameArray;
 		Index index;
         void read();
+		void InitXTC(string filename);
 	public:
 		Trajectory();
 		Trajectory(string filename);

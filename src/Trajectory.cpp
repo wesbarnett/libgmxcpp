@@ -8,98 +8,69 @@ Trajectory::Trajectory() {}
 // TODO: put converstion of string to char array in its own function. Then calls
 // read().
 Trajectory::Trajectory(string filename, int initialFrames) {
-	char cfilename[200];
-	for (int i=0;i<filename.size();i++) {
-		cfilename[i] = filename[i];
-	}
-	cfilename[filename.size()] = '\0';
-
 	try {
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+        InitXTC(filename);
 	} catch(runtime_error &excpt) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	cout << "OK" << endl;
-
-	xd = xdrfile_open(cfilename,"r");
 	this->initialFrames = initialFrames;
-	nframes = 0;
 	read();
 	return;
 }
 
 Trajectory::Trajectory(string filename) {
-	char cfilename[200];
-	for (int i=0;i<filename.size();i++) {
-		cfilename[i] = filename[i];
-	}
-	cfilename[filename.size()] = '\0';
-
 	try {
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+        InitXTC(filename);
 	} catch(runtime_error &excpt) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	cout << "OK" << endl;
-
-	xd = xdrfile_open(cfilename,"r");
 	initialFrames = 100000;
-	nframes = 0;
 	read();
 	return;
 }
 
 Trajectory::Trajectory(string filename, string ndxfile) {
-	char cfilename[200];
-	for (int i=0;i<filename.size();i++) {
-		cfilename[i] = filename[i];
-	}
-	cfilename[filename.size()] = '\0';
-
 	try {
 		index.Set(ndxfile);
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+        InitXTC(filename);
 	} catch(runtime_error &excpt) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	cout << "OK." << endl;
-
-	xd = xdrfile_open(cfilename,"r");
 	initialFrames = 100000;
-	nframes = 0;
 	read();
 	return;
 }
 
 Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
+	try {
+        InitXTC(filename);
+		index.Set(ndxfile);
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	this->initialFrames = initialFrames;
+	read();
+	return;
+}
+
+void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
 		cfilename[i] = filename[i];
 	}
 	cfilename[filename.size()] = '\0';
-
-	try {
-		index.Set(ndxfile);
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
-	} catch(runtime_error &excpt) {
-		cerr << endl << "Problem with creating Trajectory object." << endl;
-		terminate();
-	}
-	cout << "OK." << endl;
-
 	xd = xdrfile_open(cfilename,"r");
-	this->initialFrames = initialFrames;
+	cout << "Opening xtc file " << filename << "...";
+	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	cout << "OK" << endl;
 	nframes = 0;
-	read();
-	return;
+    return;
 }
+
 
 // Reads in all of the frames from the xtc file. First, we allocate memory 
 // for our temporary Frame array. Then we allocate memory for the vectors 
