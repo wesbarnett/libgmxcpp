@@ -100,21 +100,27 @@ int Index::GetHeaderIndex(string header) {
             return i;
         }
     }
-	cout << "ERROR: Group '" << header << "' not found in index file." << endl;
+	throw runtime_error("Group " + header + " is not in the index file!");
     return -1;
 }
 
 int Index::GetGroupSize(string header) {
-    int locationIndex = GetHeaderIndex(header);
-	if (locationIndex == -1) return -1;
-	return locations.at(locationIndex).size();
+    try {
+        int locationIndex = GetHeaderIndex(header);
+	    return locations.at(locationIndex).size();
+	} catch(runtime_error &excpt) {
+        terminate();
+    }
 }
 
 // Gets the location of the ith atom in the header group specified
 int Index::GetLocation(string header, int i) {
-    int locationIndex = GetHeaderIndex(header);
-	if (locationIndex == -1) return -1;
-    return locations.at(locationIndex).at(i)-1;
+    try {
+        int locationIndex = GetHeaderIndex(header);
+        return locations.at(locationIndex).at(i)-1;
+	} catch(runtime_error &excpt) {
+        terminate();
+    }
 }
 
 bool Index::isHeader(string line) {
