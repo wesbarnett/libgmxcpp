@@ -5,7 +5,6 @@
 *.swp
 libtool
 libgmxcpp.la
-configure
 Makefile
 include/Makefile
 src/Makefile
