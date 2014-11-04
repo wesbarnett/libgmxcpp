@@ -23,6 +23,8 @@ make install
 You may have to run "make install" as root, since by default it will install to
 "/usr/local/".
 
+##Example Program
+
 Check out the example program in the example directory. To compile it do the
 following in the example directory:
 
@@ -31,6 +33,31 @@ make
 ```
 
 Then you can run the program on an example xtc file and ndx file.
+
+##Development
+
+The master branch is used for development, so if you clone it and compile it, it
+will be different than the latest release. It is recommended you stick to the
+most recent release unless you want to test something, or you want to help with
+development.
+
+To compile the master branch do:
+
+```bash
+git clone https://github.com/wesbarnett/libgmxcpp
+cd libgmxcpp
+
+# The following are necessary only once
+aclocal
+automake
+autoreconf -i
+automake
+autoconf
+
+./configure
+make
+make install
+```
 
 ##Usage
 
