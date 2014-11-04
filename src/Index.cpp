@@ -62,7 +62,7 @@ bool Index::Set(string ndxfile) {
 
 	cout << "Found the following groups: " << endl;
 	PrintInfo();
-	cout << "Finished reading in index file." << endl;
+	cout << "Finished reading in index file." << endl << endl;
 
     return true;
 

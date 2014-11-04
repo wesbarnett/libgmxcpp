@@ -4,10 +4,10 @@
 Trajectory::Trajectory() {}
 
 // Initializes the trajectory object by finding out how many atoms are in the 
-// system, saving how many frames we think there might be for memory allocation.
-// TODO: put converstion of string to char array in its own function. Then calls
+// system, saving how many frames we think there might be for memory allocation. Then calls
 // read().
 Trajectory::Trajectory(string filename, int initialFrames) {
+    cout << endl;
 	try {
         InitXTC(filename);
 	} catch(runtime_error &excpt) {
@@ -20,6 +20,7 @@ Trajectory::Trajectory(string filename, int initialFrames) {
 }
 
 Trajectory::Trajectory(string filename) {
+    cout << endl;
 	try {
         InitXTC(filename);
 	} catch(runtime_error &excpt) {
@@ -32,6 +33,7 @@ Trajectory::Trajectory(string filename) {
 }
 
 Trajectory::Trajectory(string filename, string ndxfile) {
+    cout << endl;
 	try {
 		index.Set(ndxfile);
         InitXTC(filename);
@@ -115,7 +117,7 @@ void Trajectory::read() {
 	delete tmpArray;
 
 	status = xdrfile_close(xd);
-	cout << "Finished reading in xtc file." << endl;
+	cout << "Finished reading in xtc file." << endl << endl;
 	return;
 }
 
