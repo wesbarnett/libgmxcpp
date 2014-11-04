@@ -4,78 +4,75 @@
 Trajectory::Trajectory() {}
 
 // Initializes the trajectory object by finding out how many atoms are in the 
-// system, saving how many frames we think there might be for memory allocation.
-// TODO: put converstion of string to char array in its own function. Then calls
+// system, saving how many frames we think there might be for memory allocation. Then calls
 // read().
 Trajectory::Trajectory(string filename, int initialFrames) {
-	char cfilename[200];
-	for (int i=0;i<filename.size();i++) {
-		cfilename[i] = filename[i];
-	}
-	cfilename[filename.size()] = '\0';
-
+    cout << endl;
 	try {
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+        InitXTC(filename);
 	} catch(runtime_error &excpt) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	cout << "OK" << endl;
-
-	xd = xdrfile_open(cfilename,"r");
 	this->initialFrames = initialFrames;
-	nframes = 0;
 	read();
 	return;
 }
 
 Trajectory::Trajectory(string filename) {
-	char cfilename[200];
-	for (int i=0;i<filename.size();i++) {
-		cfilename[i] = filename[i];
-	}
-	cfilename[filename.size()] = '\0';
-
+    cout << endl;
 	try {
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+        InitXTC(filename);
 	} catch(runtime_error &excpt) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	cout << "OK" << endl;
-
-	xd = xdrfile_open(cfilename,"r");
 	initialFrames = 100000;
-	nframes = 0;
 	read();
 	return;
 }
 
 Trajectory::Trajectory(string filename, string ndxfile) {
+    cout << endl;
+	try {
+		index.Set(ndxfile);
+        InitXTC(filename);
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	initialFrames = 100000;
+	read();
+	return;
+}
+
+Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
+	try {
+        InitXTC(filename);
+		index.Set(ndxfile);
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	this->initialFrames = initialFrames;
+	read();
+	return;
+}
+
+void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
 		cfilename[i] = filename[i];
 	}
 	cfilename[filename.size()] = '\0';
-
-	try {
-		index.Set(ndxfile);
-		cout << "Opening xtc file " << filename << "...";
-		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
-	} catch(runtime_error &excpt) {
-		cerr << endl << "Problem with creating Trajectory object." << endl;
-		terminate();
-	}
-	cout << "OK." << endl;
-
 	xd = xdrfile_open(cfilename,"r");
-	initialFrames = 100000;
+	cout << "Opening xtc file " << filename << "...";
+	if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	cout << "OK" << endl;
 	nframes = 0;
-	read();
-	return;
+    return;
 }
+
 
 // Reads in all of the frames from the xtc file. First, we allocate memory 
 // for our temporary Frame array. Then we allocate memory for the vectors 
@@ -97,12 +94,17 @@ void Trajectory::read() {
 	cout << natoms << " particles are in the system." << endl;
 
 	cout << "Allocated memory for " << initialFrames << " frames of data." << endl;
+    cout << "Reading in xtc file: " << endl;
 	while (status == 0) {
-		if (nframes % 10 == 0) cout << "Reading frame: " << nframes << "\r";
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
 		if (status !=0) break;
 		tmpArray[nframes].Set(step,time,box,x);
+		if (nframes % 10 == 0) {
+            cout << "   frame: " << nframes;
+            cout << " | time (ps): " << time;
+            cout << " | step: " << step << "\r";
+        }
 		nframes++;
     }
 
@@ -115,7 +117,7 @@ void Trajectory::read() {
 	delete tmpArray;
 
 	status = xdrfile_close(xd);
-	cout << "Finished reading in xtc file." << endl;
+	cout << "Finished reading in xtc file." << endl << endl;
 	return;
 }
 

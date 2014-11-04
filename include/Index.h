@@ -17,17 +17,17 @@ using namespace std;
 // for each group are stored in the locations vector.
 class Index {
 	private:
-        vector < vector <int> > locations;
         vector <string> headers;
-		bool isHeader(string line);
+        vector < vector <int> > locations;
         int GetHeaderIndex(string header);
-		void PrintInfo();
+		bool isHeader(string line);
 		bool IsIndexFile(string ndxfile);
+		void PrintInfo();
 	public:
-		Index(string ndxfile);
 		Index();
+		Index(string ndxfile);
+		bool Set(string filename);
 		int GetGroupSize(string grpa);
         int GetLocation(string header, int i);
-		bool Set(string filename);
 };
 #endif

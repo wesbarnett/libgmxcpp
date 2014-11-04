@@ -8,3 +8,5 @@ libgmxcpp.la
 Makefile
 include/Makefile
 src/Makefile
+cleanup
+build

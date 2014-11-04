@@ -1,2 +1,5 @@
 example
 example.o
+out.dat
+traj.xtc
+index.ndx

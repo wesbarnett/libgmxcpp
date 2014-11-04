@@ -10,7 +10,6 @@ Index::Index(string ndxfile) {
 	return;
 }
 
-// TODO: figure out how to use maps
 // Reads in the index file, first getting the headers so that the locations
 // vector can be properly sized. Then the index file is read again; if the line
 // is a header, increment the group counter. Any other line is read in with a
@@ -62,7 +61,7 @@ bool Index::Set(string ndxfile) {
 
 	cout << "Found the following groups: " << endl;
 	PrintInfo();
-	cout << "Finished reading in index file." << endl;
+	cout << "Finished reading in index file." << endl << endl;
 
     return true;
 
@@ -94,27 +93,29 @@ bool Index::IsIndexFile(string ndxfile) {
 }
 
 // Translates the string name of a header to its correct index integer
+// If the header is not present in the index file, throw an exception
 int Index::GetHeaderIndex(string header) {
     for (int i=0; i<headers.size(); i++) {
-        if (headers.at(i) == header) {
-            return i;
-        }
+        if (headers.at(i) == header) return i;
     }
-	cout << "ERROR: Group '" << header << "' not found in index file." << endl;
-    return -1;
+	throw runtime_error("Group " + header + " is not in the index file!");
 }
 
 int Index::GetGroupSize(string header) {
-    int locationIndex = GetHeaderIndex(header);
-	if (locationIndex == -1) return -1;
-	return locations.at(locationIndex).size();
+    try {
+	    return locations.at(GetHeaderIndex(header)).size();
+	} catch(runtime_error &excpt) {
+        terminate();
+    }
 }
 
 // Gets the location of the ith atom in the header group specified
 int Index::GetLocation(string header, int i) {
-    int locationIndex = GetHeaderIndex(header);
-	if (locationIndex == -1) return -1;
-    return locations.at(locationIndex).at(i)-1;
+    try {
+        return locations.at(GetHeaderIndex(header)).at(i)-1;
+	} catch(runtime_error &excpt) {
+        terminate();
+    }
 }
 
 bool Index::isHeader(string line) {

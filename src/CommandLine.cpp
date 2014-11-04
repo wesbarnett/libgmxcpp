@@ -8,15 +8,14 @@ bool getArgument(int argc, char* argv[], string flag, string *argToReturn) {
 		arg = argv[i];
 		if (arg == flag) {
 			if (i+1 >= argc) {
-				cout << "ERROR: No argument after " << flag << "." << endl;
-				return false;
-			}
+                cout << "ERROR: missing argument to " << flag << "." << endl;
+                return false;
+            }
 			*argToReturn = argv[i+1];
 			return true;
 		}
 	}
-	cout << "ERROR: " << flag << " not specified." << endl;
-	return false;
+    return false;
 }
 
 bool checkHelpArg(int argc, char* argv[], string flag) {
