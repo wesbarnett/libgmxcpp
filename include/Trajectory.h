@@ -18,13 +18,13 @@ using namespace std;
 // pointer that xdrfile needs to open the xtc file.
 class Trajectory {
 	private:
-		int nframes;
-        XDRFILE *xd;
-        int natoms;
-        float prec;
-		int initialFrames;
 		Frame *frameArray;
+		int initialFrames;
 		Index index;
+        XDRFILE *xd;
+        float prec;
+		int nframes;
+        int natoms;
         void read();
 		void InitXTC(string filename);
 	public:
