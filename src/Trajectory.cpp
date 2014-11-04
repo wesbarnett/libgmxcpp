@@ -77,6 +77,30 @@ Trajectory::Trajectory(string filename, string ndxfile) {
 	return;
 }
 
+Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
+	char cfilename[200];
+	for (int i=0;i<filename.size();i++) {
+		cfilename[i] = filename[i];
+	}
+	cfilename[filename.size()] = '\0';
+
+	try {
+		index.Set(ndxfile);
+		cout << "Opening xtc file " << filename << "...";
+		if (read_xtc_natoms(cfilename,&natoms) != 0) throw runtime_error("Cannot open xtc file.");
+	} catch(runtime_error &excpt) {
+		cerr << endl << "Problem with creating Trajectory object." << endl;
+		terminate();
+	}
+	cout << "OK." << endl;
+
+	xd = xdrfile_open(cfilename,"r");
+	this->initialFrames = initialFrames;
+	nframes = 0;
+	read();
+	return;
+}
+
 // Reads in all of the frames from the xtc file. First, we allocate memory 
 // for our temporary Frame array. Then we allocate memory for the vectors 
 // for this frame based on the number of atoms read in from earlier. We 

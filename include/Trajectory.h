@@ -31,6 +31,7 @@ class Trajectory {
 		Trajectory(string filename);
 		Trajectory(string filename, int initialFrames);
 		Trajectory(string filename, string ndxfile);
+		Trajectory(string filename, string ndxfile, int initialFrames);
         int close();
         int GetNAtoms();
 		int GetNAtoms(string group);
