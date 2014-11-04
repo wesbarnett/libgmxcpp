@@ -16,8 +16,7 @@ $(TARGET): $(OBJ)
 	$(CPP) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
-	rm -rfv $(TARGET)
-	rm -rfv *.o
+	rm -rfv $(TARGET) *.o out.dat
 
 .PHONY: clean default install
 .PRECIOUS: $(OBJECTS) $(LIBFILES)
