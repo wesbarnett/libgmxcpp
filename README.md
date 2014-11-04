@@ -5,21 +5,23 @@ use in analyzing the results. This basically interfaces with the xdrfile and imp
 
 ##Requirements
 
-The [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. It will need to be 
-enabled as a shared library.
+The libxdrfile(ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. It will need to be 
+enabled as a shared library when you configure it for installation.
 
 ##Installation
 
 To install do:
 
 ```bash
-wget https://github.com/wesbarnett/libgmxcpp/archive/v1.0.tar.gz
-tar xvzf v1.0.tar.gz
+wget -O - https://github.com/wesbarnett/libgmxcpp/archive/v1.0.tar.gz | tar xvz
 cd libgmxcpp-1.0
 ./configure
 make
 make install
 ```
+
+You may have to run "make install" as root, since by default it will install to
+"/usr/local/".
 
 Check out the example program in the example directory. To compile it do the
 following in the example directory:
