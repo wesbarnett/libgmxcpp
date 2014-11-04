@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 
     Trajectory *traj = new Trajectory(xtcfile,ndxfile);
 
-    print(traj,first,last,group);
+    //print(traj,first,last,group);
 
     return 0;
 }

@@ -92,12 +92,17 @@ void Trajectory::read() {
 	cout << natoms << " particles are in the system." << endl;
 
 	cout << "Allocated memory for " << initialFrames << " frames of data." << endl;
+    cout << "Reading in xtc file: " << endl;
 	while (status == 0) {
-		if (nframes % 10 == 0) cout << "Reading frame: " << nframes << "\r";
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
 		if (status !=0) break;
 		tmpArray[nframes].Set(step,time,box,x);
+		if (nframes % 10 == 0) {
+            cout << "   frame: " << nframes;
+            cout << " | time (ps): " << time;
+            cout << " | step: " << step << "\r";
+        }
 		nframes++;
     }
 
