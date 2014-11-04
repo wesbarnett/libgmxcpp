@@ -11,4 +11,6 @@ autom4te*
 config.status
 include/Makefile
 src/Makefile
-autom4te.cache*
+autom4te.cache
+configure
+config
