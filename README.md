@@ -34,31 +34,6 @@ make
 
 Then you can run the program on an example xtc file and ndx file.
 
-##Development
-
-The master branch is used for development, so if you clone it and compile it, it
-will be different than the latest release. It is recommended you stick to the
-most recent release unless you want to test something, or you want to help with
-development.
-
-To compile the master branch do:
-
-```bash
-git clone https://github.com/wesbarnett/libgmxcpp
-cd libgmxcpp
-
-# The following are necessary only once
-aclocal
-automake
-autoreconf -i
-automake
-autoconf
-
-./configure
-make
-make install
-```
-
 ##Usage
 
 See the example file as well as the comments in the source. 
@@ -176,4 +151,29 @@ To get the step for a frame use GetStep(*frame*):
 ```c++
 // Gets the step corresponding with the 5th frame
 int step = traj.GetStep(4);
+```
+
+##Development
+
+The master branch is used for development, so if you clone it and compile it, it
+will be different than the latest release. It is recommended you stick to the
+most recent release unless you want to test something, or you want to help with
+development.
+
+To compile the master branch do:
+
+```bash
+git clone https://github.com/wesbarnett/libgmxcpp
+cd libgmxcpp
+
+# The following are necessary only once
+aclocal
+automake
+autoreconf -i
+automake
+autoconf
+
+./configure
+make
+make install
 ```
