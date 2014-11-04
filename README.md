@@ -13,19 +13,19 @@ enabled as a shared library.
 To install do:
 
 ```bash
-    wget https://github.com/wesbarnett/libgmxcpp/archive/v1.0.tar.gz
-    tar xvzf v1.0.tar.gz
-    cd libgmxcpp-1.0
-    ./configure
-    make
-    make install
+    $ wget https://github.com/wesbarnett/libgmxcpp/archive/v1.0.tar.gz
+    $ tar xvzf v1.0.tar.gz
+    $ cd libgmxcpp-1.0
+    $ ./configure
+    $ make
+    # make install
 ```
 
 Check out the example program in the example directory. To compile it do the
 following in the example directory:
 
 ```bash
-    make
+    $ make
 ```
 
 Then you can run the program on an example xtc file and ndx file.
