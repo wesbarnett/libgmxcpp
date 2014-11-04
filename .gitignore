@@ -3,17 +3,9 @@
 *.log
 .deps
 *.swp
-aclocal.m4
-autom4te*
-autom4te.cache
 libtool
 libgmxcpp.la
-config
-config.status
 configure
 Makefile
-Makefile.in
 include/Makefile
-include/Makefile.in
 src/Makefile
-src/Makefile.in

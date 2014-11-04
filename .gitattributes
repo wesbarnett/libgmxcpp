@@ -1,0 +1,10 @@
+aclocal.m4 merge=ours
+autom4te* merge=ours
+autom4te.cache merge=ours
+libtool merge=ours
+config merge=ours
+config.status merge=ours
+configure merge=ours
+Makefile.in merge=ours
+include/Makefile.in merge=ours
+src/Makefile.in merge=ours
