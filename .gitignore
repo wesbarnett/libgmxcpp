@@ -3,6 +3,7 @@
 *.log
 .deps
 *.swp
+aclocal.m4
 autom4te*
 autom4te.cache
 libtool
