@@ -60,6 +60,20 @@ In that case just remember to use "->" instead of "." when calling its methods.
 Upon construction of a Trajectory object both the xtc file and the index file
 are read into memory. The following sections detail how to access the data.
 
+Additionally, one thing to consider is that the object initially allocates
+enough memory for 100,000 frames and then reduces that to the correct amount of
+frames read in. If you have more frames than that to read in, or you memory is
+precious and you want to initially allocate for less, you can pass the number of
+initial frames as a parameter in the construction:
+
+```c++
+// 2 million frames! With an index file.
+Trajectory traj("traj.xtc","index.ndx",2000000);
+
+// Without an index file
+Trajectory traj("traj.xtc",2000000);
+```
+
 ###Atomic Coordinates
 
 To get the coordinates of an atom use GetXYZ() method:
