@@ -49,12 +49,12 @@ bool parseCommandLine(int argc,char* argv[],string *xtcfile,string *ndxfile) {
     }
     
     if (!fileExists(*xtcfile)) {
-        cout << "ERROR: " << *xtcfile << " does not exist." << endl;
+        cout << "ERROR: File " << *xtcfile << " does not exist." << endl;
         return false;
     }
 
     if (!fileExists(*ndxfile)) {
-        cout << "ERROR: " << *ndxfile << " does not exist." << endl;
+        cout << "ERROR: File " << *ndxfile << " does not exist." << endl;
         return false;
     }
     
