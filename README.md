@@ -29,10 +29,11 @@ Check out the example program in the example directory. To compile it do the
 following in the example directory:
 
 ```bash
-make
+g++ example.cpp -lgmxcpp
 ```
 
-Then you can run the program on an example xtc file and ndx file.
+Then you can run the program on an example xtc file and ndx file. Run the
+program and it will give you it's usage.
 
 ##Usage
 
