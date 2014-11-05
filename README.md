@@ -13,7 +13,7 @@ enabled as a shared library when you configure it for installation.
 To install do:
 
 ```bash
-wget -O - https://github.com/wesbarnett/libgmxcpp/archive/v1.0.1.tar.gz | tar xvz
+wget -O - https://github.com/wesbarnett/libgmxcpp/archive/v1.0.2.tar.gz | tar xvz
 cd libgmxcpp-1.0.1
 ./configure
 make
