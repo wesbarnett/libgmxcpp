@@ -5,7 +5,7 @@ use in analyzing the results. This basically interfaces with the xdrfile and imp
 
 ##Requirements
 
-The libxdrfile(ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. It will need to be 
+The libxdrfile (ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) library is required. It will need to be 
 enabled as a shared library when you configure it for installation.
 
 ##Installation
@@ -100,6 +100,10 @@ To print out the coordinates you would then do:
 
 ```c++
 // X, Y, and Z are constants in Utils.h, equiv. to 0, 1, and 2
+// << has been overloaded so this prints X, Y, Z coordinates with a space in
+// between each, and a carriage return at the end.
+cout << a;
+// same as:
 cout << a[X] << " " << a[Y] << " " << a[Z] << endl;
 ```
 
@@ -117,6 +121,9 @@ rvec a[traj.GetNAtoms("C")];
 traj.GetXYZ(0,"C",a);
 
 // Printing the first atom from the above:
+cout << a[0];
+
+// Which is the same as:
 cout << a[0][X] << " " << a[0][Y] << " " << a[0][Z] << endl;
 ```
 
@@ -130,6 +137,9 @@ To get the box dimensions use GetBox() method:
 matrix box; // matrix is a three by three float array from xdrfile library
 // Gets the box dimensions from the first frame:
 traj.GetBox(0,box);
+
+// << overloaded to print the box as a 3 x 3 matrix:
+cout << box;
 ```
 
 ###Number of Frames
