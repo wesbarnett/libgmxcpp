@@ -123,9 +123,7 @@ void Trajectory::read() {
 
 // Gets the xyz coordinates when the frame and atom number are specified.
 void Trajectory::GetXYZ(int frame, int atom, rvec xyz) {
-    xyz[X] = frameArray[frame].x[atom][X];
-    xyz[Y] = frameArray[frame].x[atom][Y];
-    xyz[Z] = frameArray[frame].x[atom][Z];
+	frameArray[frame].GetXYZ(atom,xyz);
     return;
 }
 
@@ -134,9 +132,7 @@ void Trajectory::GetXYZ(int frame, int atom, rvec xyz) {
 void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) {
 	int location = index.GetLocation(group, atom);
 	if (location == -1) return;
-    xyz[X] = frameArray[frame].x[location][X];
-    xyz[Y] = frameArray[frame].x[location][Y];
-    xyz[Z] = frameArray[frame].x[location][Z];
+	frameArray[frame].GetXYZ(location,xyz);
     return;
 }
 
@@ -147,11 +143,7 @@ void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) {
 
 // Gets the box dimensions for a specific frame
 void Trajectory::GetBox(int frame, matrix box) {
-	for (int i=0; i<3; i++) {
-		for (int j=0; j<3; j++) {
-			box[i][j] = frameArray[frame].box[i][j];
-		}
-	}
+	frameArray[frame].GetBox(box);
 	return;
 }
 

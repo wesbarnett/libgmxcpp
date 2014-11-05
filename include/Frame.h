@@ -14,12 +14,14 @@ class Frame {
     private:
         int step;
         float time;
-    public:
-        float GetTime();
-        int GetStep();
         rvec *x;
         matrix box; 
+    public:
 		void Set(int step,float time,matrix box,rvec *x);
+        float GetTime();
+        int GetStep();
+		void GetXYZ(int atom, rvec xyz);
+		void GetBox(matrix box);
 };
 
 #endif
