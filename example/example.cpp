@@ -91,7 +91,7 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
     for (int frame=first; frame<=last; frame++) {
 
-        oFS << endl;
+        oFS << "------------------------------------" << endl;
 
         oFS << "Time: " << traj->GetTime(frame) << " ps" << endl;
         oFS << "Step: " << traj->GetStep(frame) << endl;
