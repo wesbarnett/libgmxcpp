@@ -123,9 +123,7 @@ void Trajectory::read() {
 
 // Gets the xyz coordinates when the frame and atom number are specified.
 void Trajectory::GetXYZ(int frame, int atom, rvec xyz) {
-    xyz[X] = frameArray[frame].x[atom][X];
-    xyz[Y] = frameArray[frame].x[atom][Y];
-    xyz[Z] = frameArray[frame].x[atom][Z];
+	frameArray[frame].GetXYZ(atom,xyz);
     return;
 }
 
@@ -134,9 +132,7 @@ void Trajectory::GetXYZ(int frame, int atom, rvec xyz) {
 void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) {
 	int location = index.GetLocation(group, atom);
 	if (location == -1) return;
-    xyz[X] = frameArray[frame].x[location][X];
-    xyz[Y] = frameArray[frame].x[location][Y];
-    xyz[Z] = frameArray[frame].x[location][Z];
+	frameArray[frame].GetXYZ(location,xyz);
     return;
 }
 
@@ -145,13 +141,21 @@ void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) {
     return;
 }
 
+// Gets all the coordinates for the entire frame
+void Trajectory::GetXYZ(int frame, rvec xyz[]) {
+	frameArray[frame].GetXYZ(xyz,natoms);
+    return;
+}
+
+// Gets all the coordinates for the entire frame for one group
+void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) {
+    frameArray[frame].GetXYZ(xyz,index,group);
+    return;
+}
+
 // Gets the box dimensions for a specific frame
 void Trajectory::GetBox(int frame, matrix box) {
-	for (int i=0; i<3; i++) {
-		for (int j=0; j<3; j++) {
-			box[i][j] = frameArray[frame].box[i][j];
-		}
-	}
+	frameArray[frame].GetBox(box);
 	return;
 }
 
@@ -172,4 +176,20 @@ float Trajectory::GetTime(int frame) {
 
 int Trajectory::GetStep(int frame) {
 	return frameArray[frame].GetStep();
+}
+
+ostream& operator<<(ostream &os, rvec xyz) {
+    os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
+    return os;
+}
+
+ostream& operator<<(ostream &os, matrix box) {
+	for (int j=0; j<DIM; j++) {
+		for (int k=0; k<DIM; k++) {
+			os << box[j][k] << " ";
+        }
+        os << endl;
+	}
+	os << endl;
+    return os;
 }

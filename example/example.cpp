@@ -74,10 +74,11 @@ void printUsage(string program) {
 
 void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
-    rvec xyz;
     matrix box;
     ofstream oFS;
     oFS.open(outfile.c_str());
+
+    rvec xyz[traj->GetNAtoms(group)];
 
     cout << "Writing example data to " << outfile << "." << endl;
 
@@ -90,27 +91,25 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
     for (int frame=first; frame<=last; frame++) {
 
-        oFS << endl;
+        oFS << "------------------------------------" << endl;
+
         oFS << "Time: " << traj->GetTime(frame) << " ps" << endl;
         oFS << "Step: " << traj->GetStep(frame) << endl;
+
         oFS << endl;
 
         oFS << "Coordinates for group " << group << ":" << endl;
+        traj->GetXYZ(frame,group,xyz);
+		oFS << xyz;
         for (int i=0;i<traj->GetNAtoms(group);i++) {
-            traj->GetXYZ(frame,group,i,xyz);
-            oFS << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
+            oFS << xyz[i];
         }
+		
         oFS << endl;
 
         oFS << "Box: " << endl;
         traj->GetBox(frame,box);
-        for (int j=0; j<DIM; j++) {
-            for (int k=0; k<DIM; k++) {
-                oFS << box[j][k] << " ";
-            }
-            oFS << endl;
-        }
-        oFS << endl;
+		oFS << box;
     }
 
     oFS.close();
