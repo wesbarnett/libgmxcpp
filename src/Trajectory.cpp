@@ -177,3 +177,8 @@ float Trajectory::GetTime(int frame) {
 int Trajectory::GetStep(int frame) {
 	return frameArray[frame].GetStep();
 }
+
+ostream& operator<<(ostream &os, rvec xyz) {
+    os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
+    return os;
+}
