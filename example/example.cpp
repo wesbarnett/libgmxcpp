@@ -92,26 +92,24 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
     for (int frame=first; frame<=last; frame++) {
 
         oFS << endl;
+
         oFS << "Time: " << traj->GetTime(frame) << " ps" << endl;
         oFS << "Step: " << traj->GetStep(frame) << endl;
+
         oFS << endl;
 
         oFS << "Coordinates for group " << group << ":" << endl;
         traj->GetXYZ(frame,group,xyz);
+		oFS << xyz;
         for (int i=0;i<traj->GetNAtoms(group);i++) {
-            oFS << xyz[i][X] << " " << xyz[i][Y] << " " << xyz[i][Z] << endl;
+            oFS << xyz[i];
         }
+		
         oFS << endl;
 
         oFS << "Box: " << endl;
         traj->GetBox(frame,box);
-        for (int j=0; j<DIM; j++) {
-            for (int k=0; k<DIM; k++) {
-                oFS << box[j][k] << " ";
-            }
-            oFS << endl;
-        }
-        oFS << endl;
+		oFS << box;
     }
 
     oFS.close();
