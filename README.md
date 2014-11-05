@@ -14,7 +14,7 @@ To install do:
 
 ```bash
 wget -O - https://github.com/wesbarnett/libgmxcpp/archive/v1.0.2.tar.gz | tar xvz
-cd libgmxcpp-1.0.1
+cd libgmxcpp-1.0.2
 ./configure
 make
 make install
