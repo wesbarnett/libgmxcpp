@@ -103,6 +103,23 @@ To print out the coordinates you would then do:
 cout << a[X] << " " << a[Y] << " " << a[Z] << endl;
 ```
 
+You can also get the coordinates of all atoms in the system or group from a
+frame in an
+array:
+
+```c++
+// Gets coordinates from all atoms in the system for frame 0
+rvec a[traj.GetNAtoms()];
+traj.GetXYZ(0,a);
+
+// Gets coordinates from all atoms in group C for frame 0
+rvec a[traj.GetNAtoms("C")];
+traj.GetXYZ(0,"C",a);
+
+// Printing the first atom from the above:
+cout << a[0][X] << " " << a[0][Y] << " " << a[0][Z] << endl;
+```
+
 Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 
 ###Box Dimensions
