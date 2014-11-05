@@ -42,6 +42,8 @@ class Trajectory {
 		int GetStep(int frame);
         void GetXYZ(int frame, int atom, rvec xyz);
 		void GetXYZ(int frame, string group, int atom, rvec xyz);
+		void GetXYZ(int frame, rvec xyz[]);
+		void GetXYZ(int frame, string group, rvec xyz[]);
 		void GetXYZ(string group, int frame, int atom, rvec xyz);
 		void GetBox(int frame, matrix box);
 };

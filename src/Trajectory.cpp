@@ -141,6 +141,18 @@ void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) {
     return;
 }
 
+// Gets all the coordinates for the entire frame
+void Trajectory::GetXYZ(int frame, rvec xyz[]) {
+	frameArray[frame].GetXYZ(xyz,natoms);
+    return;
+}
+
+// Gets all the coordinates for the entire frame for one group
+void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) {
+    frameArray[frame].GetXYZ(xyz,index,group);
+    return;
+}
+
 // Gets the box dimensions for a specific frame
 void Trajectory::GetBox(int frame, matrix box) {
 	frameArray[frame].GetBox(box);
