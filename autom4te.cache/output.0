@@ -4854,7 +4854,7 @@ fi
 done
 
 
-SHARED_VERSION_INFO="2:0:0"
+SHARED_VERSION_INFO="3:0:0"
 
 
 case `pwd` in

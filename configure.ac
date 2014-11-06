@@ -21,7 +21,7 @@ AC_CHECK_LIB(xdrfile, main,,AC_MSG_ERROR(This library requires the xdrfile
 AC_CHECK_HEADERS(xdrfile/xdrfile.h,,AC_MSG_WARN(xdrfile header missing ?))
 AC_CHECK_HEADERS(xdrfile/xdrfile_xtc.h,,AC_MSG_WARN(xdrfile header missing ?))
 
-SHARED_VERSION_INFO="2:0:0"
+SHARED_VERSION_INFO="3:0:0"
 AC_SUBST(SHARED_VERSION_INFO)
 
 AC_PROG_LIBTOOL
