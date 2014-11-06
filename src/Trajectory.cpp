@@ -178,18 +178,3 @@ int Trajectory::GetStep(int frame) {
 	return frameArray[frame].GetStep();
 }
 
-ostream& operator<<(ostream &os, rvec xyz) {
-    os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
-    return os;
-}
-
-ostream& operator<<(ostream &os, matrix box) {
-	for (int j=0; j<DIM; j++) {
-		for (int k=0; k<DIM; k++) {
-			os << box[j][k] << " ";
-        }
-        os << endl;
-	}
-	os << endl;
-    return os;
-}
