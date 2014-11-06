@@ -57,7 +57,27 @@ double volume(matrix box) {
             box[X][X]*box[Y][Z]*box[Z][Y]);
 }
 
+double magnitude(rvec x) {
+    return sqrt(x[X]*x[X]+x[Y]*x[Y]+x[Z]*x[Z]);
+}
+
 bool fileExists(string filename) {
 	ifstream infile(filename.c_str());
 	return infile.good();
+}
+
+ostream& operator<<(ostream &os, rvec xyz) {
+    os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
+    return os;
+}
+
+ostream& operator<<(ostream &os, matrix box) {
+	for (int j=0; j<DIM; j++) {
+		for (int k=0; k<DIM; k++) {
+			os << box[j][k] << " ";
+        }
+        os << endl;
+	}
+	os << endl;
+    return os;
 }

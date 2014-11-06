@@ -13,10 +13,6 @@
 #include <stdexcept>
 using namespace std;
 
-// Prints out coordinates cleanly
-ostream& operator<<(ostream &os, rvec xyz);
-ostream& operator<<(ostream &os, matrix box);
-
 // A trajectory object contains an array of frames, plus other info
 // on the simulation (number of atoms). It also contains the special xd
 // pointer that xdrfile needs to open the xtc file.
