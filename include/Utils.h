@@ -27,6 +27,8 @@ double magnitude(rvec x);
 double volume(matrix box);
 void add(rvec a, rvec b, rvec c);
 void subtract(rvec a, rvec b, rvec c);
+void multiply(rvec a, double x);
+void divide(rvec a, double x);
 bool fileExists(string filename);
 double dot(rvec a, rvec b);
 

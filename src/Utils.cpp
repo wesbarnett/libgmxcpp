@@ -84,6 +84,20 @@ void add(rvec a, rvec b, rvec c) {
     return;
 }
 
+void divide(rvec a, double x) {
+    a[X] /= x;
+    a[Y] /= x;
+    a[Z] /= x;
+    return;
+}
+
+void multiply(rvec a, double x) {
+    a[X] *= x;
+    a[Y] *= x;
+    a[Z] *= x;
+    return;
+}
+
 ostream& operator<<(ostream &os, rvec xyz) {
     os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
     return os;
