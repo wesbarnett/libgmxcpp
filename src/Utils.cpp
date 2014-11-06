@@ -47,6 +47,16 @@ double distance2(rvec a, rvec b, matrix box) {
 double distance(rvec a, rvec b, matrix box) {
     return sqrt(distance2(a,b,box));
 }
+
+double volume(matrix box) {
+    return (box[X][X]*box[Y][Y]*box[Z][Z] + \
+            box[X][Y]*box[Y][Z]*box[Z][X] + \
+            box[X][Z]*box[Y][X]*box[Z][Y] - \
+            box[X][Z]*box[Y][Y]*box[Z][X] + \
+            box[X][Y]*box[Y][X]*box[Z][Z] + \
+            box[X][X]*box[Y][Z]*box[Z][Y]);
+}
+
 bool fileExists(string filename) {
 	ifstream infile(filename.c_str());
 	return infile.good();
