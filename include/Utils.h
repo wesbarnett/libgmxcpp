@@ -26,5 +26,6 @@ double distance2(rvec a, rvec b, matrix box);
 double magnitude(rvec x);
 double volume(matrix box);
 bool fileExists(string filename);
+double dot(rvec a, rvec b);
 
 #endif

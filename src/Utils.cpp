@@ -40,7 +40,7 @@ double distance2(rvec a, rvec b, matrix box) {
     c[Z] = a[Z] - b[Z];
     pbc(c,box);
 
-    return c[X]*c[X]+c[Y]*c[Y]+c[Z]*c[Z];
+    return dot(c,c);
 
 }
 
@@ -58,7 +58,11 @@ double volume(matrix box) {
 }
 
 double magnitude(rvec x) {
-    return sqrt(x[X]*x[X]+x[Y]*x[Y]+x[Z]*x[Z]);
+    return sqrt(dot(x,x));
+}
+
+double dot(rvec a, rvec b) {
+    return a[X]*b[X]+a[Y]*b[Y]+a[Z]*b[Z];
 }
 
 bool fileExists(string filename) {
