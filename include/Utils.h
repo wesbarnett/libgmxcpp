@@ -17,6 +17,8 @@ const int Z = 2;
 
 void pbc(rvec a, matrix box);
 void cross(rvec a, rvec b, rvec r);
+double distance(rvec a, rvec b, matrix box);
+double distance2(rvec a, rvec b, matrix box);
 bool fileExists(string filename);
 
 #endif

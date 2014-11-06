@@ -32,6 +32,21 @@ void cross(rvec a, rvec b, rvec r) {
 	r[Z] = a[X]*b[Y]-a[Y]*b[X];
 }
 
+double distance2(rvec a, rvec b, matrix box) {
+
+    rvec c;
+    c[X] = a[X] - b[X];
+    c[Y] = a[Y] - b[Y];
+    c[Z] = a[Z] - b[Z];
+    pbc(c,box);
+
+    return c[X]*c[X]+c[Y]*c[Y]+c[Z]*c[Z];
+
+}
+
+double distance(rvec a, rvec b, matrix box) {
+    return sqrt(distance2(a,b,box));
+}
 bool fileExists(string filename) {
 	ifstream infile(filename.c_str());
 	return infile.good();
