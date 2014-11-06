@@ -25,6 +25,8 @@ double distance(rvec a, rvec b, matrix box);
 double distance2(rvec a, rvec b, matrix box);
 double magnitude(rvec x);
 double volume(matrix box);
+void add(rvec a, rvec b, rvec c);
+void subtract(rvec a, rvec b, rvec c);
 bool fileExists(string filename);
 double dot(rvec a, rvec b);
 

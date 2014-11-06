@@ -70,6 +70,20 @@ bool fileExists(string filename) {
 	return infile.good();
 }
 
+void subtract(rvec a, rvec b, rvec c) {
+    c[X] = a[X] - b[X];
+    c[Y] = a[Y] - b[Y];
+    c[Z] = a[Z] - b[Z];
+    return;
+}
+
+void add(rvec a, rvec b, rvec c) {
+    c[X] = a[X] + b[X];
+    c[Y] = a[Y] + b[Y];
+    c[Z] = a[Z] + b[Z];
+    return;
+}
+
 ostream& operator<<(ostream &os, rvec xyz) {
     os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
     return os;
