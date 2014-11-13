@@ -177,7 +177,5 @@ int Trajectory::GetStep(int frame) {
 }
 
 double Trajectory::GetBoxVolume(int frame) {
-	matrix box;
-	frameArray[frame].GetBox(box);
-	return volume(box);
+	return frameArray[frame].GetBoxVolume();
 }

@@ -25,6 +25,7 @@ class Frame {
 		void GetXYZ(rvec xyz[], int natoms);
 		void GetXYZ(rvec xyz[], Index index, string group);
 		void GetBox(matrix box);
+		double GetBoxVolume();
 };
 
 #endif
