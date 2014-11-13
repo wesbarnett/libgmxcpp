@@ -129,6 +129,9 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
         oFS << "Box: " << endl;
         traj->GetBox(frame,box);
 		oFS << box;
+
+		oFS << "Box volume: " << endl;
+		oFS << traj->GetBoxVolume(frame) << endl;
     }
 
     oFS.close();

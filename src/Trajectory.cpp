@@ -1,8 +1,6 @@
 
 #include "Trajectory.h"
 
-Trajectory::Trajectory() {}
-
 // Initializes the trajectory object by finding out how many atoms are in the 
 // system, saving how many frames we think there might be for memory allocation. Then calls
 // read().
@@ -178,3 +176,8 @@ int Trajectory::GetStep(int frame) {
 	return frameArray[frame].GetStep();
 }
 
+double Trajectory::GetBoxVolume(int frame) {
+	matrix box;
+	frameArray[frame].GetBox(box);
+	return volume(box);
+}
