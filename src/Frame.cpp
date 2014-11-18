@@ -58,3 +58,9 @@ void Frame::GetBox(matrix box) {
 	}
 	return;
 }
+
+double Frame::GetBoxVolume() {
+	matrix box;
+	GetBox(box);
+	return volume(box);
+}

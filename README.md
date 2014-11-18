@@ -2,6 +2,7 @@
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with the xdrfile and implements an object-oriented style.
+![Screenshot of a program using the library](img/screenshot.png)
 
 ##Requirements
 
