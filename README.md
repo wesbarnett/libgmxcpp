@@ -143,6 +143,15 @@ traj.GetBox(0,box);
 cout << box;
 ```
 
+###Box Volume
+
+To get the volume of the simulation box for any frame:
+
+```c++
+// For frame 0
+double vol = traj.GetBoxVolume(0);
+```
+
 ###Number of Frames
 
 To get the number of frames in the simulation use GetNFrames():
