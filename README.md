@@ -14,7 +14,7 @@ enabled as a shared library when you configure it for installation.
 To install do:
 
 ```bash
-wget -O - https://github.com/wesbarnett/libgmxcpp/archive/v1.0.3.tar.gz | tar xvz
+wget -O - https://github.com/wesbarnett/libgmxcpp/archive/v1.0.4.tar.gz | tar xvz
 cd libgmxcpp-1.0.3
 ./configure
 make
@@ -141,6 +141,15 @@ traj.GetBox(0,box);
 
 // << overloaded to print the box as a 3 x 3 matrix:
 cout << box;
+
+```
+###Box Volume
+
+To get the volume of the simulation box for any frame:
+
+```c++
+// For frame 0
+double vol = traj.GetBoxVolume(0);
 ```
 
 ###Number of Frames
