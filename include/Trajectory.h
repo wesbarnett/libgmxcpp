@@ -34,6 +34,7 @@ class Trajectory {
 		Trajectory(string filename, string ndxfile, int initialFrames);
 		Trajectory(const Trajectory& x);
 		~Trajectory();
+		Trajectory& operator=(const Trajectory& x);
         int GetNAtoms();
 		int GetNAtoms(string group);
 		int GetNFrames();
