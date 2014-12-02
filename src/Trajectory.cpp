@@ -53,6 +53,7 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 	return;
 }
 
+
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
@@ -81,41 +82,18 @@ void Trajectory::read(int initialFrames) {
 	matrix box;
 	float time;
 	rvec *x;
-	vector < vector <double> > newX;
-	vector < vector <double> > newBox;
-	int i;
-	int k;
 	int j = 0;
-
-	newX.resize(natoms);
-	newBox.resize(DIM);
-	for (i = 0; i < natoms; i++) {
-		newX.at(i).resize(DIM);
-		newBox.at(i).resize(DIM);
-	}
-
-
 	frameArray.resize(initialFrames);
 
 	cout << natoms << " particles are in the system." << endl;
 
 	cout << "Allocated memory for " << initialFrames << " frames of data." << endl;
     cout << "Reading in xtc file: " << endl;
-	x = new rvec[natoms];
 	while (status == 0) {
+		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
-		for (i = 0; i < natoms; i++) {
-			newX.at(i).at(X) = x[i][X];
-			newX.at(i).at(Y) = x[i][Y];
-			newX.at(i).at(Z) = x[i][Z];
-		}
-		for (i =0; i < DIM; i++) {
-			for (k = 0; k < DIM; k++) {	
-				newBox.at(i).at(k) = box[i][k];
-			}
-		}
 		if (status !=0) break;
-		frameArray.at(nframes).Set(step,time,newBox,newX);
+		frameArray.at(nframes).Set(step,time,box,x);
 		if (nframes % 10 == 0) {
             cout << "   frame: " << nframes;
             cout << " | time (ps): " << time;
