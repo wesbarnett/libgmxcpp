@@ -2,6 +2,13 @@
 #include "Frame.h"
 #include "Trajectory.h"
 
+Frame::Frame() {
+}
+
+Frame::Frame(int step,float time,matrix box,rvec *x) {
+	Set(step,time,box,x);
+}
+
 // Sets the info (step, time, coordinates) for this specific frame
 void Frame::Set(int step,float time,matrix box,rvec *x) {
 	this->step = step;

@@ -12,7 +12,7 @@
 // as an array containing the coordinates of all of the atoms of the frame.
 // The matrix type is just a 3 x 3 array.
 //
-// Note that this class does not have a proper constructor or destructor. It is
+// Note that this class does not have a proper destructor. It is
 // used as an array in a Trajectory object. Deleting a Frame array doesn't
 // free up the memory from the x array, so that has to be done manually (and is
 // done that way in the Trajectory destructor). It's advantageous to not
@@ -26,6 +26,8 @@ class Frame {
         rvec *x;
         matrix box; 
     public:
+		Frame();
+		Frame(int step,float time,matrix box,rvec *x);
 		void Set(int step,float time,matrix box,rvec *x);
         float GetTime();
         int GetStep();
