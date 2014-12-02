@@ -61,6 +61,12 @@ Trajectory::~Trajectory() {
 	delete frameArray;
 }
 
+Trajectory::Trajectory(const Trajectory& x) {
+	frameArray = new Frame[nframes];
+	*frameArray = *(x.frameArray);
+	return;
+}
+
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
