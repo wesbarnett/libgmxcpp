@@ -17,11 +17,12 @@ class Frame {
         int step;
         float time;
 		vector < vector <double> > x;
-        matrix box; 
+		vector < vector <double> > box;
+        //matrix box; 
     public:
 		Frame();
-		Frame(int step,float time,matrix box,vector < vector <double> > x);
-		void Set(int step,float time,matrix box,vector < vector <double> > x);
+		Frame(int step,float time,< vector < vector <double> >  box,vector < vector <double> > x);
+		void Set(int step,float time,< vector < vector <double> > box,vector < vector <double> > x);
         float GetTime() const;
         int GetStep() const;
 		void GetXYZ(int atom, rvec xyz) const;
@@ -31,6 +32,7 @@ class Frame {
 		vector < vector <double> > GetXYZ() const;
 		vector < vector <double> > GetXYZ(Index index, string group) const;
 		void GetBox(matrix box) const;
+		vector < vector <double> >  GetBox() const;
 		double GetBoxVolume() const;
 };
 

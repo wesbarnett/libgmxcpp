@@ -5,18 +5,20 @@
 Frame::Frame() {
 }
 
-Frame::Frame(int step,float time,matrix box,vector < vector <double> > x) {
+Frame::Frame(int step,float time,vector < vector <double> >  box,vector < vector <double> > x) {
 	Set(step,time,box,x);
 }
 
 
 // Sets the info (step, time, coordinates) for this specific frame
-void Frame::Set(int step,float time,matrix box,vector < vector <double> > x) {
+void Frame::Set(int step,float time,vector < vector <double> > box,vector < vector <double> > x) {
 	this->step = step;
 	this->time = time;
+	this->box.resize(DIM);
 	for (int i=0;i<DIM;i++) {
+		this->box.at(i).resize(DIM);
 		for (int j=0;j<DIM;j++) {
-			this->box[i][j] = box[i][j];
+			this->box.at(i).at(j) = box.at(i).at(j);
 		}
 	}
 	this->x.resize(x.size());
@@ -55,6 +57,18 @@ vector < vector <double> > Frame::GetXYZ(Index index, string group) const {
         x.at(atom).at(Z) = this->x.at(location).at(Z);
     }
 	return x;
+}
+
+vector < vector <double> >  Frame::GetBox() const {
+	vector < vector <double> > box;
+	box.resize(DIM);
+	for (int i=0; i<DIM; i++) {
+		box.at(i).resize(DIM);
+		for (int j=0; j<DIM; j++) {
+			box.at(i)(j) = this->box.at(i).at(j);
+		}
+	}
+	return box;
 }
 
 

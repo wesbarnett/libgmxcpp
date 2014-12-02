@@ -82,13 +82,18 @@ void Trajectory::read(int initialFrames) {
 	float time;
 	rvec *x;
 	vector < vector <double> > newX;
+	vector < vector <double> > newBox;
 	int i;
+	int k;
 	int j = 0;
 
 	newX.resize(natoms);
+	newBox.resize(DIM);
 	for (i = 0; i < natoms; i++) {
 		newX.at(i).resize(DIM);
+		newBox.at(i).resize(DIM);
 	}
+
 
 	frameArray.resize(initialFrames);
 
@@ -104,8 +109,13 @@ void Trajectory::read(int initialFrames) {
 			newX.at(i).at(Y) = x[i][Y];
 			newX.at(i).at(Z) = x[i][Z];
 		}
+		for (i =0; i < DIM; i++) {
+			for (k = 0; k < DIM; k++) {	
+				newBox.at(i).at(k) = box[i][k];
+			}
+		}
 		if (status !=0) break;
-		frameArray.at(nframes).Set(step,time,box,newX);
+		frameArray.at(nframes).Set(step,time,newBox,newX);
 		if (nframes % 10 == 0) {
             cout << "   frame: " << nframes;
             cout << " | time (ps): " << time;
