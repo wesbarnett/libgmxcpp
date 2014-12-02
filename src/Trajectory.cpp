@@ -81,18 +81,31 @@ void Trajectory::read(int initialFrames) {
 	matrix box;
 	float time;
 	rvec *x;
+	vector < vector <double> > newX;
+	int i;
 	int j = 0;
+
+	newX.resize(natoms);
+	for (i = 0; i < natoms; i++) {
+		newX.at(i).resize(DIM);
+	}
+
 	frameArray.resize(initialFrames);
 
 	cout << natoms << " particles are in the system." << endl;
 
 	cout << "Allocated memory for " << initialFrames << " frames of data." << endl;
     cout << "Reading in xtc file: " << endl;
+	x = new rvec[natoms];
 	while (status == 0) {
-		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
+		for (i = 0; i < natoms; i++) {
+			newX.at(i).at(X) = x[i][X];
+			newX.at(i).at(Y) = x[i][Y];
+			newX.at(i).at(Z) = x[i][Z];
+		}
 		if (status !=0) break;
-		frameArray.at(nframes).Set(step,time,box,x);
+		frameArray.at(nframes).Set(step,time,box,newX);
 		if (nframes % 10 == 0) {
             cout << "   frame: " << nframes;
             cout << " | time (ps): " << time;

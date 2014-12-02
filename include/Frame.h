@@ -16,17 +16,20 @@ class Frame {
     private:
         int step;
         float time;
-        rvec *x;
+		vector < vector <double> > x;
         matrix box; 
     public:
 		Frame();
-		Frame(int step,float time,matrix box,rvec *x);
-		void Set(int step,float time,matrix box,rvec *x);
+		Frame(int step,float time,matrix box,vector < vector <double> > x);
+		void Set(int step,float time,matrix box,vector < vector <double> > x);
         float GetTime() const;
         int GetStep() const;
 		void GetXYZ(int atom, rvec xyz) const;
 		void GetXYZ(rvec xyz[], int natoms) const;
 		void GetXYZ(rvec xyz[], Index index, string group) const;
+		vector <double> GetXYZ(int atom) const;
+		vector < vector <double> > GetXYZ() const;
+		vector < vector <double> > GetXYZ(Index index, string group) const;
 		void GetBox(matrix box) const;
 		double GetBoxVolume() const;
 };
