@@ -57,13 +57,26 @@ Trajectory::~Trajectory() {
 	delete frameArray;
 }
 
-Trajectory::Trajectory(const Trajectory& x) {
-	index = x.index;
-    prec = x.prec;
-	nframes = x.nframes;
-    natoms = x.natoms;
+Trajectory::Trajectory(const Trajectory& traj) {
+
+	double time;
+	int step;
+	matrix box;
+	rvec *x;
+
+	index = traj.index;
+    prec = traj.prec;
+	nframes = traj.nframes;
+    natoms = traj.natoms;
+	x = new rvec[natoms];
 	frameArray = new Frame[nframes];
-	*frameArray = *(x.frameArray);
+	for (int i = 0; i < nframes; i++) {
+		frameArray[i].GetXYZ(x,natoms);
+		step = traj.frameArray[i].GetStep();
+		time = traj.frameArray[i].GetTime();
+		traj.frameArray[i].GetBox(box);
+		frameArray[i].Set(step,time,box,x);
+	}
 	return;
 }
 
