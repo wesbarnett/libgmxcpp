@@ -62,6 +62,10 @@ Trajectory::~Trajectory() {
 }
 
 Trajectory::Trajectory(const Trajectory& x) {
+	index = x.index;
+    prec = x.prec;
+	nframes = x.nframes;
+    natoms = x.natoms;
 	frameArray = new Frame[nframes];
 	*frameArray = *(x.frameArray);
 	return;
@@ -70,6 +74,10 @@ Trajectory::Trajectory(const Trajectory& x) {
 Trajectory& Trajectory::operator=(const Trajectory& x) {
 	if (this != &x) {
 		delete frameArray;
+		index = x.index;
+	    prec = x.prec;
+		nframes = x.nframes;
+		natoms = x.natoms;
 		frameArray = new Frame[nframes];
 		*frameArray = *(x.frameArray);
 	}
