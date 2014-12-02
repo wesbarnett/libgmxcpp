@@ -32,21 +32,21 @@ class Trajectory {
 		Trajectory(string filename, int initialFrames);
 		Trajectory(string filename, string ndxfile);
 		Trajectory(string filename, string ndxfile, int initialFrames);
-		Trajectory(const Trajectory& x);
-		~Trajectory();
-		Trajectory& operator=(const Trajectory& x);
-        int GetNAtoms();
-		int GetNAtoms(string group);
-		int GetNFrames();
-		float GetTime(int frame);
-		int GetStep(int frame);
-        void GetXYZ(int frame, int atom, rvec xyz);
-		void GetXYZ(int frame, string group, int atom, rvec xyz);
-		void GetXYZ(int frame, rvec xyz[]);
-		void GetXYZ(int frame, string group, rvec xyz[]);
-		void GetXYZ(string group, int frame, int atom, rvec xyz);
-		void GetBox(int frame, matrix box);
-		double GetBoxVolume(int frame);
+		//Trajectory(const Trajectory& x);
+		//~Trajectory();
+		//Trajectory& operator=(const Trajectory& x);
+        int GetNAtoms() const;
+		int GetNAtoms(string group) const;
+		int GetNFrames() const;
+		float GetTime(int frame) const;
+		int GetStep(int frame) const;
+        void GetXYZ(int frame, int atom, rvec xyz) const;
+		void GetXYZ(int frame, string group, int atom, rvec xyz) const;
+		void GetXYZ(int frame, rvec xyz[]) const;
+		void GetXYZ(int frame, string group, rvec xyz[]) const;
+		void GetXYZ(string group, int frame, int atom, rvec xyz) const;
+		void GetBox(int frame, matrix box) const;
+		double GetBoxVolume(int frame) const;
 };
 
 #endif

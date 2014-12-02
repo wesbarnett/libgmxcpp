@@ -9,6 +9,7 @@ Frame::Frame(int step,float time,matrix box,rvec *x) {
 	Set(step,time,box,x);
 }
 
+
 // Sets the info (step, time, coordinates) for this specific frame
 void Frame::Set(int step,float time,matrix box,rvec *x) {
 	this->step = step;
@@ -22,22 +23,22 @@ void Frame::Set(int step,float time,matrix box,rvec *x) {
 	return;
 }
 
-float Frame::GetTime() {
+float Frame::GetTime() const {
     return time;
 }
 
-int Frame::GetStep() {
+int Frame::GetStep() const {
     return step;
 }
 
-void Frame::GetXYZ(int atom, rvec xyz) {
+void Frame::GetXYZ(int atom, rvec xyz) const {
     xyz[X] = x[atom][X];
     xyz[Y] = x[atom][Y];
     xyz[Z] = x[atom][Z];
 	return;
 }
 
-void Frame::GetXYZ(rvec xyz[], int natoms) {
+void Frame::GetXYZ(rvec xyz[], int natoms) const {
     for (int atom=0; atom<natoms; atom++) {
         xyz[atom][X] = this->x[atom][X];
         xyz[atom][Y] = this->x[atom][Y];
@@ -45,7 +46,7 @@ void Frame::GetXYZ(rvec xyz[], int natoms) {
     }
 }
 
-void Frame::GetXYZ(rvec xyz[], Index index, string group) {
+void Frame::GetXYZ(rvec xyz[], Index index, string group) const {
     rvec xyzTmp;
 	int location;
     for (int atom=0; atom<index.GetGroupSize(group); atom++) {
@@ -57,7 +58,7 @@ void Frame::GetXYZ(rvec xyz[], Index index, string group) {
     }
 }
 
-void Frame::GetBox(matrix box) {
+void Frame::GetBox(matrix box) const {
 	for (int i=0; i<DIM; i++) {
 		for (int j=0; j<DIM; j++) {
 			box[i][j] = this->box[i][j];
@@ -66,7 +67,7 @@ void Frame::GetBox(matrix box) {
 	return;
 }
 
-double Frame::GetBoxVolume() {
+double Frame::GetBoxVolume() const {
 	matrix box;
 	GetBox(box);
 	return volume(box);

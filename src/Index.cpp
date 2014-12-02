@@ -67,7 +67,7 @@ bool Index::Set(string ndxfile) {
 
 }
 
-void Index::PrintInfo() {
+void Index::PrintInfo() const {
 	for (int i=0; i<headers.size(); i++) {
 		cout << "  " << headers.at(i);
 		for (int j=0; j<10-headers.at(i).length(); j++) {
@@ -79,7 +79,7 @@ void Index::PrintInfo() {
 
 }
 
-bool Index::IsIndexFile(string ndxfile) {
+bool Index::IsIndexFile(string ndxfile) const {
     ifstream iFS;
     string line;
 
@@ -94,14 +94,14 @@ bool Index::IsIndexFile(string ndxfile) {
 
 // Translates the string name of a header to its correct index integer
 // If the header is not present in the index file, throw an exception
-int Index::GetHeaderIndex(string header) {
+int Index::GetHeaderIndex(string header) const {
     for (int i=0; i<headers.size(); i++) {
         if (headers.at(i) == header) return i;
     }
 	throw runtime_error("Group " + header + " is not in the index file!");
 }
 
-int Index::GetGroupSize(string header) {
+int Index::GetGroupSize(string header) const {
     try {
 	    return locations.at(GetHeaderIndex(header)).size();
 	} catch(runtime_error &excpt) {
@@ -110,7 +110,7 @@ int Index::GetGroupSize(string header) {
 }
 
 // Gets the location of the ith atom in the header group specified
-int Index::GetLocation(string header, int i) {
+int Index::GetLocation(string header, int i) const {
     try {
         return locations.at(GetHeaderIndex(header)).at(i)-1;
 	} catch(runtime_error &excpt) {
@@ -118,6 +118,6 @@ int Index::GetLocation(string header, int i) {
     }
 }
 
-bool Index::isHeader(string line) {
+bool Index::isHeader(string line) const {
     return (line[0] == '[' && line[line.length()-1] == ']');
 }

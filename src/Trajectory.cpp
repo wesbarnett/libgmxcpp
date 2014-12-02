@@ -53,61 +53,6 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 	return;
 }
 
-/*
-Trajectory::~Trajectory() {
-	rvec *x;
-	for (int i = 0; i < nframes; i++) {
-		frameArray[i].GetXYZ(x,natoms);
-		delete x;
-	}
-	delete frameArray;
-}
-
-Trajectory::Trajectory(const Trajectory& traj) {
-
-	double time;
-	int step;
-	matrix box;
-	rvec *x;
-
-
-	index = traj.index;
-    prec = traj.prec;
-	nframes = traj.nframes;
-    natoms = traj.natoms;
-	for (int i = 0; i < nframes; i++) {
-		x = new rvec[natoms];
-		traj.frameArray.at(i).GetXYZ(x,natoms);
-		step = traj.frameArray.at(i).GetStep();
-		time = traj.frameArray[i].GetTime();
-		traj.frameArray[i].GetBox(box);
-		frameArray.at.Set(step,time,box,x);
-	}
-
-	return;
-}
-*/
-
-/*
-Trajectory& Trajectory::operator=(const Trajectory& x) {
-	rvec x;
-	if (this != &x) {
-		for (int i = 0; i < nframes; i++) {
-			frameArray[i].GetXYZ(x,natoms);
-			delete x;
-		}
-		delete frameArray;
-		index = x.index;
-	    prec = x.prec;
-		nframes = x.nframes;
-		natoms = x.natoms;
-		frameArray = new Frame[nframes];
-		*frameArray = *(x.frameArray);
-	}
-	return *this;
-}
-*/
-
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
@@ -130,15 +75,14 @@ void Trajectory::InitXTC(string filename) {
 // frame array based on how many frames were read in. Lastly, we delete the 
 // temporary array.
 void Trajectory::read(int initialFrames) {
+
 	int status = 0;
 	int step;
 	matrix box;
 	float time;
 	rvec *x;
 	int j = 0;
-	//Frame *tmpArray;
 	frameArray.resize(initialFrames);
-	//tmpArray = new Frame[initialFrames];
 
 	cout << natoms << " particles are in the system." << endl;
 
@@ -148,7 +92,6 @@ void Trajectory::read(int initialFrames) {
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
 		if (status !=0) break;
-		//tmpArray[nframes].Set(step,time,box,x);
 		frameArray.at(nframes).Set(step,time,box,x);
 		if (nframes % 10 == 0) {
             cout << "   frame: " << nframes;
@@ -161,18 +104,6 @@ void Trajectory::read(int initialFrames) {
 	cout << endl << "Read in " << nframes << " frames." << endl;
 	cout << "Freeing up memory..." << endl;
 	frameArray.resize(nframes);
-	//frameArray = new Frame[nframes];
-
-	// WARNING!! Below each item in the Frame array is copied, except the
-	// coordinates, which are *pointers*. 
-	
-	/*
-	for (j=0; j<nframes; j++) {
-		frameArray[j] = tmpArray[j];
-	}
-
-	delete tmpArray;
-	*/
 
 	status = xdrfile_close(xd);
 	cout << "Finished reading in xtc file." << endl << endl;
@@ -180,62 +111,62 @@ void Trajectory::read(int initialFrames) {
 }
 
 // Gets the xyz coordinates when the frame and atom number are specified.
-void Trajectory::GetXYZ(int frame, int atom, rvec xyz) {
+void Trajectory::GetXYZ(int frame, int atom, rvec xyz) const {
 	frameArray.at(frame).GetXYZ(atom,xyz);
     return;
 }
 
 // Gets the xyz coordinates when the frame, group, and atom number are
 // specified.
-void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) {
+void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) const {
 	int location = index.GetLocation(group, atom);
 	if (location == -1) return;
 	frameArray.at(frame).GetXYZ(location,xyz);
     return;
 }
 
-void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) {
+void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) const {
     this->GetXYZ(frame,group,atom,xyz);
     return;
 }
 
 // Gets all the coordinates for the entire frame
-void Trajectory::GetXYZ(int frame, rvec xyz[]) {
+void Trajectory::GetXYZ(int frame, rvec xyz[]) const {
 	frameArray.at(frame).GetXYZ(xyz,natoms);
     return;
 }
 
 // Gets all the coordinates for the entire frame for one group
-void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) {
+void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) const {
     frameArray.at(frame).GetXYZ(xyz,index,group);
     return;
 }
 
 // Gets the box dimensions for a specific frame
-void Trajectory::GetBox(int frame, matrix box) {
+void Trajectory::GetBox(int frame, matrix box) const {
 	frameArray.at(frame).GetBox(box);
 	return;
 }
 
-int Trajectory::GetNAtoms(string group) {
+int Trajectory::GetNAtoms(string group) const {
 	return index.GetGroupSize(group);
 }
 
-int Trajectory::GetNAtoms() {
+int Trajectory::GetNAtoms() const {
     return natoms;
 }
 
-int Trajectory::GetNFrames() {
+int Trajectory::GetNFrames() const {
 	return nframes;
 }
-float Trajectory::GetTime(int frame) {
+float Trajectory::GetTime(int frame) const {
 	return frameArray.at(frame).GetTime();
 }
 
-int Trajectory::GetStep(int frame) {
+int Trajectory::GetStep(int frame) const {
 	return frameArray.at(frame).GetStep();
 }
 
-double Trajectory::GetBoxVolume(int frame) {
+double Trajectory::GetBoxVolume(int frame) const {
 	return frameArray.at(frame).GetBoxVolume();
 }

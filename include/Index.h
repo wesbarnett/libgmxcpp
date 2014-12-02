@@ -19,15 +19,15 @@ class Index {
 	private:
         vector <string> headers;
         vector < vector <int> > locations;
-        int GetHeaderIndex(string header);
-		bool isHeader(string line);
-		bool IsIndexFile(string ndxfile);
-		void PrintInfo();
+        int GetHeaderIndex(string header) const;
+		bool isHeader(string line) const;
+		bool IsIndexFile(string ndxfile) const;
+		void PrintInfo() const;
 	public:
 		Index();
 		Index(string ndxfile);
 		bool Set(string filename);
-		int GetGroupSize(string grpa);
-        int GetLocation(string header, int i);
+		int GetGroupSize(string grpa) const;
+        int GetLocation(string header, int i) const;
 };
 #endif

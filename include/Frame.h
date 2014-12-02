@@ -11,13 +11,6 @@
 // elements. It is pointer here so that later it will be initialized
 // as an array containing the coordinates of all of the atoms of the frame.
 // The matrix type is just a 3 x 3 array.
-//
-// Note that this class does not have a proper destructor. It is
-// used as an array in a Trajectory object. Deleting a Frame array doesn't
-// free up the memory from the x array, so that has to be done manually (and is
-// done that way in the Trajectory destructor). It's advantageous to not
-// automatically do this since copying coordinates between Frame objects costs
-// time, so we just copy the pointer.
 
 class Frame {
     private:
@@ -29,13 +22,13 @@ class Frame {
 		Frame();
 		Frame(int step,float time,matrix box,rvec *x);
 		void Set(int step,float time,matrix box,rvec *x);
-        float GetTime();
-        int GetStep();
-		void GetXYZ(int atom, rvec xyz);
-		void GetXYZ(rvec xyz[], int natoms);
-		void GetXYZ(rvec xyz[], Index index, string group);
-		void GetBox(matrix box);
-		double GetBoxVolume();
+        float GetTime() const;
+        int GetStep() const;
+		void GetXYZ(int atom, rvec xyz) const;
+		void GetXYZ(rvec xyz[], int natoms) const;
+		void GetXYZ(rvec xyz[], Index index, string group) const;
+		void GetBox(matrix box) const;
+		double GetBoxVolume() const;
 };
 
 #endif
