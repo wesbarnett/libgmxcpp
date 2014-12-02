@@ -68,18 +68,20 @@ Trajectory::Trajectory(const Trajectory& traj) {
     prec = traj.prec;
 	nframes = traj.nframes;
     natoms = traj.natoms;
-	x = new rvec[natoms];
 	frameArray = new Frame[nframes];
 	for (int i = 0; i < nframes; i++) {
-		frameArray[i].GetXYZ(x,natoms);
+		x = new rvec[natoms];
+		traj.frameArray[i].GetXYZ(x,natoms);
 		step = traj.frameArray[i].GetStep();
 		time = traj.frameArray[i].GetTime();
 		traj.frameArray[i].GetBox(box);
 		frameArray[i].Set(step,time,box,x);
 	}
+
 	return;
 }
 
+/*
 Trajectory& Trajectory::operator=(const Trajectory& x) {
 	if (this != &x) {
 		delete frameArray;
@@ -92,6 +94,7 @@ Trajectory& Trajectory::operator=(const Trajectory& x) {
 	}
 	return *this;
 }
+*/
 
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];

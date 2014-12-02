@@ -18,7 +18,9 @@ class Frame {
         rvec *x;
         matrix box; 
     public:
-		~Frame();
+		//Frame();
+		//~Frame();
+		//Frame(int step,float time,matrix box,rvec *x);
 		void Set(int step,float time,matrix box,rvec *x);
         float GetTime();
         int GetStep();
