@@ -19,13 +19,12 @@ using namespace std;
 class Trajectory {
 	private:
 		Frame *frameArray;
-		int initialFrames;
 		Index index;
         XDRFILE *xd;
         float prec;
 		int nframes;
         int natoms;
-        void read();
+        void read(int initalFrames);
 		void InitXTC(string filename);
 	public:
 		Trajectory(string filename);

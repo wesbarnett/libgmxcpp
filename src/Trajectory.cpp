@@ -12,8 +12,7 @@ Trajectory::Trajectory(string filename, int initialFrames) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	this->initialFrames = initialFrames;
-	read();
+	read(initialFrames);
 	return;
 }
 
@@ -25,8 +24,7 @@ Trajectory::Trajectory(string filename) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	initialFrames = 100000;
-	read();
+	read(100000);
 	return;
 }
 
@@ -39,8 +37,7 @@ Trajectory::Trajectory(string filename, string ndxfile) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	initialFrames = 100000;
-	read();
+	read(100000);
 	return;
 }
 
@@ -52,8 +49,7 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	this->initialFrames = initialFrames;
-	read();
+	read(initialFrames);
 	return;
 }
 
@@ -105,7 +101,7 @@ void Trajectory::InitXTC(string filename) {
 // the temporary frame array. After this we allocate memory for the final 
 // frame array based on how many frames were read in. Lastly, we delete the 
 // temporary array.
-void Trajectory::read() {
+void Trajectory::read(int initialFrames) {
 	int status = 0;
 	int step;
 	matrix box;
