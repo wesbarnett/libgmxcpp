@@ -57,6 +57,10 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 	return;
 }
 
+Trajectory::~Trajectory() {
+	delete frameArray;
+}
+
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
@@ -70,7 +74,6 @@ void Trajectory::InitXTC(string filename) {
 	nframes = 0;
     return;
 }
-
 
 // Reads in all of the frames from the xtc file. First, we allocate memory 
 // for our temporary Frame array. Then we allocate memory for the vectors 
