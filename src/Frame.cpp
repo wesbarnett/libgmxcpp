@@ -15,12 +15,6 @@ void Frame::Set(int step,float time,matrix box,rvec *x) {
 	return;
 }
 
-/*
-Frame::~Frame() {
-	delete x;
-}
-*/
-
 float Frame::GetTime() {
     return time;
 }

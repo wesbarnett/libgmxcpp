@@ -54,6 +54,11 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 }
 
 Trajectory::~Trajectory() {
+	rvec *x;
+	for (int i = 0; i < nframes; i++) {
+		frameArray[i].GetXYZ(x,natoms);
+		delete x;
+	}
 	delete frameArray;
 }
 
@@ -83,7 +88,12 @@ Trajectory::Trajectory(const Trajectory& traj) {
 
 /*
 Trajectory& Trajectory::operator=(const Trajectory& x) {
+	rvec x;
 	if (this != &x) {
+		for (int i = 0; i < nframes; i++) {
+			frameArray[i].GetXYZ(x,natoms);
+			delete x;
+		}
 		delete frameArray;
 		index = x.index;
 	    prec = x.prec;
@@ -147,9 +157,13 @@ void Trajectory::read(int initialFrames) {
 	cout << endl << "Read in " << nframes << " frames." << endl;
 	cout << "Freeing up memory..." << endl;
 	frameArray = new Frame[nframes];
+
+	// WARNING!! Below each item in the Frame array is copied, except the
+	// coordinates, which are *pointers*. 
 	for (j=0; j<nframes; j++) {
 		frameArray[j] = tmpArray[j];
 	}
+
 	delete tmpArray;
 
 	status = xdrfile_close(xd);

@@ -41,9 +41,8 @@ int main(int argc, char* argv[]) {
 
 	// Example of creating a Trajectory object as a pointer
     Trajectory *traj = new Trajectory(xtcfile,ndxfile);
-	Trajectory *traj2 = new Trajectory(*traj);
 
-    print(traj2,first,last,group,outfile);
+    print(traj,first,last,group,outfile);
 
     return 0;
 }
