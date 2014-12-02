@@ -24,7 +24,7 @@ Trajectory::Trajectory(string filename) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	read(100000);
+	read(MAXFRAMES);
 	return;
 }
 
@@ -37,7 +37,7 @@ Trajectory::Trajectory(string filename, string ndxfile) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	read(100000);
+	read(MAXFRAMES);
 	return;
 }
 
@@ -89,7 +89,7 @@ void Trajectory::read(int initialFrames) {
 
 	cout << "Allocated memory for " << initialFrames << " frames of data." << endl;
     cout << "Reading in xtc file: " << endl;
-	while (status == 0) {
+	while (status == 0 || nframes >= initialFrames) {
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
 		if (status !=0) break;
@@ -102,8 +102,12 @@ void Trajectory::read(int initialFrames) {
 		nframes++;
     }
 
+	if (nframes >= initialFrames) {
+		cerr << "WARNING: More than " << MAXFRAMES << " present in trajectory. Did not read all frames in." << endl;
+		cerr << "See README.md for more info, under heading \'Construction\'." << endl;
+	}
+
 	cout << endl << "Read in " << nframes << " frames." << endl;
-	cout << "Freeing up memory..." << endl;
 	frameArray.resize(nframes);
 
 	status = xdrfile_close(xd);

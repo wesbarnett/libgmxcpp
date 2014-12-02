@@ -13,12 +13,13 @@
 #include <stdexcept>
 using namespace std;
 
+const int MAXFRAMES=100000;
+
 // A trajectory object contains an array of frames, plus other info
 // on the simulation (number of atoms). It also contains the special xd
 // pointer that xdrfile needs to open the xtc file.
 class Trajectory {
 	private:
-		//Frame *frameArray;
 		vector <Frame> frameArray;
 		Index index;
         XDRFILE *xd;
