@@ -20,7 +20,9 @@ using namespace std;
 const int MAXFRAMES=100000;
 
 /**
- * A Trajectory object contains a vector of Frame objects, plus other info
+ * @brief The main class in reading Gromacs files.
+ *
+ * @details A Trajectory object contains a vector of Frame objects, plus other info
  * on the simulation (number of atoms). It also contains the special xd
  * pointer that libxdrfile needs to open the xtc file, as well as the number of
  * atoms in the system, the number of frames read in, and an Index object.
