@@ -19,15 +19,28 @@ class Index {
 	private:
         vector <string> headers;
         vector < vector <int> > locations;
-        int GetHeaderIndex(string header) const;
+        int GetHeaderIndex(string groupName) const;
 		bool isHeader(string line) const;
 		bool IsIndexFile(string ndxfile) const;
 		void PrintInfo() const;
 	public:
 		Index();
 		Index(string ndxfile);
-		bool Set(string filename);
-		int GetGroupSize(string grpa) const;
-        int GetLocation(string header, int i) const;
+
+		/**
+		 * Reads in the GROMACS index file specified.
+		 */
+		bool Set(string ndxfile);
+
+		/**
+		 * Returns the size of the group specified.
+		 */
+		int GetGroupSize(string grp) const;
+
+		/**
+		 * Gets the index location of the atom in the group specified.
+		 */
+        int GetLocation(string groupName, int atomNumber) const;
 };
+
 #endif
