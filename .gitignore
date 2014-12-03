@@ -12,3 +12,7 @@ cleanup
 build
 html
 latex
+images/
+javascripts/
+params.json
+stylesheets/
