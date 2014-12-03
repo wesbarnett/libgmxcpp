@@ -9,7 +9,9 @@
 #include "Index.h"
 
 /**
- * A Frame contains the information on the time, the step, and the
+ * @brief Class with information on one trajectory frame.
+ *
+ * @details A Frame contains the information on the time, the step, and the
  * coordinates and box for that time/step. rvec and matrix types come 
  * from the xdrfile library. rvec is actually a float matrix with three
  * elements. It is pointer here so that later it will be initialized
