@@ -1,3 +1,6 @@
+/**
+ * @author James Barnett, jbarnet4@tulane.edu
+ */
 
 #include "Trajectory.h"
 

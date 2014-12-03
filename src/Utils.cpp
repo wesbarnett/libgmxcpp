@@ -1,4 +1,8 @@
 
+/**
+ * @author James Barnett, jbarnet4@tulane.edu
+ */
+
 #include "Utils.h"
 
 void pbc(rvec a, matrix box) {

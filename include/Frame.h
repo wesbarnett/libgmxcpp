@@ -21,28 +21,74 @@ class Frame {
         rvec *x;
         matrix box; 
     public:
-		/** Blank constructor used in Trajectory. */
+		/** @brief Blank constructor used in Trajectory. */
 		Frame();
-		/** A constructor where the private data for the object is set. */
+		/** @brief A constructor where the private data for the object is set. 
+		 * @param step The step number corresponding with this simulation frame.
+		 * @param time The time (in picoseconds) corresponding with this
+		 * simulation frame.
+		 * @param box The box dimensions for this frame.
+		 * @param x The coordinates of every atom in this frame.
+		 * */
 		Frame(int step,float time,matrix box,rvec *x);
 		/** Used in setting all of the private data for an object. Specifically
-		 * this is used in the Trajectory object with a vector of Frames. */
+		 * this is used in the Trajectory object with a vector of Frames.  See
+		 * above.
+		 * */
 		void Set(int step,float time,matrix box,rvec *x);
-		/** Returns the simulation time in picoseconds of this frame. */
+		/** 
+		 * @brief the simulation time in picoseconds of this frame. 
+		 * @return Time
+		 */
         float GetTime() const;
-		/** Returns the simulation step corresponding with this frame. */
+		/** 
+		 * @brief the simulation step corresponding with this frame.
+		 * @return Step
+		 */
         int GetStep() const;
-		/** Gets the cartesian coordinates of a specific atom. *xyz* is returned. */
+		/**
+		 * @brief Gets the coordinates of a specific atom in the entire system.
+		 * @details Gets the cartesian coordinates for the atom specified at the frame
+		 * specified. "rvec" is a one-dimensional array with three entries,
+		 * corresponding to the X, Y, and Z coordinates.
+		 * @param atom The number corresponding with the atom in the entire
+		 * system.
+		 * @param xyz Array with X, Y, and Z coordinates of the atom specified.
+		 */
 		void GetXYZ(int atomNumber, rvec xyz) const;
-		/** Gets the coordinates of all atoms in the system. *xyz* is
-		 * returned. */
+		/**
+		 * @brief Gets all of the coordinates for the system for a specific
+		 * frame.
+		 * @param xyz[] A two dimensional array with all cartesian coordinates
+		 * for the system at this frame. The first dimension is the atom number.
+		 * The second dimension contains the X, Y, and Z positions.
+		 */
 		void GetXYZ(rvec xyz[], int natoms) const;
-		/** Gets the coordinates of all atoms in a specific index group. *xyz*
-		 * is returned. */
+		/**
+		 * @brief Gets the coordinates for a specific atom in a group.
+		 * @details Gets the cartesian coordinates for the atom specified in the specific
+		 * index group for this frame.
+		 * @param groupName Name of index group in which atom is located.
+		 * @param atom The number corresponding with the atom in the index
+		 * group. Note that this is **not** the same number corresponding with
+		 * the system. That is, the atom may be the 5th atom in the system, but
+		 * it may be the 2nd atom in the group. This is where it is located in
+		 * the group.
+		 * @param xyz Array with X, Y, and Z coordinates of the atom specified.
+		 */
 		void GetXYZ(rvec xyz[], Index index, string groupName) const;
-		/** Gets the box dimensions for this frame. */
+		/**
+		 * @brief Gets the triclinic box dimensions for this frame.
+		 * @param frame Number of the frame desired.
+		 * @param box Two-dimensional array with three elements in each 
+		 * dimension, corresponding to a triclinic box.
+		 */
 		void GetBox(matrix box) const;
-		/** Returns the box volume for this frame. */
+		/**
+		 * @brief Gets the volume of the box at this frame.
+		 * @return Box volume.
+		 * @param frame Number of the frame desired.
+		 */
 		double GetBoxVolume() const;
 };
 

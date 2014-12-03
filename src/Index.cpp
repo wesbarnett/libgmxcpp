@@ -10,7 +10,7 @@ Index::Index(string ndxfile) {
 	return;
 }
 
-// Reads in the index file, first getting the headers so that the locations
+// Reads in the index file, first getting the group names so that the locations
 // vector can be properly sized. Then the index file is read again; if the line
 // is a header, increment the group counter. Any other line is read in with a
 // string stream into integers that are added to the vector located in this

@@ -1,4 +1,8 @@
 
+/**
+ * @author James Barnett, jbarnet4@tulane.edu
+ */
+
 #include "Frame.h"
 #include "Trajectory.h"
 

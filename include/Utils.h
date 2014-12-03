@@ -1,4 +1,5 @@
 
+
 #ifndef UTILS_H
 #define UTILS_H
 
@@ -10,6 +11,7 @@
 #include <string>
 #include <fstream>
 using namespace std;
+
 
 const int X = 0;
 const int Y = 1;
