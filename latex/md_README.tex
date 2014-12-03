@@ -1,0 +1,129 @@
+\#libgmxcpp
+
+This is a small library used for reading in Gromacs files (.xtc and .ndx) for use in analyzing the results. This basically interfaces with the xdrfile and implements an object-\/oriented style. 
+
+\subsection*{Requirements}
+
+The libxdrfile (\href{ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz}{\tt ftp\-://ftp.\-gromacs.\-org/pub/contrib/xdrfile-\/1.\-1.\-1.\-tar.\-gz}) library is required. It will need to be enabled as a shared library when you configure it for installation.
+
+\subsection*{Installation}
+
+To install do\-:
+
+```bash wget -\/\-O -\/ \href{https://github.com/wesbarnett/libgmxcpp/archive/v1.0.tar.gz}{\tt https\-://github.\-com/wesbarnett/libgmxcpp/archive/v1.\-0.\-tar.\-gz} $\vert$ tar xvz cd libgmxcpp-\/1.\-0 ./configure make make install ```
+
+You may have to run \char`\"{}make install\char`\"{} as root, since by default it will install to \char`\"{}/usr/local/\char`\"{}.
+
+\subsection*{Example Program}
+
+Check out the example program in the example directory. To compile it do the following in the example directory\-:
+
+```bash g++ example.\-cpp -\/lgmxcpp ```
+
+Then you can run the program on an example xtc file and ndx file. Run the program and it will give you it's usage.
+
+\subsection*{Usage}
+
+See the example file as well as the comments in the source.
+
+The main idea is that you create a \hyperlink{classTrajectory}{Trajectory} object which contains all the information from both the .xtc file (and optionally .ndx file). \hyperlink{classTrajectory}{Trajectory} object methods are then used for analyzing the data.
+
+\subsubsection*{Construction}
+
+First, you should create a \hyperlink{classTrajectory}{Trajectory} object\-:
+
+```c++ // Creates a \hyperlink{classTrajectory}{Trajectory} object with \char`\"{}traj.\-xtc\char`\"{} and \char`\"{}index.\-ndx\char`\"{} // The index file is optional // Both arguments are C++ strings \hyperlink{classTrajectory}{Trajectory} traj(\char`\"{}traj.\-xtc\char`\"{},\char`\"{}index.\-ndx\char`\"{}); ```
+
+You could also make it a pointer\-:
+
+```c++ \hyperlink{classTrajectory}{Trajectory} $\ast$traj = new \hyperlink{classTrajectory}{Trajectory}(\char`\"{}traj.\-xtc\char`\"{},\char`\"{}index.\-ndx\char`\"{}); ```
+
+In that case just remember to use \char`\"{}-\/$>$\char`\"{} instead of \char`\"{}.\char`\"{} when calling its methods.
+
+Upon construction of a \hyperlink{classTrajectory}{Trajectory} object both the xtc file and the index file are read into memory. The following sections detail how to access the data.
+
+Additionally, one thing to consider is that the object initially allocates enough memory for 100,000 frames and then reduces that to the correct amount of frames read in. If you have more frames than that to read in, or you memory is precious and you want to initially allocate for less, you can pass the number of initial frames as a parameter in the construction\-:
+
+```c++ // 2 million frames! With an index file. \hyperlink{classTrajectory}{Trajectory} traj(\char`\"{}traj.\-xtc\char`\"{},\char`\"{}index.\-ndx\char`\"{},2000000);
+
+// Without an index file \hyperlink{classTrajectory}{Trajectory} traj(\char`\"{}traj.\-xtc\char`\"{},2000000); ```
+
+\subsubsection*{Atomic Coordinates}
+
+To get the coordinates of an atom use Get\-X\-Y\-Z() method\-:
+
+```c++ rvec a; // rvec comes from xdrfile library and is a three dimensional float array // Gets the 2nd atom of the 3rd frame of index group \char`\"{}\-C\char`\"{} // Arguments are frame, group name, atom number, rvec variable with coordinates stored traj.\-Get\-X\-Y\-Z(2,\char`\"{}\-C\char`\"{},1,a);
+
+// You can reverse the first two arguments\-: traj.\-Get\-X\-Y\-Z(\char`\"{}\-C\char`\"{},2,1,a);
+
+// You can omit the group, getting the 2nd atom in the entire system traj.\-Get\-X\-Y\-Z(2,1,a); ```
+
+To print out the coordinates you would then do\-:
+
+```c++ // X, Y, and Z are constants in \hyperlink{Utils_8h_source}{Utils.\-h}, equiv. to 0, 1, and 2 // $<$$<$ has been overloaded so this prints X, Y, Z coordinates with a space in // between each, and a carriage return at the end. cout $<$$<$ a; // same as\-: cout $<$$<$ a\mbox{[}X\mbox{]} $<$$<$ \char`\"{} \char`\"{} $<$$<$ a\mbox{[}Y\mbox{]} $<$$<$ \char`\"{} \char`\"{} $<$$<$ a\mbox{[}Z\mbox{]} $<$$<$ endl; ```
+
+You can also get the coordinates of all atoms in the system or group from a frame in an array\-:
+
+```c++ // Gets coordinates from all atoms in the system for frame 0 rvec a\mbox{[}traj.\-Get\-N\-Atoms()\mbox{]}; traj.\-Get\-X\-Y\-Z(0,a);
+
+// Gets coordinates from all atoms in group C for frame 0 rvec a\mbox{[}traj.\-Get\-N\-Atoms(\char`\"{}\-C\char`\"{})\mbox{]}; traj.\-Get\-X\-Y\-Z(0,\char`\"{}\-C\char`\"{},a);
+
+// Printing the first atom from the above\-: cout $<$$<$ a\mbox{[}0\mbox{]};
+
+// Which is the same as\-: cout $<$$<$ a\mbox{[}0\mbox{]}\mbox{[}X\mbox{]} $<$$<$ \char`\"{} \char`\"{} $<$$<$ a\mbox{[}0\mbox{]}\mbox{[}Y\mbox{]} $<$$<$ \char`\"{} \char`\"{} $<$$<$ a\mbox{[}0\mbox{]}\mbox{[}Z\mbox{]} $<$$<$ endl; ```
+
+Usually you'll throw Get\-X\-Y\-Z in a couple of loops to access the data you need.
+
+\subsubsection*{Box Dimensions}
+
+To get the box dimensions use Get\-Box() method\-:
+
+```c++ matrix box; // matrix is a three by three float array from xdrfile library // Gets the box dimensions from the first frame\-: traj.\-Get\-Box(0,box);
+
+// $<$$<$ overloaded to print the box as a 3 x 3 matrix\-: cout $<$$<$ box; ```
+
+\subsubsection*{Box Volume}
+
+To get the volume of the simulation box for any frame\-:
+
+```c++ // For frame 0 double vol = traj.\-Get\-Box\-Volume(0); ```
+
+\subsubsection*{Number of Frames}
+
+To get the number of frames in the simulation use Get\-N\-Frames()\-:
+
+```c++ int nframes = traj.\-Get\-N\-Frames(); ```
+
+\subsubsection*{Number of Atoms}
+
+To get the number of atoms in the entire system use Get\-N\-Atoms()\-:
+
+```c++ int natoms = traj.\-Get\-N\-Atoms(); ```
+
+To get the size (number of atoms in) a specific group pass the index name as an argument\-:
+
+```c++ // Gets the number of atoms in group \char`\"{}\-S\-O\-L\char`\"{} int solsize = traj.\-Get\-N\-Atoms(\char`\"{}\-S\-O\-L\char`\"{})\-: ```
+
+\subsubsection*{Time and Step}
+
+To get the time (in ps) corresponding with a frame use Get\-Time({\itshape frame})\-:
+
+```c++ // Gets the time of the 5th frame float time = traj.\-Get\-Time(4); ```
+
+To get the step for a frame use Get\-Step({\itshape frame})\-:
+
+```c++ // Gets the step corresponding with the 5th frame int step = traj.\-Get\-Step(4); ```
+
+\subsection*{Development}
+
+The master branch is used for development, so if you clone it and compile it, it will be different than the latest release. It is recommended you stick to the most recent release unless you want to test something, or you want to help with development.
+
+To compile the master branch do\-:
+
+```bash git clone \href{https://github.com/wesbarnett/libgmxcpp}{\tt https\-://github.\-com/wesbarnett/libgmxcpp} cd libgmxcpp
+
+\section*{The following are necessary only once}
+
+aclocal automake autoreconf -\/i automake autoconf
+
+./configure make make install ``` 
