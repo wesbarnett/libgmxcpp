@@ -7,7 +7,7 @@
 // Initializes the trajectory object by finding out how many atoms are in the 
 // system, saving how many frames we think there might be for memory allocation. Then calls
 // read().
-Trajectory::Trajectory(string filename, int initialFrames) {
+Trajectory::Trajectory(string xtcfile, int maxFrames) {
     cout << endl;
 	try {
         InitXTC(filename);

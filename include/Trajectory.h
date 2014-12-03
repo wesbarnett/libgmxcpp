@@ -66,7 +66,7 @@ class Trajectory {
 		 * numbers for the index file are saved in an Index object.
 		 *
 		 * @param xtcfile Name of the Gromacs XTC file to be read in.
-		 * @param nxfile Name of the Gromacs index file to be read in.
+		 * @param ndxfile Name of the Gromacs index file to be read in.
 		 */
 		Trajectory(string xtcfile, string ndxfile);
 		/**
@@ -77,11 +77,11 @@ class Trajectory {
 		 * sets the number of frames to allocate for manually.
 		 *
 		 * @param xtcfile Name of the Gromacs XTC file to be read in.
-		 * @param nxfile Name of the Gromacs index file to be read in.
+		 * @param ndxfile Name of the Gromacs index file to be read in.
 		 * @param	maxFrames Maximum number of frames to read in. Default is
 		 *			100,000.
 		 */
-		Trajectory(string filename, string ndxfile, int maxFrames);
+		Trajectory(string xtcfile, string ndxfile, int maxFrames);
 		/**
 		 * @brief Gets the number of atoms in a system.
 		 * @return Number of atoms.

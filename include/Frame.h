@@ -51,7 +51,7 @@ class Frame {
 		 * @details Gets the cartesian coordinates for the atom specified at the frame
 		 * specified. "rvec" is a one-dimensional array with three entries,
 		 * corresponding to the X, Y, and Z coordinates.
-		 * @param atom The number corresponding with the atom in the entire
+		 * @param atomNumber The number corresponding with the atom in the entire
 		 * system.
 		 * @param xyz Array with X, Y, and Z coordinates of the atom specified.
 		 */
@@ -62,6 +62,7 @@ class Frame {
 		 * @param xyz[] A two dimensional array with all cartesian coordinates
 		 * for the system at this frame. The first dimension is the atom number.
 		 * The second dimension contains the X, Y, and Z positions.
+		 * @param natoms The number of atoms in the system.
 		 */
 		void GetXYZ(rvec xyz[], int natoms) const;
 		/**
@@ -69,17 +70,12 @@ class Frame {
 		 * @details Gets the cartesian coordinates for the atom specified in the specific
 		 * index group for this frame.
 		 * @param groupName Name of index group in which atom is located.
-		 * @param atom The number corresponding with the atom in the index
-		 * group. Note that this is **not** the same number corresponding with
-		 * the system. That is, the atom may be the 5th atom in the system, but
-		 * it may be the 2nd atom in the group. This is where it is located in
-		 * the group.
 		 * @param xyz Array with X, Y, and Z coordinates of the atom specified.
+		 * @param index The index object containing the group specified.
 		 */
 		void GetXYZ(rvec xyz[], Index index, string groupName) const;
 		/**
 		 * @brief Gets the triclinic box dimensions for this frame.
-		 * @param frame Number of the frame desired.
 		 * @param box Two-dimensional array with three elements in each 
 		 * dimension, corresponding to a triclinic box.
 		 */
@@ -87,7 +83,6 @@ class Frame {
 		/**
 		 * @brief Gets the volume of the box at this frame.
 		 * @return Box volume.
-		 * @param frame Number of the frame desired.
 		 */
 		double GetBoxVolume() const;
 };
