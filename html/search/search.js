@@ -7,18 +7,16 @@
 
 var indexSectionsWithContent =
 {
-  0: "fgirst",
+  0: "fgist",
   1: "fit",
-  2: "fgst",
-  3: "r"
+  2: "fgst"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions",
-  3: "pages"
+  2: "functions"
 };
 
 function convertToId(search)

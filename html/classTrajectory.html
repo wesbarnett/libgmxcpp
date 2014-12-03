@@ -24,6 +24,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">libgmxcpp
    </div>
+   <div id="projectbrief">C++ library that helps in reading in GROMACS files</div>
   </td>
  </tr>
  </tbody>
@@ -37,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,6 +128,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="classTrajectory.html">Trajectory</a> object contains a vector of <a class="el" href="classFrame.html">Frame</a> objects, plus other info on the simulation (number of atoms). It also contains the special xd pointer that libxdrfile needs to open the xtc file, as well as the number of atoms in the system, the number of frames read in, and an <a class="el" href="classIndex.html">Index</a> object. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8h_source.html#l00024">24</a> of file <a class="el" href="Trajectory_8h_source.html">Trajectory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a354835acf30d09f1cea3be717923c496"></a>
 <div class="memitem">
@@ -143,6 +145,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Constructor, where <em>xtcfile</em> is the name of the GROMACS xtc file to be read in. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00019">19</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -171,6 +175,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor where then number of frames allocated is set by the programmer explicitly. By default, the constructor will only allocate 100,000 frames. This overrides that to a higher number. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00007">7</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5ba17a4ba9c36cf7113e2bfef8c4b508"></a>
@@ -197,6 +203,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Constructor which reads in both the xtc file and a GROMACS index file. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00031">31</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,6 +239,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor which reads in xtc file, index file, and the programmer sets the number of frames to allocate for manually. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00044">44</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -259,6 +269,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets the box dimensions for this frame. <em>matrix</em> is a two dimensional array with thre elements in each dimension, corresponding to a triclinic box. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00151">151</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a147406783cfebe3072057b37609c2d3a"></a>
@@ -276,6 +288,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the volume of the box for the frame specified. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00175">175</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afdb7df7848002e17e21f93e9d64aea61"></a>
@@ -291,6 +305,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Returns the number of atoms in the sytem. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00160">160</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,6 +325,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the number of atoms in a group in the system, where <em>group</em> is the name of the group in the index file. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00156">156</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3bc23364e250667c611a1a2b77b5a7ca"></a>
@@ -324,6 +342,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Returns the number of frames that are in the object. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00164">164</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -342,6 +362,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the step number at the frame specified. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00171">171</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3d8ba3dccd4b77e8da7202ae5e1b4f57"></a>
@@ -358,6 +380,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Returns the time at the frame specified. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00167">167</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -391,6 +415,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets the cartesian coordinates for the atom specified at the frame specified. "rvec" is a one-dimensional array with three entries, corresponding to the X, Y, and Z coordinates. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00119">119</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -431,6 +457,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets the cartesian coordinates for the atom specified in the specific index group for this frame. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00126">126</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af52d25747fe4f88ca1e196a235584306"></a>
@@ -470,6 +498,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Same as above. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00133">133</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2d8f37652c1ef658a821456a86d69341"></a>
@@ -496,6 +526,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets all of the coordinates for the system for this frame. </p>
+
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00139">139</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -530,11 +562,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets all of the coordinates for this index group for this frame. </p>
 
+<p>Definition at line <a class="el" href="Trajectory_8cpp_source.html#l00145">145</a> of file <a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="Trajectory_8h_source.html">Trajectory.h</a></li>
-<li>src/Trajectory.cpp</li>
+<li>src/<a class="el" href="Trajectory_8cpp_source.html">Trajectory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

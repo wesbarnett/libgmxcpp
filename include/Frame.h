@@ -14,25 +14,35 @@
  * The matrix type is just a 3 x 3 array. Frame objects are usually not created
  * on their own, but instead are created as a vector in a Trajectory object.
  */
-
 class Frame {
     private:
         int step;
         float time;
         rvec *x;
         matrix box; 
-		void Set(int step,float time,matrix box,rvec *x);
     public:
 		/** Blank constructor used in Trajectory. */
 		Frame();
-		/** A constructor where the private data for the object is set */
+		/** A constructor where the private data for the object is set. */
 		Frame(int step,float time,matrix box,rvec *x);
+		/** Used in setting all of the private data for an object. Specifically
+		 * this is used in the Trajectory object with a vector of Frames. */
+		void Set(int step,float time,matrix box,rvec *x);
+		/** Returns the simulation time in picoseconds of this frame. */
         float GetTime() const;
+		/** Returns the simulation step corresponding with this frame. */
         int GetStep() const;
-		void GetXYZ(int atom, rvec xyz) const;
+		/** Gets the cartesian coordinates of a specific atom. *xyz* is returned. */
+		void GetXYZ(int atomNumber, rvec xyz) const;
+		/** Gets the coordinates of all atoms in the system. *xyz* is
+		 * returned. */
 		void GetXYZ(rvec xyz[], int natoms) const;
-		void GetXYZ(rvec xyz[], Index index, string group) const;
+		/** Gets the coordinates of all atoms in a specific index group. *xyz*
+		 * is returned. */
+		void GetXYZ(rvec xyz[], Index index, string groupName) const;
+		/** Gets the box dimensions for this frame. */
 		void GetBox(matrix box) const;
+		/** Returns the box volume for this frame. */
 		double GetBoxVolume() const;
 };
 

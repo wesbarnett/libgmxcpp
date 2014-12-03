@@ -24,6 +24,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">libgmxcpp
    </div>
+   <div id="projectbrief">C++ library that helps in reading in GROMACS files</div>
   </td>
  </tr>
  </tbody>
@@ -37,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,33 +97,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad2e5946cf41d4817e750500acf05d02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f3ba7abc832b6ca9d0401a9e5cfc4a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a0f3ba7abc832b6ca9d0401a9e5cfc4a0">Frame</a> (int step, float time, matrix box, rvec *x)</td></tr>
 <tr class="separator:a0f3ba7abc832b6ca9d0401a9e5cfc4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affdb660765a1737e7c838c74e307d707"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affdb660765a1737e7c838c74e307d707"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Set</b> (int step, float time, matrix box, rvec *x)</td></tr>
+<tr class="memitem:affdb660765a1737e7c838c74e307d707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#affdb660765a1737e7c838c74e307d707">Set</a> (int step, float time, matrix box, rvec *x)</td></tr>
 <tr class="separator:affdb660765a1737e7c838c74e307d707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9125c618fbb0791eab0576086cb562d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9125c618fbb0791eab0576086cb562d6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetTime</b> () const </td></tr>
+<tr class="memitem:a9125c618fbb0791eab0576086cb562d6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a9125c618fbb0791eab0576086cb562d6">GetTime</a> () const </td></tr>
 <tr class="separator:a9125c618fbb0791eab0576086cb562d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b383d191c043db5ee263446a2ea7a71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b383d191c043db5ee263446a2ea7a71"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetStep</b> () const </td></tr>
+<tr class="memitem:a4b383d191c043db5ee263446a2ea7a71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a4b383d191c043db5ee263446a2ea7a71">GetStep</a> () const </td></tr>
 <tr class="separator:a4b383d191c043db5ee263446a2ea7a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad893a259ad39ca2ae393ebb2a3772e0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad893a259ad39ca2ae393ebb2a3772e0b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetXYZ</b> (int atom, rvec xyz) const </td></tr>
-<tr class="separator:ad893a259ad39ca2ae393ebb2a3772e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57fe1db79f90b9ac76403218575ce0c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57fe1db79f90b9ac76403218575ce0c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetXYZ</b> (rvec xyz[], int natoms) const </td></tr>
+<tr class="memitem:a33cbc8fc6d471fd20e1e7098a3e43d03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a33cbc8fc6d471fd20e1e7098a3e43d03">GetXYZ</a> (int atomNumber, rvec xyz) const </td></tr>
+<tr class="separator:a33cbc8fc6d471fd20e1e7098a3e43d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57fe1db79f90b9ac76403218575ce0c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a57fe1db79f90b9ac76403218575ce0c6">GetXYZ</a> (rvec xyz[], int natoms) const </td></tr>
 <tr class="separator:a57fe1db79f90b9ac76403218575ce0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ae40ed48c27658e81db14f76e60c0ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ae40ed48c27658e81db14f76e60c0ad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetXYZ</b> (rvec xyz[], <a class="el" href="classIndex.html">Index</a> index, string group) const </td></tr>
-<tr class="separator:a0ae40ed48c27658e81db14f76e60c0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b747f3795eb785eb9275f1c793c6695"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b747f3795eb785eb9275f1c793c6695"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetBox</b> (matrix box) const </td></tr>
+<tr class="memitem:a30f7ae8214a62f1962323e6aebfddf9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a30f7ae8214a62f1962323e6aebfddf9e">GetXYZ</a> (rvec xyz[], <a class="el" href="classIndex.html">Index</a> index, string groupName) const </td></tr>
+<tr class="separator:a30f7ae8214a62f1962323e6aebfddf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b747f3795eb785eb9275f1c793c6695"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a7b747f3795eb785eb9275f1c793c6695">GetBox</a> (matrix box) const </td></tr>
 <tr class="separator:a7b747f3795eb785eb9275f1c793c6695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3676c3640f6047a77e5671f7171ba5f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3676c3640f6047a77e5671f7171ba5f3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>GetBoxVolume</b> () const </td></tr>
+<tr class="memitem:a3676c3640f6047a77e5671f7171ba5f3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a3676c3640f6047a77e5671f7171ba5f3">GetBoxVolume</a> () const </td></tr>
 <tr class="separator:a3676c3640f6047a77e5671f7171ba5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="classFrame.html">Frame</a> contains the information on the time, the step, and the coordinates and box for that time/step. rvec and matrix types come from the xdrfile library. rvec is actually a float matrix with three elements. It is pointer here so that later it will be initialized as an array containing the coordinates of all of the atoms of the frame. The matrix type is just a 3 x 3 array. <a class="el" href="classFrame.html">Frame</a> objects are usually not created on their own, but instead are created as a vector in a <a class="el" href="classTrajectory.html">Trajectory</a> object. </p>
+
+<p>Definition at line <a class="el" href="Frame_8h_source.html#l00017">17</a> of file <a class="el" href="Frame_8h_source.html">Frame.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad2e5946cf41d4817e750500acf05d02b"></a>
 <div class="memitem">
@@ -138,6 +132,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>GetBoxVolume</b> ()
       </table>
 </div><div class="memdoc">
 <p>Blank constructor used in <a class="el" href="classTrajectory.html">Trajectory</a>. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00005">5</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
 
 </div>
 </div>
@@ -176,13 +172,223 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>GetBoxVolume</b> ()
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A constructor where the private data for the object is set </p>
+<p>A constructor where the private data for the object is set. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00008">8</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a7b747f3795eb785eb9275f1c793c6695"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Frame::GetBox </td>
+          <td>(</td>
+          <td class="paramtype">matrix&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the box dimensions for this frame. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00061">61</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3676c3640f6047a77e5671f7171ba5f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Frame::GetBoxVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the box volume for this frame. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00070">70</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b383d191c043db5ee263446a2ea7a71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Frame::GetStep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the simulation step corresponding with this frame. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00030">30</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9125c618fbb0791eab0576086cb562d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Frame::GetTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the simulation time in picoseconds of this frame. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00026">26</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33cbc8fc6d471fd20e1e7098a3e43d03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Frame::GetXYZ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>atomNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">rvec&#160;</td>
+          <td class="paramname"><em>xyz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the cartesian coordinates of a specific atom. <em>xyz</em> is returned. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00034">34</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57fe1db79f90b9ac76403218575ce0c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Frame::GetXYZ </td>
+          <td>(</td>
+          <td class="paramtype">rvec&#160;</td>
+          <td class="paramname"><em>xyz</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>natoms</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the coordinates of all atoms in the system. <em>xyz</em> is returned. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00041">41</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30f7ae8214a62f1962323e6aebfddf9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Frame::GetXYZ </td>
+          <td>(</td>
+          <td class="paramtype">rvec&#160;</td>
+          <td class="paramname"><em>xyz</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIndex.html">Index</a>&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>groupName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the coordinates of all atoms in a specific index group. <em>xyz</em> is returned. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00049">49</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="affdb660765a1737e7c838c74e307d707"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Frame::Set </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>step</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">matrix&#160;</td>
+          <td class="paramname"><em>box</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">rvec *&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Used in setting all of the private data for an object. Specifically this is used in the <a class="el" href="classTrajectory.html">Trajectory</a> object with a vector of Frames. </p>
+
+<p>Definition at line <a class="el" href="Frame_8cpp_source.html#l00014">14</a> of file <a class="el" href="Frame_8cpp_source.html">Frame.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="Frame_8h_source.html">Frame.h</a></li>
-<li>src/Frame.cpp</li>
+<li>src/<a class="el" href="Frame_8cpp_source.html">Frame.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
