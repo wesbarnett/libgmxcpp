@@ -10,12 +10,12 @@
 Trajectory::Trajectory(string xtcfile, int maxFrames) {
     cout << endl;
 	try {
-        InitXTC(filename);
+        InitXTC(xtcfile);
 	} catch(runtime_error &excpt) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	read(initialFrames);
+	read(MAXFRAMES);
 	return;
 }
 
