@@ -1,9 +1,6 @@
 
-/**
- * @file Commandline.h
- * @brief A couple of command line utilities.
- *
- * @author James Barnett, jbarnet4@tulane.edu
+/** @file
+ *  @brief A couple of command line utilities.
  */
 
 #ifndef COMMANDLINE_H

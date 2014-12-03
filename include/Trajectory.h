@@ -1,4 +1,6 @@
 
+/** @file 
+ * @brief Header for the Trajectory class*/
 
 #ifndef TRAJECTORY_H
 #define TRAJECTORY_H
@@ -14,6 +16,7 @@
 #include <stdexcept>
 using namespace std;
 
+/** @brief Maximum number of frames to read in. */
 const int MAXFRAMES=100000;
 
 /**
@@ -24,13 +27,34 @@ const int MAXFRAMES=100000;
  */
 class Trajectory {
 	private:
+		/**
+		 * @brief Vector of Frame objects which contain all the data in the
+		 * trajectory.
+		 */
 		vector <Frame> frameArray;
+		/**
+		 * @brief Index object containing all group names, sizes, and indices
+		 * for the trajectory.
+		 */
 		Index index;
+		/**
+		 * @brief Special file pointer required by libxdrfile to read in
+		 * XTC files.
+		 */
         XDRFILE *xd;
+		/**
+		 * @brief Precision of coordinates.
+		 */
         float prec;
+		/**
+		 * @brief Number of frames in the trajectory.
+		 */
 		int nframes;
+		/** @brief Number of atoms in the simulation. */
         int natoms;
+		/** @brief Reads in the XTC and index files. */
         void read(int initalFrames);
+		/** @brief Initializes what is necessary for reading in the XTC file */
 		void InitXTC(string filename);
 	public:
 		/**

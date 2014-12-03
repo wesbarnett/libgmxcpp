@@ -1,8 +1,4 @@
 
-/**
- * @author James Barnett, jbarnet4@tulane.edu
- */
-
 #include "CommandLine.h"
 
 bool getArgument(int argc, char* argv[], string flag, string *argToReturn) {

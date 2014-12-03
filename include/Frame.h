@@ -1,4 +1,7 @@
 
+/**@file
+ * @brief Header for Frame class
+ */
 #ifndef FRAME_H
 #define FRAME_H
 #include "xdrfile/xdrfile.h"

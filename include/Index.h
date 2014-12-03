@@ -1,4 +1,7 @@
 
+/** @file
+ * @brief Header for Index class 
+ */
 #ifndef INDEX_H
 #define INDEX_H
 
