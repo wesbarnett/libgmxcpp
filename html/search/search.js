@@ -9,7 +9,7 @@ var indexSectionsWithContent =
 {
   0: "fgirst",
   1: "fit",
-  2: "gst",
+  2: "fgst",
   3: "r"
 };
 
