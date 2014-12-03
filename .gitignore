@@ -10,3 +10,9 @@ include/Makefile
 src/Makefile
 cleanup
 build
+html
+latex
+images/
+javascripts/
+params.json
+stylesheets/
