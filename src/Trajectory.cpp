@@ -95,6 +95,7 @@ void Trajectory::read(int initialFrames) {
 	while (status == 0 || nframes >= initialFrames) {
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
+		if (nframes >= initialFrames) break;
 		if (status !=0) break;
 		frameArray.at(nframes).Set(step,time,box,x,natoms);
 		if (nframes % 10 == 0) {
@@ -106,7 +107,7 @@ void Trajectory::read(int initialFrames) {
     }
 
 	if (nframes >= initialFrames) {
-		cerr << "WARNING: More than " << MAXFRAMES << " present in trajectory. Did not read all frames in." << endl;
+		cerr << "WARNING: More than " << initialFrames << " frames present in trajectory. Did not read all frames in." << endl;
 		cerr << "See README.md for more info, under heading \'Construction\'." << endl;
 	}
 

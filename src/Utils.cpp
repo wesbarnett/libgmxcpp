@@ -28,7 +28,6 @@ triclinicbox::triclinicbox() {
 	this->resize(DIM);
 	for (int i=0; i < DIM; i++) {
 		this->at(i).resize(DIM);
-		}
 	}
 }
 
