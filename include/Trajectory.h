@@ -213,6 +213,15 @@ class Trajectory {
 		triclinicbox GetBox(int frame) const;
 
 		/**
+		 * @brief Gets the volume of the box at a specific frame.
+		 * @return Box volume.
+		 * @param frame Number of the frame desired.
+		 */
+		double GetBoxVolume(int frame) const;
+
+		/* OLD METHODS, kept for backwards compatibility for now */
+
+		/*
 		 * @brief Gets the coordinates of a specific atom in the entire system.
 		 * @details Gets the cartesian coordinates for the atom specified at the frame
 		 * specified. "rvec" is a one-dimensional array with three entries,
@@ -226,7 +235,7 @@ class Trajectory {
 		 */
         void GetXYZ(int frame, int atom, rvec xyz) const;
 
-		/**
+		/*
 		 * @brief Gets the coordinates for a specific atom in a group.
 		 * @details Gets the cartesian coordinates for the atom specified in the specific
 		 * index group for this frame.
@@ -243,12 +252,12 @@ class Trajectory {
 		 */
 		void GetXYZ(int frame, string groupName, int atom, rvec xyz) const;
 
-		/**
+		/*
 		 * Same as above.
 		 */
 		void GetXYZ(string group, int frame, int atom, rvec xyz) const;
 
-		/**
+		/*
 		 * @brief Gets all of the coordinates for the system for a specific
 		 * frame.
 		 * @details
@@ -261,7 +270,7 @@ class Trajectory {
 		 */
 		void GetXYZ(int frame, rvec xyz[]) const;
 
-		/**
+		/*
 		 * @brief Gets all of the coordinates for an index group for a specific
 		 * frame.
 		 * @details
@@ -275,7 +284,7 @@ class Trajectory {
 		 */
 		void GetXYZ(int frame, string groupName, rvec xyz[]) const;
 
-		/**
+		/*
 		 * @brief Gets the triclinic box dimensions for a frame.
 		 * @param frame Number of the frame desired.
 		 * @param box Two-dimensional array with three elements in each 
@@ -283,12 +292,6 @@ class Trajectory {
 		 */
 		void GetBox(int frame, matrix box) const;
 
-		/**
-		 * @brief Gets the volume of the box at a specific frame.
-		 * @return Box volume.
-		 * @param frame Number of the frame desired.
-		 */
-		double GetBoxVolume(int frame) const;
 };
 
 #endif

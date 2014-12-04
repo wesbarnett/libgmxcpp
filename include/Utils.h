@@ -23,7 +23,10 @@ const int Y = 1;
 /** Z coordinate in rvec */
 const int Z = 2;
 
+/** XYZ coordinates **/
 typedef vector <double> coordinates;
+
+/** Box dimensions **/
 typedef vector < vector <double> > triclinicbox;
 
 /** Prints out coordinates cleanly with << */
