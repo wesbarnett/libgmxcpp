@@ -70,7 +70,9 @@ vector <coordinates> Frame::GetXYZ(Index index, string group) const {
 
 triclinicbox Frame::GetBox() const {
 	triclinicbox box;
+	box.resize(3);
 	for (int i=0; i<DIM; i++) {
+		box.at(i).resize(3);
 		for (int j=0; j<DIM; j++) {
 			box.at(i).at(j) = this->box[i][j];
 		}
