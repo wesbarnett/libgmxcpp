@@ -23,11 +23,28 @@ const int Y = 1;
 /** Z coordinate in rvec */
 const int Z = 2;
 
+//typedef vector <double> coordinates;
+
 /** XYZ coordinates **/
-typedef vector <double> coordinates;
+class coordinates: public vector<double> {
+	public:
+		coordinates() {
+			this->resize(DIM);
+		};
+};
 
 /** Box dimensions **/
-typedef vector < vector <double> > triclinicbox;
+class triclinicbox: public vector < vector <double> > {
+	public:
+		triclinicbox() {
+			this->resize(DIM);
+			for (int i=0; i < DIM; i++) {
+				this->at(i).resize(DIM);
+			}
+		};
+};
+
+//typedef vector < vector <double> > triclinicbox;
 
 /** Prints out coordinates cleanly with << */
 ostream& operator<<(ostream &os, coordinates xyz);

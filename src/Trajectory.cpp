@@ -119,30 +119,30 @@ void Trajectory::read(int initialFrames) {
 }
 
 // Gets the xyz coordinates when the frame and atom number are specified.
-vector <double> Trajectory::GetXYZ(int frame, int atom) const{
+coordinates Trajectory::GetXYZ(int frame, int atom) const{
 	return frameArray.at(frame).GetXYZ(atom);
 }
 
 // Gets the xyz coordinates for the entire frame.
-vector < vector <double> > Trajectory::GetXYZ(int frame) const{
+vector <coordinates> Trajectory::GetXYZ(int frame) const{
 	return frameArray.at(frame).GetXYZ();
 }
 
-vector < vector <double> > Trajectory::GetXYZ(int frame, string groupName) const{
+vector <coordinates> Trajectory::GetXYZ(int frame, string groupName) const{
 	return frameArray.at(frame).GetXYZ(index,groupName);
 }
 
 
 // Gets the xyz coordinates when the frame, group, and atom number are
 // specified.
-vector <double> Trajectory::GetXYZ(int frame, string group, int atom) const {
+coordinates Trajectory::GetXYZ(int frame, string group, int atom) const {
 	int location = index.GetLocation(group, atom);
 //TODO: throw exception of location not found
 	//if (location == -1) return;
 	return frameArray.at(frame).GetXYZ(location);
 }
 
-vector < vector <double> > Trajectory::GetBox(int frame) const {
+triclinicbox Trajectory::GetBox(int frame) const {
 	return frameArray.at(frame).GetBox();
 }
 
