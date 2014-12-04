@@ -100,11 +100,6 @@ void printUsage(string program) {
     return;
 }
 
-void testPrint(coordinates xyz) {
-	cout << xyz;
-	return;
-}
-
 /**
  * @brief Prints example info from the Trajectory.
  * @param traj Pointer to the Trajectory object.
@@ -143,8 +138,7 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
         oFS << "Coordinates for group " << group << ":" << endl;
 		xyz = traj->GetXYZ(frame,group);
         for (int i=0;i<traj->GetNAtoms(group);i++) {
-			cout << xyz.at(i);
-			testPrint(xyz.at(i));
+			oFS << xyz.at(i);
 		}
 
 
