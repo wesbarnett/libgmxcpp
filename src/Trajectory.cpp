@@ -95,8 +95,9 @@ void Trajectory::read(int initialFrames) {
 	while (status == 0 || nframes >= initialFrames) {
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
+		if (nframes >= initialFrames) break;
 		if (status !=0) break;
-		frameArray.at(nframes).Set(step,time,box,x);
+		frameArray.at(nframes).Set(step,time,box,x,natoms);
 		if (nframes % 10 == 0) {
             cout << "   frame: " << nframes;
             cout << " | time (ps): " << time;
@@ -106,7 +107,7 @@ void Trajectory::read(int initialFrames) {
     }
 
 	if (nframes >= initialFrames) {
-		cerr << "WARNING: More than " << MAXFRAMES << " present in trajectory. Did not read all frames in." << endl;
+		cerr << "WARNING: More than " << initialFrames << " frames present in trajectory. Did not read all frames in." << endl;
 		cerr << "See README.md for more info, under heading \'Construction\'." << endl;
 	}
 
@@ -117,6 +118,35 @@ void Trajectory::read(int initialFrames) {
 	cout << "Finished reading in xtc file." << endl << endl;
 	return;
 }
+
+// Gets the xyz coordinates when the frame and atom number are specified.
+coordinates Trajectory::GetXYZ(int frame, int atom) const{
+	return frameArray.at(frame).GetXYZ(atom);
+}
+
+// Gets the xyz coordinates for the entire frame.
+vector <coordinates> Trajectory::GetXYZ(int frame) const{
+	return frameArray.at(frame).GetXYZ();
+}
+
+vector <coordinates> Trajectory::GetXYZ(int frame, string groupName) const{
+	return frameArray.at(frame).GetXYZ(index,groupName);
+}
+
+
+// Gets the xyz coordinates when the frame, group, and atom number are
+// specified.
+coordinates Trajectory::GetXYZ(int frame, string group, int atom) const {
+	int location = index.GetLocation(group, atom);
+// @TODO: throw exception if location not found
+	//if (location == -1) return;
+	return frameArray.at(frame).GetXYZ(location);
+}
+
+triclinicbox Trajectory::GetBox(int frame) const {
+	return frameArray.at(frame).GetBox();
+}
+
 
 // Gets the xyz coordinates when the frame and atom number are specified.
 void Trajectory::GetXYZ(int frame, int atom, rvec xyz) const {
@@ -149,6 +179,7 @@ void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) const {
     frameArray.at(frame).GetXYZ(xyz,index,group);
     return;
 }
+
 
 // Gets the box dimensions for a specific frame
 void Trajectory::GetBox(int frame, matrix box) const {

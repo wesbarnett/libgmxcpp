@@ -110,12 +110,10 @@ void printUsage(string program) {
  */
 void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
-    matrix box;
     ofstream oFS;
     oFS.open(outfile.c_str());
-
-	// Allocating an array for the coordinates of each frame
-    rvec xyz[traj->GetNAtoms(group)];
+	vector <coordinates> xyz;
+	triclinicbox box;
 
     cout << "Writing example data to " << outfile << "." << endl;
 
@@ -136,16 +134,19 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
         oFS << endl;
 
-		// Getting all of the coordinates for this frame and printing them
+		// Getting all of the coordinates for this frame for this groupand printing them
         oFS << "Coordinates for group " << group << ":" << endl;
-        traj->GetXYZ(frame,group,xyz);
-        for (int i=0;i<traj->GetNAtoms(group);i++) oFS << xyz[i];
+		xyz = traj->GetXYZ(frame,group);
+        for (int i=0;i<traj->GetNAtoms(group);i++) {
+			oFS << xyz.at(i);
+		}
+
 
         oFS << endl;
 
 		// Getting and printing the box coordinates for this frame
         oFS << "Box: " << endl;
-        traj->GetBox(frame,box);
+        box = traj->GetBox(frame);
 		oFS << box;
 
 		oFS << "Box volume: " << endl;
