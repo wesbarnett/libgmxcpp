@@ -31,6 +31,20 @@ class coordinates: public vector<double> {
 		coordinates() {
 			this->resize(DIM);
 		};
+		coordinates operator-(coordinates rhs) {
+			coordinates x;
+			x.at(X) = this->at(X) - rhs.at(X);
+			x.at(Y) = this->at(Y) - rhs.at(Y);
+			x.at(Z) = this->at(Z) - rhs.at(Z);
+			return x;
+		}
+		coordinates operator+(coordinates rhs) {
+			coordinates x;
+			x.at(X) = this->at(X) + rhs.at(X);
+			x.at(Y) = this->at(Y) + rhs.at(Y);
+			x.at(Z) = this->at(Z) + rhs.at(Z);
+			return x;
+		}
 };
 
 /** Box dimensions **/
