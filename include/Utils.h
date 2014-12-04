@@ -31,6 +31,11 @@ class coordinates: public vector<double> {
 		coordinates() {
 			this->resize(DIM);
 		};
+		coordinates(const coordinates& orig) {
+			this->push_back(orig.at(X));
+			this->push_back(orig.at(Y));
+			this->push_back(orig.at(Z));
+		};
 };
 
 /** Box dimensions **/
