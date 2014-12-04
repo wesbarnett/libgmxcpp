@@ -25,7 +25,10 @@ const int Z = 2;
 
 //typedef vector <double> coordinates;
 
-/** XYZ coordinates **/
+/** XYZ coordinates. This is just a double precision vector but 
+ * it has three items automatically when contructed. Additionally
+ * one can add or subtract two sets of coordinates without having
+ * to operate on each X, Y, and Z part individually.*/
 class coordinates: public vector<double> {
 	public:
 		coordinates() {
@@ -47,7 +50,8 @@ class coordinates: public vector<double> {
 		}
 };
 
-/** Box dimensions **/
+/** Box dimensions. This is just a two dimensional vector initialized to three
+ * items in each dimension. */
 class triclinicbox: public vector < vector <double> > {
 	public:
 		triclinicbox() {
