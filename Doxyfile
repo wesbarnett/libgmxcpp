@@ -44,7 +44,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "C++ library that helps in reading in GROMACS files"
+PROJECT_BRIEF          = "C++ library that helps in reading in GROMACS files using OOP"
 
 # With the PROJECT_LOGO tag one can specify an logo or icon that is included in
 # the documentation. The maximum height of the logo should not exceed 55 pixels
@@ -1979,7 +1979,7 @@ TAGFILES               =
 # tag file that is based on the input files it reads. See section "Linking to
 # external documentation" for more information about the usage of tag files.
 
-GENERATE_TAGFILE       =
+GENERATE_TAGFILE       = 
 
 # If the ALLEXTERNALS tag is set to YES all external class will be listed in the
 # class index. If set to NO only the inherited external classes will be listed.

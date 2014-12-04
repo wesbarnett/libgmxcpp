@@ -34,6 +34,14 @@ float Frame::GetTime() const {
 int Frame::GetStep() const {
     return step;
 }
+vector <double> Frame::GetXYZ(int atom) const {
+	vector <double> xyz;
+    xyz.push_back(x[atom][X]);
+    xyz.push_back(x[atom][Y]);
+    xyz.push_back(x[atom][Z]);
+	return xyz;
+}
+
 
 void Frame::GetXYZ(int atom, rvec xyz) const {
     xyz[X] = x[atom][X];
