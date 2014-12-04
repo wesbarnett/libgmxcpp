@@ -23,44 +23,26 @@ const int Y = 1;
 /** Z coordinate */
 const int Z = 2;
 
-//typedef vector <double> coordinates;
-
-/** XYZ coordinates. This is just a double precision vector but 
+/** @brief Cartesian coordinates. 
+ * @details This is just a double precision vector but 
  * it has three items automatically when contructed. Additionally
  * one can add or subtract two sets of coordinates without having
  * to operate on each X, Y, and Z part individually.*/
 class coordinates: public vector<double> {
 	public:
-		coordinates() {
-			this->resize(DIM);
-		};
-		coordinates operator-(coordinates rhs) {
-			coordinates x;
-			x.at(X) = this->at(X) - rhs.at(X);
-			x.at(Y) = this->at(Y) - rhs.at(Y);
-			x.at(Z) = this->at(Z) - rhs.at(Z);
-			return x;
-		}
-		coordinates operator+(coordinates rhs) {
-			coordinates x;
-			x.at(X) = this->at(X) + rhs.at(X);
-			x.at(Y) = this->at(Y) + rhs.at(Y);
-			x.at(Z) = this->at(Z) + rhs.at(Z);
-			return x;
-		}
+		coordinates();
+		coordinates operator-(coordinates rhs);
+		coordinates operator+(coordinates rhs);
 };
 
-/** Box dimensions. This is just a two dimensional vector initialized to three
+/** @brief Box dimensions. 
+ * @details This is just a two dimensional vector initialized to three
  * items in each dimension. */
 class triclinicbox: public vector < vector <double> > {
 	public:
-		triclinicbox() {
-			this->resize(DIM);
-			for (int i=0; i < DIM; i++) {
-				this->at(i).resize(DIM);
-			}
-		};
+		triclinicbox();
 };
+
 /** Prints out coordinates cleanly with << */
 ostream& operator<<(ostream &os, coordinates xyz);
 

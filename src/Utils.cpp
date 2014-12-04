@@ -5,6 +5,33 @@
 
 #include "Utils.h"
 
+coordinates::coordinates() {
+	this->resize(DIM);
+};
+
+coordinates coordinates::operator-(coordinates rhs) {
+	coordinates x;
+	x.at(X) = this->at(X) - rhs.at(X);
+	x.at(Y) = this->at(Y) - rhs.at(Y);
+	x.at(Z) = this->at(Z) - rhs.at(Z);
+	return x;
+}
+coordinates coordinates::operator+(coordinates rhs) {
+	coordinates x;
+	x.at(X) = this->at(X) + rhs.at(X);
+	x.at(Y) = this->at(Y) + rhs.at(Y);
+	x.at(Z) = this->at(Z) + rhs.at(Z);
+	return x;
+}
+
+triclinicbox::triclinicbox() {
+	this->resize(DIM);
+	for (int i=0; i < DIM; i++) {
+		this->at(i).resize(DIM);
+		}
+	}
+}
+
 coordinates pbc(coordinates a, triclinicbox box) {
 
 	coordinates b;

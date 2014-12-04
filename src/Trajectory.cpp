@@ -137,7 +137,7 @@ vector <coordinates> Trajectory::GetXYZ(int frame, string groupName) const{
 // specified.
 coordinates Trajectory::GetXYZ(int frame, string group, int atom) const {
 	int location = index.GetLocation(group, atom);
-//TODO: throw exception of location not found
+// @TODO: throw exception if location not found
 	//if (location == -1) return;
 	return frameArray.at(frame).GetXYZ(location);
 }
