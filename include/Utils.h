@@ -16,18 +16,31 @@
 #include <vector>
 using namespace std;
 
-/** X coordinate in rvec */
+/** X coordinate */
 const int X = 0;
-/** Y coordinate in rvec */
+/** Y coordinate */
 const int Y = 1;
-/** Z coordinate in rvec */
+/** Z coordinate */
 const int Z = 2;
 
 /** XYZ coordinates **/
-typedef vector <double> coordinates;
+class coordinates: public vector<double> {
+	public:
+		coordinates() {
+			this->resize(DIM);
+		};
+};
 
 /** Box dimensions **/
-typedef vector < vector <double> > triclinicbox;
+class triclinicbox: public vector < vector <double> > {
+	public:
+		triclinicbox() {
+			this->resize(DIM);
+			for (int i=0; i < DIM; i++) {
+				this->at(i).resize(DIM);
+			}
+		};
+};
 
 /** Prints out coordinates cleanly with << */
 ostream& operator<<(ostream &os, coordinates xyz);
