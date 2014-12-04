@@ -112,8 +112,8 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
     ofstream oFS;
     oFS.open(outfile.c_str());
-	vector < vector <double> > xyz;
-	vector < vector <double> > box;
+	vector <coordinates> xyz;
+	triclinicbox box;
 
     cout << "Writing example data to " << outfile << "." << endl;
 
@@ -138,7 +138,7 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
         oFS << "Coordinates for group " << group << ":" << endl;
 		xyz = traj->GetXYZ(frame,group);
         for (int i=0;i<traj->GetNAtoms(group);i++) {
-			oFS << xyz.at(i).at(X) << " " << xyz.at(i).at(Y) << " " << xyz.at(i).at(Z) << endl;
+			oFS << xyz.at(i);
 		}
 
 
@@ -147,7 +147,7 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 		// Getting and printing the box coordinates for this frame
         oFS << "Box: " << endl;
         box = traj->GetBox(frame);
-		oFS << box.at(X).at(X) << " "<< box.at(Y).at(Y) << " " << box.at(Z).at(Z);
+		oFS << box;
 
 		oFS << "Box volume: " << endl;
 		oFS << traj->GetBoxVolume(frame) << endl;

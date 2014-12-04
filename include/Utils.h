@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 #include <string>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 /** X coordinate in rvec */
@@ -21,6 +22,14 @@ const int X = 0;
 const int Y = 1;
 /** Z coordinate in rvec */
 const int Z = 2;
+
+typedef vector <double> coordinates;
+typedef vector < vector <double> > triclinicbox;
+
+/** Prints out coordinates cleanly with << */
+ostream& operator<<(ostream &os, coordinates xyz);
+/** Prints out box coordinates cleanly with << */
+ostream& operator<<(ostream &os, triclinicbox box);
 
 /** Prints out rvec coordinates cleanly with << */
 ostream& operator<<(ostream &os, rvec xyz);

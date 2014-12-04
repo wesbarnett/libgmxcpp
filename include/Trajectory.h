@@ -163,7 +163,7 @@ class Trajectory {
 		 * @param frame Number of the frame desired.
 		 * @return Vector with X, Y, and Z coordinates of the atom specified.
 		 */
-		vector <double> GetXYZ(int frame, int atom) const;
+		coordinates GetXYZ(int frame, int atom) const;
 
 		/**
 		 * @brief Gets the coordinates for a specific atom in a group.
@@ -178,7 +178,7 @@ class Trajectory {
 		 * the group.
 		 * @return Vector with X, Y, and Z coordinates of the atom specified.
 		 */
-		vector <double> GetXYZ(int frame, string groupName, int atom) const;
+		coordinates GetXYZ(int frame, string groupName, int atom) const;
 
 		/**
 		 * @brief Gets all of the coordinates for the system for a specific
@@ -188,7 +188,7 @@ class Trajectory {
 		 * for the system at this frame. The first dimension is the atom number.
 		 * The second dimension contains the X, Y, and Z positions.
 		 */
-		vector < vector <double> > GetXYZ(int frame) const;
+		vector <coordinates> GetXYZ(int frame) const;
 
 		/**
 		 * @brief Gets all of the coordinates for an index group for a specific
@@ -202,7 +202,7 @@ class Trajectory {
 		 * for the system at this frame. The first dimension is the atom number
 		 * in the group. The second dimension contains the X, Y, and Z positions.
 		 */
-		vector < vector <double> > GetXYZ(int frame, string groupName) const;
+		vector <coordinates> GetXYZ(int frame, string groupName) const;
 
 		/**
 		 * @brief Gets the triclinic box dimensions for a frame.
@@ -210,7 +210,7 @@ class Trajectory {
 		 * @return  Two-dimensional array with three elements in each 
 		 * dimension, corresponding to a triclinic box.
 		 */
-		vector < vector <double> > GetBox(int frame) const;
+		triclinicbox GetBox(int frame) const;
 
 		/**
 		 * @brief Gets the coordinates of a specific atom in the entire system.

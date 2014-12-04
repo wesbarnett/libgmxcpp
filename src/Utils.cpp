@@ -107,6 +107,22 @@ ostream& operator<<(ostream &os, rvec xyz) {
     return os;
 }
 
+ostream& operator<<(ostream &os, coordinates xyz) {
+    os << xyz.at(X) << " " << xyz.at(Y) << " " << xyz.at(Z) << endl;
+    return os;
+}
+
+ostream& operator<<(ostream &os, triclinicbox box) {
+	for (int j=0; j<DIM; j++) {
+		for (int k=0; k<DIM; k++) {
+			os << box.at(j).at(k) << " ";
+        }
+        os << endl;
+	}
+	os << endl;
+    return os;
+}
+
 ostream& operator<<(ostream &os, matrix box) {
 	for (int j=0; j<DIM; j++) {
 		for (int k=0; k<DIM; k++) {

@@ -35,16 +35,17 @@ float Frame::GetTime() const {
 int Frame::GetStep() const {
     return step;
 }
-vector <double> Frame::GetXYZ(int atom) const {
-	vector <double> xyz;
+
+coordinates Frame::GetXYZ(int atom) const {
+	coordinates xyz;
     xyz.push_back(x[atom][X]);
     xyz.push_back(x[atom][Y]);
     xyz.push_back(x[atom][Z]);
 	return xyz;
 }
 
-vector < vector <double> > Frame::GetXYZ() const {
-	vector < vector <double> > xyz;
+vector <coordinates> Frame::GetXYZ() const {
+	vector <coordinates> xyz;
 	xyz.resize(natoms);
     for (int atom=0; atom<natoms; atom++) {
         xyz.at(atom).push_back(this->x[atom][X]);
@@ -54,9 +55,9 @@ vector < vector <double> > Frame::GetXYZ() const {
 	return xyz;
 }
 
-vector < vector <double> > Frame::GetXYZ(Index index, string group) const {
+vector <coordinates> Frame::GetXYZ(Index index, string group) const {
 	int location;
-	vector < vector <double> > xyz;
+	vector <coordinates> xyz;
 	xyz.resize(index.GetGroupSize(group));
     for (int atom=0; atom<index.GetGroupSize(group); atom++) {
 	    location = index.GetLocation(group, atom);
@@ -67,11 +68,9 @@ vector < vector <double> > Frame::GetXYZ(Index index, string group) const {
 	return xyz;
 }
 
-vector < vector <double> > Frame::GetBox() const {
-	vector < vector <double> > box;
-	box.resize(3);
+triclinicbox Frame::GetBox() const {
+	triclinicbox box;
 	for (int i=0; i<DIM; i++) {
-		box.at(i).resize(3);
 		for (int j=0; j<DIM; j++) {
 			box.at(i).at(j) = this->box[i][j];
 		}

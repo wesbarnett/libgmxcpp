@@ -7,6 +7,7 @@
 #include "xdrfile/xdrfile.h"
 #include "xdrfile/xdrfile_xtc.h"
 #include "Index.h"
+#include "Utils.h"
 
 /**
  * @brief Class with information on one trajectory frame.
@@ -68,7 +69,7 @@ class Frame {
 		 * @param frame Number of the frame desired.
 		 * @return Vector with X, Y, and Z coordinates of the atom specified.
 		 */
-		vector <double> GetXYZ(int atom) const;
+		coordinates GetXYZ(int atom) const;
 
 		/**
 		 * @brief Gets all of the coordinates for the system for this frame.
@@ -77,7 +78,7 @@ class Frame {
 		 * for the system at this frame. The first dimension is the atom number.
 		 * The second dimension contains the X, Y, and Z positions.
 		 */
-		vector < vector <double> > GetXYZ() const;
+		vector <coordinates> GetXYZ() const;
 
 		/**
 		 * @brief Gets the coordinates for all atoma in a group.
@@ -90,7 +91,7 @@ class Frame {
 		 * in the index group.
 		 * The second dimension contains the X, Y, and Z positions.
 		 */
-		vector < vector <double> > GetXYZ(Index index, string group) const;
+		vector <coordinates> GetXYZ(Index index, string group) const;
 
 		/**
 		 * @brief Gets the triclinic box dimensions for this frame.
@@ -99,7 +100,7 @@ class Frame {
 		 * @return Two-dimensional array with three elements in each 
 		 * dimension, corresponding to a triclinic box.
 		 */
-		vector < vector <double> >  GetBox() const;
+		triclinicbox  GetBox() const;
 
 		/**
 		 * @brief Gets the coordinates of a specific atom in the entire system.
