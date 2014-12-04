@@ -23,6 +23,8 @@ const int Y = 1;
 /** Z coordinate */
 const int Z = 2;
 
+//typedef vector <double> coordinates;
+
 /** XYZ coordinates **/
 class coordinates: public vector<double> {
 	public:
@@ -41,7 +43,6 @@ class triclinicbox: public vector < vector <double> > {
 			}
 		};
 };
-
 /** Prints out coordinates cleanly with << */
 ostream& operator<<(ostream &os, coordinates xyz);
 
