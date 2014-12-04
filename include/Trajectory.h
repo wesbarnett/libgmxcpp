@@ -181,10 +181,44 @@ class Trajectory {
 		vector <double> GetXYZ(int frame, string groupName, int atom) const;
 
 		/**
+		 * @brief Gets all of the coordinates for the system for a specific
+		 * frame.
+		 * @param frame Number of the frame desired.
+		 * @return A two dimensional vector with all cartesian coordinates
+		 * for the system at this frame. The first dimension is the atom number.
+		 * The second dimension contains the X, Y, and Z positions.
+		 */
+		vector < vector <double> > GetXYZ(int frame) const;
+
+		/**
+		 * @brief Gets all of the coordinates for an index group for a specific
+		 * frame.
+		 * @details
+		 * This is the old way.
+		 * The new way is to return a vector (see above).
+		 * @param frame Number of the frame desired.
+		 * @param groupName Name of index group in which atom is located.
+		 * @return A two dimensional vector with all cartesian coordinates
+		 * for the system at this frame. The first dimension is the atom number
+		 * in the group. The second dimension contains the X, Y, and Z positions.
+		 */
+		vector < vector <double> > GetXYZ(int frame, string groupName) const;
+
+		/**
+		 * @brief Gets the triclinic box dimensions for a frame.
+		 * @param frame Number of the frame desired.
+		 * @return  Two-dimensional array with three elements in each 
+		 * dimension, corresponding to a triclinic box.
+		 */
+		vector < vector <double> > GetBox(int frame) const;
+
+		/**
 		 * @brief Gets the coordinates of a specific atom in the entire system.
 		 * @details Gets the cartesian coordinates for the atom specified at the frame
 		 * specified. "rvec" is a one-dimensional array with three entries,
-		 * corresponding to the X, Y, and Z coordinates.
+		 * corresponding to the X, Y, and Z coordinates. 
+		 * This is the old way.
+		 * The new way is to return a vector (see above).
 		 * @param atom The number corresponding with the atom in the entire
 		 * system.
 		 * @param frame Number of the frame desired.
@@ -196,6 +230,8 @@ class Trajectory {
 		 * @brief Gets the coordinates for a specific atom in a group.
 		 * @details Gets the cartesian coordinates for the atom specified in the specific
 		 * index group for this frame.
+		 * This is the old way.
+		 * The new way is to return a vector (see above).
 		 * @param frame Number of the frame desired.
 		 * @param groupName Name of index group in which atom is located.
 		 * @param atom The number corresponding with the atom in the index
@@ -215,6 +251,9 @@ class Trajectory {
 		/**
 		 * @brief Gets all of the coordinates for the system for a specific
 		 * frame.
+		 * @details
+		 * This is the old way.
+		 * The new way is to return a vector (see above).
 		 * @param frame Number of the frame desired.
 		 * @param xyz[] A two dimensional array with all cartesian coordinates
 		 * for the system at this frame. The first dimension is the atom number.
@@ -225,6 +264,9 @@ class Trajectory {
 		/**
 		 * @brief Gets all of the coordinates for an index group for a specific
 		 * frame.
+		 * @details
+		 * This is the old way.
+		 * The new way is to return a vector (see above).
 		 * @param frame Number of the frame desired.
 		 * @param groupName Name of index group in which atom is located.
 		 * @param xyz[] A two dimensional array with all cartesian coordinates

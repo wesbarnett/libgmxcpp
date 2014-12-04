@@ -96,7 +96,7 @@ void Trajectory::read(int initialFrames) {
 		x = new rvec[natoms];
 		status = read_xtc(xd,natoms,&step,&time,box,x,&prec);
 		if (status !=0) break;
-		frameArray.at(nframes).Set(step,time,box,x);
+		frameArray.at(nframes).Set(step,time,box,x,natoms);
 		if (nframes % 10 == 0) {
             cout << "   frame: " << nframes;
             cout << " | time (ps): " << time;
@@ -123,6 +123,16 @@ vector <double> Trajectory::GetXYZ(int frame, int atom) const{
 	return frameArray.at(frame).GetXYZ(atom);
 }
 
+// Gets the xyz coordinates for the entire frame.
+vector < vector <double> > Trajectory::GetXYZ(int frame) const{
+	return frameArray.at(frame).GetXYZ();
+}
+
+vector < vector <double> > Trajectory::GetXYZ(int frame, string groupName) const{
+	return frameArray.at(frame).GetXYZ(index,groupName);
+}
+
+
 // Gets the xyz coordinates when the frame, group, and atom number are
 // specified.
 vector <double> Trajectory::GetXYZ(int frame, string group, int atom) const {
@@ -130,6 +140,10 @@ vector <double> Trajectory::GetXYZ(int frame, string group, int atom) const {
 //TODO: throw exception of location not found
 	//if (location == -1) return;
 	return frameArray.at(frame).GetXYZ(location);
+}
+
+vector < vector <double> > Trajectory::GetBox(int frame) const {
+	return frameArray.at(frame).GetBox();
 }
 
 

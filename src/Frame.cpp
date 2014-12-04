@@ -9,13 +9,13 @@
 Frame::Frame() {
 }
 
-Frame::Frame(int step,float time,matrix box,rvec *x) {
-	Set(step,time,box,x);
+Frame::Frame(int step,float time,matrix box,rvec *x,int natoms) {
+	Set(step,time,box,x,natoms);
 }
 
 
 // Sets the info (step, time, coordinates) for this specific frame
-void Frame::Set(int step,float time,matrix box,rvec *x) {
+void Frame::Set(int step,float time,matrix box,rvec *x,int natoms) {
 	this->step = step;
 	this->time = time;
 	for (int i=0;i<DIM;i++) {
@@ -24,6 +24,7 @@ void Frame::Set(int step,float time,matrix box,rvec *x) {
 		}
 	}
 	this->x = x;
+	this->natoms = natoms;
 	return;
 }
 
@@ -42,6 +43,41 @@ vector <double> Frame::GetXYZ(int atom) const {
 	return xyz;
 }
 
+vector < vector <double> > Frame::GetXYZ() const {
+	vector < vector <double> > xyz;
+	xyz.resize(natoms);
+    for (int atom=0; atom<natoms; atom++) {
+        xyz.at(atom).push_back(this->x[atom][X]);
+        xyz.at(atom).push_back(this->x[atom][Y]);
+        xyz.at(atom).push_back(this->x[atom][Z]);
+    }
+	return xyz;
+}
+
+vector < vector <double> > Frame::GetXYZ(Index index, string group) const {
+	int location;
+	vector < vector <double> > xyz;
+	xyz.resize(index.GetGroupSize(group));
+    for (int atom=0; atom<index.GetGroupSize(group); atom++) {
+	    location = index.GetLocation(group, atom);
+        xyz.at(atom).push_back(this->x[location][X]);
+        xyz.at(atom).push_back(this->x[location][Y]);
+        xyz.at(atom).push_back(this->x[location][Z]);
+    }
+	return xyz;
+}
+
+vector < vector <double> > Frame::GetBox() const {
+	vector < vector <double> > box;
+	box.resize(3);
+	for (int i=0; i<DIM; i++) {
+		box.at(i).resize(3);
+		for (int j=0; j<DIM; j++) {
+			box.at(i).at(j) = this->box[i][j];
+		}
+	}
+	return box;
+}
 
 void Frame::GetXYZ(int atom, rvec xyz) const {
     xyz[X] = x[atom][X];
