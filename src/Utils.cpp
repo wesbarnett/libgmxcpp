@@ -42,14 +42,9 @@ coordinates cross(coordinates a, coordinates b) {
 
 double distance2(coordinates a, coordinates b, triclinicbox box) {
 
-    coordinates c;
-    c.at(X) = a.at(X) - b.at(X);
-    c.at(Y) = a.at(Y) - b.at(Y);
-    c.at(Z) = a.at(Z) - b.at(Z);
-    pbc(c,box);
-
+    coordinates c = a - b;
+    c = pbc(c,box);
     return dot(c,c);
-
 }
 
 double distance(coordinates a, coordinates b, triclinicbox box) {
