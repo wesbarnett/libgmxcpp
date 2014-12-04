@@ -38,9 +38,9 @@ int Frame::GetStep() const {
 
 coordinates Frame::GetXYZ(int atom) const {
 	coordinates xyz;
-    xyz.at(X) + x[atom][X];
-    xyz.at(Y) + x[atom][Y];
-    xyz.at(Z) + x[atom][Z];
+    xyz.at(X) = x[atom][X];
+    xyz.at(Y) = x[atom][Y];
+    xyz.at(Z) = x[atom][Z];
 	return xyz;
 }
 
