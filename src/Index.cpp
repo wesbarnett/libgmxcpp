@@ -1,4 +1,12 @@
 
+/** 
+ * @file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
+ * @brief Index class
+ * @see Index.h
+ */
+
 #include "Index.h"
 
 Index::Index() {
@@ -10,11 +18,6 @@ Index::Index(string ndxfile) {
 	return;
 }
 
-// Reads in the index file, first getting the group names so that the locations
-// vector can be properly sized. Then the index file is read again; if the line
-// is a header, increment the group counter. Any other line is read in with a
-// string stream into integers that are added to the vector located in this
-// location in the locations vector.
 bool Index::Set(string ndxfile) {
 
     ifstream iFS;
@@ -92,8 +95,6 @@ bool Index::IsIndexFile(string ndxfile) const {
     return false;
 }
 
-// Translates the string name of a header to its correct index integer
-// If the header is not present in the index file, throw an exception
 int Index::GetHeaderIndex(string header) const {
     for (int i=0; i<headers.size(); i++) {
         if (headers.at(i) == header) return i;
@@ -109,7 +110,6 @@ int Index::GetGroupSize(string header) const {
     }
 }
 
-// Gets the location of the ith atom in the header group specified
 int Index::GetLocation(string header, int i) const {
     try {
         return locations.at(GetHeaderIndex(header)).at(i)-1;

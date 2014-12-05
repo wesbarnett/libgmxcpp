@@ -1,5 +1,7 @@
 
 /** @file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
  *  @brief A couple of command line utilities.
  */
 
@@ -26,6 +28,7 @@ using namespace std;
  * @return Whether or not the flag was found and had a valid argument.
  * @todo Handle other argument types.
  */
+
 bool getArgument(int argc, char* argv[], string flag, string *argToReturn);
 /**
  * @brief Check if help command flag was specified.

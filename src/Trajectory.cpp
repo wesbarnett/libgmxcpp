@@ -1,5 +1,8 @@
-/**
- * @author James Barnett, jbarnet4@tulane.edu
+/** 
+ * @file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @brief Trajectory class
+ * @see Trajectory.h
  */
 
 #include "Trajectory.h"
@@ -145,46 +148,6 @@ coordinates Trajectory::GetXYZ(int frame, string group, int atom) const {
 
 triclinicbox Trajectory::GetBox(int frame) const {
 	return frameArray.at(frame).GetBox();
-}
-
-
-// Gets the xyz coordinates when the frame and atom number are specified.
-void Trajectory::GetXYZ(int frame, int atom, rvec xyz) const {
-	frameArray.at(frame).GetXYZ(atom,xyz);
-    return;
-}
-
-// Gets the xyz coordinates when the frame, group, and atom number are
-// specified.
-void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) const {
-	int location = index.GetLocation(group, atom);
-	if (location == -1) return;
-	frameArray.at(frame).GetXYZ(location,xyz);
-    return;
-}
-
-void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) const {
-    this->GetXYZ(frame,group,atom,xyz);
-    return;
-}
-
-// Gets all the coordinates for the entire frame
-void Trajectory::GetXYZ(int frame, rvec xyz[]) const {
-	frameArray.at(frame).GetXYZ(xyz,natoms);
-    return;
-}
-
-// Gets all the coordinates for the entire frame for one group
-void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) const {
-    frameArray.at(frame).GetXYZ(xyz,index,group);
-    return;
-}
-
-
-// Gets the box dimensions for a specific frame
-void Trajectory::GetBox(int frame, matrix box) const {
-	frameArray.at(frame).GetBox(box);
-	return;
 }
 
 int Trajectory::GetNAtoms(string group) const {

@@ -1,7 +1,10 @@
 
 /** @file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
  * @brief Header for Index class 
  */
+
 #ifndef INDEX_H
 #define INDEX_H
 
@@ -22,19 +25,55 @@ using namespace std;
  * file is read in. The names of each group are stored in headers. The locations
  * for each group are stored in the locations vector.
  */
+
 class Index {
+
 	private:
+
+		/**
+		 * @brief The names of the groups in the index file.
+		 */
         vector <string> headers;
+
+		/**
+		 * @brief The index locations for each group.
+		 */
         vector < vector <int> > locations;
+
+		/**
+		 * @brief Translates the string name of a header to its correct index integer.
+		 * @details If the header is not present in the index file, throw an exception
+		 * @param groupName Name of the group.
+		 * @return Integer corresponding with header (used in headers vector).
+		 */
         int GetHeaderIndex(string groupName) const;
+
+		/**
+		 * @brief Checks if a line read in is a header (group name).
+		 * @param line Line read in from index file.
+		 * @return True if is a header; false otherwise.
+		 */
 		bool isHeader(string line) const;
+
+		/**
+		 * @brief Checks if a file is a valid index file.
+		 * @return True if is valid; false otherwise.
+		 * @param ndxfile Name of index file.
+		 */
 		bool IsIndexFile(string ndxfile) const;
+
+		/**
+		 * @brief Prints info from index file.
+		 */
 		void PrintInfo() const;
+
 	public:
+
 		/**
 		 * @brief Blank constructor used in Trajectory object 
 		 * */
 		Index();
+
 		/**
 		 * @brief Constructor which specifies index file.
 		 * @details When constructed the index file is read into the
@@ -43,6 +82,7 @@ class Index {
 		 * @param ndxfile Name of index file to be read in.
 		 * */
 		Index(string ndxfile);
+
 		/**
 		 * @brief Reads in the GROMACS index file specified.
 		 * @details See above constructor. This is used in the Trajectory object
