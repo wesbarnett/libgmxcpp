@@ -8,7 +8,7 @@
 #ifndef TRICLINICBOX_H
 #define TRICLINICBOX_H
 
-#include "Utils.h"
+#include "xdrfile/xdrfile.h"
 #include <vector>
 using namespace std;
 

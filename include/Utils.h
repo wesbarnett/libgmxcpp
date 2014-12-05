@@ -12,21 +12,14 @@
 
 #include "xdrfile/xdrfile.h"
 #include "xdrfile/xdrfile_xtc.h"
-#include "coordinates.h"
-#include "triclinicbox.h"
 #include <math.h>
 #include <cmath>
 #include <sys/stat.h>
 #include <string>
 #include <fstream>
+#include "coordinates.h"
+#include "triclinicbox.h"
 using namespace std;
-
-/** X coordinate */
-const int X = 0;
-/** Y coordinate */
-const int Y = 1;
-/** Z coordinate */
-const int Z = 2;
 
 /**
  * @brief Adjusts for periodic boundary condition

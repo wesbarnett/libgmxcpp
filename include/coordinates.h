@@ -8,9 +8,16 @@
 #ifndef COORDINATES_H
 #define COORDINATES_H
 
-#include "Utils.h"
+#include "xdrfile/xdrfile.h"
 #include <vector>
 using namespace std;
+
+/** X coordinate */
+const int X = 0;
+/** Y coordinate */
+const int Y = 1;
+/** Z coordinate */
+const int Z = 2;
 
 /** @brief Cartesian coordinates. 
  * @details This is just a double precision vector but 

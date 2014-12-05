@@ -87,3 +87,8 @@ ostream& operator<<(ostream &os, triclinicbox box) {
 	os << endl;
     return os;
 }
+
+bool fileExists(string filename) {
+	ifstream infile(filename.c_str());
+	return infile.good();
+}

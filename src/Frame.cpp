@@ -2,12 +2,12 @@
 /** 
  * @file
  * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
  * @brief Frame class
  * @see Frame.h
  */
 
 #include "Frame.h"
-#include "Trajectory.h"
 
 Frame::Frame() {
 }
