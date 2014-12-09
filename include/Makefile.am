@@ -3,4 +3,6 @@ include_HEADERS = \
 			Index.h \
 			Utils.h \
 			Trajectory.h \
-			Frame.h
+			Frame.h \
+			coordinates.h \
+			triclinicbox.h 

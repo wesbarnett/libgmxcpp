@@ -15,6 +15,8 @@ libgmxcpp_la_SOURCES = \
 			Index.cpp 		\
 			Frame.cpp 		\
 			Trajectory.cpp	\
-			Utils.cpp
+			Utils.cpp \
+			coordinates.cpp \
+			triclinicbox.cpp
 
 CLEANFILES   = 	*~ \\\#*

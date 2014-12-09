@@ -1,13 +1,18 @@
 
 /**@file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
  * @brief Header for Frame class
  */
+
 #ifndef FRAME_H
 #define FRAME_H
 #include "xdrfile/xdrfile.h"
 #include "xdrfile/xdrfile_xtc.h"
 #include "Index.h"
 #include "Utils.h"
+#include "coordinates.h"
+#include "triclinicbox.h"
 
 /**
  * @brief Class with information on one trajectory frame.
@@ -20,12 +25,19 @@
  * The matrix type is just a 3 x 3 array. Frame objects are usually not created
  * on their own, but instead are created as a vector in a Trajectory object.
  */
+
 class Frame {
     private:
+		/** Number of atoms in the system */
 		int natoms;
+		/** Simulation step corresponding with this frame. */
         int step;
+		/** Simulation time (picoseconds) corresponding with this frame. */
         float time;
+		/** Coordinates for all atoms in this frame. rvec comes from libxdrfile.
+		 * */
         rvec *x;
+		/** Box dimensions for this frame. matrix comes from libxdrfile. */
         matrix box; 
     public:
 
@@ -66,7 +78,6 @@ class Frame {
 		 * and returns it as a vector.
 		 * @param atom The number corresponding with the atom in the entire
 		 * system.
-		 * @param frame Number of the frame desired.
 		 * @return Vector with X, Y, and Z coordinates of the atom specified.
 		 */
 		coordinates GetXYZ(int atom) const;
@@ -91,7 +102,7 @@ class Frame {
 		 * in the index group.
 		 * The second dimension contains the X, Y, and Z positions.
 		 */
-		vector <coordinates> GetXYZ(Index index, string group) const;
+		vector <coordinates> GetXYZ(Index index, string groupName) const;
 
 		/**
 		 * @brief Gets the triclinic box dimensions for this frame.
@@ -101,53 +112,6 @@ class Frame {
 		 * dimension, corresponding to a triclinic box.
 		 */
 		triclinicbox  GetBox() const;
-
-		/**
-		 * @brief Gets the coordinates of a specific atom in the entire system.
-		 * @details Gets the cartesian coordinates for the atom specified at this frame.
-		 * "rvec" is a one-dimensional array with three entries,
-		 * corresponding to the X, Y, and Z coordinates. 
-		 * This is the old way.
-		 * The new way is to return a vector (see above).
-		 * @param atomNumber The number corresponding with the atom in the entire
-		 * system.
-		 * @param xyz Array with X, Y, and Z coordinates of the atom specified.
-		 */
-		void GetXYZ(int atomNumber, rvec xyz) const;
-
-		/**
-		 * @brief Gets all of the coordinates for the system for this frame.
-		 * @details
-		 * This is the old way.
-		 * The new way is to return a vector (see above).
-		 * @param xyz[] A two dimensional array with all cartesian coordinates
-		 * for the system at this frame. The first dimension is the atom number.
-		 * The second dimension contains the X, Y, and Z positions.
-		 * @param natoms The number of atoms in the system.
-		 */
-		void GetXYZ(rvec xyz[], int natoms) const;
-
-		/**
-		 * @brief Gets the coordinates for a all atoms in a group.
-		 * @details Gets the cartesian coordinates for the atom specified in the specific
-		 * index group for this frame.
-		 * This is the old way.
-		 * The new way is to return a vector (see above).
-		 * @param groupName Name of index group in which atom is located.
-		 * @param xyz Array with X, Y, and Z coordinates of the atom specified.
-		 * @param index The index object containing the group specified.
-		 */
-		void GetXYZ(rvec xyz[], Index index, string groupName) const;
-
-		/**
-		 * @brief Gets the triclinic box dimensions for this frame.
-		 * @details Gets the cartesian coordinates for the atom specified in the specific
-		 * index group for this frame.
-		 * This is the old way. The new way returns a vector (see above).
-		 * @param box Two-dimensional array with three elements in each 
-		 * dimension, corresponding to a triclinic box.
-		 */
-		void GetBox(matrix box) const;
 
 		/**
 		 * @brief Gets the volume of the box at this frame.
