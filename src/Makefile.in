@@ -119,7 +119,7 @@ am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libgmxcpp_la_LIBADD =
 am_libgmxcpp_la_OBJECTS = CommandLine.lo Index.lo Frame.lo \
-	Trajectory.lo Utils.lo
+	Trajectory.lo Utils.lo coordinates.lo triclinicbox.lo
 libgmxcpp_la_OBJECTS = $(am_libgmxcpp_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -321,7 +321,9 @@ libgmxcpp_la_SOURCES = \
 			Index.cpp 		\
 			Frame.cpp 		\
 			Trajectory.cpp	\
-			Utils.cpp
+			Utils.cpp \
+			coordinates.cpp \
+			triclinicbox.cpp
 
 CLEANFILES = *~ \\\#*
 all: all-am
@@ -408,6 +410,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Index.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Trajectory.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Utils.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/coordinates.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/triclinicbox.Plo@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

@@ -1,5 +1,5 @@
 
-AC_INIT(gmxcpp,1.0.4,[jbarnet4@tulane.edu])
+AC_INIT(gmxcpp,2.0.0,[jbarnet4@tulane.edu])
 AC_CONFIG_SRCDIR(src/CommandLine.cpp)
 AC_CONFIG_AUX_DIR(config)
 AC_CANONICAL_HOST
@@ -21,7 +21,7 @@ AC_CHECK_LIB(xdrfile, main,,AC_MSG_ERROR(This library requires the xdrfile
 AC_CHECK_HEADERS(xdrfile/xdrfile.h,,AC_MSG_WARN(xdrfile header missing ?))
 AC_CHECK_HEADERS(xdrfile/xdrfile_xtc.h,,AC_MSG_WARN(xdrfile header missing ?))
 
-SHARED_VERSION_INFO="4:0:0"
+SHARED_VERSION_INFO="6:0:0"
 AC_SUBST(SHARED_VERSION_INFO)
 
 AC_PROG_LIBTOOL
