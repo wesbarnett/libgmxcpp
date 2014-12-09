@@ -16,3 +16,5 @@ images/
 javascripts/
 params.json
 stylesheets/
+*.o
+*.lo
