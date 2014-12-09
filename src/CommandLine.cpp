@@ -1,4 +1,12 @@
 
+/** 
+ * @file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
+ * @brief Helps with parsing command line.
+ * @see CommandLine.h
+ */
+
 #include "CommandLine.h"
 
 bool getArgument(int argc, char* argv[], string flag, string *argToReturn) {

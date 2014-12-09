@@ -1,5 +1,9 @@
-/**
- * @author James Barnett, jbarnet4@tulane.edu
+/** 
+ * @file
+ * @author James W. Barnett jbarnet4@tulane.edu
+ * @date December 5, 2014
+ * @brief Trajectory class
+ * @see Trajectory.h
  */
 
 #include "Trajectory.h"
@@ -57,6 +61,9 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 }
 
 
+// Initializes the xtc file by opening the file and reading the number of atoms.
+// We'll need that for read() later. read_xtc_natoms and xdrfile_open come from
+// libxdrfile. 
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
 	for (int i=0;i<filename.size();i++) {
@@ -71,13 +78,13 @@ void Trajectory::InitXTC(string filename) {
     return;
 }
 
-// Reads in all of the frames from the xtc file. First, we allocate memory 
-// for our temporary Frame array. Then we allocate memory for the vectors 
-// for this frame based on the number of atoms read in from earlier. We 
-// cycle through each frame, saving the important info for each step into 
-// the temporary frame array. After this we allocate memory for the final 
-// frame array based on how many frames were read in. Lastly, we delete the 
-// temporary array.
+// Reads in all of the frames from the xtc file. First, we resize frameArray to
+// a it's initial size. Then we read in the xtc file frame by frame using
+// libxdrfile's read_xtc function. We set the relevant data at each frame. If
+// there are more frames left to read in but our vector wasn't large enough we
+// warn the user (although we could do a resize, the user is allowed to choose a
+// smaller number of frames and may not want them). Lastly we resize frameArray
+// and close the xd file pointer from libxdrfile's xdrfile_close.
 void Trajectory::read(int initialFrames) {
 
 	int status = 0;
@@ -129,6 +136,7 @@ vector <coordinates> Trajectory::GetXYZ(int frame) const{
 	return frameArray.at(frame).GetXYZ();
 }
 
+// Gets the xyz coordinates for an entire group.
 vector <coordinates> Trajectory::GetXYZ(int frame, string groupName) const{
 	return frameArray.at(frame).GetXYZ(index,groupName);
 }
@@ -145,46 +153,6 @@ coordinates Trajectory::GetXYZ(int frame, string group, int atom) const {
 
 triclinicbox Trajectory::GetBox(int frame) const {
 	return frameArray.at(frame).GetBox();
-}
-
-
-// Gets the xyz coordinates when the frame and atom number are specified.
-void Trajectory::GetXYZ(int frame, int atom, rvec xyz) const {
-	frameArray.at(frame).GetXYZ(atom,xyz);
-    return;
-}
-
-// Gets the xyz coordinates when the frame, group, and atom number are
-// specified.
-void Trajectory::GetXYZ(int frame, string group, int atom, rvec xyz) const {
-	int location = index.GetLocation(group, atom);
-	if (location == -1) return;
-	frameArray.at(frame).GetXYZ(location,xyz);
-    return;
-}
-
-void Trajectory::GetXYZ(string group, int frame, int atom, rvec xyz) const {
-    this->GetXYZ(frame,group,atom,xyz);
-    return;
-}
-
-// Gets all the coordinates for the entire frame
-void Trajectory::GetXYZ(int frame, rvec xyz[]) const {
-	frameArray.at(frame).GetXYZ(xyz,natoms);
-    return;
-}
-
-// Gets all the coordinates for the entire frame for one group
-void Trajectory::GetXYZ(int frame, string group, rvec xyz[]) const {
-    frameArray.at(frame).GetXYZ(xyz,index,group);
-    return;
-}
-
-
-// Gets the box dimensions for a specific frame
-void Trajectory::GetBox(int frame, matrix box) const {
-	frameArray.at(frame).GetBox(box);
-	return;
 }
 
 int Trajectory::GetNAtoms(string group) const {

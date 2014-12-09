@@ -53,6 +53,8 @@ int main(int argc, char* argv[]) {
  * Also checks if help flag is initiated.
  * @param xtcfile Name of XTC file
  * @param ndxfile Name of the index file
+ * @param argc Number of command line paramters
+ * @param argv[] Command line parameter
  * @return True If there is no error or help flag not called. Otherwise false.
  */
 bool parseCommandLine(int argc,char* argv[],string *xtcfile,string *ndxfile) {
