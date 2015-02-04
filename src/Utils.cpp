@@ -42,6 +42,7 @@ coordinates cross(coordinates a, coordinates b) {
 	r.at(X) = a.at(Y)*b.at(Z)-a.at(Z)*b.at(Y);
 	r.at(Y) = a.at(Z)*b.at(X)-a.at(X)*b.at(Z);
 	r.at(Z) = a.at(X)*b.at(Y)-a.at(Y)*b.at(X);
+    return r;
 }
 
 double distance2(coordinates a, coordinates b, triclinicbox box) {
