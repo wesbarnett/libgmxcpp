@@ -35,6 +35,12 @@ class coordinates: public vector<double> {
 
 		/** Subtracts two sets of coordinates together, element-by-element */
 		coordinates operator+(coordinates rhs);
+
+		/** Divides X, Y, and Z by a scalar **/
+		coordinates operator/(double rhs);
+
+		/** Divides X, Y, and Z by a scalar **/
+		coordinates operator/=(double rhs);
 };
 
 #endif

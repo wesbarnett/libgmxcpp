@@ -18,3 +18,5 @@ params.json
 stylesheets/
 *.o
 *.lo
+config.status
+src/.libs
