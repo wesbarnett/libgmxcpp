@@ -94,10 +94,7 @@ bool Index::Set(string ndxfile) {
 
 void Index::PrintInfo() const {
 	for (unsigned int i=0; i<headers.size(); i++) {
-		cout << "  " << headers.at(i);
-		for (unsigned int j=0; j<10-headers.at(i).length(); j++) {
-			cout << " ";
-		}
+		cout << left << "  " << setw(15) << headers.at(i);
 		cout << "(" << locations.at(i).size() << " particles)" << endl;
 	}
 	return;

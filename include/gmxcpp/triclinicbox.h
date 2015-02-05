@@ -30,7 +30,7 @@
 #ifndef TRICLINICBOX_H
 #define TRICLINICBOX_H
 
-#include "xdrfile/xdrfile.h"
+#include "gmxcpp/xdrfile.h"
 #include <vector>
 using namespace std;
 

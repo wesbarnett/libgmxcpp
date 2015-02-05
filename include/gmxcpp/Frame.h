@@ -29,8 +29,8 @@
 
 #ifndef FRAME_H
 #define FRAME_H
-#include "xdrfile/xdrfile.h"
-#include "xdrfile/xdrfile_xtc.h"
+#include "gmxcpp/xdrfile.h"
+#include "gmxcpp/xdrfile_xtc.h"
 #include "gmxcpp/Index.h"
 #include "gmxcpp/Utils.h"
 #include "gmxcpp/coordinates.h"
