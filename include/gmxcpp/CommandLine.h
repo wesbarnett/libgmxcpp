@@ -46,7 +46,7 @@ using namespace std;
  * similar.
  * @param argToReturn If the flag is found, return the corresponding argument to
  * this variable, i.e., "-f traj.xtc" would return "traj.xtc" if the "-f" flag
- * is passed."
+ * is passed.
  * @return Whether or not the flag was found and had a valid argument.
  * @todo Handle other argument types.
  */
