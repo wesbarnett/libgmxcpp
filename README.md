@@ -16,7 +16,7 @@ GROMACS index file.
 * Analysis loops can easily be parallelized with class getter functions, since
   all data frames are initially read in and can be accessed simultaneously.
 
-![Screenshot](img/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/wesbarnett/libgmxcpp/master/img/screenshot.png)
 
 [Full documentation is located here.](http://wesbarnett.github.io/libgmxcpp)
 
