@@ -28,6 +28,7 @@ make install
 #Example Program
 There is an example program in the "example" directory. Use "make" to compile it
 and test it out.
+<<<<<<< HEAD
 
 #Usage
 
