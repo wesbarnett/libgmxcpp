@@ -1,3 +1,5 @@
+###libgmxcpp
+
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
 implements an object-oriented style. The main usage of the library is to be able
@@ -34,7 +36,7 @@ make
 make install
 ````
 
-#Example Program
+##Example Program
 There is an example program in the "example" directory. Use "make" to compile it
 and test it out.
 
