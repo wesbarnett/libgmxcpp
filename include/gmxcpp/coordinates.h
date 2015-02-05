@@ -41,6 +41,7 @@ class coordinates: public vector<double> {
 
 		/** Divides X, Y, and Z by a scalar **/
 		coordinates operator/=(double rhs);
+
 };
 
 #endif
