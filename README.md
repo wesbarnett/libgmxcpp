@@ -1,5 +1,3 @@
-#libgmxcpp
-
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
 implements an object-oriented style. The main usage of the library is to be able
@@ -26,7 +24,7 @@ Cmake and [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) a
 
 ##Installation
 
-```bash
+~~~{bash}
 git clone git@github.com:wesbarnett/libgmxcpp.git
 cd libgmxcpp
 mkdir build
@@ -34,7 +32,7 @@ cd build
 cmake ..
 make
 make install
-```
+~~~
 
 ##Example Program
 There is an example program in the "example" directory. Use "make" to compile it
@@ -53,18 +51,18 @@ object methods are then used for analyzing the data.
 
 First, you should create a Trajectory object:
 
-```c++
+~~~{.cpp}
 // Creates a Trajectory object with "traj.xtc" and "index.ndx"
 // The index file is optional
 // Both arguments are C++ strings
 Trajectory traj("traj.xtc","index.ndx");
-```
+~~~
 
 You could also make it a pointer:
 
-```c++
+~~~{.cpp}
 Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
-```
+~~~
 
 In that case just remember to use "->" instead of "." when calling its methods.
 
@@ -77,12 +75,12 @@ frames read in. If you have more frames than that to read in, or you memory is
 precious and you want to initially allocate for less, you can pass the number of
 initial frames as a parameter in the construction:
 
-```c++
+~~~{.cpp}
 // 2 million frames! With an index file.
 Trajectory traj("traj.xtc","index.ndx",2000000);
 // Without an index file
 Trajectory traj("traj.xtc",2000000);
-```
+~~~
 
 ###Atomic Coordinates
 
@@ -92,36 +90,36 @@ precision. triclinicbox is a two dimensional vector with double precision.
 
 You can get the coordinates for every atom in the system for a specific frame.
 
-```c++
+~~~{.cpp}
 // For the 3rd frame
 vector <coordinates> a = traj.GetXYZ(2);
 // To print out the first atom's coordinates in this vector:
 cout << a.at(0);
-```
+~~~
 
 You can get the coordinates for every atom in an index group for a specific
 
-```c++
+~~~{.cpp}
 // For group "C" in the 3rd frame
 vector <coordinates> a = traj.GetXYZ(2,"C")
-```
+~~~
 
 You can get the coordinates for one specific atom in the system for a specific
 frame:
 
-```c++
+~~~{.cpp}
 // Second atom in the 3rd frame
 coordinates a = traj.GetXYZ(2,1);
 // You can print cleanly:
 cout << a;
-```
+~~~
 
 You can get the coordinates for one specific atom in an index group for a frame:
 
-```c++
+~~~{.cpp}
 // 2nd atom in group "C" in the 3rd frame
 coordinates a = traj.GetXYZ(2,"C",1);
-```
+~~~
 
 Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 
@@ -129,60 +127,60 @@ Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 
 To get the box dimensions use GetBox() method:
 
-```c++
+~~~{.cpp}
 // Gets the box dimensions from the first frame:
 triclinicbox box = traj.GetBox(0);
 // You can print cleanly:
 cout << box;
-```
+~~~
 
 ###Box Volume
 
 To get the volume of the simulation box for any frame:
 
-```c++
+~~~{.cpp}
 // For frame 0
 double vol = traj.GetBoxVolume(0);
-```
+~~~
 
 ###Number of Frames
 
 To get the number of frames in the simulation use GetNFrames():
 
-```c++
+~~~{.cpp}
 int nframes = traj.GetNFrames();
-```
+~~~
 
 ###Number of Atoms
 
 To get the number of atoms in the entire system use GetNAtoms():
 
-```c++
+~~~{.cpp}
 int natoms = traj.GetNAtoms();
-```
+~~~
 
 To get the size (number of atoms in) a specific group pass the index name as an
 argument:
 
-```c++
+~~~{.cpp}
 // Gets the number of atoms in group "SOL"
 int solsize = traj.GetNAtoms("SOL"):
-```
+~~~
 
 ###Time and Step
 
 To get the time (in ps) corresponding with a frame use GetTime(frame):
 
-```c++
+~~~{.cpp}
 // Gets the time of the 5th frame
 float time = traj.GetTime(4);
-```
+~~~
 
 To get the step for a frame use GetStep(frame):
-```c++
+~~~{.cpp}
 // Gets the step corresponding with the 5th frame
 int step = traj.GetStep(4);
-```
+~~~
 
 ###Utilities
 
