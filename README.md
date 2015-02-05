@@ -1,4 +1,4 @@
-###libgmxcpp
+#libgmxcpp
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
