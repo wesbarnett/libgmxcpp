@@ -7,7 +7,7 @@
  * @see coordinates.h
  */
 
-#include "coordinates.h"
+#include "gmxcpp/coordinates.h"
 
 coordinates::coordinates() {
 	this->resize(DIM);
@@ -28,3 +28,18 @@ coordinates coordinates::operator+(coordinates rhs) {
 	return x;
 }
 
+coordinates coordinates::operator/(double rhs) {
+    coordinates x;
+    x.at(X) = this->at(X) / rhs;
+    x.at(Y) = this->at(Y) / rhs;
+    x.at(Z) = this->at(Z) / rhs;
+    return x;
+}
+
+coordinates coordinates::operator/=(double rhs) {
+    coordinates x;
+    x.at(X) = this->at(X) / rhs;
+    x.at(Y) = this->at(Y) / rhs;
+    x.at(Z) = this->at(Z) / rhs;
+    return x;
+}

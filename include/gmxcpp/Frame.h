@@ -9,10 +9,10 @@
 #define FRAME_H
 #include "xdrfile/xdrfile.h"
 #include "xdrfile/xdrfile_xtc.h"
-#include "Index.h"
-#include "Utils.h"
-#include "coordinates.h"
-#include "triclinicbox.h"
+#include "gmxcpp/Index.h"
+#include "gmxcpp/Utils.h"
+#include "gmxcpp/coordinates.h"
+#include "gmxcpp/triclinicbox.h"
 
 /**
  * @brief Class with information on one trajectory frame.

@@ -6,7 +6,7 @@
  * @see Trajectory.h
  */
 
-#include "Trajectory.h"
+#include "gmxcpp/Trajectory.h"
 
 // Initializes the trajectory object by finding out how many atoms are in the 
 // system, saving how many frames we think there might be for memory allocation. Then calls
@@ -66,7 +66,7 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames) {
 // libxdrfile. 
 void Trajectory::InitXTC(string filename) {
 	char cfilename[200];
-	for (int i=0;i<filename.size();i++) {
+	for (unsigned int i=0;i<filename.size();i++) {
 		cfilename[i] = filename[i];
 	}
 	cfilename[filename.size()] = '\0';
@@ -92,7 +92,6 @@ void Trajectory::read(int initialFrames) {
 	matrix box;
 	float time;
 	rvec *x;
-	int j = 0;
 	frameArray.resize(initialFrames);
 
 	cout << natoms << " particles are in the system." << endl;
