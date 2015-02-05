@@ -30,7 +30,7 @@
 #ifndef COORDINATES_H
 #define COORDINATES_H
 
-#include "xdrfile/xdrfile.h"
+#include "gmxcpp/xdrfile.h"
 #include <vector>
 using namespace std;
 
