@@ -1,8 +1,0 @@
-*.a
-*.out
-*.log
-*.swp
-build
-html
-.gitignore
-Doxyfile
