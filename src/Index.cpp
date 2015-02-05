@@ -7,7 +7,7 @@
  * @see Index.h
  */
 
-#include "Index.h"
+#include "gmxcpp/Index.h"
 
 Index::Index() {
 	return;

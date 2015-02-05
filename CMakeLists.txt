@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project(gmxcpp)
+set(CMAKE_CXX_FLAGS "-std=c++0x -Wall")
+add_subdirectory(include)
+include_directories(include/gmxcpp)
+add_subdirectory(src)

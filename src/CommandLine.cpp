@@ -7,7 +7,7 @@
  * @see CommandLine.h
  */
 
-#include "CommandLine.h"
+#include "gmxcpp/CommandLine.h"
 
 bool getArgument(int argc, char* argv[], string flag, string *argToReturn) {
 

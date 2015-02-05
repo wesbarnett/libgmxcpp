@@ -17,8 +17,8 @@
 #include <sys/stat.h>
 #include <string>
 #include <fstream>
-#include "coordinates.h"
-#include "triclinicbox.h"
+#include "gmxcpp/coordinates.h"
+#include "gmxcpp/triclinicbox.h"
 using namespace std;
 
 /**

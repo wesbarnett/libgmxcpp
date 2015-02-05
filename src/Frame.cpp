@@ -7,7 +7,7 @@
  * @see Frame.h
  */
 
-#include "Frame.h"
+#include "gmxcpp/Frame.h"
 
 Frame::Frame() {
 }

@@ -11,11 +11,11 @@
 #include <cstring>
 #include <string>
 #include <iostream>
-#include "Frame.h"
-#include "Index.h"
-#include "Utils.h"
-#include "coordinates.h"
-#include "triclinicbox.h"
+#include "gmxcpp/Frame.h"
+#include "gmxcpp/Index.h"
+#include "gmxcpp/Utils.h"
+#include "gmxcpp/coordinates.h"
+#include "gmxcpp/triclinicbox.h"
 #include "xdrfile/xdrfile.h"
 #include "xdrfile/xdrfile_xtc.h"
 #include <stdexcept>

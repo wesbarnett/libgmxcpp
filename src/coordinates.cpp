@@ -7,7 +7,7 @@
  * @see coordinates.h
  */
 
-#include "coordinates.h"
+#include "gmxcpp/coordinates.h"
 
 coordinates::coordinates() {
 	this->resize(DIM);

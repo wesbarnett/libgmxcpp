@@ -14,13 +14,13 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "Utils.h"
+#include "gmxcpp/Utils.h"
 
 // This header file is required for creating a Trajectory object
-#include "Trajectory.h"
+#include "gmxcpp/Trajectory.h"
 
 // This header file is required for some of the command line things used below
-#include "CommandLine.h"
+#include "gmxcpp/CommandLine.h"
 
 using namespace std;
 

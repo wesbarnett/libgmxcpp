@@ -6,7 +6,7 @@
  * @see Trajectory.h
  */
 
-#include "Trajectory.h"
+#include "gmxcpp/Trajectory.h"
 
 // Initializes the trajectory object by finding out how many atoms are in the 
 // system, saving how many frames we think there might be for memory allocation. Then calls
