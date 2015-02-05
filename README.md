@@ -2,18 +2,27 @@ This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
 implements an object-oriented style. The main usage of the library is to be able
 to create a Trajectory object which reads in an XTC file along with an optional
-GROMACS index file. This greatly simplifies writing an analysis program so that
-code does not have to be rewritten every time one wants to do analysis. After
-reading in the files the programmer can then use the Trajectory object's getter
-functions to get the information desired for analysis.
+GROMACS index file. 
+
+##Advantages
+
+* Only one object construction needs to be called to read in both .xtc and .ndx
+  files.
+* Index groups can be used by name within the program to get a desired atom's
+  coordinates.
+* Custom classes for atomic coordinates and simulation box allow overloading of
+  operators to simplify coding.
+* Common functions such as distance, magnitude, and cross product are built-in.
+* Analysis loops can easily be parallelized with class getter functions, since
+  all data frames are initially read in and can be accessed simultaneously.
 
 [Full documentation is located here.](http://wesbarnett.github.io/libgmxcpp)
 
-#Requirements
+##Requirements
 
 Cmake and [libxdrfile](ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.1.tar.gz) are required.
 
-#Installation
+##Installation
 
 ````
 git clone git@github.com:wesbarnett/libgmxcpp.git
@@ -29,7 +38,7 @@ make install
 There is an example program in the "example" directory. Use "make" to compile it
 and test it out.
 
-#Usage
+##Usage
 
 See the example file as well as the comments in the source, especially
 Trajectory.
@@ -38,7 +47,7 @@ The main idea is that you create a Trajectory object which contains all the
 information from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
 
-##Construction
+###Construction
 
 First, you should create a Trajectory object:
 
@@ -73,7 +82,7 @@ Trajectory traj("traj.xtc","index.ndx",2000000);
 Trajectory traj("traj.xtc",2000000);
 ````
 
-##Atomic Coordinates
+###Atomic Coordinates
 
 To get the coordinates of an atom use GetXYZ() method. There are several
 different options. Note that coordinates is simply a vector with double
@@ -114,7 +123,7 @@ coordinates a = traj.GetXYZ(2,"C",1);
 
 Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 
-##Box Dimensions
+###Box Dimensions
 
 To get the box dimensions use GetBox() method:
 
@@ -125,7 +134,7 @@ triclinicbox box = traj.GetBox(0);
 cout << box;
 ````
 
-##Box Volume
+###Box Volume
 
 To get the volume of the simulation box for any frame:
 
@@ -134,7 +143,7 @@ To get the volume of the simulation box for any frame:
 double vol = traj.GetBoxVolume(0);
 ````
 
-##Number of Frames
+###Number of Frames
 
 To get the number of frames in the simulation use GetNFrames():
 
@@ -142,7 +151,7 @@ To get the number of frames in the simulation use GetNFrames():
 int nframes = traj.GetNFrames();
 ````
 
-##Number of Atoms
+###Number of Atoms
 
 To get the number of atoms in the entire system use GetNAtoms():
 
@@ -158,7 +167,7 @@ argument:
 int solsize = traj.GetNAtoms("SOL"):
 ````
 
-##Time and Step
+###Time and Step
 
 To get the time (in ps) corresponding with a frame use GetTime(frame):
 
@@ -173,6 +182,7 @@ To get the step for a frame use GetStep(frame):
 int step = traj.GetStep(4);
 ````
 
-##Utilities
+###Utilities
+
 Be sure to check out Utils.h which includes utilies in calculating atomic
 distances, the periodic boundary condition, and more.
