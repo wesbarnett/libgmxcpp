@@ -27,7 +27,7 @@ cmake
 ##Installation
 
 ~~~{bash}
-git clone git@github.com:wesbarnett/libgmxcpp.git
+git clone https://github.com/wesbarnett/libgmxcpp.git
 cd libgmxcpp
 mkdir build
 cd build
