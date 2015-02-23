@@ -178,16 +178,9 @@ coordinates gen_sphere_point()
     return gen_sphere_point(center,1.0);
 }
 
-/*
- * Gets the surface area of a group of atoms using random points on a sphere.
- * The group of atoms could be a molecule or it could be just a cluster of atoms
- * close together or a combination of such.
- */
-
-double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
+double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
 {
     coordinates rand_point;
-    double area = 0.0;
     double dist2;
     double r2 = pow(r,2);
     int accept_n = 0;
@@ -216,10 +209,7 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
                      * As soon as one site is closer to the random point than
                      * the site of interest, we can reject that random point.
                      */
-                    if (dist2 < r2)
-                    {
-                        goto rejectpoint;
-                    }
+                    if (dist2 < r2) goto rejectpoint;
                 }
 
             }
@@ -238,6 +228,17 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
         }
 
     }
+    return (double)accept_n/(double)rand_n;
+}
+
+/*
+ * Gets the surface area of a group of atoms using random points on a sphere.
+ * The group of atoms could be a molecule or it could be just a cluster of atoms
+ * close together or a combination of such.
+ */
+
+double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
+{
 
     
     /* 
@@ -248,7 +249,7 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
      * this calculation for last due to factorization and the fact that accept_n
      * is jus the sum of all accepted points.
      */
-    area = 4.0 * M_PI * r2 * (double) accept_n / (double) rand_n;
+    return 4.0 * M_PI * pow(r,2) * get_sphere_accept_ratio(sites,r,rand_n,box);
 
-    return area;
 }
+

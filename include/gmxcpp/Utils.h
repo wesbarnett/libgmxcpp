@@ -135,6 +135,26 @@ coordinates gen_sphere_point(double r);
  */
 coordinates gen_sphere_point();
 
+/** @brief Gets the acceptance ratio of randomly generated point on a sphere.
+ * @details Points are randomly generated around all sites listed in the sites
+ * vector at distance r away from each site. The resulting ratio is sum of the number
+ * of points accepted per points generated. In other words each site will have
+ * rand_n points generated. The points that are closest to that site compared to
+ * the other sites are accepted. The ratio for that site is accepted/rand_n. The
+ * sum of this ratio is what is returned. This can be useful in calculating
+ * surface areas or volumes of a group of atoms or molecules. See get_surf_area.
+ * @param sites The coordinates of sites in the group / molecule. For example,
+ * the carbons in an alkane.
+ * @param r The radius to be used in determining the surface area. For example, to
+ * determine the SASA use the appropriate radius.
+ * @param rand_n The number of randomly generated points to be used for each
+ * site.
+ * @param box The box dimensions for the frame in question.
+ * @param area The total surface area of the group / molecule.
+ */
+
+double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
+
 /** @brief Gets the surface area of a group of atoms.
  * @details Gets the surface area of a group of atoms (could be a molecule)
  * defined by vector of coordinates. Randomly generated points on a sphere of
