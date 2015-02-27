@@ -27,7 +27,6 @@ vector <double> bootstrap(int boot_n, int block_n, vector < vector <double> >& d
     #pragma omp for
     for (boot_i = 0; boot_i < boot_n; boot_i++)
     {
-        cout << boot_i << endl;
 		for (i = 0; i < data_size; i++)
 		{
 		    values.at(boot_i).at(i) = 0.0;
@@ -117,7 +116,6 @@ double bootstrap(int boot_n, int block_n, vector <double> & data, int frame_coun
     #pragma omp for
     for (boot_i = 0; boot_i < boot_n; boot_i++)
     {
-        cout << boot_i << endl;
 
         for (block_i = 0; block_i < block_n; block_i++)
         {
