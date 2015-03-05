@@ -21,5 +21,7 @@ using namespace std;
 
 vector <double> bootstrap(int boot_n, int block_n, vector < vector <double> >& data, int frame_count);
 double bootstrap(int boot_n, int block_n, vector <double> & data, int frame_count);
+vector <double> get_boot_values(int block_n, vector < vector <double> >& data, int frame_count);
+vector <double> get_uncertainty(int boot_n, int data_size, vector <double>&avg, vector < vector <double> >& values);
 
 #endif
