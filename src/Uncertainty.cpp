@@ -16,12 +16,7 @@ vector <double> get_boot_values(int block_n, vector < vector <double> >& data, i
     int block_i;
     int frame_i;
     int i;
-    vector <double> values(data_size);
-
-    for (i = 0; i < data_size; i++)
-	{
-	    values.at(i) = 0.0;
-	}
+    vector <double> values(data_size,0.0);
 
     for (block_i = 0; block_i < block_n; block_i++)
     {
@@ -59,8 +54,8 @@ vector <double> get_boot_values(int block_n, vector < vector <double> >& data, i
 //TODO write for 1 dim vector
 vector <double> get_uncertainty(int boot_n, int data_size, vector <double>&avg, vector < vector <double> >& values)
 {
-    vector <double> uncertainty;
-    vector <double> var (0.0);
+    vector <double> uncertainty(data_size,0.0);
+    vector <double> var(data_size,0.0);
     int boot_i;
     int i;
 
