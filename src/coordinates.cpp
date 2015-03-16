@@ -31,6 +31,13 @@
 
 #include "gmxcpp/coordinates.h"
 
+coordinates::coordinates(double x, double y, double z) {
+	this->resize(DIM);
+    this->at(X) = x;
+    this->at(Y) = y;
+    this->at(Z) = z;
+};
+
 coordinates::coordinates() {
 	this->resize(DIM);
 };
