@@ -55,11 +55,14 @@ class coordinates: public vector<double> {
 		/** Constructor, sets size of vector to 3 and set actual coordinates */
 		coordinates(double x, double y, double z);
 
-		/** Adds two sets of coordinates together, element-by-element */
+		/** Subtracts two sets of coordinates together, element-by-element */
 		coordinates operator-(coordinates rhs);
 
-		/** Subtracts two sets of coordinates together, element-by-element */
+		/** Adds two sets of coordinates together, element-by-element */
 		coordinates operator+(coordinates rhs);
+
+		/** Adds two sets of coordinates together, element-by-element */
+		coordinates operator+=(coordinates rhs);
 
 		/** Divides X, Y, and Z by a scalar **/
 		coordinates operator/(double rhs);

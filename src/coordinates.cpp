@@ -49,7 +49,16 @@ coordinates coordinates::operator-(coordinates rhs) {
 	x.at(Z) = this->at(Z) - rhs.at(Z);
 	return x;
 }
+
 coordinates coordinates::operator+(coordinates rhs) {
+	coordinates x;
+	x.at(X) = this->at(X) + rhs.at(X);
+	x.at(Y) = this->at(Y) + rhs.at(Y);
+	x.at(Z) = this->at(Z) + rhs.at(Z);
+	return x;
+}
+
+coordinates coordinates::operator+=(coordinates rhs) {
 	coordinates x;
 	x.at(X) = this->at(X) + rhs.at(X);
 	x.at(Y) = this->at(Y) + rhs.at(Y);
