@@ -81,3 +81,19 @@ coordinates coordinates::operator/=(double rhs) {
     x.at(Z) = this->at(Z) / rhs;
     return x;
 }
+
+coordinates coordinates::operator*(double rhs) {
+    coordinates x;
+    x.at(X) = this->at(X) / rhs;
+    x.at(Y) = this->at(Y) / rhs;
+    x.at(Z) = this->at(Z) / rhs;
+    return x;
+}
+
+coordinates coordinates::operator*=(double rhs) {
+    coordinates x;
+    x.at(X) = this->at(X) * rhs;
+    x.at(Y) = this->at(Y) * rhs;
+    x.at(Z) = this->at(Z) * rhs;
+    return x;
+}
