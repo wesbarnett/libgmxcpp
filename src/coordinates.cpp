@@ -31,6 +31,13 @@
 
 #include "gmxcpp/coordinates.h"
 
+coordinates::coordinates(double x, double y, double z) {
+	this->resize(DIM);
+    this->at(X) = x;
+    this->at(Y) = y;
+    this->at(Z) = z;
+};
+
 coordinates::coordinates() {
 	this->resize(DIM);
 };
@@ -42,12 +49,25 @@ coordinates coordinates::operator-(coordinates rhs) {
 	x.at(Z) = this->at(Z) - rhs.at(Z);
 	return x;
 }
+
+void coordinates::operator-=(coordinates rhs) {
+	this->at(X) -= rhs.at(X);
+	this->at(Y) -= rhs.at(Y);
+	this->at(Z) -= rhs.at(Z);
+}
+
 coordinates coordinates::operator+(coordinates rhs) {
 	coordinates x;
 	x.at(X) = this->at(X) + rhs.at(X);
 	x.at(Y) = this->at(Y) + rhs.at(Y);
 	x.at(Z) = this->at(Z) + rhs.at(Z);
 	return x;
+}
+
+void coordinates::operator+=(coordinates rhs) {
+	this->at(X) += rhs.at(X);
+	this->at(Y) += rhs.at(Y);
+    this->at(Z) += rhs.at(Z);
 }
 
 coordinates coordinates::operator/(double rhs) {
@@ -58,10 +78,22 @@ coordinates coordinates::operator/(double rhs) {
     return x;
 }
 
-coordinates coordinates::operator/=(double rhs) {
+void coordinates::operator/=(double rhs) {
+    this->at(X) /= rhs;
+    this->at(Y) /= rhs;
+    this->at(Z) /= rhs;
+}
+
+coordinates coordinates::operator*(double rhs) {
     coordinates x;
-    x.at(X) = this->at(X) / rhs;
-    x.at(Y) = this->at(Y) / rhs;
-    x.at(Z) = this->at(Z) / rhs;
+    x.at(X) = this->at(X) * rhs;
+    x.at(Y) = this->at(Y) * rhs;
+    x.at(Z) = this->at(Z) * rhs;
     return x;
+}
+
+void coordinates::operator*=(double rhs) {
+    this->at(X) *= rhs;
+    this->at(Y) *= rhs;
+    this->at(Z) *= rhs;
 }

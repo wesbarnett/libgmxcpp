@@ -52,17 +52,32 @@ class coordinates: public vector<double> {
 		/** Constructor, sets size of vector to 3 */
 		coordinates();
 
-		/** Adds two sets of coordinates together, element-by-element */
+		/** Constructor, sets size of vector to 3 and set actual coordinates */
+		coordinates(double x, double y, double z);
+
+		/** Subtracts two sets of coordinates together, element-by-element */
 		coordinates operator-(coordinates rhs);
 
 		/** Subtracts two sets of coordinates together, element-by-element */
+		void operator-=(coordinates rhs);
+
+		/** Adds two sets of coordinates together, element-by-element */
 		coordinates operator+(coordinates rhs);
+
+		/** Adds two sets of coordinates together, element-by-element */
+		void operator+=(coordinates rhs);
 
 		/** Divides X, Y, and Z by a scalar **/
 		coordinates operator/(double rhs);
 
 		/** Divides X, Y, and Z by a scalar **/
-		coordinates operator/=(double rhs);
+		void operator/=(double rhs);
+
+		/** Multiplies X, Y, and Z by a scalar **/
+		coordinates operator*(double rhs);
+
+		/** Multiplies X, Y, and Z by a scalar **/
+		void operator*=(double rhs);
 
 };
 

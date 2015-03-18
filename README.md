@@ -15,6 +15,8 @@ GROMACS index file.
 * Common functions such as distance, magnitude, and cross product are built-in.
 * Analysis loops can easily be parallelized with class getter functions, since
   all data frames are initially read in and can be accessed simultaneously.
+* No other libraries needed (the relevant parts of libxdrfile are included with
+  this project).
 
 ![Screenshot](https://raw.githubusercontent.com/wesbarnett/libgmxcpp/master/img/screenshot.png)
 
@@ -26,6 +28,8 @@ cmake
 
 ##Installation
 
+###From Source
+
 ~~~{bash}
 git clone https://github.com/wesbarnett/libgmxcpp.git
 cd libgmxcpp
@@ -36,9 +40,15 @@ make
 make install
 ~~~
 
+###From AUR
+
+[libgmxcpp is now in the AUR
+repository.](https://aur.archlinux.org/packages/libgmxcpp/) If you're on Arch
+you know what to do.
+
 ##Example Program
 There is an example program in the "example" directory. Use "make" to compile it
-and test it out.
+and test it out on an .xtc and .ndx file from a recent simulation.
 
 ##Usage
 

@@ -115,3 +115,141 @@ bool fileExists(string filename) {
 	ifstream infile(filename.c_str());
 	return infile.good();
 }
+
+/*
+ *
+ * Generates a point on a sphere with radius r and center c;
+ * Reference:
+ *
+ * Marsaglia, George. Choosing a Point from the Surface of a Sphere. Ann. Math.
+ * Statist. 43 (1972), no. 2, 645--646. doi:10.1214/aoms/1177692644.
+ * http://projecteuclid.org/euclid.aoms/1177692644.
+ *
+ */
+
+coordinates gen_sphere_point(coordinates center, double r)
+{
+    double xi_1;
+    double xi_2;
+    double zeta_1;
+    double zeta_2;
+    double zeta2 = 100.0;
+    coordinates zeta;
+
+    while (zeta2 > 1.0)
+    {
+        xi_1 = (double) rand() / (RAND_MAX);
+        xi_2 = (double) rand() / (RAND_MAX);
+        zeta_1 = 1.0 - 2.0*xi_1;
+        zeta_2 = 1.0 - 2.0*xi_2;
+        zeta2 = pow(zeta_1,2) + pow(zeta_2,2);
+    }
+
+    zeta.at(X) = 2.0*zeta_1*sqrt(1.0-zeta2) * r + center.at(X);
+    zeta.at(Y) = 2.0*zeta_2*sqrt(1.0-zeta2) * r + center.at(Y);
+    zeta.at(Z) = (1.0 - 2.0*zeta2) * r + center.at(Z);
+
+    return zeta;
+}
+
+/*
+ * Generates random point on sphere of radius r but centered at origin.
+ */
+
+coordinates gen_sphere_point(double r)
+{
+    coordinates center;
+    center.at(X) = 0.0;
+    center.at(Y) = 0.0;
+    center.at(Z) = 0.0;
+    return gen_sphere_point(center,r);
+}
+
+/*
+ * Generates random point on sphere of radius 1.0 and centered at origin.
+ */
+
+coordinates gen_sphere_point()
+{
+    coordinates center;
+    center.at(X) = 0.0;
+    center.at(Y) = 0.0;
+    center.at(Z) = 0.0;
+    return gen_sphere_point(center,1.0);
+}
+
+double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
+{
+    coordinates rand_point;
+    double dist2;
+    double r2 = pow(r,2);
+    int accept_n = 0;
+    int i;
+    int j;
+    int k;
+    int sites_n = sites.size();
+
+    for (i = 0; i < sites_n; i++)
+    {
+
+        for (j = 0; j < rand_n; j++)
+        {
+
+            rand_point = gen_sphere_point(sites.at(i),r);
+
+            for (k = 0; k < sites_n; k++)
+            {
+
+                if (i != k)
+                {
+
+                    dist2 = distance2(sites.at(k),rand_point,box);
+
+                    /*
+                     * As soon as one site is closer to the random point than
+                     * the site of interest, we can reject that random point.
+                     */
+                    if (dist2 < r2) goto rejectpoint;
+                }
+
+            }
+
+            /* 
+             * If the distance between the random point and all of the other
+             * sites in the group is greater than the distance between the
+             * random point and the site of interest, that means it is closest
+             * to the site of interest and is accepted.
+             */
+            accept_n++;
+
+            rejectpoint:
+            continue;
+            
+        }
+
+    }
+    return (double)accept_n/(double)rand_n;
+}
+
+/*
+ * Gets the surface area of a group of atoms using random points on a sphere.
+ * The group of atoms could be a molecule or it could be just a cluster of atoms
+ * close together or a combination of such.
+ */
+
+double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
+{
+
+    
+    /* 
+     * The area for each site is simply the area of a sphere multiplied by the
+     * acceptance ratio for that site. Factoring out the 4pir2 and the random
+     * number generated for each site leaves the number of acceptance points for
+     * each site, which we can then sum together. In other words, we can save
+     * this calculation for last due to factorization and the fact that accept_n
+     * is jus the sum of all accepted points.
+     */
+    return 4.0 * M_PI * pow(r,2) * get_sphere_accept_ratio(sites,r,rand_n,box);
+
+}
+
