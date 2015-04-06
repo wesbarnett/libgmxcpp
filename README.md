@@ -7,6 +7,9 @@ implements an object-oriented style. The main usage of the library is to be able
 to create a Trajectory object which reads in an XTC file along with an optional
 GROMACS index file. 
 
+The development branch is "master". Releases are merged into the "release"
+branch.
+
 ##Advantages
 
 * Only one object construction needs to be called to read in both .xtc and .ndx
