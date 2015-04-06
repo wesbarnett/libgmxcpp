@@ -84,11 +84,19 @@ void coordinates::operator/=(double rhs) {
     this->at(Z) /= rhs;
 }
 
-coordinates coordinates::operator*(double rhs) {
+coordinates operator*(coordinates lhs, double rhs) {
     coordinates x;
-    x.at(X) = this->at(X) * rhs;
-    x.at(Y) = this->at(Y) * rhs;
-    x.at(Z) = this->at(Z) * rhs;
+    x.at(X) = lhs.at(X) * rhs;
+    x.at(Y) = lhs.at(Y) * rhs;
+    x.at(Z) = lhs.at(Z) * rhs;
+    return x;
+}
+
+coordinates operator*(double lhs, coordinates rhs) {
+    coordinates x;
+    x.at(X) = rhs.at(X) * lhs;
+    x.at(Y) = rhs.at(Y) * lhs;
+    x.at(Z) = rhs.at(Z) * lhs;
     return x;
 }
 

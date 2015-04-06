@@ -75,6 +75,11 @@ int main()
     assert(test_equal(x1*1.2,c3.at(X)));
     assert(test_equal(y1*1.2,c3.at(Y)));
     assert(test_equal(z1*1.2,c3.at(Z)));
+
+    c3 = 1.2 * c1;
+    assert(test_equal(x1*1.2,c3.at(X)));
+    assert(test_equal(y1*1.2,c3.at(Y)));
+    assert(test_equal(z1*1.2,c3.at(Z)));
     
     c4 = c3;
     c3 *= 3.14;

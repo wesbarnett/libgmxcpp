@@ -74,10 +74,11 @@ class coordinates: public vector<double> {
 		void operator/=(double rhs);
 
 		/** Multiplies X, Y, and Z by a scalar **/
-		coordinates operator*(double rhs);
-
-		/** Multiplies X, Y, and Z by a scalar **/
 		void operator*=(double rhs);
+
+	/** Multiplies X, Y, and Z by a scalar **/
+	friend coordinates operator*(coordinates lhs, double rhs);
+	friend coordinates operator*(double lhs, coordinates rhs);
 
 };
 
