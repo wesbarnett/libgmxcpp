@@ -125,8 +125,8 @@ double bootstrap(int boot_n, int block_n, vector <double> & data, int frame_coun
 {
 
     const int block_frames = frame_count / block_n;
-    double avg;
-    double var;
+    double avg = 0.0;
+    double var = 0.0;
     double uncertainty;
     int boot_i;
     vector <double> values(boot_n,0.0);
