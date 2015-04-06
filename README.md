@@ -52,6 +52,14 @@ make install
 repository.](https://aur.archlinux.org/packages/libgmxcpp/) If you're on Arch
 you know what to do.
 
+## Testing the build
+
+To test your build you can run the following in the build directory (see above):
+
+~~~{bash}
+make test
+~~~
+
 ##Example Program
 There is an example program in the "example" directory. Use "make" to compile it
 and test it out on an .xtc and .ndx file from a recent simulation.
