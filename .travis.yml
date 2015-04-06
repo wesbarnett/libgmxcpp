@@ -1,0 +1,14 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+script: 
+    - mkdir build 
+    - cd build
+    - cmake .. 
+    - make
+    - cd src/lib
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
+    - cd ../../../tests
+    - g++ tests.cpp -L../build/src/lib -o tests -I../include -lgmxcpp
+    - ./tests
