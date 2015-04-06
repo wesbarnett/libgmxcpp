@@ -7,6 +7,8 @@ script:
     - cd build
     - cmake .. 
     - make
-    - cd ../tests
-    - g++ tests.cpp ../build/src/lib/libgmxcpp.so -o tests -I../include
+    - cd src/lib
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
+    - cd ../../../tests
+    - g++ tests.cpp -L../build/src/lib -o tests -I../include
     - ./tests
