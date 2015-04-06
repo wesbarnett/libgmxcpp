@@ -227,6 +227,6 @@ directory of the source and includes a licence for each part of this package.
 
 # Citations
 
-There is no paper associated with this project to cite. However, if you do use
-this code in a published work I humbly ask that you acknowledge it in some
-way, including the author and name of the project.
+There is no paper associated with this project to cite as is common in some
+projects. However, if you do use this code in a published work I humbly ask that
+you acknowledge it in some way.
