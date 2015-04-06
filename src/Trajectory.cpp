@@ -42,7 +42,7 @@ Trajectory::Trajectory(string xtcfile, int maxFrames) {
 		cerr << endl << "Problem with creating Trajectory object." << endl;
 		terminate();
 	}
-	read(MAXFRAMES);
+	read(maxFrames);
 	return;
 }
 
