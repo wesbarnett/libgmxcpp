@@ -7,3 +7,6 @@ script:
     - cd build
     - cmake .. 
     - make
+    - cd ../tests
+    - g++ tests.cpp ../build/src/lib/libgmxcpp.so -o tests -I../include
+    - ./tests
