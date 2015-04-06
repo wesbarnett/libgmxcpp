@@ -1,0 +1,11 @@
+
+add_executable(coordinates_test coordinates.cpp)
+add_executable(Trajectory_test Trajectory.cpp)
+add_executable(Utils_test Utils.cpp)
+add_executable(triclinicbox_test triclinicbox.cpp)
+target_link_libraries(coordinates_test gmxcpp)
+target_link_libraries(Trajectory_test gmxcpp)
+target_link_libraries(Utils_test gmxcpp)
+target_link_libraries(triclinicbox_test gmxcpp)
+configure_file(test.xtc ${CMAKE_CURRENT_BINARY_DIR}/test.xtc COPYONLY)
+configure_file(test.ndx ${CMAKE_CURRENT_BINARY_DIR}/test.ndx COPYONLY)
