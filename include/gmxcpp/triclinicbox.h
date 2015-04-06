@@ -45,6 +45,9 @@ class triclinicbox: public vector < vector <double> > {
 
 		/** Constructor where user provides dimensions */
 		triclinicbox(double x1, double x2, double x3, double y1, double y2, double y3, double z1, double z2, double z3);
+
+		/** Constructor where user provides dimensions, cubic */
+		triclinicbox(double x, double y, double z);
 };
 
 #endif

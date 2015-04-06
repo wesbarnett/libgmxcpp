@@ -51,3 +51,16 @@ triclinicbox::triclinicbox(double x1, double x2, double x3, double y1, double y2
     this->at(Z).at(Z) = z3;
 }
 
+triclinicbox::triclinicbox(double x, double y, double z) {
+	triclinicbox();
+    this->at(X).at(X) = x;
+    this->at(X).at(Y) = 0.0;
+    this->at(X).at(Z) = 0.0;
+    this->at(Y).at(X) = 0.0;
+    this->at(Y).at(Y) = y;
+    this->at(Y).at(Z) = 0.0;
+    this->at(Z).at(X) = 0.0;
+    this->at(Z).at(Y) = 0.0;
+    this->at(Z).at(Z) = z;
+}
+
