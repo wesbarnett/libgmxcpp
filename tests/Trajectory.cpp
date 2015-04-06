@@ -48,6 +48,8 @@ int main()
     assert(test_equal(tb1.at(Z).at(Y),0.0));
     assert(test_equal(tb1.at(Z).at(Z),4.0));
 
+    assert(test_equal(t1.GetBoxVolume(0),64.0));
+
     assert(test_equal(tb2.at(X).at(X),3.11876));
     assert(test_equal(tb2.at(X).at(Y),0.0));
     assert(test_equal(tb2.at(X).at(Z),0.0));
