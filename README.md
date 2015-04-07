@@ -1,5 +1,5 @@
 
-[!["Build status"](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=master)](https://travis-ci.org/wesbarnett/libgmxcpp)
+!["Build status"](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=master)
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
@@ -59,6 +59,10 @@ To test your build you can run the following in the build directory (see above):
 ~~~{bash}
 make test
 ~~~
+
+Automated tests are performed [via
+Travis](https://travis-ci.org/wesbarnett/libgmxcpp) when new commits are pushed.
+Tests are in the "tests" directory.
 
 ##Example Program
 There is an example program in the "example" directory. Use "make" to compile it
