@@ -111,6 +111,38 @@ bool fileExists(string filename);
  */
 double volume(triclinicbox box);
 
+/** @brief Gets the bond vector between to atoms
+ * @param atom1 First atom in bond
+ * @param atom2 Second atom in bond
+ * @param box Simulation box
+ * @return bond vector
+ */
+coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box);
+
+/** @brief Calculates the angle between two bonds
+ * @details The central atom should be the middle input.
+ * @param atom1 First atom in angle
+ * @param atom2 Second atom in angle
+ * @param atom3 Third atom in angle
+ * @param box Simulation box
+ * @return bond angle in radians
+ */
+double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, triclinicbox box);
+
+/** @brief Calculates the torsion / dihedral angle from four atoms'
+    positions. 
+	@details Source: Blondel and Karplus, J. Comp. Chem., Vol. 17, No. 9, 1 132-1
+	141 (1 996). Note that it returns in radians and that the atoms should be in order along their connections.
+ * @param atom1 First atom in angle
+ * @param atom2 Second atom in angle
+ * @param atom3 Third atom in angle
+ * @param atom4 Fourth atom in angle
+ * @param box Simulation box
+ * @return dihedral angle in radians
+ */
+double dihedral_angle(coordinates atom1, coordinates atom2, coordinates atom3, coordinates atom4, triclinicbox box);
+
+
 /** Prints out coordinates cleanly with << */
 ostream& operator<<(ostream &os, coordinates xyz);
 

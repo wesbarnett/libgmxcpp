@@ -101,6 +101,42 @@ double volume(triclinicbox box)
            box.at(X).at(X) * box.at(Y).at(Z) * box.at(Z).at(Y);
 }
 
+coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
+{
+	return pbc(atom1-atom2,box);
+
+}
+
+double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, triclinicbox box)
+{
+	coordinates bond1 = bond_vector(atom2,atom1,box);
+	coordinates bond2 = bond_vector(atom2,atom3,box);
+
+	double bond1_mag = magnitude(bond1);
+	double bond2_mag = magnitude(bond2);
+	double angle = acos(dot(bond1,bond2)/(bond1_mag*bond2_mag));
+
+	return angle;
+
+}
+
+double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l, triclinicbox box)
+{
+	coordinates H = bond_vector(k,l,box);
+	coordinates G = bond_vector(k,j,box);
+	coordinates F = bond_vector(j,i,box);
+	coordinates A = cross(F,G);
+	coordinates B = cross(H,G);
+	coordinates cross_BA = cross(B,A);
+	double A_mag = magnitude(A);
+	double B_mag = magnitude(B);
+	double G_mag = magnitude(G);
+	double sin_phi = dot(cross_BA,G)/(A_mag * B_mag *G_mag);
+	double cos_phi = dot(A,B)/(A_mag * B_mag);
+	double phi = atan2(sin_phi,cos_phi);
+	return phi;
+}
+
 ostream& operator<<(ostream &os, coordinates xyz)
 {
     os << xyz.at(X) << " " << xyz.at(Y) << " " << xyz.at(Z) << endl;
