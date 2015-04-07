@@ -1,3 +1,6 @@
 
+Frame
+=====
+
 .. doxygenclass:: Frame
     :members:

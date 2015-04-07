@@ -1,3 +1,6 @@
 
+triclinicbox
+============
+
 .. doxygenclass:: triclinicbox
     :members:
