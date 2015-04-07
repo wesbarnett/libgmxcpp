@@ -17,5 +17,4 @@ libgmxcpp is a C++ library which aids in reading in `GROMACS
    usage
    license
    cite
-   classes
-   files
+   api

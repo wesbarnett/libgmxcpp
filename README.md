@@ -1,5 +1,7 @@
 
 !["Build status"](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=master)
+[![Documentation
+Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=latest)](https://readthedocs.org/projects/libgmxcpp/?badge=latest)
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
