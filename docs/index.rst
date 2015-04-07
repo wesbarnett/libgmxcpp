@@ -17,3 +17,4 @@ Contents:
    usage
    license
    cite
+   classes
