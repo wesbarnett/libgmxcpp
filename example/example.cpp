@@ -29,7 +29,8 @@ void print(Trajectory *traj, int first, int last, string group, string outfile);
 void printUsage(string program);
 
 /** Parses the command line, then prints data to standard out */
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
 
     const string group = "C";
     const int first = 0;
@@ -57,29 +58,35 @@ int main(int argc, char* argv[]) {
  * @param argv[] Command line parameter
  * @return True If there is no error or help flag not called. Otherwise false.
  */
-bool parseCommandLine(int argc,char* argv[],string *xtcfile,string *ndxfile) {
+bool parseCommandLine(int argc,char* argv[],string *xtcfile,string *ndxfile) 
+{
 
-	if(checkHelpArg(argc,argv,"-h")) {
+	if(checkHelpArg(argc,argv,"-h")) 
+    {
         printUsage(argv[0]);
         return false;
 	}
 
-    if(!getArgument(argc,argv,"-f",xtcfile)) {
+    if(!getArgument(argc,argv,"-f",xtcfile)) 
+    {
         printUsage(argv[0]);
         return false;
     }
 
-    if(!getArgument(argc,argv,"-n",ndxfile)) {
+    if(!getArgument(argc,argv,"-n",ndxfile)) 
+    {
         printUsage(argv[0]);
         return false;
     }
     
-    if (!fileExists(*xtcfile)) {
+    if (!fileExists(*xtcfile)) 
+    {
         cout << "ERROR: File " << *xtcfile << " does not exist." << endl;
         return false;
     }
 
-    if (!fileExists(*ndxfile)) {
+    if (!fileExists(*ndxfile)) 
+    {
         cout << "ERROR: File " << *ndxfile << " does not exist." << endl;
         return false;
     }
@@ -91,7 +98,8 @@ bool parseCommandLine(int argc,char* argv[],string *xtcfile,string *ndxfile) {
  * @brief Prints the usage of the program.
  * @param program Name of program from command line.
  */
-void printUsage(string program) {
+void printUsage(string program) 
+{
     cout << endl;
 	cout << "Usage:" << endl;
 	cout << "  " << program << " -f traj.xtc -n index.ndx" << endl;
@@ -110,7 +118,8 @@ void printUsage(string program) {
  * @param group Specific index group to print.
  * @param outfile File to which to print.
  */
-void print(Trajectory *traj,int first, int last, string group, string outfile) {
+void print(Trajectory *traj,int first, int last, string group, string outfile) 
+{
 
     ofstream oFS;
     oFS.open(outfile.c_str());
@@ -119,14 +128,16 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 
     cout << "Writing example data to " << outfile << "." << endl;
 
-    if (!oFS.is_open()) {
+    if (!oFS.is_open()) 
+    {
         cout << "ERROR: Cannot open output file." << endl;
         return;
     }
 
     oFS << fixed << setprecision(3);
 
-    for (int frame=first; frame<=last; frame++) {
+    for (int frame=first; frame<=last; frame++) 
+    {
 
         oFS << "------------------------------------" << endl;
 
@@ -139,7 +150,8 @@ void print(Trajectory *traj,int first, int last, string group, string outfile) {
 		// Getting all of the coordinates for this frame for this groupand printing them
         oFS << "Coordinates for group " << group << ":" << endl;
 		xyz = traj->GetXYZ(frame,group);
-        for (int i=0;i<traj->GetNAtoms(group);i++) {
+        for (int i=0;i<traj->GetNAtoms(group);i++) 
+        {
 			oFS << xyz.at(i);
 		}
 
