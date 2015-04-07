@@ -15,6 +15,7 @@ use in analyzing simulation results
    installation
    example
    usage
+   analysis
    api
    license
    cite
