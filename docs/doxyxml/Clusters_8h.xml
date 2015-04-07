@@ -10,166 +10,162 @@
     <includes refid="Trajectory_8h" local="yes">gmxcpp/Trajectory.h</includes>
     <includedby refid="Clusters_8cpp" local="yes">src/Clusters.cpp</includedby>
     <incdepgraph>
-      <node id="45">
+      <node id="47">
         <label>sys/stat.h</label>
       </node>
-      <node id="36">
+      <node id="38">
         <label>gmxcpp/xdrfile.h</label>
         <link refid="xdrfile_8h"/>
       </node>
-      <node id="39">
+      <node id="41">
         <label>iomanip</label>
       </node>
-      <node id="48">
+      <node id="50">
         <label>stdlib.h</label>
       </node>
-      <node id="44">
+      <node id="46">
         <label>cmath</label>
       </node>
-      <node id="41">
+      <node id="43">
         <label>stdexcept</label>
       </node>
-      <node id="33">
+      <node id="35">
         <label>gmxcpp/Trajectory.h</label>
         <link refid="Trajectory_8h"/>
-        <childnode refid="34" relation="include">
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-        <childnode refid="51" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>string</label>
-      </node>
-      <node id="37">
-        <label>gmxcpp/xdrfile_xtc.h</label>
-        <link refid="xdrfile__xtc_8h_source"/>
-        <childnode refid="36" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>fstream</label>
-      </node>
-      <node id="50">
-        <label>gmxcpp/coordinates.h</label>
-        <link refid="coordinates_8h"/>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-      </node>
-      <node id="42">
-        <label>gmxcpp/Utils.h</label>
-        <link refid="Utils_8h"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="52" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-        <childnode refid="51" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>vector</label>
-      </node>
-      <node id="40">
-        <label>sstream</label>
-      </node>
-      <node id="49">
-        <label>time.h</label>
-      </node>
-      <node id="46">
-        <label>math.h</label>
-      </node>
-      <node id="35">
-        <label>gmxcpp/Frame.h</label>
-        <link refid="Frame_8h"/>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
+        <childnode refid="53" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-        <childnode refid="51" relation="include">
+        <childnode refid="43" relation="include">
         </childnode>
       </node>
-      <node id="28">
-        <label>cstdlib</label>
+      <node id="33">
+        <label>string</label>
       </node>
-      <node id="38">
-        <label>gmxcpp/Index.h</label>
-        <link refid="Index_8h"/>
-        <childnode refid="30" relation="include">
+      <node id="39">
+        <label>gmxcpp/xdrfile_xtc.h</label>
+        <link refid="xdrfile__xtc_8h_source"/>
+        <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="31" relation="include">
+      </node>
+      <node id="32">
+        <label>fstream</label>
+      </node>
+      <node id="52">
+        <label>gmxcpp/coordinates.h</label>
+        <link refid="coordinates_8h"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>gmxcpp/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
         </childnode>
         <childnode refid="32" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>vector</label>
+      </node>
+      <node id="42">
+        <label>sstream</label>
+      </node>
+      <node id="51">
+        <label>time.h</label>
+      </node>
+      <node id="48">
+        <label>math.h</label>
+      </node>
+      <node id="37">
+        <label>gmxcpp/Frame.h</label>
+        <link refid="Frame_8h"/>
+        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="40" relation="include">
         </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>cstdlib</label>
+      </node>
+      <node id="40">
+        <label>gmxcpp/Index.h</label>
+        <link refid="Index_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
         <childnode refid="41" relation="include">
         </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
       </node>
-      <node id="29">
+      <node id="31">
         <label>iostream</label>
       </node>
-      <node id="27">
+      <node id="29">
         <label>include/gmxcpp/Clusters.h</label>
         <link refid="Clusters.h"/>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
         <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
@@ -178,24 +174,28 @@
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
       </node>
-      <node id="51">
+      <node id="53">
         <label>gmxcpp/triclinicbox.h</label>
         <link refid="triclinicbox_8h"/>
-        <childnode refid="50" relation="include">
+        <childnode refid="52" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
       </node>
-      <node id="43">
+      <node id="45">
         <label>algorithm</label>
       </node>
-      <node id="47">
+      <node id="49">
         <label>stdio.h</label>
       </node>
-      <node id="34">
+      <node id="36">
         <label>cstring</label>
       </node>
     </incdepgraph>

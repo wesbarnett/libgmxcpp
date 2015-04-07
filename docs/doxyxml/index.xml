@@ -110,7 +110,33 @@
     <member refid="structXDRFILE_1a6e8d580fdf18234acfda1f382d89a2d8" kind="variable"><name>buf2</name></member>
     <member refid="structXDRFILE_1a71cedf31f2b15a635fa4fe20094a3133" kind="variable"><name>buf2size</name></member>
   </compound>
+  <compound refid="namespaceconf" kind="namespace"><name>conf</name>
+    <member refid="namespaceconf_1a540efa67c53e84c1c353c1df2e37e39c" kind="variable"><name>extensions</name></member>
+    <member refid="namespaceconf_1ae850ae634911b713e036b43894fdd525" kind="variable"><name>templates_path</name></member>
+    <member refid="namespaceconf_1a10af2a769eb3bd3322e874f677e435b1" kind="variable"><name>source_suffix</name></member>
+    <member refid="namespaceconf_1a6fcd7e5236f355b1e1a55f9d95988810" kind="variable"><name>master_doc</name></member>
+    <member refid="namespaceconf_1a45653c983098153b78e33600e39230eb" kind="variable"><name>project</name></member>
+    <member refid="namespaceconf_1a33fa97cf51dcb25970fbf53f10159589" kind="variable"><name>copyright</name></member>
+    <member refid="namespaceconf_1a637c239d256432248aa8d9f3ab0b8c52" kind="variable"><name>author</name></member>
+    <member refid="namespaceconf_1ade15c5b54093b64d7c428ec19ca5b1cb" kind="variable"><name>version</name></member>
+    <member refid="namespaceconf_1a325dc746d8bf05c54d26351c35a21d90" kind="variable"><name>release</name></member>
+    <member refid="namespaceconf_1ad76a2e6d7bfa880ebb4042c08e8b4e12" kind="variable"><name>language</name></member>
+    <member refid="namespaceconf_1a7ad48fb6f3e9b129c02346ea0d3527c1" kind="variable"><name>exclude_patterns</name></member>
+    <member refid="namespaceconf_1a641130e096b26cba8a5d63ed38684de7" kind="variable"><name>pygments_style</name></member>
+    <member refid="namespaceconf_1a997cbdffcb2f28023aba4c37bbf469b5" kind="variable"><name>todo_include_todos</name></member>
+    <member refid="namespaceconf_1af4fb5d8851ccaade135c2668dd3ced41" kind="variable"><name>html_static_path</name></member>
+    <member refid="namespaceconf_1aab7fddb2766ce3c430d8246fbfdbc7b1" kind="variable"><name>htmlhelp_basename</name></member>
+    <member refid="namespaceconf_1a33619d385ad23765ac6ebb58bf82d43d" kind="variable"><name>latex_elements</name></member>
+    <member refid="namespaceconf_1a7812f49970f3de0d15dd7b9b9a10e3a1" kind="variable"><name>latex_documents</name></member>
+    <member refid="namespaceconf_1a85efc5fee48a26fa2d651f6eeb38fc2b" kind="variable"><name>man_pages</name></member>
+    <member refid="namespaceconf_1a54b0faed214ac92017d5689efbb10672" kind="variable"><name>texinfo_documents</name></member>
+    <member refid="namespaceconf_1acb47d2c0c2904fa7d36b63142533f383" kind="variable"><name>breathe_projects</name></member>
+    <member refid="namespaceconf_1a6eba2d2c7ae923054b1c49e686ec89b9" kind="variable"><name>breathe_default_project</name></member>
+    <member refid="namespaceconf_1a634aab1b6d7a9566abda0469a85832bd" kind="variable"><name>read_the_docs_build</name></member>
+  </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="conf_8py" kind="file"><name>conf.py</name>
   </compound>
   <compound refid="example_8cpp" kind="file"><name>example.cpp</name>
     <member refid="example_8cpp_1ad2c15602683a06690a29eab1ef26d84e" kind="function"><name>parseCommandLine</name></member>
@@ -392,6 +418,8 @@
   <compound refid="tests_8h" kind="file"><name>tests.h</name>
     <member refid="tests_8h_1acd1be678f7c303f2f1448ce56716f892" kind="variable"><name>TOL</name></member>
     <member refid="tests_8h_1a11a167922dece17f0144fdf9651c9f1f" kind="function"><name>test_equal</name></member>
+  </compound>
+  <compound refid="dir_49e56c817e5e54854c35e136979f97ca" kind="dir"><name>docs</name>
   </compound>
   <compound refid="dir_cfafba98a580ce4b62f8a6fa96d7cbb0" kind="dir"><name>example</name>
   </compound>

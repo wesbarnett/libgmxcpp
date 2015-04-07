@@ -23,46 +23,42 @@
     <includedby refid="src_2Utils_8cpp" local="yes">src/Utils.cpp</includedby>
     <includedby refid="tests_2Utils_8cpp" local="yes">tests/Utils.cpp</includedby>
     <incdepgraph>
-      <node id="170">
+      <node id="172">
         <label>sys/stat.h</label>
       </node>
-      <node id="179">
+      <node id="181">
         <label>gmxcpp/xdrfile.h</label>
         <link refid="xdrfile_8h"/>
       </node>
-      <node id="174">
+      <node id="176">
         <label>stdlib.h</label>
       </node>
-      <node id="168">
+      <node id="170">
         <label>cmath</label>
       </node>
-      <node id="175">
+      <node id="177">
         <label>string</label>
       </node>
-      <node id="181">
+      <node id="183">
         <label>gmxcpp/xdrfile_xtc.h</label>
         <link refid="xdrfile__xtc_8h_source"/>
-        <childnode refid="179" relation="include">
+        <childnode refid="181" relation="include">
         </childnode>
       </node>
-      <node id="169">
+      <node id="171">
         <label>fstream</label>
       </node>
-      <node id="178">
+      <node id="180">
         <label>gmxcpp/coordinates.h</label>
         <link refid="coordinates_8h"/>
+        <childnode refid="181" relation="include">
+        </childnode>
         <childnode refid="179" relation="include">
         </childnode>
-        <childnode refid="177" relation="include">
-        </childnode>
       </node>
-      <node id="166">
+      <node id="168">
         <label>include/gmxcpp/Utils.h</label>
         <link refid="Utils.h"/>
-        <childnode refid="167" relation="include">
-        </childnode>
-        <childnode refid="168" relation="include">
-        </childnode>
         <childnode refid="169" relation="include">
         </childnode>
         <childnode refid="170" relation="include">
@@ -83,90 +79,94 @@
         </childnode>
         <childnode refid="178" relation="include">
         </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
         <childnode refid="180" relation="include">
         </childnode>
-        <childnode refid="179" relation="include">
+        <childnode refid="182" relation="include">
         </childnode>
         <childnode refid="181" relation="include">
         </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
       </node>
-      <node id="177">
+      <node id="179">
         <label>vector</label>
       </node>
-      <node id="176">
+      <node id="178">
         <label>time.h</label>
       </node>
-      <node id="172">
+      <node id="174">
         <label>math.h</label>
       </node>
-      <node id="171">
+      <node id="173">
         <label>iostream</label>
       </node>
-      <node id="180">
+      <node id="182">
         <label>gmxcpp/triclinicbox.h</label>
         <link refid="triclinicbox_8h"/>
-        <childnode refid="178" relation="include">
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
         </childnode>
         <childnode refid="179" relation="include">
         </childnode>
-        <childnode refid="177" relation="include">
-        </childnode>
       </node>
-      <node id="167">
+      <node id="169">
         <label>algorithm</label>
       </node>
-      <node id="173">
+      <node id="175">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="188">
+      <node id="190">
         <label>src/Frame.cpp</label>
         <link refid="Frame_8cpp"/>
       </node>
-      <node id="185">
+      <node id="187">
         <label>include/gmxcpp/Trajectory.h</label>
         <link refid="Trajectory_8h"/>
-        <childnode refid="183" relation="include">
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+      </node>
+      <node id="185">
+        <label>example/example.cpp</label>
+        <link refid="example_8cpp"/>
+      </node>
+      <node id="184">
+        <label>include/gmxcpp/Utils.h</label>
+        <link refid="Utils.h"/>
+        <childnode refid="185" relation="include">
         </childnode>
         <childnode refid="186" relation="include">
         </childnode>
         <childnode refid="187" relation="include">
         </childnode>
-      </node>
-      <node id="183">
-        <label>example/example.cpp</label>
-        <link refid="example_8cpp"/>
-      </node>
-      <node id="182">
-        <label>include/gmxcpp/Utils.h</label>
-        <link refid="Utils.h"/>
-        <childnode refid="183" relation="include">
-        </childnode>
-        <childnode refid="184" relation="include">
-        </childnode>
-        <childnode refid="185" relation="include">
-        </childnode>
-        <childnode refid="189" relation="include">
+        <childnode refid="191" relation="include">
         </childnode>
       </node>
-      <node id="184">
+      <node id="186">
         <label>include/gmxcpp/Frame.h</label>
         <link refid="Frame_8h"/>
-        <childnode refid="185" relation="include">
+        <childnode refid="187" relation="include">
         </childnode>
-        <childnode refid="188" relation="include">
+        <childnode refid="190" relation="include">
         </childnode>
       </node>
-      <node id="189">
+      <node id="191">
         <label>src/Utils.cpp</label>
         <link refid="src_2Utils_8cpp"/>
       </node>
-      <node id="186">
+      <node id="188">
         <label>include/gmxcpp/Clusters.h</label>
         <link refid="Clusters_8h_source"/>
       </node>
-      <node id="187">
+      <node id="189">
         <label>src/Trajectory.cpp</label>
         <link refid="src_2Trajectory_8cpp"/>
       </node>

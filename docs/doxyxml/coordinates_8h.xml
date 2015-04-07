@@ -13,105 +13,105 @@
     <includedby refid="tests_2Trajectory_8cpp" local="yes">tests/Trajectory.cpp</includedby>
     <includedby refid="tests_2Utils_8cpp" local="yes">tests/Utils.cpp</includedby>
     <incdepgraph>
-      <node id="60">
+      <node id="62">
         <label>gmxcpp/xdrfile.h</label>
         <link refid="xdrfile_8h"/>
       </node>
-      <node id="59">
+      <node id="61">
         <label>include/gmxcpp/coordinates.h</label>
         <link refid="coordinates.h"/>
-        <childnode refid="60" relation="include">
+        <childnode refid="62" relation="include">
         </childnode>
-        <childnode refid="61" relation="include">
+        <childnode refid="63" relation="include">
         </childnode>
       </node>
-      <node id="61">
+      <node id="63">
         <label>vector</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="68">
+      <node id="70">
         <label>src/Frame.cpp</label>
         <link refid="Frame_8cpp"/>
       </node>
-      <node id="73">
+      <node id="75">
         <label>src/coordinates.cpp</label>
         <link refid="src_2coordinates_8cpp"/>
       </node>
-      <node id="64">
+      <node id="66">
         <label>include/gmxcpp/Trajectory.h</label>
         <link refid="Trajectory_8h"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>include/gmxcpp/coordinates.h</label>
+        <link refid="coordinates.h"/>
         <childnode refid="65" relation="include">
         </childnode>
         <childnode refid="66" relation="include">
         </childnode>
-        <childnode refid="67" relation="include">
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
         </childnode>
       </node>
-      <node id="62">
-        <label>include/gmxcpp/coordinates.h</label>
-        <link refid="coordinates.h"/>
-        <childnode refid="63" relation="include">
+      <node id="67">
+        <label>example/example.cpp</label>
+        <link refid="example_8cpp"/>
+      </node>
+      <node id="74">
+        <label>src/triclinicbox.cpp</label>
+        <link refid="src_2triclinicbox_8cpp"/>
+      </node>
+      <node id="72">
+        <label>include/gmxcpp/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="67" relation="include">
         </childnode>
-        <childnode refid="64" relation="include">
+        <childnode refid="65" relation="include">
         </childnode>
-        <childnode refid="69" relation="include">
-        </childnode>
-        <childnode refid="70" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
         <childnode refid="73" relation="include">
         </childnode>
       </node>
       <node id="65">
-        <label>example/example.cpp</label>
-        <link refid="example_8cpp"/>
-      </node>
-      <node id="72">
-        <label>src/triclinicbox.cpp</label>
-        <link refid="src_2triclinicbox_8cpp"/>
-      </node>
-      <node id="70">
-        <label>include/gmxcpp/Utils.h</label>
-        <link refid="Utils_8h"/>
-        <childnode refid="65" relation="include">
-        </childnode>
-        <childnode refid="63" relation="include">
-        </childnode>
-        <childnode refid="64" relation="include">
-        </childnode>
-        <childnode refid="71" relation="include">
-        </childnode>
-      </node>
-      <node id="63">
         <label>include/gmxcpp/Frame.h</label>
         <link refid="Frame_8h"/>
-        <childnode refid="64" relation="include">
-        </childnode>
-        <childnode refid="68" relation="include">
-        </childnode>
-      </node>
-      <node id="71">
-        <label>src/Utils.cpp</label>
-        <link refid="src_2Utils_8cpp"/>
-      </node>
-      <node id="66">
-        <label>include/gmxcpp/Clusters.h</label>
-        <link refid="Clusters_8h_source"/>
-      </node>
-      <node id="67">
-        <label>src/Trajectory.cpp</label>
-        <link refid="src_2Trajectory_8cpp"/>
-      </node>
-      <node id="69">
-        <label>include/gmxcpp/triclinicbox.h</label>
-        <link refid="triclinicbox_8h"/>
-        <childnode refid="63" relation="include">
-        </childnode>
-        <childnode refid="64" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
         <childnode refid="70" relation="include">
         </childnode>
+      </node>
+      <node id="73">
+        <label>src/Utils.cpp</label>
+        <link refid="src_2Utils_8cpp"/>
+      </node>
+      <node id="68">
+        <label>include/gmxcpp/Clusters.h</label>
+        <link refid="Clusters_8h_source"/>
+      </node>
+      <node id="69">
+        <label>src/Trajectory.cpp</label>
+        <link refid="src_2Trajectory_8cpp"/>
+      </node>
+      <node id="71">
+        <label>include/gmxcpp/triclinicbox.h</label>
+        <link refid="triclinicbox_8h"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
         <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
