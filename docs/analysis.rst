@@ -17,7 +17,7 @@ Bond angle
 
 Cross product
 -------------
-.. doxygenfunction:: cross_product
+.. doxygenfunction:: cross
 
 Dihedral angle
 --------------
