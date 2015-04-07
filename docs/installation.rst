@@ -3,11 +3,15 @@ Installation
 
 .. highlight:: bash
 
-**Requirements**
+Requirements
+------------
 
 cmake
 
-**Installing from Source**::
+Installing
+-----------
+
+**From Source**::
 
     git clone https://github.com/wesbarnett/libgmxcpp.git
     cd libgmxcpp
@@ -17,13 +21,14 @@ cmake
     make
     make install
 
-**Installing from AUR**
+**From AUR**
 
 `libgmxcpp is now in the AUR
 repository. <https://aur.archlinux.org/packages/libgmxcpp/>`_ If you're on Arch
 you know what to do.
 
-**Testing the build**
+Testing the build
+-----------------
 
 To test your build you can run the following in the build directory (see above):::
 

@@ -4,12 +4,9 @@
    contain the root `toctree` directive.
 
 libgmxcpp
-=====================================
-
-Contents:
+==========
 
 .. toctree::
-   :maxdepth: 2
 
    about
    installation
