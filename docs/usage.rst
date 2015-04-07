@@ -1,17 +1,17 @@
-Basic Usage: The Trajectory Object
-==================================
+Basic Usage
+===========
 
 .. highlight:: cpp
 
-See the example file as well as the comments in the source, especially
-Trajectory.
 
-The main idea is that you create a Trajectory object which contains all the
-information from both the .xtc file (and optionally .ndx file). Trajectory
+The premise of this library is to make reading in GROMACS files easy so that the
+focus is on writing code for analysis. The main class used is Trajectory. The
+idea is that you create a Trajectory object which contains all the information
+from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
 
-Construction
-------------
+Constructing a Trajectory Object
+--------------------------------
 
 First, you should create a Trajectory object:::
 
