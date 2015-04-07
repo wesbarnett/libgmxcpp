@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="Frame_8cpp" kind="file" language="C++">
+    <compoundname>Frame.cpp</compoundname>
+    <includes refid="Frame_8h" local="yes">gmxcpp/Frame.h</includes>
+    <incdepgraph>
+      <node id="281">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="265">
+        <label>src/Frame.cpp</label>
+        <link refid="Frame.cpp"/>
+        <childnode refid="266" relation="include">
+        </childnode>
+      </node>
+      <node id="267">
+        <label>gmxcpp/xdrfile.h</label>
+        <link refid="xdrfile_8h"/>
+      </node>
+      <node id="275">
+        <label>iomanip</label>
+      </node>
+      <node id="284">
+        <label>stdlib.h</label>
+      </node>
+      <node id="280">
+        <label>cmath</label>
+      </node>
+      <node id="277">
+        <label>stdexcept</label>
+      </node>
+      <node id="271">
+        <label>string</label>
+      </node>
+      <node id="268">
+        <label>gmxcpp/xdrfile_xtc.h</label>
+        <link refid="xdrfile__xtc_8h_source"/>
+        <childnode refid="267" relation="include">
+        </childnode>
+      </node>
+      <node id="270">
+        <label>fstream</label>
+      </node>
+      <node id="286">
+        <label>gmxcpp/coordinates.h</label>
+        <link refid="coordinates_8h"/>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="272" relation="include">
+        </childnode>
+      </node>
+      <node id="278">
+        <label>gmxcpp/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+        <childnode refid="274" relation="include">
+        </childnode>
+        <childnode refid="282" relation="include">
+        </childnode>
+        <childnode refid="283" relation="include">
+        </childnode>
+        <childnode refid="284" relation="include">
+        </childnode>
+        <childnode refid="271" relation="include">
+        </childnode>
+        <childnode refid="285" relation="include">
+        </childnode>
+        <childnode refid="272" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="287" relation="include">
+        </childnode>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
+      </node>
+      <node id="272">
+        <label>vector</label>
+      </node>
+      <node id="276">
+        <label>sstream</label>
+      </node>
+      <node id="285">
+        <label>time.h</label>
+      </node>
+      <node id="282">
+        <label>math.h</label>
+      </node>
+      <node id="266">
+        <label>gmxcpp/Frame.h</label>
+        <link refid="Frame_8h"/>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
+        <childnode refid="269" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="287" relation="include">
+        </childnode>
+      </node>
+      <node id="273">
+        <label>cstdlib</label>
+      </node>
+      <node id="269">
+        <label>gmxcpp/Index.h</label>
+        <link refid="Index_8h"/>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="271" relation="include">
+        </childnode>
+        <childnode refid="272" relation="include">
+        </childnode>
+        <childnode refid="273" relation="include">
+        </childnode>
+        <childnode refid="274" relation="include">
+        </childnode>
+        <childnode refid="275" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+      </node>
+      <node id="274">
+        <label>iostream</label>
+      </node>
+      <node id="287">
+        <label>gmxcpp/triclinicbox.h</label>
+        <link refid="triclinicbox_8h"/>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="272" relation="include">
+        </childnode>
+      </node>
+      <node id="279">
+        <label>algorithm</label>
+      </node>
+      <node id="283">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para><ref refid="classFrame" kindref="compound">Frame</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>James W. Barnett <ulink url="mailto:jbarnet4@tulane.edu">jbarnet4@tulane.edu</ulink> </para></simplesect>
+<simplesect kind="date"><para>December 5, 2014 </para></simplesect>
+<simplesect kind="see"><para><ref refid="Frame_8h" kindref="compound">Frame.h</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>libgmxcpp</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2015<sp/>James<sp/>W.<sp/>Barnett<sp/>&lt;jbarnet4@tulane.edu&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>along<sp/>with</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/>51</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>Franklin<sp/>Street,<sp/>Fifth<sp/>Floor,<sp/>Boston,<sp/>MA<sp/>02110-1301<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>The<sp/>full<sp/>license<sp/>is<sp/>located<sp/>in<sp/>a<sp/>text<sp/>file<sp/>titled<sp/>&quot;LICENSE&quot;<sp/>in<sp/>the<sp/>root</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>directory<sp/>of<sp/>the<sp/>source.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Frame_8h" kindref="compound">gmxcpp/Frame.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="classFrame_1ad2e5946cf41d4817e750500acf05d02b" kindref="member">Frame::Frame</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><ref refid="classFrame_1ad2e5946cf41d4817e750500acf05d02b" kindref="member">Frame::Frame</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>step,</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>time,matrix<sp/>box,rvec<sp/>*x,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>natoms)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classFrame_1ad4a53bc9c44b59f3dda0df792895b594" kindref="member">Set</ref>(step,time,box,x,natoms);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Sets<sp/>the<sp/>info<sp/>(step,<sp/>time,<sp/>coordinates)<sp/>for<sp/>this<sp/>specific<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classFrame_1ad4a53bc9c44b59f3dda0df792895b594" kindref="member">Frame::Set</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>step,</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>time,matrix<sp/>box,rvec<sp/>*x,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>natoms)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;step<sp/>=<sp/>step;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;time<sp/>=<sp/>time;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;i&lt;DIM;i++)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;j&lt;DIM;j++)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;box[i][j]<sp/>=<sp/>box[i][j];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;natoms<sp/>=<sp/>natoms;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classFrame_1a9125c618fbb0791eab0576086cb562d6" kindref="member">Frame::GetTime</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>time;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classFrame_1a4b383d191c043db5ee263446a2ea7a71" kindref="member">Frame::GetStep</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>step;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="classFrame_1ac131a5a8d8ec8d6368e80e0171d8e888" kindref="member">Frame::GetXYZ</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>xyz;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>xyz.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>x[atom][<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>xyz.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>x[atom][<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>];</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>xyz.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>x[atom][<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>xyz;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">vector<sp/>&lt;coordinates&gt;<sp/><ref refid="classFrame_1ac131a5a8d8ec8d6368e80e0171d8e888" kindref="member">Frame::GetXYZ</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;coordinates&gt;<sp/>xyz;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>xyz.resize(natoms);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom=0;<sp/>atom&lt;natoms;<sp/>atom++)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xyz.at(atom).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>this-&gt;x[atom][<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xyz.at(atom).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>this-&gt;x[atom][<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xyz.at(atom).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>this-&gt;x[atom][<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>xyz;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">vector<sp/>&lt;coordinates&gt;<sp/><ref refid="classFrame_1ac131a5a8d8ec8d6368e80e0171d8e888" kindref="member">Frame::GetXYZ</ref>(<ref refid="classIndex" kindref="compound">Index</ref><sp/>index,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>group)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>location;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;coordinates&gt;<sp/>xyz;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>xyz.resize(index.<ref refid="classIndex_1a7841a09ee52bfb8976a4f3dbffb28640" kindref="member">GetGroupSize</ref>(group));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom=0;<sp/>atom&lt;index.<ref refid="classIndex_1a7841a09ee52bfb8976a4f3dbffb28640" kindref="member">GetGroupSize</ref>(group);<sp/>atom++)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>location<sp/>=<sp/>index.<ref refid="classIndex_1a217d02daa77ff95e0aa216d7cb42c31a" kindref="member">GetLocation</ref>(group,<sp/>atom);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xyz.at(atom).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>this-&gt;x[location][<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>];</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xyz.at(atom).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>this-&gt;x[location][<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>];</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xyz.at(atom).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>this-&gt;x[location][<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>];</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>xyz;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/><ref refid="classFrame_1a7f1ac333eecaba000f4576984c9d1892" kindref="member">Frame::GetBox</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;DIM;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j&lt;DIM;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>box.at(i).at(j)<sp/>=<sp/>this-&gt;box[i][j];</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>box;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classFrame_1a3676c3640f6047a77e5671f7171ba5f3" kindref="member">Frame::GetBoxVolume</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box<sp/>=<sp/><ref refid="classFrame_1a7f1ac333eecaba000f4576984c9d1892" kindref="member">GetBox</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="Utils_8h_1ac615e69d32acd21723bc7885c751ce84" kindref="member">volume</ref>(box);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/wes/libgmxcpp/src/Frame.cpp"/>
+  </compounddef>
+</doxygen>

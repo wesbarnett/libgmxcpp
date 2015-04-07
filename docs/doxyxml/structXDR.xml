@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structXDR" kind="struct" language="C++" prot="public">
+    <compoundname>XDR</compoundname>
+    <innerclass refid="structXDR_1_1xdr__ops" prot="public">XDR::xdr_ops</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structXDR_1ac51509abcf1204ea1ef2d7631cec3294" prot="public" static="no" mutable="no">
+        <type>enum xdr_op</type>
+        <definition>enum xdr_op XDR::x_op</definition>
+        <argsstring></argsstring>
+        <name>x_op</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/xdrfile.c" line="2590" column="1" bodyfile="/home/wes/libgmxcpp/src/xdrfile.c" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structXDR_1a42fe806bab5c7cecb97bfc77b2befef7" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structXDR_1_1xdr__ops" kindref="compound">XDR::xdr_ops</ref> *</type>
+        <definition>struct XDR::xdr_ops 
+    * XDR::x_ops</definition>
+        <argsstring></argsstring>
+        <name>x_ops</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/xdrfile.c" line="117" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structXDR_1a2c41d34761d45261476bf959f802ca37" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* XDR::x_private</definition>
+        <argsstring></argsstring>
+        <name>x_private</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/xdrfile.c" line="118" column="1" bodyfile="/home/wes/libgmxcpp/src/xdrfile.c" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="18">
+        <label>XDR::xdr_ops</label>
+        <link refid="structXDR_1_1xdr__ops"/>
+      </node>
+      <node id="17">
+        <label>XDR</label>
+        <link refid="structXDR"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>x_ops</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/wes/libgmxcpp/src/xdrfile.c" line="104" column="1" bodyfile="/home/wes/libgmxcpp/src/xdrfile.c" bodystart="103" bodyend="119"/>
+    <listofallmembers>
+      <member refid="structXDR_1ac51509abcf1204ea1ef2d7631cec3294" prot="public" virt="non-virtual"><scope>XDR</scope><name>x_op</name></member>
+      <member refid="structXDR_1a42fe806bab5c7cecb97bfc77b2befef7" prot="public" virt="non-virtual"><scope>XDR</scope><name>x_ops</name></member>
+      <member refid="structXDR_1a2c41d34761d45261476bf959f802ca37" prot="public" virt="non-virtual"><scope>XDR</scope><name>x_private</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

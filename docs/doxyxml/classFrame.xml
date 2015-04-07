@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classFrame" kind="class" language="C++" prot="public">
+    <compoundname>Frame</compoundname>
+    <includes refid="Frame_8h" local="no">Frame.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFrame_1a2f526580ffda44317048c26aeaeb7826" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Frame::natoms</definition>
+        <argsstring></argsstring>
+        <name>natoms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of atoms in the system </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="54" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFrame_1ab3c6826692ee46b4bfe01820797c56ce" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Frame::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Simulation step corresponding with this frame. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="56" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFrame_1ac4a23a198b552ce18e23a8460422b1d5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Frame::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Simulation time (picoseconds) corresponding with this frame. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="58" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFrame_1a8ddf7ee11cbee8d11a3f03a81f0f44af" prot="private" static="no" mutable="no">
+        <type>rvec *</type>
+        <definition>rvec* Frame::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Coordinates for all atoms in this frame. rvec comes from libxdrfile. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="61" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFrame_1a5fb9a4c738b8c9343466b977ba48cae6" prot="private" static="no" mutable="no">
+        <type>matrix</type>
+        <definition>matrix Frame::box</definition>
+        <argsstring></argsstring>
+        <name>box</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Box dimensions for this frame. matrix comes from libxdrfile. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="63" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFrame_1ad2e5946cf41d4817e750500acf05d02b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Frame::Frame</definition>
+        <argsstring>()</argsstring>
+        <name>Frame</name>
+        <briefdescription>
+<para>Blank constructor used in <ref refid="classTrajectory" kindref="compound">Trajectory</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="67" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="34" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1a4d9fa1fe7e2ede9bd9953a2bb1ba930f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Frame::Frame</definition>
+        <argsstring>(int step, float time, matrix box, rvec *x, int natoms)</argsstring>
+        <name>Frame</name>
+        <param>
+          <type>int</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>matrix</type>
+          <declname>box</declname>
+        </param>
+        <param>
+          <type>rvec *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>natoms</declname>
+        </param>
+        <briefdescription>
+<para>A constructor where the private data for the object is set. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>step</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The step number corresponding with this simulation frame. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time (in picoseconds) corresponding with this simulation frame. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The box dimensions for this frame. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinates of every atom in this frame. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>natoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of atoms in the system. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="77" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1ad4a53bc9c44b59f3dda0df792895b594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Frame::Set</definition>
+        <argsstring>(int step, float time, matrix box, rvec *x, int natoms)</argsstring>
+        <name>Set</name>
+        <param>
+          <type>int</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>matrix</type>
+          <declname>box</declname>
+        </param>
+        <param>
+          <type>rvec *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>natoms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Used in setting all of the private data for an object. Specifically this is used in the <ref refid="classTrajectory" kindref="compound">Trajectory</ref> object with a vector of Frames. See above. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="83" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="43" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1a9125c618fbb0791eab0576086cb562d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Frame::GetTime</definition>
+        <argsstring>() const </argsstring>
+        <name>GetTime</name>
+        <briefdescription>
+<para>the simulation time in picoseconds of this frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Time </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="89" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1a4b383d191c043db5ee263446a2ea7a71" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Frame::GetStep</definition>
+        <argsstring>() const </argsstring>
+        <name>GetStep</name>
+        <briefdescription>
+<para>the simulation step corresponding with this frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Step </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="95" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1abe113cf88042f4c6bf7f8cbe94fe5716" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates Frame::GetXYZ</definition>
+        <argsstring>(int atom) const </argsstring>
+        <name>GetXYZ</name>
+        <param>
+          <type>int</type>
+          <declname>atom</declname>
+        </param>
+        <briefdescription>
+<para>Gets the coordinates of a specific atom in the entire system. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the cartesian coordinates for the atom specified at this frame and returns it as a vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>atom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number corresponding with the atom in the entire system. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector with X, Y, and Z coordinates of the atom specified. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="105" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="64" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1ac131a5a8d8ec8d6368e80e0171d8e888" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classcoordinates" kindref="compound">coordinates</ref> &gt;</type>
+        <definition>vector&lt; coordinates &gt; Frame::GetXYZ</definition>
+        <argsstring>() const </argsstring>
+        <name>GetXYZ</name>
+        <briefdescription>
+<para>Gets all of the coordinates for the system for this frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A two dimensional vector with all cartesian coordinates for the system at this frame. The first dimension is the atom number. The second dimension contains the X, Y, and Z positions. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="114" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="72" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1aa2af41fe170f2f1744983f23b8b8c864" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classcoordinates" kindref="compound">coordinates</ref> &gt;</type>
+        <definition>vector&lt; coordinates &gt; Frame::GetXYZ</definition>
+        <argsstring>(Index index, string groupName) const </argsstring>
+        <name>GetXYZ</name>
+        <param>
+          <type><ref refid="classIndex" kindref="compound">Index</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupName</declname>
+        </param>
+        <briefdescription>
+<para>Gets the coordinates for all atoma in a group. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the cartesian coordinates for the atom specified in the specific index group for this frame. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>groupName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of index group in which atom is located. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index object containing the group specified. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A two dimensional vector with all cartesian coordinates for the system at this frame. The first dimension is the atom number in the index group. The second dimension contains the X, Y, and Z positions. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="127" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="83" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1a7f1ac333eecaba000f4576984c9d1892" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+        <definition>triclinicbox Frame::GetBox</definition>
+        <argsstring>() const </argsstring>
+        <name>GetBox</name>
+        <briefdescription>
+<para>Gets the triclinic box dimensions for this frame. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the cartesian coordinates for the atom specified in the specific index group for this frame. <simplesect kind="return"><para>Two-dimensional array with three elements in each dimension, corresponding to a triclinic box. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="136" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="96" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classFrame_1a3676c3640f6047a77e5671f7171ba5f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Frame::GetBoxVolume</definition>
+        <argsstring>() const </argsstring>
+        <name>GetBoxVolume</name>
+        <briefdescription>
+<para>Gets the volume of the box at this frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Box volume. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="142" column="1" bodyfile="/home/wes/libgmxcpp/src/Frame.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class with information on one trajectory frame. </para>    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classFrame" kindref="compound">Frame</ref> contains the information on the time, the step, and the coordinates and box for that time/step. rvec and matrix types come from the xdrfile library. rvec is actually a float matrix with three elements. It is pointer here so that later it will be initialized as an array containing the coordinates of all of the atoms of the frame. The matrix type is just a 3 x 3 array. <ref refid="classFrame" kindref="compound">Frame</ref> objects are usually not created on their own, but instead are created as a vector in a <ref refid="classTrajectory" kindref="compound">Trajectory</ref> object. </para>    </detaileddescription>
+    <location file="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" line="51" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Frame.h" bodystart="51" bodyend="143"/>
+    <listofallmembers>
+      <member refid="classFrame_1a5fb9a4c738b8c9343466b977ba48cae6" prot="private" virt="non-virtual"><scope>Frame</scope><name>box</name></member>
+      <member refid="classFrame_1ad2e5946cf41d4817e750500acf05d02b" prot="public" virt="non-virtual"><scope>Frame</scope><name>Frame</name></member>
+      <member refid="classFrame_1a4d9fa1fe7e2ede9bd9953a2bb1ba930f" prot="public" virt="non-virtual"><scope>Frame</scope><name>Frame</name></member>
+      <member refid="classFrame_1a7f1ac333eecaba000f4576984c9d1892" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetBox</name></member>
+      <member refid="classFrame_1a3676c3640f6047a77e5671f7171ba5f3" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetBoxVolume</name></member>
+      <member refid="classFrame_1a4b383d191c043db5ee263446a2ea7a71" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetStep</name></member>
+      <member refid="classFrame_1a9125c618fbb0791eab0576086cb562d6" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetTime</name></member>
+      <member refid="classFrame_1abe113cf88042f4c6bf7f8cbe94fe5716" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetXYZ</name></member>
+      <member refid="classFrame_1ac131a5a8d8ec8d6368e80e0171d8e888" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetXYZ</name></member>
+      <member refid="classFrame_1aa2af41fe170f2f1744983f23b8b8c864" prot="public" virt="non-virtual"><scope>Frame</scope><name>GetXYZ</name></member>
+      <member refid="classFrame_1a2f526580ffda44317048c26aeaeb7826" prot="private" virt="non-virtual"><scope>Frame</scope><name>natoms</name></member>
+      <member refid="classFrame_1ad4a53bc9c44b59f3dda0df792895b594" prot="public" virt="non-virtual"><scope>Frame</scope><name>Set</name></member>
+      <member refid="classFrame_1ab3c6826692ee46b4bfe01820797c56ce" prot="private" virt="non-virtual"><scope>Frame</scope><name>step</name></member>
+      <member refid="classFrame_1ac4a23a198b552ce18e23a8460422b1d5" prot="private" virt="non-virtual"><scope>Frame</scope><name>time</name></member>
+      <member refid="classFrame_1a8ddf7ee11cbee8d11a3f03a81f0f44af" prot="private" virt="non-virtual"><scope>Frame</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

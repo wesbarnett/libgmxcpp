@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="Trajectory_8h" kind="file" language="C++">
+    <compoundname>Trajectory.h</compoundname>
+    <includes local="no">cstring</includes>
+    <includes local="no">string</includes>
+    <includes local="no">iostream</includes>
+    <includes refid="Frame_8h" local="yes">gmxcpp/Frame.h</includes>
+    <includes refid="Index_8h" local="yes">gmxcpp/Index.h</includes>
+    <includes refid="Utils_8h" local="yes">gmxcpp/Utils.h</includes>
+    <includes refid="coordinates_8h" local="yes">gmxcpp/coordinates.h</includes>
+    <includes refid="triclinicbox_8h" local="yes">gmxcpp/triclinicbox.h</includes>
+    <includes refid="xdrfile_8h" local="yes">gmxcpp/xdrfile.h</includes>
+    <includes refid="xdrfile__xtc_8h" local="yes">gmxcpp/xdrfile_xtc.h</includes>
+    <includes local="no">stdexcept</includes>
+    <includedby refid="example_8cpp" local="yes">example/example.cpp</includedby>
+    <includedby refid="Clusters_8h" local="yes">include/gmxcpp/Clusters.h</includedby>
+    <includedby refid="src_2Trajectory_8cpp" local="yes">src/Trajectory.cpp</includedby>
+    <includedby refid="tests_2Trajectory_8cpp" local="yes">tests/Trajectory.cpp</includedby>
+    <incdepgraph>
+      <node id="136">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="124">
+        <label>gmxcpp/xdrfile.h</label>
+        <link refid="xdrfile_8h"/>
+      </node>
+      <node id="130">
+        <label>iomanip</label>
+      </node>
+      <node id="139">
+        <label>stdlib.h</label>
+      </node>
+      <node id="135">
+        <label>cmath</label>
+      </node>
+      <node id="132">
+        <label>stdexcept</label>
+      </node>
+      <node id="119">
+        <label>include/gmxcpp/Trajectory.h</label>
+        <link refid="Trajectory.h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>string</label>
+      </node>
+      <node id="125">
+        <label>gmxcpp/xdrfile_xtc.h</label>
+        <link refid="xdrfile__xtc_8h_source"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+      </node>
+      <node id="127">
+        <label>fstream</label>
+      </node>
+      <node id="141">
+        <label>gmxcpp/coordinates.h</label>
+        <link refid="coordinates_8h"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>gmxcpp/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>vector</label>
+      </node>
+      <node id="131">
+        <label>sstream</label>
+      </node>
+      <node id="140">
+        <label>time.h</label>
+      </node>
+      <node id="137">
+        <label>math.h</label>
+      </node>
+      <node id="123">
+        <label>gmxcpp/Frame.h</label>
+        <link refid="Frame_8h"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+      </node>
+      <node id="129">
+        <label>cstdlib</label>
+      </node>
+      <node id="126">
+        <label>gmxcpp/Index.h</label>
+        <link refid="Index_8h"/>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>iostream</label>
+      </node>
+      <node id="142">
+        <label>gmxcpp/triclinicbox.h</label>
+        <link refid="triclinicbox_8h"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>algorithm</label>
+      </node>
+      <node id="138">
+        <label>stdio.h</label>
+      </node>
+      <node id="120">
+        <label>cstring</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="143">
+        <label>include/gmxcpp/Trajectory.h</label>
+        <link refid="Trajectory.h"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>example/example.cpp</label>
+        <link refid="example_8cpp"/>
+      </node>
+      <node id="145">
+        <label>include/gmxcpp/Clusters.h</label>
+        <link refid="Clusters_8h_source"/>
+      </node>
+      <node id="146">
+        <label>src/Trajectory.cpp</label>
+        <link refid="src_2Trajectory_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classTrajectory" prot="public">Trajectory</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="Trajectory_8h_1a9e48cfc40211d02131da006f35a00f4d" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MAXFRAMES</definition>
+        <argsstring></argsstring>
+        <name>MAXFRAMES</name>
+        <initializer>=100000</initializer>
+        <briefdescription>
+<para>Maximum number of frames to read in. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="47" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Header for the <ref refid="classTrajectory" kindref="compound">Trajectory</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>James W. Barnett <ulink url="mailto:jbarnet4@tulane.edu">jbarnet4@tulane.edu</ulink> </para></simplesect>
+<simplesect kind="date"><para>December 5, 2014 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>libgmxcpp</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2015<sp/>James<sp/>W.<sp/>Barnett<sp/>&lt;jbarnet4@tulane.edu&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>along<sp/>with</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/>51</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>Franklin<sp/>Street,<sp/>Fifth<sp/>Floor,<sp/>Boston,<sp/>MA<sp/>02110-1301<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>The<sp/>full<sp/>license<sp/>is<sp/>located<sp/>in<sp/>a<sp/>text<sp/>file<sp/>titled<sp/>&quot;LICENSE&quot;<sp/>in<sp/>the<sp/>root</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>directory<sp/>of<sp/>the<sp/>source.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor">#ifndef<sp/>TRAJECTORY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TRAJECTORY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Frame_8h" kindref="compound">gmxcpp/Frame.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Index_8h" kindref="compound">gmxcpp/Index.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Utils_8h" kindref="compound">gmxcpp/Utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="coordinates_8h" kindref="compound">gmxcpp/coordinates.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="triclinicbox_8h" kindref="compound">gmxcpp/triclinicbox.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="xdrfile_8h" kindref="compound">gmxcpp/xdrfile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gmxcpp/xdrfile_xtc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="Trajectory_8h_1a9e48cfc40211d02131da006f35a00f4d" refkind="member"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="Trajectory_8h_1a9e48cfc40211d02131da006f35a00f4d" kindref="member">MAXFRAMES</ref>=100000;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classTrajectory" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTrajectory" kindref="compound">Trajectory</ref><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector<sp/>&lt;Frame&gt;<sp/>frameArray;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIndex" kindref="compound">Index</ref><sp/>index;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structXDRFILE" kindref="compound">XDRFILE</ref><sp/>*xd;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>prec;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nframes;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>natoms;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>read(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>initalFrames);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitXTC(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filename);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTrajectory" kindref="compound">Trajectory</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>xtcfile);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTrajectory" kindref="compound">Trajectory</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>xtcfile,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxFrames);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTrajectory" kindref="compound">Trajectory</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>xtcfile,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>ndxfile);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTrajectory" kindref="compound">Trajectory</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>xtcfile,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>ndxfile,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxFrames);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetNAtoms()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetNAtoms(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>groupName)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetNFrames()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>GetTime(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetStep(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>GetXYZ(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>GetXYZ(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>groupName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector<sp/>&lt;coordinates&gt;<sp/>GetXYZ(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector<sp/>&lt;coordinates&gt;<sp/>GetXYZ(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>groupName)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>GetBox(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>GetBoxVolume(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h"/>
+  </compounddef>
+</doxygen>

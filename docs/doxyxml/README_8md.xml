@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline></codeline>
+<codeline><highlight class="normal">![&quot;Build<sp/>status&quot;](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=master)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>a<sp/>small<sp/>library<sp/>used<sp/>for<sp/>reading<sp/>in<sp/>Gromacs<sp/>files<sp/>(.xtc<sp/>and<sp/>.ndx)<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">use<sp/>in<sp/>analyzing<sp/>the<sp/>results.<sp/>This<sp/>basically<sp/>interfaces<sp/>with<sp/>libxdrfile<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">implements<sp/>an<sp/>object-oriented<sp/>style.<sp/>The<sp/>main<sp/>usage<sp/>of<sp/>the<sp/>library<sp/>is<sp/>to<sp/>be<sp/>able</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>create<sp/>a<sp/>Trajectory<sp/>object<sp/>which<sp/>reads<sp/>in<sp/>an<sp/>XTC<sp/>file<sp/>along<sp/>with<sp/>an<sp/>optional</highlight></codeline>
+<codeline><highlight class="normal">GROMACS<sp/>index<sp/>file.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>development<sp/>branch<sp/>is<sp/>&quot;master&quot;.<sp/>Releases<sp/>are<sp/>merged<sp/>into<sp/>the<sp/>&quot;release&quot;</highlight></codeline>
+<codeline><highlight class="normal">branch.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##Advantages</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Only<sp/>one<sp/>object<sp/>construction<sp/>needs<sp/>to<sp/>be<sp/>called<sp/>to<sp/>read<sp/>in<sp/>both<sp/>.xtc<sp/>and<sp/>.ndx</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>files.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Index<sp/>groups<sp/>can<sp/>be<sp/>used<sp/>by<sp/>name<sp/>within<sp/>the<sp/>program<sp/>to<sp/>get<sp/>a<sp/>desired<sp/>atom&apos;s</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>coordinates.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Custom<sp/>classes<sp/>for<sp/>atomic<sp/>coordinates<sp/>and<sp/>simulation<sp/>box<sp/>allow<sp/>overloading<sp/>of</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>operators<sp/>to<sp/>simplify<sp/>coding.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Common<sp/>functions<sp/>such<sp/>as<sp/>distance,<sp/>magnitude,<sp/>and<sp/>cross<sp/>product<sp/>are<sp/>built-in.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Analysis<sp/>loops<sp/>can<sp/>easily<sp/>be<sp/>parallelized<sp/>with<sp/>class<sp/>getter<sp/>functions,<sp/>since</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>all<sp/>data<sp/>frames<sp/>are<sp/>initially<sp/>read<sp/>in<sp/>and<sp/>can<sp/>be<sp/>accessed<sp/>simultaneously.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>No<sp/>other<sp/>libraries<sp/>needed<sp/>(the<sp/>relevant<sp/>parts<sp/>of<sp/>libxdrfile<sp/>are<sp/>included<sp/>with</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>this<sp/>project).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![Screenshot](https://raw.githubusercontent.com/wesbarnett/libgmxcpp/master/img/screenshot.png)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[Full<sp/>documentation<sp/>is<sp/>located<sp/>here.](http://wesbarnett.github.io/libgmxcpp)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##Requirements</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">cmake</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##Installation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###From<sp/>Source</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{bash}</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/wesbarnett/libgmxcpp.git</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>libgmxcpp</highlight></codeline>
+<codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>..</highlight></codeline>
+<codeline><highlight class="normal">make</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###From<sp/>AUR</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[libgmxcpp<sp/>is<sp/>now<sp/>in<sp/>the<sp/>AUR</highlight></codeline>
+<codeline><highlight class="normal">repository.](https://aur.archlinux.org/packages/libgmxcpp/)<sp/>If<sp/>you&apos;re<sp/>on<sp/>Arch</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>know<sp/>what<sp/>to<sp/>do.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Testing<sp/>the<sp/>build</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>test<sp/>your<sp/>build<sp/>you<sp/>can<sp/>run<sp/>the<sp/>following<sp/>in<sp/>the<sp/>build<sp/>directory<sp/>(see<sp/>above):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{bash}</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Automated<sp/>tests<sp/>are<sp/>performed<sp/>[via</highlight></codeline>
+<codeline><highlight class="normal">Travis](https://travis-ci.org/wesbarnett/libgmxcpp)<sp/>when<sp/>new<sp/>commits<sp/>are<sp/>pushed.</highlight></codeline>
+<codeline><highlight class="normal">Tests<sp/>are<sp/>in<sp/>the<sp/>&quot;tests&quot;<sp/>directory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##Example<sp/>Program</highlight></codeline>
+<codeline><highlight class="normal">There<sp/>is<sp/>an<sp/>example<sp/>program<sp/>in<sp/>the<sp/>&quot;example&quot;<sp/>directory.<sp/>Use<sp/>&quot;make&quot;<sp/>to<sp/>compile<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>test<sp/>it<sp/>out<sp/>on<sp/>an<sp/>.xtc<sp/>and<sp/>.ndx<sp/>file<sp/>from<sp/>a<sp/>recent<sp/>simulation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##Usage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>the<sp/>example<sp/>file<sp/>as<sp/>well<sp/>as<sp/>the<sp/>comments<sp/>in<sp/>the<sp/>source,<sp/>especially</highlight></codeline>
+<codeline><highlight class="normal">Trajectory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>main<sp/>idea<sp/>is<sp/>that<sp/>you<sp/>create<sp/>a<sp/>Trajectory<sp/>object<sp/>which<sp/>contains<sp/>all<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">information<sp/>from<sp/>both<sp/>the<sp/>.xtc<sp/>file<sp/>(and<sp/>optionally<sp/>.ndx<sp/>file).<sp/>Trajectory</highlight></codeline>
+<codeline><highlight class="normal">object<sp/>methods<sp/>are<sp/>then<sp/>used<sp/>for<sp/>analyzing<sp/>the<sp/>data.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Construction</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First,<sp/>you<sp/>should<sp/>create<sp/>a<sp/>Trajectory<sp/>object:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Creates<sp/>a<sp/>Trajectory<sp/>object<sp/>with<sp/>&quot;traj.xtc&quot;<sp/>and<sp/>&quot;index.ndx&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>The<sp/>index<sp/>file<sp/>is<sp/>optional</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Both<sp/>arguments<sp/>are<sp/>C++<sp/>strings</highlight></codeline>
+<codeline><highlight class="normal">Trajectory<sp/>traj(&quot;traj.xtc&quot;,&quot;index.ndx&quot;);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>could<sp/>also<sp/>make<sp/>it<sp/>a<sp/>pointer:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">Trajectory<sp/>*traj<sp/>=<sp/>new<sp/>Trajectory(&quot;traj.xtc&quot;,&quot;index.ndx&quot;);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>that<sp/>case<sp/>just<sp/>remember<sp/>to<sp/>use<sp/>&quot;-&gt;&quot;<sp/>instead<sp/>of<sp/>&quot;.&quot;<sp/>when<sp/>calling<sp/>its<sp/>methods.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Upon<sp/>construction<sp/>of<sp/>a<sp/>Trajectory<sp/>object<sp/>both<sp/>the<sp/>xtc<sp/>file<sp/>and<sp/>the<sp/>index<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>read<sp/>into<sp/>memory.<sp/>The<sp/>following<sp/>sections<sp/>detail<sp/>how<sp/>to<sp/>access<sp/>the<sp/>data.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Additionally,<sp/>one<sp/>thing<sp/>to<sp/>consider<sp/>is<sp/>that<sp/>the<sp/>object<sp/>initially<sp/>allocates</highlight></codeline>
+<codeline><highlight class="normal">enough<sp/>memory<sp/>for<sp/>100,000<sp/>frames<sp/>and<sp/>then<sp/>reduces<sp/>that<sp/>to<sp/>the<sp/>correct<sp/>amount<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">frames<sp/>read<sp/>in.<sp/>If<sp/>you<sp/>have<sp/>more<sp/>frames<sp/>than<sp/>that<sp/>to<sp/>read<sp/>in,<sp/>or<sp/>you<sp/>memory<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">precious<sp/>and<sp/>you<sp/>want<sp/>to<sp/>initially<sp/>allocate<sp/>for<sp/>less,<sp/>you<sp/>can<sp/>pass<sp/>the<sp/>number<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">initial<sp/>frames<sp/>as<sp/>a<sp/>parameter<sp/>in<sp/>the<sp/>construction:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>2<sp/>million<sp/>frames!<sp/>With<sp/>an<sp/>index<sp/>file.</highlight></codeline>
+<codeline><highlight class="normal">Trajectory<sp/>traj(&quot;traj.xtc&quot;,&quot;index.ndx&quot;,2000000);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Without<sp/>an<sp/>index<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">Trajectory<sp/>traj(&quot;traj.xtc&quot;,2000000);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Atomic<sp/>Coordinates</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>coordinates<sp/>of<sp/>an<sp/>atom<sp/>use<sp/>GetXYZ()<sp/>method.<sp/>There<sp/>are<sp/>several</highlight></codeline>
+<codeline><highlight class="normal">different<sp/>options.<sp/>Note<sp/>that<sp/>coordinates<sp/>is<sp/>simply<sp/>a<sp/>vector<sp/>with<sp/>double</highlight></codeline>
+<codeline><highlight class="normal">precision.<sp/>triclinicbox<sp/>is<sp/>a<sp/>two<sp/>dimensional<sp/>vector<sp/>with<sp/>double<sp/>precision.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>get<sp/>the<sp/>coordinates<sp/>for<sp/>every<sp/>atom<sp/>in<sp/>the<sp/>system<sp/>for<sp/>a<sp/>specific<sp/>frame.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>For<sp/>the<sp/>3rd<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal">vector<sp/>&lt;coordinates&gt;<sp/>a<sp/>=<sp/>traj.GetXYZ(2);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>To<sp/>print<sp/>out<sp/>the<sp/>first<sp/>atom&apos;s<sp/>coordinates<sp/>in<sp/>this<sp/>vector:</highlight></codeline>
+<codeline><highlight class="normal">cout<sp/>&lt;&lt;<sp/>a.at(0);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>get<sp/>the<sp/>coordinates<sp/>for<sp/>every<sp/>atom<sp/>in<sp/>an<sp/>index<sp/>group<sp/>for<sp/>a<sp/>specific</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>For<sp/>group<sp/>&quot;C&quot;<sp/>in<sp/>the<sp/>3rd<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal">vector<sp/>&lt;coordinates&gt;<sp/>a<sp/>=<sp/>traj.GetXYZ(2,&quot;C&quot;)</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>get<sp/>the<sp/>coordinates<sp/>for<sp/>one<sp/>specific<sp/>atom<sp/>in<sp/>the<sp/>system<sp/>for<sp/>a<sp/>specific</highlight></codeline>
+<codeline><highlight class="normal">frame:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Second<sp/>atom<sp/>in<sp/>the<sp/>3rd<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal">coordinates<sp/>a<sp/>=<sp/>traj.GetXYZ(2,1);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>You<sp/>can<sp/>print<sp/>cleanly:</highlight></codeline>
+<codeline><highlight class="normal">cout<sp/>&lt;&lt;<sp/>a;</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>get<sp/>the<sp/>coordinates<sp/>for<sp/>one<sp/>specific<sp/>atom<sp/>in<sp/>an<sp/>index<sp/>group<sp/>for<sp/>a<sp/>frame:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>2nd<sp/>atom<sp/>in<sp/>group<sp/>&quot;C&quot;<sp/>in<sp/>the<sp/>3rd<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal">coordinates<sp/>a<sp/>=<sp/>traj.GetXYZ(2,&quot;C&quot;,1);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Usually<sp/>you&apos;ll<sp/>throw<sp/>GetXYZ<sp/>in<sp/>a<sp/>couple<sp/>of<sp/>loops<sp/>to<sp/>access<sp/>the<sp/>data<sp/>you<sp/>need.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Box<sp/>Dimensions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>box<sp/>dimensions<sp/>use<sp/>GetBox()<sp/>method:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Gets<sp/>the<sp/>box<sp/>dimensions<sp/>from<sp/>the<sp/>first<sp/>frame:</highlight></codeline>
+<codeline><highlight class="normal">triclinicbox<sp/>box<sp/>=<sp/>traj.GetBox(0);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>You<sp/>can<sp/>print<sp/>cleanly:</highlight></codeline>
+<codeline><highlight class="normal">cout<sp/>&lt;&lt;<sp/>box;</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Box<sp/>Volume</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>volume<sp/>of<sp/>the<sp/>simulation<sp/>box<sp/>for<sp/>any<sp/>frame:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>For<sp/>frame<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">double<sp/>vol<sp/>=<sp/>traj.GetBoxVolume(0);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Number<sp/>of<sp/>Frames</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>number<sp/>of<sp/>frames<sp/>in<sp/>the<sp/>simulation<sp/>use<sp/>GetNFrames():</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>nframes<sp/>=<sp/>traj.GetNFrames();</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Number<sp/>of<sp/>Atoms</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>number<sp/>of<sp/>atoms<sp/>in<sp/>the<sp/>entire<sp/>system<sp/>use<sp/>GetNAtoms():</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>natoms<sp/>=<sp/>traj.GetNAtoms();</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>size<sp/>(number<sp/>of<sp/>atoms<sp/>in)<sp/>a<sp/>specific<sp/>group<sp/>pass<sp/>the<sp/>index<sp/>name<sp/>as<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">argument:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Gets<sp/>the<sp/>number<sp/>of<sp/>atoms<sp/>in<sp/>group<sp/>&quot;SOL&quot;</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>solsize<sp/>=<sp/>traj.GetNAtoms(&quot;SOL&quot;):</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Time<sp/>and<sp/>Step</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>time<sp/>(in<sp/>ps)<sp/>corresponding<sp/>with<sp/>a<sp/>frame<sp/>use<sp/>GetTime(frame):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Gets<sp/>the<sp/>time<sp/>of<sp/>the<sp/>5th<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal">float<sp/>time<sp/>=<sp/>traj.GetTime(4);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>the<sp/>step<sp/>for<sp/>a<sp/>frame<sp/>use<sp/>GetStep(frame):</highlight></codeline>
+<codeline><highlight class="normal">~~~{.cpp}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Gets<sp/>the<sp/>step<sp/>corresponding<sp/>with<sp/>the<sp/>5th<sp/>frame</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>step<sp/>=<sp/>traj.GetStep(4);</highlight></codeline>
+<codeline><highlight class="normal">~~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Utilities</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Be<sp/>sure<sp/>to<sp/>check<sp/>out<sp/>Utils.h<sp/>which<sp/>includes<sp/>utilies<sp/>in<sp/>calculating<sp/>atomic</highlight></codeline>
+<codeline><highlight class="normal">distances,<sp/>the<sp/>periodic<sp/>boundary<sp/>condition,<sp/>and<sp/>more.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>License</highlight></codeline>
+<codeline><highlight class="normal">libgmxcpp</highlight></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(C)<sp/>2015<sp/>James<sp/>W.<sp/>Barnett<sp/>&lt;jbarnet4@tulane.edu&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline><highlight class="normal">Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later</highlight></codeline>
+<codeline><highlight class="normal">version.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY</highlight></codeline>
+<codeline><highlight class="normal">WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A</highlight></codeline>
+<codeline><highlight class="normal">PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>along<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/>51</highlight></codeline>
+<codeline><highlight class="normal">Franklin<sp/>Street,<sp/>Fifth<sp/>Floor,<sp/>Boston,<sp/>MA<sp/>02110-1301<sp/>USA.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>full<sp/>license<sp/>is<sp/>located<sp/>in<sp/>a<sp/>text<sp/>file<sp/>titled<sp/>&quot;LICENSE&quot;<sp/>in<sp/>the<sp/>root</highlight></codeline>
+<codeline><highlight class="normal">directory<sp/>of<sp/>the<sp/>source<sp/>and<sp/>includes<sp/>a<sp/>licence<sp/>for<sp/>each<sp/>part<sp/>of<sp/>this<sp/>package.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Citing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">I<sp/>hope<sp/>you<sp/>find<sp/>this<sp/>library<sp/>useful.<sp/>There<sp/>is<sp/>no<sp/>paper<sp/>associated<sp/>with<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">project<sp/>to<sp/>cite<sp/>as<sp/>is<sp/>common<sp/>in<sp/>some<sp/>projects.<sp/>However,<sp/>if<sp/>you<sp/>do<sp/>use<sp/>this<sp/>code</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>a<sp/>published<sp/>work<sp/>I<sp/>humbly<sp/>ask<sp/>that<sp/>you<sp/>acknowledge<sp/>it<sp/>in<sp/>some<sp/>way.</highlight></codeline>
+    </programlisting>
+    <location file="/home/wes/libgmxcpp/README.md"/>
+  </compounddef>
+</doxygen>

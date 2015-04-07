@@ -1,0 +1,605 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classTrajectory" kind="class" language="C++" prot="public">
+    <compoundname>Trajectory</compoundname>
+    <includes refid="Trajectory_8h" local="no">Trajectory.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTrajectory_1aa3f242aabc485a8142915fc2bdd2854a" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classFrame" kindref="compound">Frame</ref> &gt;</type>
+        <definition>vector&lt;Frame&gt; Trajectory::frameArray</definition>
+        <argsstring></argsstring>
+        <name>frameArray</name>
+        <briefdescription>
+<para>Vector of <ref refid="classFrame" kindref="compound">Frame</ref> objects which contain all the data in the trajectory. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="64" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrajectory_1a21cc7d9d3b02ced24779509531a6d762" prot="private" static="no" mutable="no">
+        <type><ref refid="classIndex" kindref="compound">Index</ref></type>
+        <definition>Index Trajectory::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+<para><ref refid="classIndex" kindref="compound">Index</ref> object containing all group names, sizes, and indices for the trajectory. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="70" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrajectory_1a3607b29672de2cc2add5ef3b7325c0ca" prot="private" static="no" mutable="no">
+        <type><ref refid="structXDRFILE" kindref="compound">XDRFILE</ref> *</type>
+        <definition>XDRFILE* Trajectory::xd</definition>
+        <argsstring></argsstring>
+        <name>xd</name>
+        <briefdescription>
+<para>Special file pointer required by libxdrfile to read in XTC files. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="76" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrajectory_1a94458c1800908c810af07e1339083a77" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Trajectory::prec</definition>
+        <argsstring></argsstring>
+        <name>prec</name>
+        <briefdescription>
+<para>Precision of coordinates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="81" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrajectory_1a1a39527f11ec4a0c851ac4aae6e53789" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Trajectory::nframes</definition>
+        <argsstring></argsstring>
+        <name>nframes</name>
+        <briefdescription>
+<para>Number of frames in the trajectory. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="86" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrajectory_1a2fdfd77786a250ce084a5e085b9918ee" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Trajectory::natoms</definition>
+        <argsstring></argsstring>
+        <name>natoms</name>
+        <briefdescription>
+<para>Number of atoms in the simulation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="89" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classTrajectory_1a0ccccbfe2b9712ccd1df2fe27b7f6975" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Trajectory::read</definition>
+        <argsstring>(int initalFrames)</argsstring>
+        <name>read</name>
+        <param>
+          <type>int</type>
+          <declname>initalFrames</declname>
+        </param>
+        <briefdescription>
+<para>Reads in the XTC and index files. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="92" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="111" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a1192642cb6e1a412ca568fca81f0018b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Trajectory::InitXTC</definition>
+        <argsstring>(string filename)</argsstring>
+        <name>InitXTC</name>
+        <param>
+          <type>string</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Initializes what is necessary for reading in the XTC file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="95" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="90" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTrajectory_1a354835acf30d09f1cea3be717923c496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Trajectory::Trajectory</definition>
+        <argsstring>(string xtcfile)</argsstring>
+        <name>Trajectory</name>
+        <param>
+          <type>string</type>
+          <declname>xtcfile</declname>
+        </param>
+        <briefdescription>
+<para>Constructor where only XTC file is read. </para>        </briefdescription>
+        <detaileddescription>
+<para>Constructor of <ref refid="classTrajectory" kindref="compound">Trajectory</ref> object in which entire system is read into a vector of <ref refid="classFrame" kindref="compound">Frame</ref> objects.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xtcfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the Gromacs XTC file to be read in. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="106" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="49" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a2fec5c349ae3e48aaeb07e5cb59e92ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Trajectory::Trajectory</definition>
+        <argsstring>(string xtcfile, int maxFrames)</argsstring>
+        <name>Trajectory</name>
+        <param>
+          <type>string</type>
+          <declname>xtcfile</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxFrames</declname>
+        </param>
+        <briefdescription>
+<para>Constructor where programmer sets maximum frames to be read in. </para>        </briefdescription>
+        <detaileddescription>
+<para>Constructor where then number of frames allocated is set by the programmer explicitly. By default, the constructor will only allocate 100,000 frames. This overrides that to a higher number.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xtcfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the Gromacs XTC file to be read in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxFrames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of frames to read in. Default is 100,000. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="121" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="37" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a5ba17a4ba9c36cf7113e2bfef8c4b508" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Trajectory::Trajectory</definition>
+        <argsstring>(string xtcfile, string ndxfile)</argsstring>
+        <name>Trajectory</name>
+        <param>
+          <type>string</type>
+          <declname>xtcfile</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>ndxfile</declname>
+        </param>
+        <briefdescription>
+<para>Constructor which reads in both the XTC file and a GROMACS index file. </para>        </briefdescription>
+        <detaileddescription>
+<para>When this constructor is used, both the Gromacs XTC file is saved in the vector of <ref refid="classFrame" kindref="compound">Frame</ref> objects, and the group names and index numbers for the index file are saved in an <ref refid="classIndex" kindref="compound">Index</ref> object.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xtcfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the Gromacs XTC file to be read in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ndxfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the Gromacs index file to be read in. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="135" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="61" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a9740ddf968aa8041aa5627783af4e88b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Trajectory::Trajectory</definition>
+        <argsstring>(string xtcfile, string ndxfile, int maxFrames)</argsstring>
+        <name>Trajectory</name>
+        <param>
+          <type>string</type>
+          <declname>xtcfile</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>ndxfile</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxFrames</declname>
+        </param>
+        <briefdescription>
+<para>Constructor which reads in both the XTC file and an index file and maxFrames specified. </para>        </briefdescription>
+        <detaileddescription>
+<para>Constructor which reads in xtc file, index file, and the programmer sets the number of frames to allocate for manually.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xtcfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the Gromacs XTC file to be read in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ndxfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the Gromacs index file to be read in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxFrames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of frames to read in. Default is 100,000. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="149" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1afdb7df7848002e17e21f93e9d64aea61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Trajectory::GetNAtoms</definition>
+        <argsstring>() const </argsstring>
+        <name>GetNAtoms</name>
+        <briefdescription>
+<para>Gets the number of atoms in a system. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Number of atoms. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="155" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="184" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a03d064357743aaf5a6ac607cba6999ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Trajectory::GetNAtoms</definition>
+        <argsstring>(string groupName) const </argsstring>
+        <name>GetNAtoms</name>
+        <param>
+          <type>string</type>
+          <declname>groupName</declname>
+        </param>
+        <briefdescription>
+<para>Gets the number of atoms in an index group. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>number of atoms in the group specified. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>groupName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of group for which number of atoms is returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="162" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="180" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a3bc23364e250667c611a1a2b77b5a7ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Trajectory::GetNFrames</definition>
+        <argsstring>() const </argsstring>
+        <name>GetNFrames</name>
+        <briefdescription>
+<para>Gets the number of frames that were saved. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Number of frames. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="168" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a3d8ba3dccd4b77e8da7202ae5e1b4f57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Trajectory::GetTime</definition>
+        <argsstring>(int frame) const </argsstring>
+        <name>GetTime</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Gets the time at frame specified. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Time in picoseconds. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number corresponding with the frame for which time should be returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="175" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="191" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1afb9c2f6337f280b4ad7a79bbc1922fd9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Trajectory::GetStep</definition>
+        <argsstring>(int frame) const </argsstring>
+        <name>GetStep</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Gets the step at frame specified. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Step number. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number corresponding with the frame for which step should be returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="182" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="195" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1ab563312e48059f867368f83ae3e5b768" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates Trajectory::GetXYZ</definition>
+        <argsstring>(int frame, int atom) const </argsstring>
+        <name>GetXYZ</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>atom</declname>
+        </param>
+        <briefdescription>
+<para>Gets the coordinates of a specific atom in the entire system. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the cartesian coordinates for the atom specified at the frame specified and returns it as a vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>atom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number corresponding with the atom in the entire system. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the frame desired. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector with X, Y, and Z coordinates of the atom specified. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="193" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="152" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a3f458ce4a1d18c2afeffc6fb8d0d0146" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates Trajectory::GetXYZ</definition>
+        <argsstring>(int frame, string groupName, int atom) const </argsstring>
+        <name>GetXYZ</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>atom</declname>
+        </param>
+        <briefdescription>
+<para>Gets the coordinates for a specific atom in a group. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the cartesian coordinates for the atom specified in the specific index group for this frame. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the frame desired. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>groupName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of index group in which atom is located. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>atom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number corresponding with the atom in the index group. Note that this is <bold>not</bold> the same number corresponding with the system. That is, the atom may be the 5th atom in the system, but it may be the 2nd atom in the group. This is where it is located in the group. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector with X, Y, and Z coordinates of the atom specified. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="208" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="169" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a9df322b4ee4623634edb801490f8b2d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classcoordinates" kindref="compound">coordinates</ref> &gt;</type>
+        <definition>vector&lt; coordinates &gt; Trajectory::GetXYZ</definition>
+        <argsstring>(int frame) const </argsstring>
+        <name>GetXYZ</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Gets all of the coordinates for the system for a specific frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the frame desired. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A two dimensional vector with all cartesian coordinates for the system at this frame. The first dimension is the atom number. The second dimension contains the X, Y, and Z positions. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="218" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1aec141cb116fb0dce570f0563c49ecb13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classcoordinates" kindref="compound">coordinates</ref> &gt;</type>
+        <definition>vector&lt; coordinates &gt; Trajectory::GetXYZ</definition>
+        <argsstring>(int frame, string groupName) const </argsstring>
+        <name>GetXYZ</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupName</declname>
+        </param>
+        <briefdescription>
+<para>Gets all of the coordinates for an index group for a specific frame. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is the old way. The new way is to return a vector (see above). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the frame desired. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>groupName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of index group in which atom is located. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A two dimensional vector with all cartesian coordinates for the system at this frame. The first dimension is the atom number in the group. The second dimension contains the X, Y, and Z positions. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="232" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="162" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a80f7607e48d695907ea904f6185bdfa5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+        <definition>triclinicbox Trajectory::GetBox</definition>
+        <argsstring>(int frame) const </argsstring>
+        <name>GetBox</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Gets the triclinic box dimensions for a frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the frame desired. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Two-dimensional array with three elements in each dimension, corresponding to a triclinic box. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="240" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="176" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrajectory_1a147406783cfebe3072057b37609c2d3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Trajectory::GetBoxVolume</definition>
+        <argsstring>(int frame) const </argsstring>
+        <name>GetBoxVolume</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Gets the volume of the box at a specific frame. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Box volume. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the frame desired. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="247" column="1" bodyfile="/home/wes/libgmxcpp/src/Trajectory.cpp" bodystart="199" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The main class in reading Gromacs files. </para>    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classTrajectory" kindref="compound">Trajectory</ref> object contains a vector of <ref refid="classFrame" kindref="compound">Frame</ref> objects, plus other info on the simulation (number of atoms). It also contains the special xd pointer that libxdrfile needs to open the xtc file, as well as the number of atoms in the system, the number of frames read in, and an <ref refid="classIndex" kindref="compound">Index</ref> object. </para>    </detaileddescription>
+    <location file="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" line="57" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Trajectory.h" bodystart="57" bodyend="249"/>
+    <listofallmembers>
+      <member refid="classTrajectory_1aa3f242aabc485a8142915fc2bdd2854a" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>frameArray</name></member>
+      <member refid="classTrajectory_1a80f7607e48d695907ea904f6185bdfa5" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetBox</name></member>
+      <member refid="classTrajectory_1a147406783cfebe3072057b37609c2d3a" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetBoxVolume</name></member>
+      <member refid="classTrajectory_1afdb7df7848002e17e21f93e9d64aea61" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetNAtoms</name></member>
+      <member refid="classTrajectory_1a03d064357743aaf5a6ac607cba6999ff" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetNAtoms</name></member>
+      <member refid="classTrajectory_1a3bc23364e250667c611a1a2b77b5a7ca" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetNFrames</name></member>
+      <member refid="classTrajectory_1afb9c2f6337f280b4ad7a79bbc1922fd9" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetStep</name></member>
+      <member refid="classTrajectory_1a3d8ba3dccd4b77e8da7202ae5e1b4f57" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetTime</name></member>
+      <member refid="classTrajectory_1ab563312e48059f867368f83ae3e5b768" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetXYZ</name></member>
+      <member refid="classTrajectory_1a3f458ce4a1d18c2afeffc6fb8d0d0146" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetXYZ</name></member>
+      <member refid="classTrajectory_1a9df322b4ee4623634edb801490f8b2d9" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetXYZ</name></member>
+      <member refid="classTrajectory_1aec141cb116fb0dce570f0563c49ecb13" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>GetXYZ</name></member>
+      <member refid="classTrajectory_1a21cc7d9d3b02ced24779509531a6d762" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>index</name></member>
+      <member refid="classTrajectory_1a1192642cb6e1a412ca568fca81f0018b" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>InitXTC</name></member>
+      <member refid="classTrajectory_1a2fdfd77786a250ce084a5e085b9918ee" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>natoms</name></member>
+      <member refid="classTrajectory_1a1a39527f11ec4a0c851ac4aae6e53789" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>nframes</name></member>
+      <member refid="classTrajectory_1a94458c1800908c810af07e1339083a77" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>prec</name></member>
+      <member refid="classTrajectory_1a0ccccbfe2b9712ccd1df2fe27b7f6975" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>read</name></member>
+      <member refid="classTrajectory_1a354835acf30d09f1cea3be717923c496" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>Trajectory</name></member>
+      <member refid="classTrajectory_1a2fec5c349ae3e48aaeb07e5cb59e92ff" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>Trajectory</name></member>
+      <member refid="classTrajectory_1a5ba17a4ba9c36cf7113e2bfef8c4b508" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>Trajectory</name></member>
+      <member refid="classTrajectory_1a9740ddf968aa8041aa5627783af4e88b" prot="public" virt="non-virtual"><scope>Trajectory</scope><name>Trajectory</name></member>
+      <member refid="classTrajectory_1a3607b29672de2cc2add5ef3b7325c0ca" prot="private" virt="non-virtual"><scope>Trajectory</scope><name>xd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
