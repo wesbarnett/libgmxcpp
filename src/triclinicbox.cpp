@@ -1,17 +1,16 @@
-
-/* 
+/*
  * libgmxcpp
  * Copyright (C) 2015 James W. Barnett <jbarnet4@tulane.edu>
-
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
-
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 51
  * Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -21,7 +20,7 @@
  *
  */
 
-/** 
+/**
  * @file
  * @author James W. Barnett jbarnet4@tulane.edu
  * @date December 5, 2014
@@ -31,18 +30,18 @@
 
 #include "gmxcpp/triclinicbox.h"
 
-triclinicbox::triclinicbox() {
-	this->resize(DIM);
-	for (int i=0; i < DIM; i++) {
-		this->at(i).resize(DIM);
-	}
+triclinicbox::triclinicbox()
+{
+    this->resize(DIM);
+    for (int i = 0; i < DIM; i++)
+        this->at(i).resize(DIM);
 }
 
-triclinicbox::triclinicbox(double x1, double x2, double x3, double y1, double y2, double y3, double z1, double z2, double z3) {
-	this->resize(DIM);
-	for (int i=0; i < DIM; i++) {
-		this->at(i).resize(DIM);
-	}
+triclinicbox::triclinicbox(double x1, double x2, double x3, double y1, double y2, double y3, double z1, double z2, double z3)
+{
+    this->resize(DIM);
+    for (int i = 0; i < DIM; i++)
+        this->at(i).resize(DIM);
     this->at(X).at(X) = x1;
     this->at(X).at(Y) = x2;
     this->at(X).at(Z) = x3;
@@ -54,11 +53,11 @@ triclinicbox::triclinicbox(double x1, double x2, double x3, double y1, double y2
     this->at(Z).at(Z) = z3;
 }
 
-triclinicbox::triclinicbox(double x, double y, double z) {
-	this->resize(DIM);
-	for (int i=0; i < DIM; i++) {
-		this->at(i).resize(DIM);
-	}
+triclinicbox::triclinicbox(double x, double y, double z)
+{
+    this->resize(DIM);
+    for (int i = 0; i < DIM; i++)
+        this->at(i).resize(DIM);
     this->at(X).at(X) = x;
     this->at(X).at(Y) = 0.0;
     this->at(X).at(Z) = 0.0;
@@ -69,4 +68,3 @@ triclinicbox::triclinicbox(double x, double y, double z) {
     this->at(Z).at(Y) = 0.0;
     this->at(Z).at(Z) = z;
 }
-

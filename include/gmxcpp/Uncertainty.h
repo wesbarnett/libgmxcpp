@@ -1,4 +1,3 @@
-
 #ifndef UNCERTAINTY_H
 #define UNCERTAINTY_H
 
