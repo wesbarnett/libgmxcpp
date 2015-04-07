@@ -1,0 +1,3 @@
+
+.. doxygenclass:: triclinicbox
+    :members:
