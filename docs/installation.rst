@@ -11,7 +11,7 @@ cmake
 Installing
 -----------
 
-**From Source**:
+**From Source**::
 
     git clone https://github.com/wesbarnett/libgmxcpp.git
     cd libgmxcpp

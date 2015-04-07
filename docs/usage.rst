@@ -16,7 +16,9 @@ a three-dimensional vector with several operators overloaded. Trajectory getters
 will return this type.
 
 In order to use the Trajectory class you must include 'gmxcpp/Trajectory.h' in
-your code.
+your code. Then you'll need to link to the library when you compile your
+program. With gcc this can be done by adding "-lgmxcpp" to the command for
+compiling.
 
 Constructing a Trajectory Object
 --------------------------------
@@ -55,7 +57,7 @@ To get the coordinates of an atom use GetXYZ() method. There are several
 different options. Note that coordinates is simply a vector with double
 precision. triclinicbox is a two dimensional vector with double precision.
 
-You can get the coordinates for every atom in the system for a specific frame.:
+You can get the coordinates for every atom in the system for a specific frame::
 
     // For the 3rd frame
     vector <coordinates> a = traj.GetXYZ(2);
