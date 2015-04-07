@@ -1,17 +1,16 @@
-
-/* 
+/*
  * libgmxcpp
  * Copyright (C) 2015 James W. Barnett <jbarnet4@tulane.edu>
-
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
-
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 51
  * Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -21,7 +20,7 @@
  *
  */
 
-/** @file 
+/** @file
  * @author James W. Barnett jbarnet4@tulane.edu
  * @date December 5, 2014
  * @brief Header for the Trajectory class
@@ -44,7 +43,7 @@
 using namespace std;
 
 /** @brief Maximum number of frames to read in. */
-const int MAXFRAMES=100000;
+const int MAXFRAMES = 100000;
 
 /**
  * @brief The main class in reading Gromacs files.
@@ -55,197 +54,196 @@ const int MAXFRAMES=100000;
  * atoms in the system, the number of frames read in, and an Index object.
  */
 class Trajectory {
-	private:
+private:
 
-		/**
-		 * @brief Vector of Frame objects which contain all the data in the
-		 * trajectory.
-		 */
-		vector <Frame> frameArray;
+/**
+ * @brief Vector of Frame objects which contain all the data in the
+ * trajectory.
+ */
+vector <Frame> frameArray;
 
-		/**
-		 * @brief Index object containing all group names, sizes, and indices
-		 * for the trajectory.
-		 */
-		Index index;
+/**
+ * @brief Index object containing all group names, sizes, and indices
+ * for the trajectory.
+ */
+Index index;
 
-		/**
-		 * @brief Special file pointer required by libxdrfile to read in
-		 * XTC files.
-		 */
-        XDRFILE *xd;
+/**
+ * @brief Special file pointer required by libxdrfile to read in
+ * XTC files.
+ */
+XDRFILE *xd;
 
-		/**
-		 * @brief Precision of coordinates.
-		 */
-        float prec;
+/**
+ * @brief Precision of coordinates.
+ */
+float prec;
 
-		/**
-		 * @brief Number of frames in the trajectory.
-		 */
-		int nframes;
+/**
+ * @brief Number of frames in the trajectory.
+ */
+int nframes;
 
-		/** @brief Number of atoms in the simulation. */
-        int natoms;
+/** @brief Number of atoms in the simulation. */
+int natoms;
 
-		/** @brief Reads in the XTC and index files. */
-        void read(int initalFrames);
+/** @brief Reads in the XTC and index files. */
+void read(int initalFrames);
 
-		/** @brief Initializes what is necessary for reading in the XTC file */
-		void InitXTC(string filename);
+/** @brief Initializes what is necessary for reading in the XTC file */
+void InitXTC(string filename);
 
-	public:
+public:
 
-		/**
-		 *  @brief Constructor where only XTC file is read.
-		 * 
-		 *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects. 
-		 *
-		 *  @param xtcfile Name of the Gromacs XTC file to be read in.
-		 */
-		Trajectory(string xtcfile);
+/**
+ *  @brief Constructor where only XTC file is read.
+ *
+ *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects.
+ *
+ *  @param xtcfile Name of the Gromacs XTC file to be read in.
+ */
+Trajectory(string xtcfile);
 
-		/**
-		 * @brief   Constructor where programmer sets maximum frames to be
-		 *			read in.
-		 *
-		 * @details Constructor where then number of frames allocated is set by the
-		 *			programmer explicitly. By default, the constructor will only allocate
-		 *			100,000 frames. This overrides that to a higher number.
-		 *
-		 * @param xtcfile Name of the Gromacs XTC file to be read in.
-		 * @param	maxFrames Maximum number of frames to read in. Default is
-		 *			100,000.
-		 *
-		 */
-		Trajectory(string xtcfile, int maxFrames);
+/**
+ * @brief   Constructor where programmer sets maximum frames to be
+ *			read in.
+ *
+ * @details Constructor where then number of frames allocated is set by the
+ *			programmer explicitly. By default, the constructor will only allocate
+ *			100,000 frames. This overrides that to a higher number.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param	maxFrames Maximum number of frames to read in. Default is
+ *			100,000.
+ *
+ */
+Trajectory(string xtcfile, int maxFrames);
 
-		/**
-		 *
-		 * @brief Constructor which reads in both the XTC file and a GROMACS index
-		 * file.
-		 *
-		 * @details When this constructor is used, both the Gromacs XTC file is
-		 * saved in the vector of Frame objects, and the group names and index
-		 * numbers for the index file are saved in an Index object.
-		 *
-		 * @param xtcfile Name of the Gromacs XTC file to be read in.
-		 * @param ndxfile Name of the Gromacs index file to be read in.
-		 */
-		Trajectory(string xtcfile, string ndxfile);
+/**
+ *
+ * @brief Constructor which reads in both the XTC file and a GROMACS index
+ * file.
+ *
+ * @details When this constructor is used, both the Gromacs XTC file is
+ * saved in the vector of Frame objects, and the group names and index
+ * numbers for the index file are saved in an Index object.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param ndxfile Name of the Gromacs index file to be read in.
+ */
+Trajectory(string xtcfile, string ndxfile);
 
-		/**
-		 * @brief Constructor which reads in both the XTC file and an index
-		 * file and maxFrames specified.
-		 *
-		 * @details Constructor which reads in xtc file, index file, and the programmer
-		 * sets the number of frames to allocate for manually.
-		 *
-		 * @param xtcfile Name of the Gromacs XTC file to be read in.
-		 * @param ndxfile Name of the Gromacs index file to be read in.
-		 * @param	maxFrames Maximum number of frames to read in. Default is
-		 *			100,000.
-		 */
-		Trajectory(string xtcfile, string ndxfile, int maxFrames);
+/**
+ * @brief Constructor which reads in both the XTC file and an index
+ * file and maxFrames specified.
+ *
+ * @details Constructor which reads in xtc file, index file, and the programmer
+ * sets the number of frames to allocate for manually.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param ndxfile Name of the Gromacs index file to be read in.
+ * @param	maxFrames Maximum number of frames to read in. Default is
+ *			100,000.
+ */
+Trajectory(string xtcfile, string ndxfile, int maxFrames);
 
-		/**
-		 * @brief Gets the number of atoms in a system.
-		 * @return Number of atoms.
-		 */
-        int GetNAtoms() const;
+/**
+ * @brief Gets the number of atoms in a system.
+ * @return Number of atoms.
+ */
+int GetNAtoms() const;
 
-		/** 
-		 * @brief Gets the number of atoms in an index group.
-		 * @return number of atoms in the group specified.
-		 * @param groupName Name of group for which number of atoms is returned.
-		 */
-		int GetNAtoms(string groupName) const;
+/**
+ * @brief Gets the number of atoms in an index group.
+ * @return number of atoms in the group specified.
+ * @param groupName Name of group for which number of atoms is returned.
+ */
+int GetNAtoms(string groupName) const;
 
-		/** 
-		 * @brief Gets the number of frames that were saved.
-		 * @return Number of frames.
-		 */
-		int GetNFrames() const;
+/**
+ * @brief Gets the number of frames that were saved.
+ * @return Number of frames.
+ */
+int GetNFrames() const;
 
-		/**
-		 * @brief Gets the time at frame specified.
-		 * @return Time in picoseconds.
-		 * @param frame Number corresponding with the frame for which time should be returned.
-		 */
-		float GetTime(int frame) const;
+/**
+ * @brief Gets the time at frame specified.
+ * @return Time in picoseconds.
+ * @param frame Number corresponding with the frame for which time should be returned.
+ */
+float GetTime(int frame) const;
 
-		/**
-		 * @brief Gets the step at frame specified.
-		 * @return Step number.
-		 * @param frame Number corresponding with the frame for which step should be returned.
-		 */
-		int GetStep(int frame) const;
+/**
+ * @brief Gets the step at frame specified.
+ * @return Step number.
+ * @param frame Number corresponding with the frame for which step should be returned.
+ */
+int GetStep(int frame) const;
 
-		/**
-		 * @brief Gets the coordinates of a specific atom in the entire system.
-		 * @details Gets the cartesian coordinates for the atom specified at the frame
-		 * specified and returns it as a vector
-		 * @param atom The number corresponding with the atom in the entire
-		 * system.
-		 * @param frame Number of the frame desired.
-		 * @return Vector with X, Y, and Z coordinates of the atom specified.
-		 */
-		coordinates GetXYZ(int frame, int atom) const;
+/**
+ * @brief Gets the coordinates of a specific atom in the entire system.
+ * @details Gets the cartesian coordinates for the atom specified at the frame
+ * specified and returns it as a vector
+ * @param atom The number corresponding with the atom in the entire
+ * system.
+ * @param frame Number of the frame desired.
+ * @return Vector with X, Y, and Z coordinates of the atom specified.
+ */
+coordinates GetXYZ(int frame, int atom) const;
 
-		/**
-		 * @brief Gets the coordinates for a specific atom in a group.
-		 * @details Gets the cartesian coordinates for the atom specified in the specific
-		 * index group for this frame.
-		 * @param frame Number of the frame desired.
-		 * @param groupName Name of index group in which atom is located.
-		 * @param atom The number corresponding with the atom in the index
-		 * group. Note that this is **not** the same number corresponding with
-		 * the system. That is, the atom may be the 5th atom in the system, but
-		 * it may be the 2nd atom in the group. This is where it is located in
-		 * the group.
-		 * @return Vector with X, Y, and Z coordinates of the atom specified.
-		 */
-		coordinates GetXYZ(int frame, string groupName, int atom) const;
+/**
+ * @brief Gets the coordinates for a specific atom in a group.
+ * @details Gets the cartesian coordinates for the atom specified in the specific
+ * index group for this frame.
+ * @param frame Number of the frame desired.
+ * @param groupName Name of index group in which atom is located.
+ * @param atom The number corresponding with the atom in the index
+ * group. Note that this is **not** the same number corresponding with
+ * the system. That is, the atom may be the 5th atom in the system, but
+ * it may be the 2nd atom in the group. This is where it is located in
+ * the group.
+ * @return Vector with X, Y, and Z coordinates of the atom specified.
+ */
+coordinates GetXYZ(int frame, string groupName, int atom) const;
 
-		/**
-		 * @brief Gets all of the coordinates for the system for a specific
-		 * frame.
-		 * @param frame Number of the frame desired.
-		 * @return A two dimensional vector with all cartesian coordinates
-		 * for the system at this frame. The first dimension is the atom number.
-		 * The second dimension contains the X, Y, and Z positions.
-		 */
-		vector <coordinates> GetXYZ(int frame) const;
+/**
+ * @brief Gets all of the coordinates for the system for a specific
+ * frame.
+ * @param frame Number of the frame desired.
+ * @return A two dimensional vector with all cartesian coordinates
+ * for the system at this frame. The first dimension is the atom number.
+ * The second dimension contains the X, Y, and Z positions.
+ */
+vector <coordinates> GetXYZ(int frame) const;
 
-		/**
-		 * @brief Gets all of the coordinates for an index group for a specific
-		 * frame.
-		 * @details
-		 * This is the old way.
-		 * The new way is to return a vector (see above).
-		 * @param frame Number of the frame desired.
-		 * @param groupName Name of index group in which atom is located.
-		 * @return A two dimensional vector with all cartesian coordinates
-		 * for the system at this frame. The first dimension is the atom number
-		 * in the group. The second dimension contains the X, Y, and Z positions.
-		 */
-		vector <coordinates> GetXYZ(int frame, string groupName) const;
+/**
+ * @brief Gets all of the coordinates for an index group for a specific
+ * frame.
+ * @details
+ * This is the old way.
+ * The new way is to return a vector (see above).
+ * @param frame Number of the frame desired.
+ * @param groupName Name of index group in which atom is located.
+ * @return A two dimensional vector with all cartesian coordinates
+ * for the system at this frame. The first dimension is the atom number
+ * in the group. The second dimension contains the X, Y, and Z positions.
+ */
+vector <coordinates> GetXYZ(int frame, string groupName) const;
 
-		/**
-		 * @brief Gets the triclinic box dimensions for a frame.
-		 * @param frame Number of the frame desired.
-		 * @return  Two-dimensional array with three elements in each 
-		 * dimension, corresponding to a triclinic box.
-		 */
-		triclinicbox GetBox(int frame) const;
+/**
+ * @brief Gets the triclinic box dimensions for a frame.
+ * @param frame Number of the frame desired.
+ * @return  Two-dimensional array with three elements in each
+ * dimension, corresponding to a triclinic box.
+ */
+triclinicbox GetBox(int frame) const;
 
-		/**
-		 * @brief Gets the volume of the box at a specific frame.
-		 * @return Box volume.
-		 * @param frame Number of the frame desired.
-		 */
-		double GetBoxVolume(int frame) const;
-
+/**
+ * @brief Gets the volume of the box at a specific frame.
+ * @return Box volume.
+ * @param frame Number of the frame desired.
+ */
+double GetBoxVolume(int frame) const;
 };
 
 #endif
