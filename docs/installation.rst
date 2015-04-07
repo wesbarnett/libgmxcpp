@@ -1,6 +1,8 @@
 Installation
 =====================================
 
+.. highlight:: bash
+
 **Requirements**
 
 cmake
