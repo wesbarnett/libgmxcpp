@@ -26,7 +26,8 @@
  * @date December 5, 2014
  * @brief Some useful functions for processing trajectories
  * @details This file has some helper functions for calculating things like
- * distances, periodic boundary conditions, etc.
+ * distances, periodic boundary conditions, etc. This file must be included in
+ * your code to use the functions and is located at 'gmxcpp/Utils.h'.
  */
 
 #ifndef UTILS_H

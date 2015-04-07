@@ -6,7 +6,7 @@ Basic Usage
 
 The premise of this library is to make reading in GROMACS files easy so that the
 focus is on writing code for analysis. The main class used is `Trajectory
-<classes/Trajectory>`_. The
+<classes/Trajectory.html>`_. The
 idea is that you create a Trajectory object which contains all the information
 from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
@@ -15,17 +15,20 @@ The other important class is `coordinates <classes/coordinates.html>`_, which is
 a three-dimensional vector with several operators overloaded. Trajectory getters
 will return this type.
 
+In order to use the Trajectory class you must include 'gmxcpp/Trajectory.h' in
+your code.
+
 Constructing a Trajectory Object
 --------------------------------
 
-First, you should create a Trajectory object:::
+First, you should create a Trajectory object::
 
     // Creates a Trajectory object with "traj.xtc" and "index.ndx"
     // The index file is optional
     // Both arguments are C++ strings
     Trajectory traj("traj.xtc","index.ndx");
 
-You could also make it a pointer:::
+You could also make it a pointer::
 
     Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
 
@@ -38,21 +41,21 @@ Additionally, one thing to consider is that the object initially allocates
 enough memory for 100,000 frames and then reduces that to the correct amount of
 frames read in. If you have more frames than that to read in, or you memory is
 precious and you want to initially allocate for less, you can pass the number of
-initial frames as a parameter in the construction:::
+initial frames as a parameter in the construction::
 
     // 2 million frames! With an index file.
     Trajectory traj("traj.xtc","index.ndx",2000000);
     // Without an index file
     Trajectory traj("traj.xtc",2000000);
 
-Atomic Coordinates
-------------------
+Atom Coordinates
+----------------
 
 To get the coordinates of an atom use GetXYZ() method. There are several
 different options. Note that coordinates is simply a vector with double
 precision. triclinicbox is a two dimensional vector with double precision.
 
-You can get the coordinates for every atom in the system for a specific frame.::
+You can get the coordinates for every atom in the system for a specific frame.:
 
     // For the 3rd frame
     vector <coordinates> a = traj.GetXYZ(2);
@@ -65,7 +68,7 @@ You can get the coordinates for every atom in an index group for a specific::
     vector <coordinates> a = traj.GetXYZ(2,"C")
 
 You can get the coordinates for one specific atom in the system for a specific
-frame:::
+frame::
 
     // Second atom in the 3rd frame
     coordinates a = traj.GetXYZ(2,1);
@@ -73,7 +76,7 @@ frame:::
     cout << a;
 
 You can get the coordinates for one specific atom in an index group for a
-frame:::
+frame::
 
     // 2nd atom in group "C" in the 3rd frame
     coordinates a = traj.GetXYZ(2,"C",1);
@@ -83,7 +86,7 @@ Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 Box Dimensions
 --------------
 
-To get the box dimensions use GetBox() method:::
+To get the box dimensions use GetBox() method::
 
     // Gets the box dimensions from the first frame:
     triclinicbox box = traj.GetBox(0);
@@ -93,7 +96,7 @@ To get the box dimensions use GetBox() method:::
 Box Volume
 ----------
 
-To get the volume of the simulation box for any frame:::
+To get the volume of the simulation box for any frame::
 
     // For frame 0
     double vol = traj.GetBoxVolume(0);
@@ -101,19 +104,19 @@ To get the volume of the simulation box for any frame:::
 Number of Frames
 ----------------
 
-To get the number of frames in the simulation use GetNFrames():::
+To get the number of frames in the simulation use GetNFrames()::
 
     int nframes = traj.GetNFrames();
 
 Number of Atoms
 ---------------
 
-To get the number of atoms in the entire system use GetNAtoms():::
+To get the number of atoms in the entire system use GetNAtoms()::
 
     int natoms = traj.GetNAtoms();
 
 To get the size (number of atoms in) a specific group pass the index name as an
-argument:::
+argument::
 
     // Gets the number of atoms in group "SOL"
     int solsize = traj.GetNAtoms("SOL"):
@@ -121,12 +124,12 @@ argument:::
 Time and Step
 -------------
 
-To get the time (in ps) corresponding with a frame use GetTime(frame):::
+To get the time (in ps) corresponding with a frame use GetTime(frame)::
 
     // Gets the time of the 5th frame
     float time = traj.GetTime(4);
 
-To get the step for a frame use GetStep(frame):::
+To get the step for a frame use GetStep(frame)::
 
     // Gets the step corresponding with the 5th frame
     int step = traj.GetStep(4);
@@ -134,6 +137,6 @@ To get the step for a frame use GetStep(frame):::
 Utilities
 ---------
 
-Be sure to check out Utils.h which includes utilies in calculating atomic
+Be sure to check out `Utils.h <files/Utils.h.html>`_ which includes utilies in calculating atomic
 distances, the periodic boundary condition, and more.
 

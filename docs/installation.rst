@@ -11,7 +11,7 @@ cmake
 Installing
 -----------
 
-**From Source**::
+**From Source**:
 
     git clone https://github.com/wesbarnett/libgmxcpp.git
     cd libgmxcpp
@@ -26,6 +26,11 @@ Installing
 `libgmxcpp is now in the AUR
 repository. <https://aur.archlinux.org/packages/libgmxcpp/>`_ If you're on Arch
 you know what to do.
+
+Location
+--------
+
+Header files will be installed within a folder named "gmxcpp".
 
 Testing the build
 -----------------
