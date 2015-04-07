@@ -18,4 +18,4 @@ this program; if not, write to the Free Software Foundation, Inc., 51
 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 The full license is located in a text file titled "LICENSE" in the root
-directory of the source and includes a licence for each part of this package.
+directory of the source and includes a license for each part of this package.
