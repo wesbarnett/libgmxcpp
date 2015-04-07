@@ -13,3 +13,4 @@ Contents:
 
    about
    installation
+   coordinates
