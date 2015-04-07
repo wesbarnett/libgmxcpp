@@ -10,7 +10,7 @@ The main idea is that you create a Trajectory object which contains all the
 information from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
 
-###Construction
+**Construction**
 
 First, you should create a Trajectory object:::
 
@@ -39,7 +39,7 @@ initial frames as a parameter in the construction:::
     // Without an index file
     Trajectory traj("traj.xtc",2000000);
 
-###Atomic Coordinates
+**Atomic Coordinates**
 
 To get the coordinates of an atom use GetXYZ() method. There are several
 different options. Note that coordinates is simply a vector with double
@@ -73,7 +73,7 @@ frame:::
 
 Usually you'll throw GetXYZ in a couple of loops to access the data you need.
 
-###Box Dimensions
+**Box Dimensions**
 
 To get the box dimensions use GetBox() method:::
 
@@ -82,20 +82,20 @@ To get the box dimensions use GetBox() method:::
     // You can print cleanly:
     cout << box;
 
-###Box Volume
+**Box Volume**
 
 To get the volume of the simulation box for any frame:::
 
     // For frame 0
     double vol = traj.GetBoxVolume(0);
 
-###Number of Frames
+**Number of Frames**
 
 To get the number of frames in the simulation use GetNFrames():::
 
     int nframes = traj.GetNFrames();
 
-###Number of Atoms
+**Number of Atoms**
 
 To get the number of atoms in the entire system use GetNAtoms():::
 
@@ -107,7 +107,7 @@ argument:::
     // Gets the number of atoms in group "SOL"
     int solsize = traj.GetNAtoms("SOL"):
 
-###Time and Step
+**Time and Step**
 
 To get the time (in ps) corresponding with a frame use GetTime(frame):::
 
@@ -119,7 +119,7 @@ To get the step for a frame use GetStep(frame):::
     // Gets the step corresponding with the 5th frame
     int step = traj.GetStep(4);
 
-###Utilities
+**Utilities**
 
 Be sure to check out Utils.h which includes utilies in calculating atomic
 distances, the periodic boundary condition, and more.
