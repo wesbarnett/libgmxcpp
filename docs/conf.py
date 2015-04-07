@@ -284,7 +284,13 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-sys.path.append( "./ext/breathe/" )
-extensions = ['sphinx.ext.pngmath', 'sphinx.ext.todo', 'breathe' ]
-breathe_projects = { "./doxyxml/" }
-breathe_default_project = "libgmxcpp"
+#sys.path.append( "/home/wes/libgmxcpp/docs/ext/breathe/" )
+#extensions = ['sphinx.ext.pngmath', 'sphinx.ext.todo', 'breathe' ]
+#breathe_projects = { "/home/wes/libgmxcpp/docs/doxyxml/" }
+#breathe_default_project = "libgmxcpp"
+import subprocess, os
+
+read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+
+if read_the_docs_build:
+        subprocess.call('cd ../doxygen; doxygen', shell=True)
