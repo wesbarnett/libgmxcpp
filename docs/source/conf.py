@@ -284,7 +284,7 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-sys.path.append( "/home/wes/libgmxcpp/docs/ext/breathe/" )
+sys.path.append( "../ext/breathe/" )
 extensions = ['sphinx.ext.pngmath', 'sphinx.ext.todo', 'breathe' ]
-breathe_projects = { "libgmxcpp": "/home/wes/libgmxcpp/docs/doxyxml/" }
+breathe_projects = { "..//doxyxml/" }
 breathe_default_project = "libgmxcpp"
