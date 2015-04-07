@@ -1,3 +1,0 @@
-
-.. doxygenclass:: coordinates
-    :members:
