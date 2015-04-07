@@ -15,3 +15,4 @@ libgmxcpp
    license
    cite
    classes
+   files
