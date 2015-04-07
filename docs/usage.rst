@@ -1,6 +1,8 @@
 Basic Usage
 ===========
 
+.. highlight:: cpp
+
 See the example file as well as the comments in the source, especially
 Trajectory.
 
