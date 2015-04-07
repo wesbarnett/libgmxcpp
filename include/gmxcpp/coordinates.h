@@ -45,7 +45,11 @@ const int Z = 2;
  * @details This is just a double precision vector but 
  * it has three items automatically when contructed. Additionally
  * one can add or subtract two sets of coordinates without having
- * to operate on each X, Y, and Z part individually.*/
+ * to operate on each X, Y, and Z part individually. Note that the
+ * coordinates can be accessed using vector's at() method (i.e., to get
+ * the x-coordinate for a coordinates variable need coord, do coord.at(0). In
+ * addition, the constants X, Y, and Z have been assigned the values 0, 1, and
+ * 2, respectively. So one can also access the x-coordinate with coord.at(X).*/
 class coordinates: public vector<double> {
 	public:
 

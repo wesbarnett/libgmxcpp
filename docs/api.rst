@@ -8,4 +8,4 @@ API
    classes/coordinates
    classes/Trajectory
    classes/triclinicbox
-   files/Utils
+   files/Utils.h

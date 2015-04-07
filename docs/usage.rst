@@ -5,10 +5,15 @@ Basic Usage
 
 
 The premise of this library is to make reading in GROMACS files easy so that the
-focus is on writing code for analysis. The main class used is Trajectory. The
+focus is on writing code for analysis. The main class used is `Trajectory
+<classes/Trajectory>`_. The
 idea is that you create a Trajectory object which contains all the information
 from both the .xtc file (and optionally .ndx file). Trajectory
 object methods are then used for analyzing the data.
+
+The other important class is `coordinates <classes/coordinates.html>`_, which is
+a three-dimensional vector with several operators overloaded. Trajectory getters
+will return this type.
 
 Constructing a Trajectory Object
 --------------------------------
