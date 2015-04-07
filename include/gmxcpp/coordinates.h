@@ -82,6 +82,8 @@ class coordinates: public vector<double> {
 
 	/** Multiplies X, Y, and Z by a scalar **/
 	friend coordinates operator*(coordinates lhs, double rhs);
+
+	/** Multiplies X, Y, and Z by a scalar **/
 	friend coordinates operator*(double lhs, coordinates rhs);
 
 };
