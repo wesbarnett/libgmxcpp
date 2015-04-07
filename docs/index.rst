@@ -6,6 +6,9 @@
 libgmxcpp
 =========
 
+libgmxcpp is a C++ library which aids in reading in `GROMACS
+<http://gromacs.org>`_ files for analysis
+
 .. toctree::
 
    about

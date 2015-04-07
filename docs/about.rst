@@ -4,10 +4,10 @@
    contain the root `toctree` directive.
 
 About
-=====================================
+=====
 
-.. toctree::
-   :maxdepth: 2
+Description
+-----------
 
 This is a small library used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing the results. This basically interfaces with libxdrfile and
@@ -15,10 +15,14 @@ implements an object-oriented style. The main usage of the library is to be able
 to create a Trajectory object which reads in an XTC file along with an optional
 GROMACS index file. 
 
+Development
+-----------
+
 The development branch is "master". Releases are merged into the "release"
 branch.
 
 Advantages
+----------
 
 * Only one object construction needs to be called to read in both .xtc and .ndx
   files.
