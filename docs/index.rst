@@ -13,4 +13,7 @@ Contents:
 
    about
    installation
-   coordinates
+   example
+   usage
+   license
+   cite
