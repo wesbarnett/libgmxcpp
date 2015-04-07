@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="Clusters_8cpp">Clusters.cpp</innerfile>
+    <innerfile refid="CommandLine_8cpp">CommandLine.cpp</innerfile>
+    <innerfile refid="src_2coordinates_8cpp">coordinates.cpp</innerfile>
+    <innerfile refid="Frame_8cpp">Frame.cpp</innerfile>
+    <innerfile refid="Index_8cpp">Index.cpp</innerfile>
+    <innerfile refid="src_2Trajectory_8cpp">Trajectory.cpp</innerfile>
+    <innerfile refid="src_2triclinicbox_8cpp">triclinicbox.cpp</innerfile>
+    <innerfile refid="Uncertainty_8cpp">Uncertainty.cpp</innerfile>
+    <innerfile refid="src_2Utils_8cpp">Utils.cpp</innerfile>
+    <innerfile refid="xdrfile_8c">xdrfile.c</innerfile>
+    <innerfile refid="xdrfile__xtc_8c">xdrfile_xtc.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/wes/libgmxcpp/src/"/>
+  </compounddef>
+</doxygen>

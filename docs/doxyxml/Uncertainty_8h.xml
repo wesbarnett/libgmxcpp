@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="Uncertainty_8h" kind="file" language="C++">
+    <compoundname>Uncertainty.h</compoundname>
+    <includes local="no">algorithm</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="Uncertainty_8cpp" local="yes">src/Uncertainty.cpp</includedby>
+    <incdepgraph>
+      <node id="164">
+        <label>vector</label>
+      </node>
+      <node id="161">
+        <label>include/gmxcpp/Uncertainty.h</label>
+        <link refid="Uncertainty.h"/>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>math.h</label>
+      </node>
+      <node id="162">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Uncertainty_8h_1aa33b6c91110c1126b064fde21124fe6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; bootstrap</definition>
+        <argsstring>(int boot_n, int block_n, vector&lt; vector&lt; double &gt; &gt; &amp;data, int frame_count)</argsstring>
+        <name>bootstrap</name>
+        <param>
+          <type>int</type>
+          <declname>boot_n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>block_n</declname>
+        </param>
+        <param>
+          <type>vector&lt; vector&lt; double &gt; &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Uncertainty.h" line="22" column="1" bodyfile="/home/wes/libgmxcpp/src/Uncertainty.cpp" bodystart="88" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="Uncertainty_8h_1a671e579a58659e5902f4bec866647b27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double bootstrap</definition>
+        <argsstring>(int boot_n, int block_n, vector&lt; double &gt; &amp;data, int frame_count)</argsstring>
+        <name>bootstrap</name>
+        <param>
+          <type>int</type>
+          <declname>boot_n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>block_n</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Uncertainty.h" line="23" column="1" bodyfile="/home/wes/libgmxcpp/src/Uncertainty.cpp" bodystart="124" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="Uncertainty_8h_1a28f963c0f7e52f01e937d9d7c50064e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; get_boot_values</definition>
+        <argsstring>(int block_n, vector&lt; vector&lt; double &gt; &gt; &amp;data, int frame_count)</argsstring>
+        <name>get_boot_values</name>
+        <param>
+          <type>int</type>
+          <declname>block_n</declname>
+        </param>
+        <param>
+          <type>vector&lt; vector&lt; double &gt; &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Uncertainty.h" line="24" column="1" bodyfile="/home/wes/libgmxcpp/src/Uncertainty.cpp" bodystart="9" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="Uncertainty_8h_1a4b9f84a85524d874166ea4a751a9cb2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; get_uncertainty</definition>
+        <argsstring>(int boot_n, int data_size, vector&lt; double &gt; &amp;avg, vector&lt; vector&lt; double &gt; &gt; &amp;values)</argsstring>
+        <name>get_uncertainty</name>
+        <param>
+          <type>int</type>
+          <declname>boot_n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>data_size</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>avg</declname>
+        </param>
+        <param>
+          <type>vector&lt; vector&lt; double &gt; &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Uncertainty.h" line="25" column="1" bodyfile="/home/wes/libgmxcpp/src/Uncertainty.cpp" bodystart="55" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>UNCERTAINTY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNCERTAINTY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>The<sp/>following<sp/>&quot;bootstrap&quot;<sp/>functions<sp/>split<sp/>up<sp/>a<sp/>set<sp/>of<sp/>data<sp/>(&quot;data&quot;)<sp/>into</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>several<sp/>blocks.<sp/>These<sp/>blocks<sp/>are<sp/>randomly<sp/>chosen<sp/>with<sp/>replacement.<sp/>The</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>values<sp/>corresponding<sp/>with<sp/>these<sp/>blocks<sp/>are<sp/>then<sp/>calculated.<sp/>For<sp/>these</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>calculations<sp/>the<sp/>data<sp/>is<sp/>a<sp/>value<sp/>averaged<sp/>over<sp/>the<sp/>entirety<sp/>of<sp/>a<sp/>simulation.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>The<sp/>new<sp/>values<sp/>are<sp/>calculated<sp/>boot_n<sp/>times<sp/>and<sp/>stored<sp/>into<sp/>a<sp/>vector.<sp/>Then<sp/>the</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>variance<sp/>of<sp/>these<sp/>new<sp/>values<sp/>are<sp/>calculated.<sp/>The<sp/>square<sp/>root<sp/>of<sp/>that<sp/>is<sp/>the</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>uncertainty.<sp/>The<sp/>first<sp/>of<sp/>these<sp/>functions<sp/>is<sp/>for<sp/>a<sp/>set<sp/>of<sp/>data<sp/>(so<sp/>a</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>two-dimensional<sp/>vector).<sp/>The<sp/>second<sp/>function<sp/>is<sp/>for<sp/>a<sp/>single<sp/>value.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">vector<sp/>&lt;double&gt;<sp/>bootstrap(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>boot_n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>block_n,<sp/>vector<sp/>&lt;<sp/>vector<sp/>&lt;double&gt;<sp/>&gt;&amp;<sp/>data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_count);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bootstrap(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>boot_n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>block_n,<sp/>vector<sp/>&lt;double&gt;<sp/>&amp;<sp/>data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_count);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">vector<sp/>&lt;double&gt;<sp/>get_boot_values(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>block_n,<sp/>vector<sp/>&lt;<sp/>vector<sp/>&lt;double&gt;<sp/>&gt;&amp;<sp/>data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_count);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">vector<sp/>&lt;double&gt;<sp/>get_uncertainty(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>boot_n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>data_size,<sp/>vector<sp/>&lt;double&gt;&amp;avg,<sp/>vector<sp/>&lt;<sp/>vector<sp/>&lt;double&gt;<sp/>&gt;&amp;<sp/>values);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/wes/libgmxcpp/include/gmxcpp/Uncertainty.h"/>
+  </compounddef>
+</doxygen>

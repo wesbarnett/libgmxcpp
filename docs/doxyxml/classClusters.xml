@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classClusters" kind="class" language="C++" prot="public">
+    <compoundname>Clusters</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classClusters_1ac7042748bf72b88c3e94caab15c7fae9" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Clusters::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="26" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClusters_1ac132356a34f80001b90bbc8be016de4b" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Clusters::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="27" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClusters_1a5714f95fe49b96b71c8bb299d4b586e1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Clusters::mol_n</definition>
+        <argsstring></argsstring>
+        <name>mol_n</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="28" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClusters_1a41be9ecec2d0f94d05d55b67e84e308a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Clusters::atoms_per_mol</definition>
+        <argsstring></argsstring>
+        <name>atoms_per_mol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="29" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classClusters_1af0261e8b510429a6ec8a248bb9333441" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Clusters::Clusters</definition>
+        <argsstring>(int mol_n, int atoms_per_mol)</argsstring>
+        <name>Clusters</name>
+        <param>
+          <type>int</type>
+          <declname>mol_n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>atoms_per_mol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="19" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="4" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classClusters_1ab20a18ffe01fb096650f32f5195cef37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Clusters::do_clustering</definition>
+        <argsstring>(int frame, Trajectory &amp;traj, double rcut2)</argsstring>
+        <name>do_clustering</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="classTrajectory" kindref="compound">Trajectory</ref> &amp;</type>
+          <declname>traj</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rcut2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="20" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="142" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classClusters_1a445f5df58613b5833ea4adfbd8154548" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Clusters::do_clustering</definition>
+        <argsstring>(int frame, Trajectory &amp;traj, string group, double rcut2)</argsstring>
+        <name>do_clustering</name>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="classTrajectory" kindref="compound">Trajectory</ref> &amp;</type>
+          <declname>traj</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>group</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rcut2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="21" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="66" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classClusters_1ab48b58e28d7dd0f872e78abd2453ba3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Clusters::get_size</definition>
+        <argsstring>(int clust)</argsstring>
+        <name>get_size</name>
+        <param>
+          <type>int</type>
+          <declname>clust</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="22" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classClusters_1ac4713eaf495d6e7ad9cae6f53250e143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Clusters::get_index</definition>
+        <argsstring>(int mol)</argsstring>
+        <name>get_index</name>
+        <param>
+          <type>int</type>
+          <declname>mol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="23" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classClusters_1a672b375f7c8a41545590c6dcab060c46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt; int &gt; Clusters::get_mol_numbers</definition>
+        <argsstring>(int clust)</argsstring>
+        <name>get_mol_numbers</name>
+        <param>
+          <type>int</type>
+          <declname>clust</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="24" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="50" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classClusters_1ab582ab6d8d2d54b7587de4b9960fb99d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Clusters::initialize</definition>
+        <argsstring>()</argsstring>
+        <name>initialize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="30" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="14" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classClusters_1a56dd50c1c9c3fbe4523cc3666d335613" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Clusters::add</definition>
+        <argsstring>(int new_cluster, int old_cluster)</argsstring>
+        <name>add</name>
+        <param>
+          <type>int</type>
+          <declname>new_cluster</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>old_cluster</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="31" column="1" bodyfile="/home/wes/libgmxcpp/src/Clusters.cpp" bodystart="26" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" line="17" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/Clusters.h" bodystart="16" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classClusters_1a56dd50c1c9c3fbe4523cc3666d335613" prot="private" virt="non-virtual"><scope>Clusters</scope><name>add</name></member>
+      <member refid="classClusters_1a41be9ecec2d0f94d05d55b67e84e308a" prot="private" virt="non-virtual"><scope>Clusters</scope><name>atoms_per_mol</name></member>
+      <member refid="classClusters_1af0261e8b510429a6ec8a248bb9333441" prot="public" virt="non-virtual"><scope>Clusters</scope><name>Clusters</name></member>
+      <member refid="classClusters_1ab20a18ffe01fb096650f32f5195cef37" prot="public" virt="non-virtual"><scope>Clusters</scope><name>do_clustering</name></member>
+      <member refid="classClusters_1a445f5df58613b5833ea4adfbd8154548" prot="public" virt="non-virtual"><scope>Clusters</scope><name>do_clustering</name></member>
+      <member refid="classClusters_1ac4713eaf495d6e7ad9cae6f53250e143" prot="public" virt="non-virtual"><scope>Clusters</scope><name>get_index</name></member>
+      <member refid="classClusters_1a672b375f7c8a41545590c6dcab060c46" prot="public" virt="non-virtual"><scope>Clusters</scope><name>get_mol_numbers</name></member>
+      <member refid="classClusters_1ab48b58e28d7dd0f872e78abd2453ba3c" prot="public" virt="non-virtual"><scope>Clusters</scope><name>get_size</name></member>
+      <member refid="classClusters_1ac7042748bf72b88c3e94caab15c7fae9" prot="private" virt="non-virtual"><scope>Clusters</scope><name>index</name></member>
+      <member refid="classClusters_1ab582ab6d8d2d54b7587de4b9960fb99d" prot="private" virt="non-virtual"><scope>Clusters</scope><name>initialize</name></member>
+      <member refid="classClusters_1a5714f95fe49b96b71c8bb299d4b586e1" prot="private" virt="non-virtual"><scope>Clusters</scope><name>mol_n</name></member>
+      <member refid="classClusters_1ac132356a34f80001b90bbc8be016de4b" prot="private" virt="non-virtual"><scope>Clusters</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="coordinates_8h" kind="file" language="C++">
+    <compoundname>coordinates.h</compoundname>
+    <includes refid="xdrfile_8h" local="yes">gmxcpp/xdrfile.h</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="Frame_8h" local="yes">include/gmxcpp/Frame.h</includedby>
+    <includedby refid="Trajectory_8h" local="yes">include/gmxcpp/Trajectory.h</includedby>
+    <includedby refid="triclinicbox_8h" local="yes">include/gmxcpp/triclinicbox.h</includedby>
+    <includedby refid="Utils_8h" local="yes">include/gmxcpp/Utils.h</includedby>
+    <includedby refid="src_2coordinates_8cpp" local="yes">src/coordinates.cpp</includedby>
+    <includedby refid="tests_2coordinates_8cpp" local="yes">tests/coordinates.cpp</includedby>
+    <includedby refid="tests_2Trajectory_8cpp" local="yes">tests/Trajectory.cpp</includedby>
+    <includedby refid="tests_2Utils_8cpp" local="yes">tests/Utils.cpp</includedby>
+    <incdepgraph>
+      <node id="60">
+        <label>gmxcpp/xdrfile.h</label>
+        <link refid="xdrfile_8h"/>
+      </node>
+      <node id="59">
+        <label>include/gmxcpp/coordinates.h</label>
+        <link refid="coordinates.h"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="68">
+        <label>src/Frame.cpp</label>
+        <link refid="Frame_8cpp"/>
+      </node>
+      <node id="73">
+        <label>src/coordinates.cpp</label>
+        <link refid="src_2coordinates_8cpp"/>
+      </node>
+      <node id="64">
+        <label>include/gmxcpp/Trajectory.h</label>
+        <link refid="Trajectory_8h"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>include/gmxcpp/coordinates.h</label>
+        <link refid="coordinates.h"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>example/example.cpp</label>
+        <link refid="example_8cpp"/>
+      </node>
+      <node id="72">
+        <label>src/triclinicbox.cpp</label>
+        <link refid="src_2triclinicbox_8cpp"/>
+      </node>
+      <node id="70">
+        <label>include/gmxcpp/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>include/gmxcpp/Frame.h</label>
+        <link refid="Frame_8h"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>src/Utils.cpp</label>
+        <link refid="src_2Utils_8cpp"/>
+      </node>
+      <node id="66">
+        <label>include/gmxcpp/Clusters.h</label>
+        <link refid="Clusters_8h_source"/>
+      </node>
+      <node id="67">
+        <label>src/Trajectory.cpp</label>
+        <link refid="src_2Trajectory_8cpp"/>
+      </node>
+      <node id="69">
+        <label>include/gmxcpp/triclinicbox.h</label>
+        <link refid="triclinicbox_8h"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classcoordinates" prot="public">coordinates</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int X</definition>
+        <argsstring></argsstring>
+        <name>X</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>X coordinate </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h" line="38" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Y</definition>
+        <argsstring></argsstring>
+        <name>Y</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Y coordinate </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h" line="40" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Z coordinate </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h" line="42" column="1" bodyfile="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Header for coordinates class. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>James W. Barnett <ulink url="mailto:jbarnet4@tulane.edu">jbarnet4@tulane.edu</ulink> </para></simplesect>
+<simplesect kind="date"><para>December 5, 2014 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>libgmxcpp</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2015<sp/>James<sp/>W.<sp/>Barnett<sp/>&lt;jbarnet4@tulane.edu&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>along<sp/>with</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/>51</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>Franklin<sp/>Street,<sp/>Fifth<sp/>Floor,<sp/>Boston,<sp/>MA<sp/>02110-1301<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>The<sp/>full<sp/>license<sp/>is<sp/>located<sp/>in<sp/>a<sp/>text<sp/>file<sp/>titled<sp/>&quot;LICENSE&quot;<sp/>in<sp/>the<sp/>root</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>directory<sp/>of<sp/>the<sp/>source.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor">#ifndef<sp/>COORDINATES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COORDINATES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="xdrfile_8h" kindref="compound">gmxcpp/xdrfile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" refkind="member"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="40" refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" refkind="member"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="42" refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" refkind="member"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classcoordinates" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>vector&lt;double&gt;<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>operator-(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>rhs);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator-=(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>rhs);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>operator+(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>rhs);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator+=(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>rhs);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>operator/(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rhs);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator/=(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rhs);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator*=(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rhs);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2coordinates_8cpp_1a46d15f9ede280727847cb36dd156ab39" kindref="member">operator*</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>lhs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rhs);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2coordinates_8cpp_1a46d15f9ede280727847cb36dd156ab39" kindref="member">operator*</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lhs,<sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>rhs);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/wes/libgmxcpp/include/gmxcpp/coordinates.h"/>
+  </compounddef>
+</doxygen>

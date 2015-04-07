@@ -1,0 +1,903 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="src_2Utils_8cpp" kind="file" language="C++">
+    <compoundname>Utils.cpp</compoundname>
+    <includes refid="Utils_8h" local="yes">gmxcpp/Utils.h</includes>
+    <incdepgraph>
+      <node id="382">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="391">
+        <label>gmxcpp/xdrfile.h</label>
+        <link refid="xdrfile_8h"/>
+      </node>
+      <node id="386">
+        <label>stdlib.h</label>
+      </node>
+      <node id="380">
+        <label>cmath</label>
+      </node>
+      <node id="387">
+        <label>string</label>
+      </node>
+      <node id="393">
+        <label>gmxcpp/xdrfile_xtc.h</label>
+        <link refid="xdrfile__xtc_8h_source"/>
+        <childnode refid="391" relation="include">
+        </childnode>
+      </node>
+      <node id="381">
+        <label>fstream</label>
+      </node>
+      <node id="390">
+        <label>gmxcpp/coordinates.h</label>
+        <link refid="coordinates_8h"/>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+      </node>
+      <node id="378">
+        <label>gmxcpp/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="379" relation="include">
+        </childnode>
+        <childnode refid="380" relation="include">
+        </childnode>
+        <childnode refid="381" relation="include">
+        </childnode>
+        <childnode refid="382" relation="include">
+        </childnode>
+        <childnode refid="383" relation="include">
+        </childnode>
+        <childnode refid="384" relation="include">
+        </childnode>
+        <childnode refid="385" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="392" relation="include">
+        </childnode>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="393" relation="include">
+        </childnode>
+      </node>
+      <node id="389">
+        <label>vector</label>
+      </node>
+      <node id="388">
+        <label>time.h</label>
+      </node>
+      <node id="384">
+        <label>math.h</label>
+      </node>
+      <node id="383">
+        <label>iostream</label>
+      </node>
+      <node id="377">
+        <label>src/Utils.cpp</label>
+        <link refid="src/Utils.cpp"/>
+        <childnode refid="378" relation="include">
+        </childnode>
+      </node>
+      <node id="392">
+        <label>gmxcpp/triclinicbox.h</label>
+        <link refid="triclinicbox_8h"/>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+      </node>
+      <node id="379">
+        <label>algorithm</label>
+      </node>
+      <node id="385">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="src_2Utils_8cpp_1a4099af9f42d20e2c96f2cdb70c94a470" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates pbc</definition>
+        <argsstring>(coordinates a, triclinicbox box)</argsstring>
+        <name>pbc</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+<para>Adjusts for periodic boundary condition. </para>        </briefdescription>
+        <detaileddescription>
+<para>User passes a vector, most likely a vector pointing from one atom to another in the simulation. This function adjusts the vector such that if it is longer than 1/2 the box size it accounts for the periodic boundary. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to be passed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The box dimensions. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector after pbc accounted for. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="34" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="34" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a12a2fec80054cc52202d1a7a10927ef2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates cross</definition>
+        <argsstring>(coordinates a, coordinates b)</argsstring>
+        <name>cross</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the cross product. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the cross product between vectors a and b and returns it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First vector to be crossed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector to be crossed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The resultant vector of the cross of a and b. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="62" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a8da6baad0cf85edfeabbd430a7ed756b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double distance2</definition>
+        <argsstring>(coordinates a, coordinates b, triclinicbox box)</argsstring>
+        <name>distance2</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the distance squared between atom a and atom b. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Distance </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First atom in distance squared calculation </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second atom in distance squared calculation </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Box dimensions </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="70" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="70" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a586470c77b3714c63557a4cedc32428f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double distance</definition>
+        <argsstring>(coordinates a, coordinates b, triclinicbox box)</argsstring>
+        <name>distance</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the distance between atom a and atom b. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Distance </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First atom in distance calculation </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second atom in distance calculation </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Box dimensions </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="77" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="77" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1ab61966893149c8eae99b13f4188b72a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double dot</definition>
+        <argsstring>(coordinates a, coordinates b)</argsstring>
+        <name>dot</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the dot product between two vectors. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First vector in dot product </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector in dot product </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Dot product of a and b </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="81" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a02c02ae7a5267d41eb459044837b15f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double magnitude</definition>
+        <argsstring>(coordinates x)</argsstring>
+        <name>magnitude</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the magnitude of a vector. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Magnitude </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector for which magnitude is desired </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="85" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1ac615e69d32acd21723bc7885c751ce84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double volume</definition>
+        <argsstring>(triclinicbox box)</argsstring>
+        <name>volume</name>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the volume of simulation box. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Box dimensions </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Volume of box </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="89" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="89" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a893adf43d84237eeec9a1724947f96c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;os, coordinates xyz)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>xyz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints out coordinates cleanly with &lt;&lt; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="98" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a2d8532f27568a6768be9d5d88b654844" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;os, triclinicbox box)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints out box coordinates cleanly with &lt;&lt; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="103" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="103" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a3b4c6f8accdf319963f3bb302dddb342" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool fileExists</definition>
+        <argsstring>(string filename)</argsstring>
+        <name>fileExists</name>
+        <param>
+          <type>string</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a file exists. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the file to check </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the file exists </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="114" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates gen_sphere_point</definition>
+        <argsstring>(coordinates center, double r)</argsstring>
+        <name>gen_sphere_point</name>
+        <param>
+          <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para>Generates a random point on a sphere. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>center</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The center of the sphere. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius of the sphere. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The coordinates of the random point. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="130" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="130" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1aa3a7da7df89023853f4fe83eac4be783" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates gen_sphere_point</definition>
+        <argsstring>(double r)</argsstring>
+        <name>gen_sphere_point</name>
+        <param>
+          <type>double</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para>Generates a random point on a sphere at the origin. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius of the sphere. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The coordinates of the random point. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="159" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="159" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a14b2315678e88676b75181d4834cfd94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classcoordinates" kindref="compound">coordinates</ref></type>
+        <definition>coordinates gen_sphere_point</definition>
+        <argsstring>()</argsstring>
+        <name>gen_sphere_point</name>
+        <briefdescription>
+<para>Generates a random point on a unit sphere at the origin. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The coordinates of the random point. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="172" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="172" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1a48bd038d5be96a55c34df3ef5717559e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double get_sphere_accept_ratio</definition>
+        <argsstring>(vector&lt; coordinates &gt; sites, double r, double rand_n, triclinicbox box)</argsstring>
+        <name>get_sphere_accept_ratio</name>
+        <param>
+          <type>vector&lt; <ref refid="classcoordinates" kindref="compound">coordinates</ref> &gt;</type>
+          <declname>sites</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rand_n</declname>
+        </param>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+<para>Gets the acceptance ratio of randomly generated point on a sphere. </para>        </briefdescription>
+        <detaileddescription>
+<para>Points are randomly generated around all sites listed in the sites vector at distance r away from each site. The resulting ratio is sum of the number of points accepted per points generated. In other words each site will have rand_n points generated. The points that are closest to that site compared to the other sites are accepted. The ratio for that site is accepted/rand_n. The sum of this ratio is what is returned. This can be useful in calculating surface areas or volumes of a group of atoms or molecules. See get_surf_area. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinates of sites in the group / molecule. For example, the carbons in an alkane. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius to be used in determining the surface area. For example, to determine the SASA use the appropriate radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rand_n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of randomly generated points to be used for each site. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The box dimensions for the frame in question. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>area</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total surface area of the group / molecule. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="181" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="181" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="src_2Utils_8cpp_1af3eeb8eff3d70f23ace4259b34a2a5b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double get_surf_area</definition>
+        <argsstring>(vector&lt; coordinates &gt; sites, double r, double rand_n, triclinicbox box)</argsstring>
+        <name>get_surf_area</name>
+        <param>
+          <type>vector&lt; <ref refid="classcoordinates" kindref="compound">coordinates</ref> &gt;</type>
+          <declname>sites</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rand_n</declname>
+        </param>
+        <param>
+          <type><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+<para>Gets the surface area of a group of atoms. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the surface area of a group of atoms (could be a molecule) defined by vector of coordinates. Randomly generated points on a sphere of radius r are used at each site in order to get an acceptance ratio. The surface area contributed from each site is simply the surface area of a sphere multiplied by the acceptance ratio for that site. The total surface area is the sum of the surface areas for each site. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinates of sites in the group / molecule. For example, the carbons in an alkane. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius to be used in determining the surface area. For example, to determine the SASA use the appropriate radius. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rand_n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of randomly generated points to be used for each site. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>box</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The box dimensions for the frame in question. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>area</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total surface area of the group / molecule. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wes/libgmxcpp/src/Utils.cpp" line="240" column="1" bodyfile="/home/wes/libgmxcpp/src/Utils.cpp" bodystart="240" bodyend="254"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Some helpful utilities. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>James W. Barnett <ulink url="mailto:jbarnet4@tulane.edu">jbarnet4@tulane.edu</ulink> </para></simplesect>
+<simplesect kind="date"><para>December 5, 2014 </para></simplesect>
+<simplesect kind="see"><para><ref refid="Utils_8h" kindref="compound">Utils.h</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>libgmxcpp</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2015<sp/>James<sp/>W.<sp/>Barnett<sp/>&lt;jbarnet4@tulane.edu&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>along<sp/>with</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/>51</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>Franklin<sp/>Street,<sp/>Fifth<sp/>Floor,<sp/>Boston,<sp/>MA<sp/>02110-1301<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>The<sp/>full<sp/>license<sp/>is<sp/>located<sp/>in<sp/>a<sp/>text<sp/>file<sp/>titled<sp/>&quot;LICENSE&quot;<sp/>in<sp/>the<sp/>root</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>directory<sp/>of<sp/>the<sp/>source.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Utils_8h" kindref="compound">gmxcpp/Utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2Utils_8cpp_1a4099af9f42d20e2c96f2cdb70c94a470" kindref="member">pbc</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>a,<sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>b;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;double&gt;<sp/>box_inv(3);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>shift;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>b<sp/>=<sp/>a;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>box_inv.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>((float)1.0)/box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>box_inv.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>((float)1.0)/box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>box_inv.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>((float)1.0)/box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>shift<sp/>=<sp/>round(b.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>*<sp/>box_inv.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>b.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>-=<sp/>box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>*<sp/>shift;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>b.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>-=<sp/>box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>*<sp/>shift;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>-=<sp/>box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>*<sp/>shift;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>shift<sp/>=<sp/>round(b.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>*<sp/>box_inv.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>b.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>-=<sp/>box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>*<sp/>shift;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>-=<sp/>box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>*<sp/>shift;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>shift<sp/>=<sp/>round(b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>*<sp/>box_inv.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>-=<sp/>box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>*<sp/>shift;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>b;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2Utils_8cpp_1a12a2fec80054cc52202d1a7a10927ef2" kindref="member">cross</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>a,<sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>r;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>r.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>a.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*b.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)-a.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*b.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>r.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>a.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)-a.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*b.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>r.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>a.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*b.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)-a.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a8da6baad0cf85edfeabbd430a7ed756b" kindref="member">distance2</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>a,<sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>b,<sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>c<sp/>=<sp/>a<sp/>-<sp/>b;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>c<sp/>=<sp/><ref refid="src_2Utils_8cpp_1a4099af9f42d20e2c96f2cdb70c94a470" kindref="member">pbc</ref>(c,box);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1ab61966893149c8eae99b13f4188b72a0" kindref="member">dot</ref>(c,c);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a586470c77b3714c63557a4cedc32428f" kindref="member">distance</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>a,<sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>b,<sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sqrt(<ref refid="src_2Utils_8cpp_1a8da6baad0cf85edfeabbd430a7ed756b" kindref="member">distance2</ref>(a,b,box));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1ab61966893149c8eae99b13f4188b72a0" kindref="member">dot</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>a,<sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*b.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)+a.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*b.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)+a.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*b.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a02c02ae7a5267d41eb459044837b15f0" kindref="member">magnitude</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>x)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sqrt(<ref refid="src_2Utils_8cpp_1ab61966893149c8eae99b13f4188b72a0" kindref="member">dot</ref>(x,x));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1ac615e69d32acd21723bc7885c751ce84" kindref="member">volume</ref>(<ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>+<sp/>\</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>+<sp/>\</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>-<sp/>\</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>+<sp/>\</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)*box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>+<sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>box.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>).at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)*box.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>).at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)*box.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>).at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">ostream&amp;<sp/><ref refid="src_2Utils_8cpp_1a893adf43d84237eeec9a1724947f96c1" kindref="member">operator&lt;&lt;</ref>(ostream<sp/>&amp;os,<sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>xyz)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/>xyz.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyz.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyz.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>os;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">ostream&amp;<sp/><ref refid="src_2Utils_8cpp_1a893adf43d84237eeec9a1724947f96c1" kindref="member">operator&lt;&lt;</ref>(ostream<sp/>&amp;os,<sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j&lt;DIM;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k=0;<sp/>k&lt;DIM;<sp/>k++)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/>box.at(j).at(k)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>os;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a3b4c6f8accdf319963f3bb302dddb342" kindref="member">fileExists</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filename)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>ifstream<sp/>infile(filename.c_str());</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>infile.good();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*<sp/>Generates<sp/>a<sp/>point<sp/>on<sp/>a<sp/>sphere<sp/>with<sp/>radius<sp/>r<sp/>and<sp/>center<sp/>c;</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>Reference:</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>Marsaglia,<sp/>George.<sp/>Choosing<sp/>a<sp/>Point<sp/>from<sp/>the<sp/>Surface<sp/>of<sp/>a<sp/>Sphere.<sp/>Ann.<sp/>Math.</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>Statist.<sp/>43<sp/>(1972),<sp/>no.<sp/>2,<sp/>645--646.<sp/>doi:10.1214/aoms/1177692644.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>http://projecteuclid.org/euclid.aoms/1177692644.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" kindref="member">gen_sphere_point</ref>(<ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>center,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xi_1;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xi_2;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_1;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_2;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta2<sp/>=<sp/>100.0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>zeta;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(zeta2<sp/>&gt;<sp/>1.0)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xi_1<sp/>=<sp/>(double)<sp/>rand()<sp/>/<sp/>(RAND_MAX);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xi_2<sp/>=<sp/>(double)<sp/>rand()<sp/>/<sp/>(RAND_MAX);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zeta_1<sp/>=<sp/>1.0<sp/>-<sp/>2.0*xi_1;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zeta_2<sp/>=<sp/>1.0<sp/>-<sp/>2.0*xi_2;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zeta2<sp/>=<sp/>pow(zeta_1,2)<sp/>+<sp/>pow(zeta_2,2);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>zeta.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>2.0*zeta_1*sqrt(1.0-zeta2)<sp/>*<sp/>r<sp/>+<sp/>center.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>zeta.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>2.0*zeta_2*sqrt(1.0-zeta2)<sp/>*<sp/>r<sp/>+<sp/>center.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>zeta.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>(1.0<sp/>-<sp/>2.0*zeta2)<sp/>*<sp/>r<sp/>+<sp/>center.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>zeta;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>Generates<sp/>random<sp/>point<sp/>on<sp/>sphere<sp/>of<sp/>radius<sp/>r<sp/>but<sp/>centered<sp/>at<sp/>origin.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" kindref="member">gen_sphere_point</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>center;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>center.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>center.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>center.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" kindref="member">gen_sphere_point</ref>(center,r);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>Generates<sp/>random<sp/>point<sp/>on<sp/>sphere<sp/>of<sp/>radius<sp/>1.0<sp/>and<sp/>centered<sp/>at<sp/>origin.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/><ref refid="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" kindref="member">gen_sphere_point</ref>()</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>center;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>center.at(<ref refid="coordinates_8h_1a93188324f4ddec8d3bdac778e12231ba" kindref="member">X</ref>)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>center.at(<ref refid="coordinates_8h_1a4245f3c5e8eb90ade09427f989b098ec" kindref="member">Y</ref>)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>center.at(<ref refid="coordinates_8h_1ad6a5acba3306c0d145b10acd89c52126" kindref="member">Z</ref>)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" kindref="member">gen_sphere_point</ref>(center,1.0);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1a48bd038d5be96a55c34df3ef5717559e" kindref="member">get_sphere_accept_ratio</ref>(vector<sp/>&lt;coordinates&gt;<sp/>sites,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rand_n,<sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classcoordinates" kindref="compound">coordinates</ref><sp/>rand_point;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dist2;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r2<sp/>=<sp/>pow(r,2);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>accept_n<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sites_n<sp/>=<sp/>sites.size();</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>sites_n;<sp/>i++)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>rand_n;<sp/>j++)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rand_point<sp/>=<sp/><ref refid="src_2Utils_8cpp_1a40b2c92d6d55e1237d5eeea1f7c8eefa" kindref="member">gen_sphere_point</ref>(sites.at(i),r);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>sites_n;<sp/>k++)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>!=<sp/>k)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dist2<sp/>=<sp/><ref refid="src_2Utils_8cpp_1a8da6baad0cf85edfeabbd430a7ed756b" kindref="member">distance2</ref>(sites.at(k),rand_point,box);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>As<sp/>soon<sp/>as<sp/>one<sp/>site<sp/>is<sp/>closer<sp/>to<sp/>the<sp/>random<sp/>point<sp/>than</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>site<sp/>of<sp/>interest,<sp/>we<sp/>can<sp/>reject<sp/>that<sp/>random<sp/>point.</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dist2<sp/>&lt;<sp/>r2)<sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>rejectpoint;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>If<sp/>the<sp/>distance<sp/>between<sp/>the<sp/>random<sp/>point<sp/>and<sp/>all<sp/>of<sp/>the<sp/>other</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>sites<sp/>in<sp/>the<sp/>group<sp/>is<sp/>greater<sp/>than<sp/>the<sp/>distance<sp/>between<sp/>the</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>random<sp/>point<sp/>and<sp/>the<sp/>site<sp/>of<sp/>interest,<sp/>that<sp/>means<sp/>it<sp/>is<sp/>closest</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>to<sp/>the<sp/>site<sp/>of<sp/>interest<sp/>and<sp/>is<sp/>accepted.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>accept_n++;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rejectpoint:</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)accept_n/(double)rand_n;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>Gets<sp/>the<sp/>surface<sp/>area<sp/>of<sp/>a<sp/>group<sp/>of<sp/>atoms<sp/>using<sp/>random<sp/>points<sp/>on<sp/>a<sp/>sphere.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*<sp/>The<sp/>group<sp/>of<sp/>atoms<sp/>could<sp/>be<sp/>a<sp/>molecule<sp/>or<sp/>it<sp/>could<sp/>be<sp/>just<sp/>a<sp/>cluster<sp/>of<sp/>atoms</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/>close<sp/>together<sp/>or<sp/>a<sp/>combination<sp/>of<sp/>such.</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="src_2Utils_8cpp_1af3eeb8eff3d70f23ace4259b34a2a5b9" kindref="member">get_surf_area</ref>(vector<sp/>&lt;coordinates&gt;<sp/>sites,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rand_n,<sp/><ref refid="classtriclinicbox" kindref="compound">triclinicbox</ref><sp/>box)</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>area<sp/>for<sp/>each<sp/>site<sp/>is<sp/>simply<sp/>the<sp/>area<sp/>of<sp/>a<sp/>sphere<sp/>multiplied<sp/>by<sp/>the</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>acceptance<sp/>ratio<sp/>for<sp/>that<sp/>site.<sp/>Factoring<sp/>out<sp/>the<sp/>4pir2<sp/>and<sp/>the<sp/>random</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>number<sp/>generated<sp/>for<sp/>each<sp/>site<sp/>leaves<sp/>the<sp/>number<sp/>of<sp/>acceptance<sp/>points<sp/>for</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>each<sp/>site,<sp/>which<sp/>we<sp/>can<sp/>then<sp/>sum<sp/>together.<sp/>In<sp/>other<sp/>words,<sp/>we<sp/>can<sp/>save</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>this<sp/>calculation<sp/>for<sp/>last<sp/>due<sp/>to<sp/>factorization<sp/>and<sp/>the<sp/>fact<sp/>that<sp/>accept_n</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>is<sp/>jus<sp/>the<sp/>sum<sp/>of<sp/>all<sp/>accepted<sp/>points.</highlight></codeline>
+<codeline lineno="251"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>4.0<sp/>*<sp/>M_PI<sp/>*<sp/>pow(r,2)<sp/>*<sp/><ref refid="src_2Utils_8cpp_1a48bd038d5be96a55c34df3ef5717559e" kindref="member">get_sphere_accept_ratio</ref>(sites,r,rand_n,box);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/wes/libgmxcpp/src/Utils.cpp"/>
+  </compounddef>
+</doxygen>
