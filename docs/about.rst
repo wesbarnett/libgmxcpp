@@ -1,7 +1,3 @@
-.. libgmxcpp documentation master file, created by
-   sphinx-quickstart on Tue Apr  7 08:40:40 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 About
 =====
@@ -21,7 +17,7 @@ are also included.
 Development
 -----------
 
-The development branch is "master". Releases are merged into the "release"
+The development branch is ``master``. Releases are merged into the ``release``
 branch.
 
 Advantages
