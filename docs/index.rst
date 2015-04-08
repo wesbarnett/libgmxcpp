@@ -7,7 +7,7 @@ libgmxcpp
 =========
 
 a C++ toolkit used for reading in Gromacs files (.xtc and .ndx) for
-use in analyzing simulation results
+use in analyzing simulation results http://github.com/wesbarnett/libgmxcpp
 
 .. toctree::
 
