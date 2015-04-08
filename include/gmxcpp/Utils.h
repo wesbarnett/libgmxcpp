@@ -183,7 +183,6 @@ coordinates gen_sphere_point();
  * @param rand_n The number of randomly generated points to be used for each
  * site.
  * @param box The box dimensions for the frame in question.
- * @param area The total surface area of the group / molecule.
  */
 
 double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
@@ -202,15 +201,14 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
  * @param rand_n The number of randomly generated points to be used for each
  * site.
  * @param box The box dimensions for the frame in question.
- * @param area The total surface area of the group / molecule.
  */
 double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
 
 /** @brief Gets the center of mass of a group of atoms.
  * @details Gets the center of mass of a group of atoms. The masses must match
  * up with the atoms specified. 
- * @param atoms The positions of the atoms.
- * @param masses The masses of the atoms.
+ * @param atom The positions of the atoms.
+ * @param mass The masses of the atoms.
  * @return The center of mass.
  */
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
