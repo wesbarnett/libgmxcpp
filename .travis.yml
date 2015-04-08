@@ -1,9 +1,7 @@
 language: cpp
 compiler: gcc
+install: doxygen sphinx breathe
 script: 
-    - sudo pip install sphinx
-    - sudo pip install breathe
-    - sudo apt-get install doxygen
     - mkdir build 
     - cd build
     - cmake .. 
