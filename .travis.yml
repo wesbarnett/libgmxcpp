@@ -6,3 +6,7 @@ script:
     - cmake .. 
     - make
     - make test
+    - pip install sphinx
+    - pip install breathe
+    - apt-get install doxygen
+    - make docs
