@@ -39,4 +39,4 @@ Advantages
 * No other libraries needed (the relevant parts of libxdrfile are included with
   this project).
 
-.. image:: ..//img/screenshot.png
+.. image:: images/screenshot.png
