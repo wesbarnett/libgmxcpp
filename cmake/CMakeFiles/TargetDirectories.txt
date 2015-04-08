@@ -1,7 +1,0 @@
-/home/wes/libgmxcpp/cmake/tests/CMakeFiles/Clusters_test.dir
-/home/wes/libgmxcpp/cmake/tests/CMakeFiles/Trajectory_test.dir
-/home/wes/libgmxcpp/cmake/tests/CMakeFiles/Utils_test.dir
-/home/wes/libgmxcpp/cmake/tests/CMakeFiles/coordinates_test.dir
-/home/wes/libgmxcpp/cmake/src/CMakeFiles/gmxcpp.dir
-/home/wes/libgmxcpp/cmake/docs/CMakeFiles/my_project_docs.dir
-/home/wes/libgmxcpp/cmake/tests/CMakeFiles/triclinicbox_test.dir
