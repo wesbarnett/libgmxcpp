@@ -1,0 +1,1 @@
+/usr/local/compilers/gcc/4.9.2/bin/g++   -std=c++0x -Wall -fopenmp    CMakeFiles/triclinicbox_test.dir/triclinicbox.cpp.o  -o triclinicbox_test -rdynamic ../src/lib/libgmxcpp.so -Wl,-rpath,/home/wes/libgmxcpp/cmake/src/lib 

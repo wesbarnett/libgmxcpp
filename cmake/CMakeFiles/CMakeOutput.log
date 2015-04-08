@@ -1,0 +1,281 @@
+The system is: Linux - 2.6.32-504.12.2.el6.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/local/compilers/gcc/4.9.2/bin/gcc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/wes/libgmxcpp/cmake/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/local/compilers/gcc/4.9.2/bin/g++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/wes/libgmxcpp/cmake/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2715713751/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2715713751.dir/build.make CMakeFiles/cmTryCompileExec2715713751.dir/build
+gmake[1]: Entering directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2715713751.dir/testCCompiler.c.o
+/usr/local/compilers/gcc/4.9.2/bin/gcc    -o CMakeFiles/cmTryCompileExec2715713751.dir/testCCompiler.c.o   -c /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2715713751
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2715713751.dir/link.txt --verbose=1
+/usr/local/compilers/gcc/4.9.2/bin/gcc       CMakeFiles/cmTryCompileExec2715713751.dir/testCCompiler.c.o  -o cmTryCompileExec2715713751 -rdynamic 
+gmake[1]: Leaving directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2578470757/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2578470757.dir/build.make CMakeFiles/cmTryCompileExec2578470757.dir/build
+gmake[1]: Entering directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o
+/usr/local/compilers/gcc/4.9.2/bin/gcc    -o CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec2578470757
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2578470757.dir/link.txt --verbose=1
+/usr/local/compilers/gcc/4.9.2/bin/gcc     -v CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2578470757 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/local/compilers/gcc/4.9.2/bin/gcc
+COLLECT_LTO_WRAPPER=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ../gcc-4.9.2/configure --prefix=/usr/local/compilers/gcc/4.9.2 --disable-multilib
+Thread model: posix
+gcc version 4.9.2 (GCC) 
+COMPILER_PATH=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/usr/local/compilers/gcc/4.9.2/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/../lib64/:/usr/local/packages/gromacs/5.0.4/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/wes/packages/python/2.7.9/lib/:/usr/local/packages/grace/5.1.24/grace/lib/:/usr/local/packages/binutils/2.24/lib/:/usr/local/compilers/gcc/4.9.2/lib64/:/usr/local/compilers/gcc/4.9.2/lib/:/usr/local/packages/fftw/3.3.4/lib/:/usr/local/packages/gromacs/5.0.4/lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2578470757' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec2578470757 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/usr/local/compilers/gcc/4.9.2/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/../lib64 -L/usr/local/packages/gromacs/5.0.4/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/wes/packages/python/2.7.9/lib -L/usr/local/packages/grace/5.1.24/grace/lib -L/usr/local/packages/binutils/2.24/lib -L/usr/local/compilers/gcc/4.9.2/lib64 -L/usr/local/compilers/gcc/4.9.2/lib -L/usr/local/packages/fftw/3.3.4/lib -L/usr/local/packages/gromacs/5.0.4/lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../.. CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/../lib64/crtn.o
+gmake[1]: Leaving directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/gmake "cmTryCompileExec2578470757/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2578470757.dir/build.make CMakeFiles/cmTryCompileExec2578470757.dir/build]
+  ignore line: [gmake[1]: Entering directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/local/bin/cmake -E cmake_progress_report /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/local/compilers/gcc/4.9.2/bin/gcc    -o CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec2578470757]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2578470757.dir/link.txt --verbose=1]
+  ignore line: [/usr/local/compilers/gcc/4.9.2/bin/gcc     -v CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2578470757 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/local/compilers/gcc/4.9.2/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: ../gcc-4.9.2/configure --prefix=/usr/local/compilers/gcc/4.9.2 --disable-multilib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.9.2 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/local/compilers/gcc/4.9.2/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/../lib64/:/usr/local/packages/gromacs/5.0.4/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/wes/packages/python/2.7.9/lib/:/usr/local/packages/grace/5.1.24/grace/lib/:/usr/local/packages/binutils/2.24/lib/:/usr/local/compilers/gcc/4.9.2/lib64/:/usr/local/compilers/gcc/4.9.2/lib/:/usr/local/packages/fftw/3.3.4/lib/:/usr/local/packages/gromacs/5.0.4/lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2578470757' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec2578470757 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/usr/local/compilers/gcc/4.9.2/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/../lib64 -L/usr/local/packages/gromacs/5.0.4/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/wes/packages/python/2.7.9/lib -L/usr/local/packages/grace/5.1.24/grace/lib -L/usr/local/packages/binutils/2.24/lib -L/usr/local/compilers/gcc/4.9.2/lib64 -L/usr/local/compilers/gcc/4.9.2/lib -L/usr/local/packages/fftw/3.3.4/lib -L/usr/local/packages/gromacs/5.0.4/lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../.. CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/../lib64/crtn.o]
+    arg [/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2578470757] ==> ignore
+    arg [/usr/lib/../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/../lib64/crti.o] ==> ignore
+    arg [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o] ==> ignore
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib64/../lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib64/../lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/../lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/../lib64]
+    arg [-L/usr/local/packages/gromacs/5.0.4/lib64/../lib64] ==> dir [/usr/local/packages/gromacs/5.0.4/lib64/../lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/home/wes/packages/python/2.7.9/lib] ==> dir [/home/wes/packages/python/2.7.9/lib]
+    arg [-L/usr/local/packages/grace/5.1.24/grace/lib] ==> dir [/usr/local/packages/grace/5.1.24/grace/lib]
+    arg [-L/usr/local/packages/binutils/2.24/lib] ==> dir [/usr/local/packages/binutils/2.24/lib]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib] ==> dir [/usr/local/compilers/gcc/4.9.2/lib]
+    arg [-L/usr/local/packages/fftw/3.3.4/lib] ==> dir [/usr/local/packages/fftw/3.3.4/lib]
+    arg [-L/usr/local/packages/gromacs/5.0.4/lib64] ==> dir [/usr/local/packages/gromacs/5.0.4/lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../..] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../..]
+    arg [CMakeFiles/cmTryCompileExec2578470757.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o] ==> ignore
+    arg [/usr/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib64/../lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/../lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/usr/local/packages/gromacs/5.0.4/lib64/../lib64] ==> [/usr/local/packages/gromacs/5.0.4/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2] ==> [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/home/wes/packages/python/2.7.9/lib] ==> [/home/wes/packages/python/2.7.9/lib]
+  collapse library dir [/usr/local/packages/grace/5.1.24/grace/lib] ==> [/usr/local/packages/grace/5.1.24/grace/lib]
+  collapse library dir [/usr/local/packages/binutils/2.24/lib] ==> [/usr/local/packages/binutils/2.24/lib]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib] ==> [/usr/local/compilers/gcc/4.9.2/lib]
+  collapse library dir [/usr/local/packages/fftw/3.3.4/lib] ==> [/usr/local/packages/fftw/3.3.4/lib]
+  collapse library dir [/usr/local/packages/gromacs/5.0.4/lib64] ==> [/usr/local/packages/gromacs/5.0.4/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../..] ==> [/usr/local/compilers/gcc/4.9.2/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/local/compilers/gcc/4.9.2/lib64;/usr/local/packages/gromacs/5.0.4/lib64;/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2;/lib64;/usr/lib64;/home/wes/packages/python/2.7.9/lib;/usr/local/packages/grace/5.1.24/grace/lib;/usr/local/packages/binutils/2.24/lib;/usr/local/compilers/gcc/4.9.2/lib;/usr/local/packages/fftw/3.3.4/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec346464691/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec346464691.dir/build.make CMakeFiles/cmTryCompileExec346464691.dir/build
+gmake[1]: Entering directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec346464691.dir/testCXXCompiler.cxx.o
+/usr/local/compilers/gcc/4.9.2/bin/g++     -o CMakeFiles/cmTryCompileExec346464691.dir/testCXXCompiler.cxx.o -c /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec346464691
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec346464691.dir/link.txt --verbose=1
+/usr/local/compilers/gcc/4.9.2/bin/g++        CMakeFiles/cmTryCompileExec346464691.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec346464691 -rdynamic 
+gmake[1]: Leaving directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec4023032384/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4023032384.dir/build.make CMakeFiles/cmTryCompileExec4023032384.dir/build
+gmake[1]: Entering directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o
+/usr/local/compilers/gcc/4.9.2/bin/g++     -o CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec4023032384
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4023032384.dir/link.txt --verbose=1
+/usr/local/compilers/gcc/4.9.2/bin/g++      -v CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec4023032384 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/local/compilers/gcc/4.9.2/bin/g++
+COLLECT_LTO_WRAPPER=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ../gcc-4.9.2/configure --prefix=/usr/local/compilers/gcc/4.9.2 --disable-multilib
+Thread model: posix
+gcc version 4.9.2 (GCC) 
+COMPILER_PATH=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/usr/local/compilers/gcc/4.9.2/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/../lib64/:/usr/local/packages/gromacs/5.0.4/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/wes/packages/python/2.7.9/lib/:/usr/local/packages/grace/5.1.24/grace/lib/:/usr/local/packages/binutils/2.24/lib/:/usr/local/compilers/gcc/4.9.2/lib64/:/usr/local/compilers/gcc/4.9.2/lib/:/usr/local/packages/fftw/3.3.4/lib/:/usr/local/packages/gromacs/5.0.4/lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec4023032384' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec4023032384 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/usr/local/compilers/gcc/4.9.2/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/../lib64 -L/usr/local/packages/gromacs/5.0.4/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/wes/packages/python/2.7.9/lib -L/usr/local/packages/grace/5.1.24/grace/lib -L/usr/local/packages/binutils/2.24/lib -L/usr/local/compilers/gcc/4.9.2/lib64 -L/usr/local/compilers/gcc/4.9.2/lib -L/usr/local/packages/fftw/3.3.4/lib -L/usr/local/packages/gromacs/5.0.4/lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../.. CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/../lib64/crtn.o
+gmake[1]: Leaving directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/gmake "cmTryCompileExec4023032384/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4023032384.dir/build.make CMakeFiles/cmTryCompileExec4023032384.dir/build]
+  ignore line: [gmake[1]: Entering directory `/home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/local/bin/cmake -E cmake_progress_report /home/wes/libgmxcpp/cmake/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/local/compilers/gcc/4.9.2/bin/g++     -o CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec4023032384]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4023032384.dir/link.txt --verbose=1]
+  ignore line: [/usr/local/compilers/gcc/4.9.2/bin/g++      -v CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec4023032384 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/local/compilers/gcc/4.9.2/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: ../gcc-4.9.2/configure --prefix=/usr/local/compilers/gcc/4.9.2 --disable-multilib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.9.2 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/local/compilers/gcc/4.9.2/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/../lib64/:/usr/local/packages/gromacs/5.0.4/lib64/../lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/wes/packages/python/2.7.9/lib/:/usr/local/packages/grace/5.1.24/grace/lib/:/usr/local/packages/binutils/2.24/lib/:/usr/local/compilers/gcc/4.9.2/lib64/:/usr/local/compilers/gcc/4.9.2/lib/:/usr/local/packages/fftw/3.3.4/lib/:/usr/local/packages/gromacs/5.0.4/lib64/:/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec4023032384' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec4023032384 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/usr/local/compilers/gcc/4.9.2/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/../lib64 -L/usr/local/packages/gromacs/5.0.4/lib64/../lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/wes/packages/python/2.7.9/lib -L/usr/local/packages/grace/5.1.24/grace/lib -L/usr/local/packages/binutils/2.24/lib -L/usr/local/compilers/gcc/4.9.2/lib64 -L/usr/local/compilers/gcc/4.9.2/lib -L/usr/local/packages/fftw/3.3.4/lib -L/usr/local/packages/gromacs/5.0.4/lib64 -L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../.. CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/../lib64/crtn.o]
+    arg [/usr/local/compilers/gcc/4.9.2/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec4023032384] ==> ignore
+    arg [/usr/lib/../lib64/crt1.o] ==> ignore
+    arg [/usr/lib/../lib64/crti.o] ==> ignore
+    arg [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o] ==> ignore
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib64/../lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib64/../lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/../lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/../lib64]
+    arg [-L/usr/local/packages/gromacs/5.0.4/lib64/../lib64] ==> dir [/usr/local/packages/gromacs/5.0.4/lib64/../lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/home/wes/packages/python/2.7.9/lib] ==> dir [/home/wes/packages/python/2.7.9/lib]
+    arg [-L/usr/local/packages/grace/5.1.24/grace/lib] ==> dir [/usr/local/packages/grace/5.1.24/grace/lib]
+    arg [-L/usr/local/packages/binutils/2.24/lib] ==> dir [/usr/local/packages/binutils/2.24/lib]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib64] ==> dir [/usr/local/compilers/gcc/4.9.2/lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib] ==> dir [/usr/local/compilers/gcc/4.9.2/lib]
+    arg [-L/usr/local/packages/fftw/3.3.4/lib] ==> dir [/usr/local/packages/fftw/3.3.4/lib]
+    arg [-L/usr/local/packages/gromacs/5.0.4/lib64] ==> dir [/usr/local/packages/gromacs/5.0.4/lib64]
+    arg [-L/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../..] ==> dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../..]
+    arg [CMakeFiles/cmTryCompileExec4023032384.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o] ==> ignore
+    arg [/usr/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib64/../lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/../lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/usr/local/packages/gromacs/5.0.4/lib64/../lib64] ==> [/usr/local/packages/gromacs/5.0.4/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2] ==> [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/home/wes/packages/python/2.7.9/lib] ==> [/home/wes/packages/python/2.7.9/lib]
+  collapse library dir [/usr/local/packages/grace/5.1.24/grace/lib] ==> [/usr/local/packages/grace/5.1.24/grace/lib]
+  collapse library dir [/usr/local/packages/binutils/2.24/lib] ==> [/usr/local/packages/binutils/2.24/lib]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib64] ==> [/usr/local/compilers/gcc/4.9.2/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib] ==> [/usr/local/compilers/gcc/4.9.2/lib]
+  collapse library dir [/usr/local/packages/fftw/3.3.4/lib] ==> [/usr/local/packages/fftw/3.3.4/lib]
+  collapse library dir [/usr/local/packages/gromacs/5.0.4/lib64] ==> [/usr/local/packages/gromacs/5.0.4/lib64]
+  collapse library dir [/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../..] ==> [/usr/local/compilers/gcc/4.9.2/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/local/compilers/gcc/4.9.2/lib64;/usr/local/packages/gromacs/5.0.4/lib64;/usr/local/compilers/gcc/4.9.2/lib/gcc/x86_64-unknown-linux-gnu/4.9.2;/lib64;/usr/lib64;/home/wes/packages/python/2.7.9/lib;/usr/local/packages/grace/5.1.24/grace/lib;/usr/local/packages/binutils/2.24/lib;/usr/local/compilers/gcc/4.9.2/lib;/usr/local/packages/fftw/3.3.4/lib]
+  implicit fwks: []
+
+

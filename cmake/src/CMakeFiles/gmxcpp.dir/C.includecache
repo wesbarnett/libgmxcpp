@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/gmxcpp/xdrfile.h
+
+../include/gmxcpp/xdrfile_xtc.h
+xdrfile.h
+../include/gmxcpp/xdrfile.h
+
+/home/wes/libgmxcpp/src/xdrfile.c
+config.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+limits.h
+-
+stdint.h
+-
+inttypes.h
+-
+rpc/rpc.h
+-
+rpc/xdr.h
+-
+gmxcpp/xdrfile.h
+/home/wes/libgmxcpp/src/gmxcpp/xdrfile.h
+
+/home/wes/libgmxcpp/src/xdrfile_xtc.c
+stdlib.h
+-
+gmxcpp/xdrfile.h
+/home/wes/libgmxcpp/src/gmxcpp/xdrfile.h
+gmxcpp/xdrfile_xtc.h
+/home/wes/libgmxcpp/src/gmxcpp/xdrfile_xtc.h
+

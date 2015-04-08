@@ -137,6 +137,25 @@ double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l
 	return phi;
 }
 
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
+{
+    coordinates com(0.0,0.0,0.0);
+    double total_mass = 0.0;
+    int atom_n = atom.size();
+    int i = 0;
+    if (mass.size() != atom.size()) 
+        throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+
+    for (i = 0; i < atom_n; i++)
+    {
+        com += atom.at(i) * mass.at(i);
+        total_mass += mass.at(i);
+    }
+    com /= total_mass;
+
+    return com;
+}
+
 ostream& operator<<(ostream &os, coordinates xyz)
 {
     os << xyz.at(X) << " " << xyz.at(Y) << " " << xyz.at(Z) << endl;

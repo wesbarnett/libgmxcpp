@@ -6,7 +6,7 @@ Installation
 Requirements
 ------------
 
-cmake
+``cmake``
 
 Installing
 -----------
@@ -35,10 +35,16 @@ Header files will be installed within a folder named "gmxcpp".
 Testing the build
 -----------------
 
-To test your build you can run the following in the build directory (see above):::
-
-    make test
+To test your build you can run ``make test`` the following in the build directory (see above).
 
 Automated tests are performed `via
 Travis <https://travis-ci.org/wesbarnett/libgmxcpp>`_ when new commits are pushed.
 Tests are in the "tests" directory.
+
+Documentation
+-------------
+
+If you want to have a local copy of the documentation, do ``make docs`` in the
+build directory. The html files will be placed in ``doc/html`` in your build
+directory. ``sphinx``,` `breathe``, and ``doxygen`` are required to build the
+documentation.

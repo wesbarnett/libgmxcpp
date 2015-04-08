@@ -1,0 +1,1 @@
+/usr/local/compilers/gcc/4.9.2/bin/g++   -std=c++0x -Wall -fopenmp    CMakeFiles/Utils_test.dir/Utils.cpp.o  -o Utils_test -rdynamic ../src/lib/libgmxcpp.so -Wl,-rpath,/home/wes/libgmxcpp/cmake/src/lib 

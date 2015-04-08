@@ -291,6 +291,8 @@ breathe_default_project = "libgmxcpp"
 
 import subprocess, os
 
+subprocess.call('cd ..; doxygen; cd docs', shell=True)
+
 read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
 
 if read_the_docs_build:
