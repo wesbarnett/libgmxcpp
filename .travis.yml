@@ -1,6 +1,11 @@
 language: cpp
 compiler: gcc
-install: doxygen sphinx breathe
+install: 
+    - sudo apt-get update -qq
+    - sudo apt-get install doxygen 
+    - sudo pip install --upgrade pip
+    - sudo pip install sphinx 
+    - sudo pip install breathe
 script: 
     - mkdir build 
     - cd build
