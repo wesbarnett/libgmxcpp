@@ -291,7 +291,7 @@ breathe_projects = { "libgmxcpp":"./doxyxml" }
 breathe_default_project = "libgmxcpp"
 
 # Runs doxygen on code
-subprocess.call('cd ..; doxygen; cd docs', shell=True)
+subprocess.call('doxygen', shell=True)
 
 # Are we on readthedocs?
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
