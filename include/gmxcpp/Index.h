@@ -91,7 +91,7 @@ void PrintInfo() const;
 public:
 
 /**
- * @brief Blank constructor used in Trajectory object
+ * @brief Blank constructor used in Index object
  * */
 Index();
 
