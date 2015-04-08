@@ -45,6 +45,6 @@ Documentation
 -------------
 
 If you want to have a local copy of the documentation, do ``make docs`` in the
-build directory. The html files will be placed in ``doc/html`` in your build
+build directory. The html files will be placed in ``docs/html`` in your build
 directory. ``sphinx``, ``breathe``, and ``doxygen`` are required to build the
 documentation.
