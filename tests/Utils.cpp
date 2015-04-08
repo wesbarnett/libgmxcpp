@@ -55,5 +55,18 @@ int main()
      * assert(test_equal(get_surf_area(sites, 1.0, 10000, b3),18.7641));
      */
 
+	coordinates a(0.0,0.0,0.0);
+	coordinates b(1.0,0.0,0.0);
+	coordinates c(1.0,1.0,0.0);
+	assert(test_equal(bond_angle(a,b,c,b1),M_PI/2.0));
+
+	coordinates d(0.5,0.0,0.86602540378443864);
+	assert(test_equal(bond_angle(a,b,d,b1),M_PI/3.0));
+
+	coordinates e(1.0,1.0,-1.0);
+	assert(test_equal(dihedral_angle(a,b,c,e,b1),M_PI/2.0));
+	coordinates f(1.0,1.0,1.0);
+	assert(test_equal(dihedral_angle(a,b,c,f,b1),-M_PI/2.0));
+
     return 0;
 }

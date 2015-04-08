@@ -135,10 +135,3 @@ To get the step for a frame use GetStep(frame)::
 
     // Gets the step corresponding with the 5th frame
     int step = traj.GetStep(4);
-
-Utilities
----------
-
-Be sure to check out `Utils.h <files/Utils.h.html>`_ which includes utilies in calculating atomic
-distances, the periodic boundary condition, and more.
-
