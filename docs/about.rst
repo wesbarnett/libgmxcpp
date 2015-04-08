@@ -39,4 +39,4 @@ Advantages
 * No other libraries needed (the relevant parts of libxdrfile are included with
   this project).
 
-.. image:: https://raw.githubusercontent.com/wesbarnett/libgmxcpp/master/img/screenshot.png
+.. image:: ..//img/screenshot.png
