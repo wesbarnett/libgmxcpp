@@ -6,7 +6,7 @@ script:
     - cmake .. 
     - make
     - make test
-    - pip install sphinx
-    - pip install breathe
-    - apt-get install doxygen
+    - sudo pip install sphinx
+    - sudo pip install breathe
+    - sudo apt-get install doxygen
     - make docs
