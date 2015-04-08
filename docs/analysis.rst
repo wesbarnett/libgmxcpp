@@ -19,6 +19,7 @@ Bond angle
 Clustering
 ----------
 .. doxygenclass:: Clusters
+    :members:
 
 Cross product
 -------------
