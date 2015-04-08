@@ -13,9 +13,8 @@ use in analyzing simulation results http://github.com/wesbarnett/libgmxcpp
 
    about
    installation
-   example
    usage
    analysis
+   example
    api
    license
-   cite
