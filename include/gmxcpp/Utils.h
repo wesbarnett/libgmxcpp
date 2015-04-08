@@ -150,6 +150,10 @@ ostream& operator<<(ostream &os, coordinates xyz);
 /** Prints out box coordinates cleanly with << */
 ostream& operator<<(ostream &os, triclinicbox box);
 
+/** \addtogroup gen_sphere_point
+ * @{
+ */
+
 /** @brief Generates a random point on a sphere.
  * @param center The center of the sphere.
  * @param r The radius of the sphere.
@@ -184,6 +188,8 @@ coordinates gen_sphere_point();
  * site.
  * @param box The box dimensions for the frame in question.
  */
+
+/** @} */
 
 double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
 

@@ -47,7 +47,7 @@ Periodic boundary condition
 
 Random point on sphere
 ----------------------
-.. doxygenfunction:: gen_sphere_point
+.. doxygengroup:: gen_sphere_point
 
 Surface area
 ------------
