@@ -63,6 +63,16 @@ using namespace std;
  */
 coordinates pbc(coordinates a, triclinicbox box);
 
+/**
+ * @brief Centers a group of atoms around another atom, removing pbc
+ * @details This centers a group of atoms, using the centeral atom as the
+ * reference point for removing the periodic boundary condition.
+ * @param atom Group of atoms to be centered
+ * @param center The central atom, may be a part of the group or not
+ * @param box Simulation box
+ */
+void center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
+
 /** @brief Calculates the cross product.
  * @details Gets the cross product between vectors a and b and returns it.
  * @param a First vector to be crossed.
@@ -212,11 +222,42 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
 
 /** @brief Gets the center of mass of a group of atoms.
  * @details Gets the center of mass of a group of atoms. The masses must match
- * up with the atoms specified. 
+ * up with the atoms specified.  Note that this version does NOT take into
+ * account the periodic boundary.
  * @param atom The positions of the atoms.
  * @param mass The masses of the atoms.
  * @return The center of mass.
  */
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
+
+/** @brief Gets the center of mass of a group of atoms.
+ * @details Gets the center of mass of a group of atoms. The masses must match
+ * up with the atoms specified.  Note that this version DOES take into
+ * account the periodic boundary by centering the group around the geometric
+ * center first before the calculation.
+ * @param mass The masses of the atoms.
+ * @param atom The positions of the atoms.
+ * @return The center of mass.
+ */
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box);
+
+/** @brief Gets the geometric of a group of atoms.
+ * @details Gets the gemetric of a group of atoms, taking into account the
+ * periodic boundary condition. * @param atom The positions of the atoms.
+ * @param atom The positions of the atoms.
+ * @param mass The masses of the atoms.
+ * @param box The simulation box.
+ * @return Geometric center.
+ */
+coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
+
+/** @brief Centers a group of atoms
+ * @details Centers a group of atoms around a specified point, removing the
+ * periodic effects
+ * @param atom Group of atoms to be transformed.
+ * @param center The point around which to center the atoms.
+ * @param box The simulation box.
+ */
+void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
 
 #endif

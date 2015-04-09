@@ -137,14 +137,29 @@ double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l
 	return phi;
 }
 
+void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box)
+{
+    coordinates r;
+    int atom_n = atom.size();
+    int i;
+
+    for (i = 0; i < atom_n; i++)
+    {
+        r = pbc(center-atom.at(i),box);
+        atom.at(i) = center - r;
+    }
+    return;
+}
+
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 {
+    if (mass.size() != atom.size()) 
+        throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+
     coordinates com(0.0,0.0,0.0);
     double total_mass = 0.0;
     int atom_n = atom.size();
-    int i = 0;
-    if (mass.size() != atom.size()) 
-        throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+    int i;
 
     for (i = 0; i < atom_n; i++)
     {
@@ -152,6 +167,60 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
         total_mass += mass.at(i);
     }
     com /= total_mass;
+
+    return com;
+}
+
+/* assumes box is cubic: TODO: transform triclinic box into cubic */
+coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
+{
+
+    coordinates cog(0.0,0.0,0.0); // geometric center
+    int atom_n = atom.size();
+    int i;
+	int j;
+
+	double theta;
+	double xi;
+	double sigma;
+
+    /* Transform each coordinate to a circle, then transform the average back.
+     * This removes periodic affects in order to get the center of geometry */
+	for (j = 0; j < DIM; j++)
+	{
+		xi = 0.0;
+		sigma = 0.0;
+		for (i = 0; i < atom_n; i++)
+		{
+			theta = atom.at(i).at(j) / (box.at(j).at(j)) * 2.0 * M_PI;
+			sigma += cos(theta);
+			xi += sin(theta);
+		}
+		xi /= (double)atom_n;
+		sigma /= (double)atom_n;
+
+		theta = atan2(-xi,-sigma)+ M_PI;
+
+		cog.at(j) = box.at(j).at(j) * theta / ( 2.0 * M_PI);
+	}
+
+    return cog;
+
+}
+
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box)
+{
+    if (mass.size() != atom.size()) 
+        throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+    /* Get the center of geometry of the group, taking into account periodic
+     * effects. Then center the group around the cog. After that calculate
+     * center of mass. */
+
+    coordinates cog;
+    coordinates com;
+    cog = center_of_geometry(atom, box);
+    do_center_group(atom, cog, box);
+    com = center_of_mass(atom, mass);
 
     return com;
 }
