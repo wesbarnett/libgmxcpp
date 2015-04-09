@@ -1,6 +1,0 @@
-
-Frame
-=====
-
-.. doxygenclass:: Frame
-    :members:

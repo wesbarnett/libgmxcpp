@@ -68,5 +68,42 @@ int main()
 	coordinates f(1.0,1.0,1.0);
 	assert(test_equal(dihedral_angle(a,b,c,f,b1),-M_PI/2.0));
 
+<<<<<<< HEAD
+=======
+
+    coordinates com1(0.0,0.0,0.0);
+    coordinates com2(0.0,0.0,0.0);
+    coordinates com3(0.0,0.0,0.0);
+
+    vector <coordinates> com_test;
+    vector <double> mass;
+    mass.push_back(1.0);
+    mass.push_back(2.0);
+    mass.push_back(3.0);
+
+    com_test.push_back(com1);
+    com_test.push_back(com2);
+    com_test.push_back(com3);
+
+    triclinicbox combox(4.0,4.0,4.0);
+
+    coordinates com = center_of_mass(com_test,mass,combox);
+    assert(test_equal(com.at(X),0.0));
+    assert(test_equal(com.at(Y),0.0));
+    assert(test_equal(com.at(Z),0.0));
+
+    coordinates com4(1.0,1.0,1.0);
+    coordinates com5(3.0,3.0,3.0);
+    coordinates com6(0.0,0.0,0.0);
+    com_test.at(0) = com4;
+    com_test.at(1) = com5;
+    com_test.at(2) = com6;
+
+    com = center_of_mass(com_test,mass,combox);
+    assert(test_equal(com.at(X),-0.16667));
+    com = center_of_mass(com_test,mass);
+    assert(test_equal(com.at(X),1.16667));
+
+>>>>>>> master
     return 0;
 }

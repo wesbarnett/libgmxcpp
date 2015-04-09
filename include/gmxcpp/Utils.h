@@ -43,6 +43,7 @@
 #include <string>
 #include <time.h>
 #include <vector>
+#include <stdexcept>
 
 #include "gmxcpp/coordinates.h"
 #include "gmxcpp/triclinicbox.h"
@@ -61,6 +62,16 @@ using namespace std;
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
+
+/**
+ * @brief Centers a group of atoms around another atom, removing pbc
+ * @details This centers a group of atoms, using the centeral atom as the
+ * reference point for removing the periodic boundary condition.
+ * @param atom Group of atoms to be centered
+ * @param center The central atom, may be a part of the group or not
+ * @param box Simulation box
+ */
+void center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
 
 /** @brief Calculates the cross product.
  * @details Gets the cross product between vectors a and b and returns it.
@@ -149,6 +160,10 @@ ostream& operator<<(ostream &os, coordinates xyz);
 /** Prints out box coordinates cleanly with << */
 ostream& operator<<(ostream &os, triclinicbox box);
 
+/** \addtogroup gen_sphere_point
+ * @{
+ */
+
 /** @brief Generates a random point on a sphere.
  * @param center The center of the sphere.
  * @param r The radius of the sphere.
@@ -182,8 +197,9 @@ coordinates gen_sphere_point();
  * @param rand_n The number of randomly generated points to be used for each
  * site.
  * @param box The box dimensions for the frame in question.
- * @param area The total surface area of the group / molecule.
  */
+
+/** @} */
 
 double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
 
@@ -201,8 +217,54 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
  * @param rand_n The number of randomly generated points to be used for each
  * site.
  * @param box The box dimensions for the frame in question.
- * @param area The total surface area of the group / molecule.
  */
 double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
+
+/** \addtogroup center_of_mass
+ * @{
+ */
+
+/** @brief Gets the center of mass of a group of atoms.
+ * @details Gets the center of mass of a group of atoms. The masses must match
+ * up with the atoms specified.  Note that this version does NOT take into
+ * account the periodic boundary.
+ * @param atom The positions of the atoms.
+ * @param mass The masses of the atoms.
+ * @return The center of mass.
+ */
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
+
+/** @brief Gets the center of mass of a group of atoms.
+ * @details Gets the center of mass of a group of atoms. The masses must match
+ * up with the atoms specified.  Note that this version DOES take into
+ * account the periodic boundary by centering the group around the geometric
+ * center first before the calculation. Note this only works for a cubic box at
+ * the moment!
+ * @param mass The masses of the atoms.
+ * @param atom The positions of the atoms.
+ * @param box The simulation box.
+ * @return The center of mass.
+ */
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box);
+/** @} */
+
+/** @brief Gets the geometric of a group of atoms.
+ * @details Gets the gemetric of a group of atoms, taking into account the
+ * periodic boundary condition. * @param atom The positions of the atoms. Note
+ * this only works for a cubic box at the moment.
+ * @param atom The positions of the atoms.
+ * @param box The simulation box.
+ * @return Geometric center.
+ */
+coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
+
+/** @brief Centers a group of atoms
+ * @details Centers a group of atoms around a specified point, removing the
+ * periodic effects. Note that this only works for a cubic box for the moment.
+ * @param atom Group of atoms to be transformed.
+ * @param center The point around which to center the atoms.
+ * @param box The simulation box.
+ */
+void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
 
 #endif

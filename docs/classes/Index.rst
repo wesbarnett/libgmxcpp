@@ -1,6 +1,0 @@
-
-Index
-=====
-
-.. doxygenclass:: Index
-    :members:
