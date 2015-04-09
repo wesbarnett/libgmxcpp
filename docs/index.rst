@@ -6,6 +6,8 @@
 libgmxcpp
 =========
 
+http://github.com/wesbarnett/libgmxcpp
+
 This is a C++ toolkit used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing simulation results. This interfaces with libxdrfile and
 implements an object-oriented style. The main usage of the library is to be able
