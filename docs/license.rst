@@ -17,5 +17,9 @@ You should have received a copy of the GNU General Public License along with
 this program; if not, write to the Free Software Foundation, Inc., 51
 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-The full license is located in a text file titled "LICENSE" in the root
+The full license is located in a text file titled ``LICENSE`` in the root
 directory of the source and includes a license for each part of this package.
+
+I hope you find this library useful. There is no paper associated with this
+project to cite as is common in some projects. However, if you do use this code
+in a published work I humbly ask that you acknowledge it in some way.
