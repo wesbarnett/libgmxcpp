@@ -15,9 +15,9 @@ The other important class is `coordinates <classes/coordinates.html>`_, which is
 a three-dimensional vector with several operators overloaded. Trajectory getters
 will return this type.
 
-In order to use the Trajectory class you must include 'gmxcpp/Trajectory.h' in
+In order to use the Trajectory class you must include ``gmxcpp/Trajectory.h`` in
 your code. Then you'll need to link to the library when you compile your
-program. With gcc this can be done by adding "-lgmxcpp" to the command for
+program. With gcc this can be done by adding ``-lgmxcpp`` to the command for
 compiling.
 
 Constructing a Trajectory Object
@@ -34,7 +34,7 @@ You could also make it a pointer::
 
     Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
 
-In that case just remember to use "->" instead of "." when calling its methods.
+In that case just remember to use ``->`` instead of ``.`` when calling its methods.
 
 Upon construction of a Trajectory object both the xtc file and the index file
 are read into memory. The following sections detail how to access the data.
