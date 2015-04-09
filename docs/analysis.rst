@@ -16,6 +16,14 @@ Bond angle
 ----------
 .. doxygenfunction:: bond_angle
 
+Center a group of atoms around a point
+-------------------------------------
+.. doxygenfunction:: do_center_group
+
+Center of mass
+--------------
+.. doxygengroup:: center_of_mass
+
 Clustering
 ----------
 .. doxygenclass:: Clusters
@@ -40,6 +48,10 @@ Distance squared
 Dot product
 -----------
 .. doxygenfunction:: dot
+
+Geometric center
+----------------
+.. doxygenfunction:: center_of_geometry
 
 Periodic boundary condition
 ---------------------------

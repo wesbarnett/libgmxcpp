@@ -220,6 +220,10 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
  */
 double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
 
+/** \addtogroup center_of_mass
+ * @{
+ */
+
 /** @brief Gets the center of mass of a group of atoms.
  * @details Gets the center of mass of a group of atoms. The masses must match
  * up with the atoms specified.  Note that this version does NOT take into
@@ -234,18 +238,21 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
  * @details Gets the center of mass of a group of atoms. The masses must match
  * up with the atoms specified.  Note that this version DOES take into
  * account the periodic boundary by centering the group around the geometric
- * center first before the calculation.
+ * center first before the calculation. Note this only works for a cubic box at
+ * the moment!
  * @param mass The masses of the atoms.
  * @param atom The positions of the atoms.
+ * @param box The simulation box.
  * @return The center of mass.
  */
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box);
+/** @} */
 
 /** @brief Gets the geometric of a group of atoms.
  * @details Gets the gemetric of a group of atoms, taking into account the
- * periodic boundary condition. * @param atom The positions of the atoms.
+ * periodic boundary condition. * @param atom The positions of the atoms. Note
+ * this only works for a cubic box at the moment.
  * @param atom The positions of the atoms.
- * @param mass The masses of the atoms.
  * @param box The simulation box.
  * @return Geometric center.
  */
@@ -253,7 +260,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
 
 /** @brief Centers a group of atoms
  * @details Centers a group of atoms around a specified point, removing the
- * periodic effects
+ * periodic effects. Note that this only works for a cubic box for the moment.
  * @param atom Group of atoms to be transformed.
  * @param center The point around which to center the atoms.
  * @param box The simulation box.
