@@ -82,7 +82,14 @@ void do_clustering(int frame, Trajectory &traj, double rcut2);
  * @brief Perform clustering on a specific index group.
  * @param frame The frame number to do clustering on.
  * @param traj The trajectory object with the molecules
+<<<<<<< HEAD
  * @param group The index group to do clustering on.
+=======
+<<<<<<< HEAD
+=======
+ * @param group The index group to do clustering on.
+>>>>>>> master
+>>>>>>> releases
  * @param rcut2 The cutoff length squared for determining if molecules are in
  * the same cluster. The cutoff is measured between atomic sites on each
  * molecule. If any two sites are within the cutoff the two molecules are in the
@@ -121,7 +128,6 @@ int get_index(int mol);
  * @return A vector of numbers indicating which molecules are part of this
  * cluster.
  */
-
 vector <int> get_mol_numbers(int clust);
 
 //TODO

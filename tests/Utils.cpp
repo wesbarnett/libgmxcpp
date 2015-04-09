@@ -68,7 +68,6 @@ int main()
 	coordinates f(1.0,1.0,1.0);
 	assert(test_equal(dihedral_angle(a,b,c,f,b1),-M_PI/2.0));
 
-
     coordinates com1(0.0,0.0,0.0);
     coordinates com2(0.0,0.0,0.0);
     coordinates com3(0.0,0.0,0.0);
