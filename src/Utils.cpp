@@ -172,6 +172,9 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 }
 
 /* assumes box is cubic: TODO: transform triclinic box into cubic */
+/* Ref: Bai, L. and Breen, David. Calculating Center of Mass in an Unbounded 2D Environment
+ * doi: 10.1080/2151237X.2008.10129266
+ */
 coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 {
 
