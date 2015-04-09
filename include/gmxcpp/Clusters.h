@@ -121,7 +121,17 @@ int get_index(int mol);
  * @return A vector of numbers indicating which molecules are part of this
  * cluster.
  */
+
 vector <int> get_mol_numbers(int clust);
+
+//TODO
+/**
+ * @brief Get the coordinates for all atoms in a cluster
+ * @param clust The cluster number
+ * @return coordinates of all atoms in the cluster
+ */
+//vector <coordinates> get_coordinates(int clust);
+
 private:
 vector <int> index;
 vector <int> size;

@@ -59,6 +59,35 @@ vector <int> Clusters::get_mol_numbers(int clust)
     return mol_nums;
 }
 
+/*
+ * TODO
+vector <coordinates> Clusters::get_coordinates(int frame, Trajectory &traj, int clust)
+{
+
+	int atom_start;
+	int atom_end;
+	int mol_i;
+	vector <coordinates> atom;
+	vector <int> mol_nums;
+	mol_nums = this->get_mol_numbers(clust);
+
+	for (mol_i = 0; mol_i < this->size; mol_i++)
+	{
+		atom_start = mol_nums.at(mol_i) * this->atoms_per_mol;
+		atom_end = (mol_nums.at(mol_i)+1) * this->atoms_per_mol;
+
+		for (atom_i = atom_start; atom_i < atom_end; atom_i++)
+		{
+			atom.push_back(traj.GetXYZ(frame_i,atom_i);
+		}
+
+	}
+
+	return atom;
+
+}
+*/
+
 void Clusters::do_clustering(int frame, Trajectory &traj, string group, double rcut2)
 {
     coordinates atom_j_vec;
