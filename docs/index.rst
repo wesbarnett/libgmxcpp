@@ -43,7 +43,7 @@ Advantages
 .. toctree::
 
    installation
-   usage
+   files
    analysis
    example
    api
