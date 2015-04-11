@@ -31,6 +31,7 @@
 
 #include <string>
 #include <vector>
+#include "gmxcpp/Index.h"
 #include "gromacs/fileio/tpxio.h"
 #include "gromacs/utility/smalloc.h"
 #include "gromacs/legacyheaders/mtop_util.h"
@@ -39,13 +40,17 @@ using namespace std;
 /**
  * @brief The main class in reading Gromacs .tpr files.
  *
- * @details TODO
+ * @details Class which stores information from a Gromacs topology (tpr) file.
+ * Currently just stores the atomic charges and masses in vectors which can be
+ * retrieved by getters.
  */
 class Topology {
 private:
 
+	Index index;
 	vector <double> q;
 	vector <double> m;
+	read(string tprfile);
 
 public:
 
@@ -63,7 +68,7 @@ Topology(string tprfile);
  * @brief Gets the electric charge of the specified atom
  *
  * @param atom The atom
- * @return The charge
+ * @return The charge (units specified in Gromacs manual)
  */
 double GetCharge(int atom);
 
@@ -71,7 +76,7 @@ double GetCharge(int atom);
  * @brief Gets the mass of the specified atom
  *
  * @param atom The atom
- * @return The mass
+ * @return The mass (units specified in Gromacs manual)
  */
 double GetMass(int atom);
 

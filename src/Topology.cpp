@@ -29,11 +29,23 @@
  */
 
 #include "gmxcpp/Topology.h"
-#include <iostream>
-using namespace std;
 
 // Currently just saves charges and mass to an array. TODO: save all info!
 Topology::Topology(string tprfile)
+{
+    read(tprfile);
+    return;
+}
+
+Topology::Topology(string tprfile, Index index)
+{
+    this->index=index;
+    read(tprfile);
+
+    return;
+}
+
+void Topology::read(string tprfile)
 {
     int i;
     int natoms;
@@ -49,7 +61,6 @@ Topology::Topology(string tprfile)
         this->q.push_back(top.atoms.atom[i].q);
         this->m.push_back(top.atoms.atom[i].m);
     }
-
     return;
 }
 
@@ -60,7 +71,19 @@ double Topology::GetCharge(int atom)
     return this->q.at(atom);
 }
 
+double Topology::GetCharge(int atom, string group)
+{
+    int location = index.GetLocation(group, atom);
+    return this->q.at(location);
+}
+
 double Topology::GetMass(int atom)
 {
     return this->m.at(atom);
+}
+
+double Topology::GetMass(int atom, string group)
+{
+    int location = index.GetLocation(group, atom);
+    return this->m.at(location);
 }
