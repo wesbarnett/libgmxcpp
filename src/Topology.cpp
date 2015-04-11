@@ -32,7 +32,7 @@
 #include <iostream>
 using namespace std;
 
-// Currently just saves charges to an array. TODO: save all info!
+// Currently just saves charges and mass to an array. TODO: save all info!
 Topology::Topology(string tprfile)
 {
     int i;
@@ -43,16 +43,24 @@ Topology::Topology(string tprfile)
     snew(mtop,1);
     status = read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
     t_topology top = gmx_mtop_t_to_t_topology(mtop);
+
     for (i = 0; i < natoms; i++)
     {
         this->q.push_back(top.atoms.atom[i].q);
+        this->m.push_back(top.atoms.atom[i].m);
     }
+
     return;
 }
 
 // Currently is not mapped to an index file. TODO: have another call such that
 // index groups can be used
-double Topology::GetQ(int atom)
+double Topology::GetCharge(int atom)
 {
     return this->q.at(atom);
+}
+
+double Topology::GetMass(int atom)
+{
+    return this->m.at(atom);
 }

@@ -10,6 +10,7 @@ int main()
 {
     Topology t1("tests/test.tpr");
 
+    //TODO
     cout << t1.GetQ(0) << endl;
 
 }

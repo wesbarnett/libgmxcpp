@@ -45,12 +45,35 @@ class Topology {
 private:
 
 	vector <double> q;
+	vector <double> m;
 
 public:
 
-	Topology(string tprfile);
+/**
+ * @brief Constructor which reads in a GROMACS tpr file.
+ *
+ * @details Constructor which reads in the tpr file. Currently only reads
+ * charges and masses of each atom into memory.
+ *
+ * @param tprfile Name of the Gromacs tpr file to be read in.
+ */
+Topology(string tprfile);
 
-	double GetQ(int atom);
+/**
+ * @brief Gets the electric charge of the specified atom
+ *
+ * @param atom The atom
+ * @return The charge
+ */
+double GetCharge(int atom);
+
+/**
+ * @brief Gets the mass of the specified atom
+ *
+ * @param atom The atom
+ * @return The mass
+ */
+double GetMass(int atom);
 
 };
 #endif
