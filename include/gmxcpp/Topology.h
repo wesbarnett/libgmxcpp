@@ -81,7 +81,7 @@ Topology(string tprfile, Index index);
  * @param atom The atom
  * @return The charge (units specified in Gromacs manual)
  */
-double GetCharge(int atom);
+double GetCharge(int atom) const;
 
 /**
  * @brief Gets the electric charge of the specified atom in an index group.
@@ -90,7 +90,16 @@ double GetCharge(int atom);
  * @param group Index group
  * @return The charge (units specified in Gromacs manual)
  */
-double GetCharge(int atom, string group);
+double GetCharge(int atom, string group) const;
+
+/**
+ * @brief Gets the electric charge of the specified index group.
+ *
+ * @param atom The atom
+ * @param group Index group
+ * @return The charge of all atoms in the index group (units specified in Gromacs manual)
+ */
+vector <double> GetCharge(string group) const
 
 /**
  * @brief Gets the mass of the specified atom
@@ -98,7 +107,7 @@ double GetCharge(int atom, string group);
  * @param atom The atom
  * @return The mass (units specified in Gromacs manual)
  */
-double GetMass(int atom);
+double GetMass(int atom) const;
 
 /**
  * @brief Gets the mass of the specified atom in an index group.
@@ -107,7 +116,17 @@ double GetMass(int atom);
  * @param group Index group
  * @return The mass (units specified in Gromacs manual)
  */
-double GetMass(int atom, string group);
+double GetMass(int atom, string group) const;
+
+/**
+ * @brief Gets the mass of the specified index group.
+ *
+ * @param atom The atom
+ * @param group Index group
+ * @return The mass of all atoms in the inde group (units specified in Gromacs manual)
+ */
+
+vector <double> GetMass(string group) const
 
 };
 #endif

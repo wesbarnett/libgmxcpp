@@ -66,34 +66,60 @@ void Topology::read(string tprfile)
 
 // Currently is not mapped to an index file. TODO: have another call such that
 // index groups can be used returning a vector for that index group
-vector <double> Topology::GetCharge()
+vector <double> Topology::GetCharge() const
 {
     return this->q.at();
 }
 
-double Topology::GetCharge(int atom)
+double Topology::GetCharge(int atom) const
 {
     return this->q.at(atom);
 }
 
-double Topology::GetCharge(int atom, string group)
+double Topology::GetCharge(int atom, string group) const
 {
     int location = index.GetLocation(group, atom);
     return this->q.at(location);
 }
 
-vector <double> Topology::GetMass()
+vector <double> Topology::GetCharge(string group) const
+{
+    int location;
+
+    vector <double> q;
+    q.resize(this->index.GetGroupSize(group));
+    for (int atom = 0; atom < this->index.GetGroupSize(group); atom++) {
+        location = index.GetLocation(group, atom);
+        q.at(atom) = this->q.at(location);
+    }
+    return q;
+}
+
+vector <double> Topology::GetMass() const
 {
     return this->m.at();
 }
 
-double Topology::GetMass(int atom)
+double Topology::GetMass(int atom) const
 {
     return this->m.at(atom);
 }
 
-double Topology::GetMass(int atom, string group)
+double Topology::GetMass(int atom, string group) const
 {
     int location = index.GetLocation(group, atom);
     return this->m.at(location);
+}
+
+vector <double> Topology::GetMass(string group) const
+{
+    int location;
+
+    vector <double> m;
+    m.resize(this->index.GetGroupSize(group));
+    for (int atom = 0; atom < this->index.GetGroupSize(group); atom++) {
+        location = index.GetLocation(group, atom);
+        m.at(atom) = this->m.at(location);
+    }
+    return m;
 }
