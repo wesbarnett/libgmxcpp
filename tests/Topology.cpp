@@ -11,6 +11,6 @@ int main()
     Topology t1("tests/test.tpr");
 
     //TODO
-    cout << t1.GetQ(0) << endl;
+    cout << t1.GetCharge(0) << endl;
 
 }

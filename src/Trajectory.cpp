@@ -73,6 +73,20 @@ Trajectory::Trajectory(string filename, string ndxfile)
     return;
 }
 
+Trajectory::Trajectory(string filename, Index index)
+{
+    cout << endl;
+    try {
+        this->index=index;
+        InitXTC(filename);
+    } catch (runtime_error &excpt) {
+        cerr << endl << "Problem with creating Trajectory object." << endl;
+        terminate();
+    }
+    read(MAXFRAMES);
+    return;
+}
+
 Trajectory::Trajectory(string filename, string ndxfile, int initialFrames)
 {
     try {
