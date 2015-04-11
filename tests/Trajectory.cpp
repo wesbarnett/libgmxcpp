@@ -101,4 +101,6 @@ int main()
 
     Trajectory t4("tests/test.xtc", "tests/test.ndx", 10);
     assert(test_equal(t4.GetNFrames(), 10));
+
+    // TODO add test for vector return functions
 }

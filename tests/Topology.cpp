@@ -15,5 +15,7 @@ int main()
     assert(test_equal(t1.GetMass(99),1.008));
     assert(test_equal(t1.GetMass(3,"SOL"),0.00000));
 
+    // TODO add tests for vector return functions
+
     return 0;
 }
