@@ -2,6 +2,8 @@
 Example Workflow
 ================
 
+.. highlight:: cpp
+
 Workflow
 --------
 
