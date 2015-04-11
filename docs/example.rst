@@ -16,7 +16,8 @@ the coordinates), the .ndx file (grouping the atoms), and the .tpr file (having
 the masses).
 
 The first thing to do is to construct an object associated for each file type.
-First we'll read in the index file:::
+First we'll read in the index file, since we'll be using it to locate the
+methanes in the trajectory:::
 
     Index ndx("index.ndx");
 
@@ -31,8 +32,78 @@ Now all information from the simulation is available to us using object getters
 from ``trj`` and ``top``. Since ``ndx`` is now associated with both of these
 object we don't have to worry about calling anything from it directly.
 
-UNDER CONSTRUCTION
+Now that we've called our constructors, we can get any information we want from
+these objects such as atomic coordinates and masses, which is what we need for
+getting the center of mass. There is a provided analysis function in the library
+which gets the center of mass for a group of atoms, removing the periodic
+boundary condition. For this function we need the atomic coordinates of the
+atoms in the group we're interested in, the masses of those atoms, and the
+simulation box for the particular frame we're interested in. Here's how we can
+get that info for the methanes from the first frame, where we have an index
+group with the methanes labeled as ``CH4``:::
 
+    vector <coordinates> atom;
+    vector <coordinates> mass;
+    triclinicbox box;
+
+    atom = trj.GetXYZ(0,"CH4");
+    box = trj.GetBox(0);
+    mass = top.GetMass("CH4");
+
+These getters are described in this documentation on the ``Trajectory`` and
+``Topology`` class pages. Now to get the center of mass we just call our
+analysis function:::
+
+    coordinate com;
+
+    com = center_of_mass(atom,mass,box);
+
+This only works for frame 0 (the first frame), so to do this for each frame we
+would put this into a loop:::
+
+    coordinate com;
+    vector <coordinates> atom;
+    vector <coordinates> mass;
+    triclinicbox box;
+
+    for (int i = 0; i < trj.GetNFrames(); i++)
+    {
+        atom = trj.GetXYZ(i,"CH4");
+        box = trj.GetBox(i);
+        mass = top.GetMass("CH4");
+        com = center_of_mass(atom,mass,box);
+    }
+
+At this point outputting the data or averaging it, further analysis is up to
+you. Note that we would have to include the appropriate header files to be able
+to do this. Additionally the ``for`` loop can possibly be parallelized depending
+on the analysis. A full program might be:::
+
+    #include <vector>
+    #include "gmxcpp/Index.cpp"
+    #include "gmxcpp/Topology.cpp"
+    #include "gmxcpp/Trajectory.cpp"
+    #include "gmxcpp/Utils.cpp"
+
+    int main()
+    {
+
+        coordinate com;
+        vector <coordinates> atom;
+        vector <coordinates> mass;
+        triclinicbox box;
+
+        for (int i = 0; i < trj.GetNFrames(); i++)
+        {
+            atom = trj.GetXYZ(i,"CH4");
+            box = trj.GetBox(i);
+            mass = top.GetMass("CH4");
+            com = center_of_mass(atom,mass,box);
+        }
+
+        return 0;
+    }
+    
 
 Other Examples
 --------------
