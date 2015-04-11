@@ -50,7 +50,7 @@ private:
 	Index index;
 	vector <double> q;
 	vector <double> m;
-	read(string tprfile);
+	void read(string tprfile);
 
 public:
 
@@ -65,6 +65,17 @@ public:
 Topology(string tprfile);
 
 /**
+ * @brief Constructor which reads in a GROMACS tpr file and associates an index
+ * file with it.
+ *
+ * @details Constructor which reads in the tpr file and associates an index file
+ * with it. Currently only reads charges and masses of each atom into memory.
+ *
+ * @param tprfile Name of the Gromacs tpr file to be read in.
+ */
+Topology(string tprfile, Index index);
+
+/**
  * @brief Gets the electric charge of the specified atom
  *
  * @param atom The atom
@@ -73,12 +84,30 @@ Topology(string tprfile);
 double GetCharge(int atom);
 
 /**
+ * @brief Gets the electric charge of the specified atom in an index group.
+ *
+ * @param atom The atom
+ * @param group Index group
+ * @return The charge (units specified in Gromacs manual)
+ */
+double GetCharge(int atom, string group);
+
+/**
  * @brief Gets the mass of the specified atom
  *
  * @param atom The atom
  * @return The mass (units specified in Gromacs manual)
  */
 double GetMass(int atom);
+
+/**
+ * @brief Gets the mass of the specified atom in an index group.
+ *
+ * @param atom The atom
+ * @param group Index group
+ * @return The mass (units specified in Gromacs manual)
+ */
+double GetMass(int atom, string group);
 
 };
 #endif
