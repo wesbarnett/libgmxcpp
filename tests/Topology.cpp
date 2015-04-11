@@ -8,9 +8,13 @@ using namespace std;
 
 int main()
 {
-    Topology t1("tests/test.tpr");
+    //TODO: Add more tests for charges with index groups.
+    //TODO: Add tests for masses
+    Index ndx("tests/test.ndx");
+    Topology t1("tests/test.tpr",ndx);
 
-    //TODO
-    cout << t1.GetCharge(0) << endl;
+    assert(test_equal(t1.GetCharge(0),-2.40000e-01));
+    assert(test_equal(t1.GetCharge(99),0.52422));
 
+    return 0;
 }
