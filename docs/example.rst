@@ -43,7 +43,7 @@ get that info for the methanes from the first frame, where we have an index
 group with the methanes labeled as ``CH4``:::
 
     vector <coordinates> atom;
-    vector <coordinates> mass;
+    vector <double> mass;
     triclinicbox box;
 
     atom = trj.GetXYZ(0,"CH4");
@@ -63,7 +63,7 @@ would put this into a loop:::
 
     coordinate com;
     vector <coordinates> atom;
-    vector <coordinates> mass;
+    vector <double> mass;
     triclinicbox box;
 
     for (int i = 0; i < trj.GetNFrames(); i++)

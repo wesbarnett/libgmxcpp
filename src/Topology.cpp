@@ -65,7 +65,12 @@ void Topology::read(string tprfile)
 }
 
 // Currently is not mapped to an index file. TODO: have another call such that
-// index groups can be used
+// index groups can be used returning a vector for that index group
+vector <double> Topology::GetCharge()
+{
+    return this->q.at();
+}
+
 double Topology::GetCharge(int atom)
 {
     return this->q.at(atom);
@@ -75,6 +80,11 @@ double Topology::GetCharge(int atom, string group)
 {
     int location = index.GetLocation(group, atom);
     return this->q.at(location);
+}
+
+vector <double> Topology::GetMass()
+{
+    return this->m.at();
 }
 
 double Topology::GetMass(int atom)
