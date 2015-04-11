@@ -7,7 +7,7 @@ install:
     - sudo pip install sphinx 
     - sudo pip install breathe
     - wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.0.4.tar.gz
-    - tar xvzf gromacs-5.0.4
+    - tar xvzf gromacs-5.0.4.tar.gz
     - cd gromacs-5.0.4
     - mkdir build
     - cd build
