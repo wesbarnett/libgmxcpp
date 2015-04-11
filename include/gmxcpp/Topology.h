@@ -93,13 +93,19 @@ double GetCharge(int atom) const;
 double GetCharge(int atom, string group) const;
 
 /**
+ * @brief Gets the electric charge of all atoms in the system
+ * @return The charge of all atoms in the system (units specified in Gromacs manual)
+ */
+vector <double> GetCharge() const;
+
+/**
  * @brief Gets the electric charge of the specified index group.
  *
  * @param atom The atom
  * @param group Index group
  * @return The charge of all atoms in the index group (units specified in Gromacs manual)
  */
-vector <double> GetCharge(string group) const
+vector <double> GetCharge(string group) const;
 
 /**
  * @brief Gets the mass of the specified atom
@@ -119,6 +125,12 @@ double GetMass(int atom) const;
 double GetMass(int atom, string group) const;
 
 /**
+ * @brief Gets the mass of all atoms in the system.
+ * @return The mass of all atoms in the system (units specified in Gromacs manual)
+ */
+vector <double> GetMass() const;
+
+/**
  * @brief Gets the mass of the specified index group.
  *
  * @param atom The atom
@@ -126,7 +138,7 @@ double GetMass(int atom, string group) const;
  * @return The mass of all atoms in the inde group (units specified in Gromacs manual)
  */
 
-vector <double> GetMass(string group) const
+vector <double> GetMass(string group) const;
 
 };
 #endif

@@ -49,11 +49,10 @@ void Topology::read(string tprfile)
 {
     int i;
     int natoms;
-    int status;
     gmx_mtop_t *mtop;
 
     snew(mtop,1);
-    status = read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
+    read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
     t_topology top = gmx_mtop_t_to_t_topology(mtop);
 
     for (i = 0; i < natoms; i++)
@@ -68,7 +67,7 @@ void Topology::read(string tprfile)
 // index groups can be used returning a vector for that index group
 vector <double> Topology::GetCharge() const
 {
-    return this->q.at();
+    return this->q;
 }
 
 double Topology::GetCharge(int atom) const
@@ -97,7 +96,7 @@ vector <double> Topology::GetCharge(string group) const
 
 vector <double> Topology::GetMass() const
 {
-    return this->m.at();
+    return this->m;
 }
 
 double Topology::GetMass(int atom) const
