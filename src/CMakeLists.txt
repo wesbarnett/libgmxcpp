@@ -15,5 +15,6 @@ endif()
 
 message(STATUS "Found gromacs at: ${LIBGROMACS}")
 target_link_libraries(gmxcpp ${LIBGROMACS})
+target_include_directories(gmxcpp PUBLIC $ENV{GMXPREFIX}/include)
 
 install (TARGETS gmxcpp LIBRARY DESTINATION lib)

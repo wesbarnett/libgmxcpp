@@ -32,8 +32,9 @@
 #include <string>
 #include <vector>
 #include "gromacs/fileio/tpxio.h"
-#include "gromacs/utility/smalloc.h""
+#include "gromacs/utility/smalloc.h"
 #include "gromacs/legacyheaders/mtop_util.h"
+using namespace std;
 
 /**
  * @brief The main class in reading Gromacs .tpr files.
@@ -51,4 +52,5 @@ public:
 
 	double GetQ(int atom);
 
-}
+};
+#endif
