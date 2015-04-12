@@ -27,6 +27,7 @@ install:
     - rm -rf gromacs-5.0.4*
     - cd libgmxcpp
     - source /usr/local/gromacs/bin/GMXRC.bash
+    - export LD_INCLUDE_PATH=$LD_INCLUDE_PATH:/usr/local/gromacs/include
 script: 
     - mkdir build 
     - cd build
