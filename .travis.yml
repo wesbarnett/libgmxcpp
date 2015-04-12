@@ -13,6 +13,7 @@ install:
     - make -j 4
     - sudo make install
     - cd ..
+    - rm -rf cmake-3.2.1*
     - wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.0.4.tar.gz
     - tar xvzf gromacs-5.0.4.tar.gz
     - cd gromacs-5.0.4
@@ -21,6 +22,8 @@ install:
     - cmake ..
     - make -j 4
     - sudo make install
+    - cd ..
+    - rm -rf gromacs-5.0.4*
     - source /usr/local/gromacs/bin/GMXRC.bash
 script: 
     - mkdir build 
