@@ -56,14 +56,14 @@ These getters are described in this documentation on the ``Trajectory`` and
 ``Topology`` class pages. Now to get the center of mass we just call our
 analysis function:::
 
-    coordinate com;
+    coordinates com;
 
     com = center_of_mass(atom,mass,box);
 
 This only works for frame 0 (the first frame), so to do this for each frame we
 would put this into a loop:::
 
-    coordinate com;
+    coordinates com;
     vector <coordinates> atom;
     vector <double> mass;
     triclinicbox box;
@@ -94,10 +94,14 @@ on the analysis. A full program might be:::
     int main()
     {
 
-        coordinate com;
+        coordinates com;
         vector <coordinates> atom;
-        vector <coordinates> mass;
+        vector <double> mass;
         triclinicbox box;
+
+        Index ndx("index.ndx");
+        Trajectory trj("traj.xtc",ndx);
+        Topology top("topol.tpr",ndx);
 
         for (int i = 0; i < trj.GetNFrames(); i++)
         {
@@ -109,7 +113,25 @@ on the analysis. A full program might be:::
 
         return 0;
     }
-    
+
+
+Compiling a Program
+-------------------
+
+Say that you have written the above program and saved it to ``com.cpp``. To
+compile you need to link your program to libgmxcpp. Additionally if the headers
+for your Gromacs installation are in a non-standard installation, which they
+most probably are, you need to add that path to the ``CPLUS_INCLUDE_PATH``
+environmental variable.
+
+For example:::
+
+    export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/gromacs/include
+    g++ com.cpp -lgmxcpp
+
+The first line needs to be changed depending on your Gromacs installation and
+can be included in your bash profile so you don't have to add it every time you
+compile a new program.
 
 Other Examples
 --------------
