@@ -2,7 +2,7 @@ language: cpp
 compiler: gcc
 install: 
     - sudo apt-get update -qq
-    - sudo apt-get install doxygen 
+    - sudo apt-get install doxygen libfftw3-3 libfftw3-dev
     - sudo pip install --upgrade pip
     - sudo pip install sphinx 
     - sudo pip install breathe
