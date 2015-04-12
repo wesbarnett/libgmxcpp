@@ -86,10 +86,10 @@ to do this. Additionally the ``for`` loop can possibly be parallelized depending
 on the analysis. A full program might be:::
 
     #include <vector>
-    #include "gmxcpp/Index.cpp"
-    #include "gmxcpp/Topology.cpp"
-    #include "gmxcpp/Trajectory.cpp"
-    #include "gmxcpp/Utils.cpp"
+    #include "gmxcpp/Index.h"
+    #include "gmxcpp/Topology.h"
+    #include "gmxcpp/Trajectory.h"
+    #include "gmxcpp/Utils.h"
 
     int main()
     {
