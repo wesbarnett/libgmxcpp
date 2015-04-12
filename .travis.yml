@@ -6,14 +6,19 @@ install:
     - sudo pip install --upgrade pip
     - sudo pip install sphinx 
     - sudo pip install breathe
+    - wget http://www.cmake.org/files/v3.2/cmake-3.2.1.tar.gz
+    - tar xvzf cmake-3.2.1.tar.gz
+    - cd cmake-3.2.1.tar.gz
+    - ./configure
+    - make -j 4
+    - sudo make install
     - wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.0.4.tar.gz
     - tar xvzf gromacs-5.0.4.tar.gz
     - cd gromacs-5.0.4
-    - sed -i 's/cmake_minimum_required(VERSION 2.8.8)/cmake_minimum_required(VERSION 2.8.7)/g' CMakeLists.txt
     - mkdir build
     - cd build
     - cmake ..
-    - make
+    - make -j 4
     - sudo make install
     - source /usr/local/gromacs/bin/GMXRC.bash
 script: 
