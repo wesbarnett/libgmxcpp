@@ -27,7 +27,6 @@ install:
     - rm -rf gromacs-5.0.4*
     - cd libgmxcpp
     - source /usr/local/gromacs/bin/GMXRC.bash
-    - echo "GROMACS directory: $GMXPREFIX"
 script: 
     - mkdir build 
     - cd build
