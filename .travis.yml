@@ -25,6 +25,7 @@ install:
     - sudo make install
     - cd ../..
     - rm -rf gromacs-5.0.4*
+    - cd libgmxcpp
     - source /usr/local/gromacs/bin/GMXRC.bash
 script: 
     - mkdir build 
