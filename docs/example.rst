@@ -68,6 +68,10 @@ would put this into a loop:::
     vector <double> mass;
     triclinicbox box;
 
+    Index ndx("index.ndx");
+    Trajectory trj("traj.xtc",ndx);
+    Topology top("topol.tpr",ndx);
+
     for (int i = 0; i < trj.GetNFrames(); i++)
     {
         atom = trj.GetXYZ(i,"CH4");
