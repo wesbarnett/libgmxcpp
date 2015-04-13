@@ -12,22 +12,15 @@ the library links to some of it's functions.
 
 Installing
 -----------
-
-**From Source**::
-
-    git clone https://github.com/wesbarnett/libgmxcpp.git
-    cd libgmxcpp
+::
+    wget https://github.com/wesbarnett/libgmxcpp/archive/libgmxcpp-3.2-beta3.tar.gz
+    tar xvzf libgmxcpp-3.2-beta3.tar.gz
+    cd libgmxcpp-3.2-beta3
     mkdir build
     cd build
     cmake ..
     make
     make install
-
-**From AUR**
-
-`libgmxcpp is now in the AUR
-repository. <https://aur.archlinux.org/packages/libgmxcpp/>`_ If you're on Arch
-you know what to do.
 
 Location
 --------
