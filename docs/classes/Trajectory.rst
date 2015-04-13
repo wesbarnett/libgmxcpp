@@ -1,6 +1,0 @@
-
-Trajectory
-==========
-
-.. doxygenclass:: Trajectory
-    :members:

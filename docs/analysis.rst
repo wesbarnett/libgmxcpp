@@ -17,7 +17,7 @@ Bond angle
 .. doxygenfunction:: bond_angle
 
 Center a group of atoms around a point
--------------------------------------
+--------------------------------------
 .. doxygenfunction:: do_center_group
 
 Center of mass

@@ -131,7 +131,7 @@ Trajectory(string xtcfile, int maxFrames);
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param index The Index object which has already had its index file read in.
  */
-Trajectory(string filename, Index index);
+Trajectory(string xtcfile, Index index);
 
 /**
  *
