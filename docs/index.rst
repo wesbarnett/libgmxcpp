@@ -40,7 +40,6 @@ Development
 The development branch is ``master``. Releases are merged into the ``release``
 branch.
 
-
 .. toctree::
 
    installation
