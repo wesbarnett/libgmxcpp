@@ -73,7 +73,6 @@ void Topology::read(string tprfile)
             lj_n++;
         }
     }
-    cout << lj_n << endl;
 
     lj_n--;
     for (i = 0; (lj_n-i) != 0; i++)
@@ -82,28 +81,35 @@ void Topology::read(string tprfile)
         lj_n -= i;
     }
 
-
+    int atomi = 0;
+    int atomj = 0;
+    vector < vector <double> > c6(lj_n,vector<double>(lj_n));
+    vector < vector <double> > c12(lj_n,vector<double>(lj_n));
     for (i = 0; i < top.idef.ntypes; i++)
     {
         ftype = top.idef.functype[i];
         switch (ftype)
         {
             case F_LJ:
-                /*
-                c6.at(atomi).at(atomj) = top.idef.iparams[i].lj.c6;
-                c6.at(atomj).at(atomi) = c6.at(atomj).at(atomi);
+                c6.at(atomi).at(atomj)  = top.idef.iparams[i].lj.c6;
+                c6.at(atomj).at(atomi)  = c6.at(atomj).at(atomi);
                 c12.at(atomi).at(atomj) = top.idef.iparams[i].lj.c12;
                 c12.at(atomj).at(atomi) = c12.at(atomj).at(atomi);
-                */
-                //atomj++;
+                atomj++;
+                if (atomj == lj_n-1)
+                {
+                    atomi++;
+                    atomj = 0;
+                }
                 break;
         }
     }
+
+    this->c6 = c6;
+    this->c12 = c12;
     return;
 }
 
-// Currently is not mapped to an index file. TODO: have another call such that
-// index groups can be used returning a vector for that index group
 vector <double> Topology::GetCharge() const
 {
     return this->q;
@@ -162,7 +168,18 @@ vector <double> Topology::GetMass(string group) const
     return m;
 }
 
-double GetC6(int atom1, int atom2)
+/* TODO: Isn't correct for c6 and c12 - need a way to map them to the whole system */
+void GetLJ(int frame, Trajectory &trj, int atomi, int atomj)
 {
+    coordinates ri = trj.GetXYZ(frame,atomi);
+    coordinates rj = trj.GetXYZ(frame,atomj);
+    triclinicbox box = trj.GetBox(frame);
+    double rij2 = distance2(atomi,atomj,box);
+    double rij6 = pow(rij2,3);
+    double rij12 = pow(rij6,2);
+    double c12 = this->c12.at(atomi,atomj);
+    double c6 = this->c6.at(atomi,atomj);
+
+    return c12/rij12 - c6/rij6;
 
 }

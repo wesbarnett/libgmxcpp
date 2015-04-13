@@ -50,8 +50,8 @@ private:
 	Index index;
 	vector <double> q;
 	vector <double> m;
-	vector <double> c6;
-	vector <double> c12;
+	vector < vector <double> > c6;
+	vector < vector <double> > c12;
 	void read(string tprfile);
 
 public:
