@@ -50,15 +50,54 @@ void Topology::read(string tprfile)
     int i;
     int natoms;
     gmx_mtop_t *mtop;
+    int ftype;
+    int lj_n = 0;
 
     snew(mtop,1);
     read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
     t_topology top = gmx_mtop_t_to_t_topology(mtop);
 
+    /* Get charge and mass for each atom */
     for (i = 0; i < natoms; i++)
     {
         this->q.push_back(top.atoms.atom[i].q);
         this->m.push_back(top.atoms.atom[i].m);
+    }
+
+    /* Get the nonbonded interactions */
+    for (i = 0; i < top.idef.ntypes; i++)
+    {
+        ftype = top.idef.functype[i];
+        if (ftype == F_LJ) 
+        {
+            lj_n++;
+        }
+    }
+    cout << lj_n << endl;
+
+    lj_n--;
+    for (i = 0; (lj_n-i) != 0; i++)
+    {
+        if (lj_n - i == 0) break;
+        lj_n -= i;
+    }
+
+
+    for (i = 0; i < top.idef.ntypes; i++)
+    {
+        ftype = top.idef.functype[i];
+        switch (ftype)
+        {
+            case F_LJ:
+                /*
+                c6.at(atomi).at(atomj) = top.idef.iparams[i].lj.c6;
+                c6.at(atomj).at(atomi) = c6.at(atomj).at(atomi);
+                c12.at(atomi).at(atomj) = top.idef.iparams[i].lj.c12;
+                c12.at(atomj).at(atomi) = c12.at(atomj).at(atomi);
+                */
+                //atomj++;
+                break;
+        }
     }
     return;
 }
@@ -121,4 +160,9 @@ vector <double> Topology::GetMass(string group) const
         m.at(atom) = this->m.at(location);
     }
     return m;
+}
+
+double GetC6(int atom1, int atom2)
+{
+
 }
