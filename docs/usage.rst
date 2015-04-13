@@ -133,8 +133,8 @@ for your Gromacs installation are in a non-standard installation, which they
 most probably are, you need to add that path to the ``CPLUS_INCLUDE_PATH``
 environmental variable.
 
-For example::
 .. highlight:: bash
+For example::
 
     export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/gromacs/include
     g++ com.cpp -lgmxcpp
