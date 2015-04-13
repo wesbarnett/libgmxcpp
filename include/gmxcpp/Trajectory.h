@@ -121,6 +121,20 @@ Trajectory(string xtcfile, int maxFrames);
 
 /**
  *
+ * @brief Constructor which reads in both the XTC file and incorporates a
+ * previously read in Index object.
+ *
+ * @details When this constructor is used, both the Gromacs XTC file is
+ * saved in the vector of Frame objects, and the group names and index
+ * numbers from an Index object are copied into the Trajectory object.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param index The Index object which has already had its index file read in.
+ */
+Trajectory(string filename, Index index);
+
+/**
+ *
  * @brief Constructor which reads in both the XTC file and a GROMACS index
  * file.
  *

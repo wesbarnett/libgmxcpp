@@ -84,6 +84,14 @@ bool isHeader(string line) const;
 bool IsIndexFile(string ndxfile) const;
 
 /**
+ * @brief Reads in the GROMACS index file specified.
+ * @details See above constructor. This is used in the Trajectory object
+ * or when, in general, an Index object is created but no index file is
+ * specified initially.
+ */
+bool Set(string ndxfile);
+
+/**
  * @brief Prints info from index file.
  */
 void PrintInfo() const;
@@ -91,7 +99,7 @@ void PrintInfo() const;
 public:
 
 /**
- * @brief Blank constructor used in Index object
+ * @brief Blank constructor for Index class
  * */
 Index();
 
@@ -103,14 +111,6 @@ Index();
  * @param ndxfile Name of index file to be read in.
  * */
 Index(string ndxfile);
-
-/**
- * @brief Reads in the GROMACS index file specified.
- * @details See above constructor. This is used in the Trajectory object
- * or when, in general, an Index object is created but no index file is
- * specified initially.
- */
-bool Set(string ndxfile);
 
 /**
  * @brief Gets the size of an index group.

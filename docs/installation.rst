@@ -6,7 +6,9 @@ Installation
 Requirements
 ------------
 
-``cmake``
+``cmake`` is required for building the library. `Gromacs
+<http://www.gromacs.org/>`_ is required, since
+the library links to some of it's functions.
 
 Installing
 -----------
@@ -39,7 +41,7 @@ To test your build you can run ``make test`` in the build directory (see above).
 
 Automated tests are performed `via
 Travis <https://travis-ci.org/wesbarnett/libgmxcpp>`_ when new commits are pushed.
-Tests are in the "tests" directory.
+Tests are in the ``tests`` directory.
 
 Documentation
 -------------

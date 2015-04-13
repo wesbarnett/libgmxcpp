@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     /* Test the clustering routines*/
-	Trajectory traj("clustertest.xtc","clustertest.ndx");
+	Trajectory traj("tests/clustertest.xtc","tests/clustertest.ndx");
 	Clusters clust(4,4);
 
 	clust.do_clustering(0,traj,"Site",pow(3.00,2));

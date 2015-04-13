@@ -1,137 +1,153 @@
-Basic Usage
-===========
+
+Usage
+=====
 
 .. highlight:: cpp
 
+The basic idea of the library is two-fold and contains two main aspects: 1)
+Reading in Gromacs files into memory using constructors and using getters to
+access their information in an analysis program, and 2) a set of basic analysis
+functions (see next section). Currently libgmxcpp can read in .xtc, .ndx, and
+.tpr files (tpr files are limited currently to mass and charge). Below is an
+example workflow which contains both of these aspects. The next two sections
+contain the API details for the classes and functions.
 
-The premise of this library is to make reading in GROMACS files easy so that the
-focus is on writing code for analysis. The main class used is `Trajectory
-<classes/Trajectory.html>`_. The
-idea is that you create a Trajectory object which contains all the information
-from both the .xtc file (and optionally .ndx file). Trajectory
-object methods are then used for analyzing the data.
+Workflow
+--------
 
-The other important class is `coordinates <classes/coordinates.html>`_, which is
-a three-dimensional vector with several operators overloaded. Trajectory getters
-will return this type.
+This is a suggested workflow for using this library in constructing one's
+analysis program. As an example this tutorial will walk through creating a
+program that calculates the center of mass of a group of atoms from a Gromacs
+simulation.
 
-In order to use the Trajectory class you must include ``gmxcpp/Trajectory.h`` in
-your code. Then you'll need to link to the library when you compile your
-program. With gcc this can be done by adding ``-lgmxcpp`` to the command for
-compiling.
+Let's say you have simulated several methanes in water. In the case of
+calculating the center of mass of the methanes we'll need the .xtc file (having
+the coordinates), the .ndx file (grouping the atoms), and the .tpr file (having
+the masses).
 
-Constructing a Trajectory Object
---------------------------------
+The first thing to do is to construct an object associated for each file type.
+First we'll read in the index file, since we'll be using it to locate the
+methanes in the trajectory:::
 
-First, you should create a Trajectory object::
+    Index ndx("index.ndx");
 
-    // Creates a Trajectory object with "traj.xtc" and "index.ndx"
-    // The index file is optional
-    // Both arguments are C++ strings
-    Trajectory traj("traj.xtc","index.ndx");
+Then we'll read in both the .xtc and .tpr files and associate the Index object
+with it. This is optional, but we want to do it in this case since we can easily
+find the methanes by our index groups:::
 
-You could also make it a pointer::
+    Trajectory trj("traj.xtc",ndx);
+    Topology top("topol.tpr",ndx);
 
-    Trajectory *traj = new Trajectory("traj.xtc","index.ndx");
+Now all information from the simulation is available to us using object getters
+from ``trj`` and ``top``. Since ``ndx`` is now associated with both of these
+object we don't have to worry about calling anything from it directly.
 
-In that case just remember to use ``->`` instead of ``.`` when calling its methods.
+Now that we've called our constructors, we can get any information we want from
+these objects such as atomic coordinates and masses, which is what we need for
+getting the center of mass. There is a provided analysis function in the library
+which gets the center of mass for a group of atoms, removing the periodic
+boundary condition. For this function we need the atomic coordinates of the
+atoms in the group we're interested in, the masses of those atoms, and the
+simulation box for the particular frame we're interested in. Here's how we can
+get that info for the methanes from the first frame, where we have an index
+group with the methanes labeled as ``CH4``:::
 
-Upon construction of a Trajectory object both the xtc file and the index file
-are read into memory. The following sections detail how to access the data.
+    vector <coordinates> atom;
+    vector <double> mass;
+    triclinicbox box;
 
-Additionally, one thing to consider is that the object initially allocates
-enough memory for 100,000 frames and then reduces that to the correct amount of
-frames read in. If you have more frames than that to read in, or you memory is
-precious and you want to initially allocate for less, you can pass the number of
-initial frames as a parameter in the construction::
+    atom = trj.GetXYZ(0,"CH4");
+    box = trj.GetBox(0);
+    mass = top.GetMass("CH4");
 
-    // 2 million frames! With an index file.
-    Trajectory traj("traj.xtc","index.ndx",2000000);
-    // Without an index file
-    Trajectory traj("traj.xtc",2000000);
+These getters are described in this documentation on the ``Trajectory`` and
+``Topology`` class pages. Now to get the center of mass we just call our
+analysis function:::
 
-Atom Coordinates
-----------------
+    coordinates com;
 
-To get the coordinates of an atom use GetXYZ() method. There are several
-different options. Note that coordinates is simply a vector with double
-precision. triclinicbox is a two dimensional vector with double precision.
+    com = center_of_mass(atom,mass,box);
 
-You can get the coordinates for every atom in the system for a specific frame::
+This only works for frame 0 (the first frame), so to do this for each frame we
+would put this into a loop:::
 
-    // For the 3rd frame
-    vector <coordinates> a = traj.GetXYZ(2);
-    // To print out the first atom's coordinates in this vector:
-    cout << a.at(0);
+    coordinates com;
+    vector <coordinates> atom;
+    vector <double> mass;
+    triclinicbox box;
 
-You can get the coordinates for every atom in an index group for a specific::
+    Index ndx("index.ndx");
+    Trajectory trj("traj.xtc",ndx);
+    Topology top("topol.tpr",ndx);
 
-    // For group "C" in the 3rd frame
-    vector <coordinates> a = traj.GetXYZ(2,"C")
+    for (int i = 0; i < trj.GetNFrames(); i++)
+    {
+        atom = trj.GetXYZ(i,"CH4");
+        box = trj.GetBox(i);
+        mass = top.GetMass("CH4");
+        com = center_of_mass(atom,mass,box);
+    }
 
-You can get the coordinates for one specific atom in the system for a specific
-frame::
+At this point outputting the data or averaging it, further analysis is up to
+you. Note that we would have to include the appropriate header files to be able
+to do this. Additionally the ``for`` loop can possibly be parallelized depending
+on the analysis. A full program might be:::
 
-    // Second atom in the 3rd frame
-    coordinates a = traj.GetXYZ(2,1);
-    // You can print cleanly:
-    cout << a;
+    #include <vector>
+    #include "gmxcpp/Index.h"
+    #include "gmxcpp/Topology.h"
+    #include "gmxcpp/Trajectory.h"
+    #include "gmxcpp/Utils.h"
+    using namespace std;
 
-You can get the coordinates for one specific atom in an index group for a
-frame::
+    int main()
+    {
 
-    // 2nd atom in group "C" in the 3rd frame
-    coordinates a = traj.GetXYZ(2,"C",1);
+        coordinates com;
+        vector <coordinates> atom;
+        vector <double> mass;
+        triclinicbox box;
 
-Usually you'll throw GetXYZ in a couple of loops to access the data you need.
+        Index ndx("index.ndx");
+        Trajectory trj("traj.xtc",ndx);
+        Topology top("topol.tpr",ndx);
 
-Box Dimensions
+        for (int i = 0; i < trj.GetNFrames(); i++)
+        {
+            atom = trj.GetXYZ(i,"CH4");
+            box = trj.GetBox(i);
+            mass = top.GetMass("CH4");
+            com = center_of_mass(atom,mass,box);
+        }
+
+        return 0;
+    }
+
+
+Compiling a Program
+-------------------
+
+Say you have written the above program and saved it to ``com.cpp``. To
+compile you need to link your program to libgmxcpp. Additionally if the headers
+for your Gromacs installation are in a non-standard installation, which they
+most probably are, you need to add that path to the ``CPLUS_INCLUDE_PATH``
+environmental variable.
+
+.. highlight:: bash
+For example::
+
+    export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/gromacs/include
+    g++ com.cpp -lgmxcpp
+
+The first line needs to be changed depending on your Gromacs installation and
+can be included in your bash profile so you don't have to add it every time you
+compile a new program.
+
+Other Examples
 --------------
 
-To get the box dimensions use GetBox() method::
+There is an example program in the ``example`` directory. Use ``make`` to compile it
+and test it out on an .xtc and .ndx file from a recent simulation.
 
-    // Gets the box dimensions from the first frame:
-    triclinicbox box = traj.GetBox(0);
-    // You can print cleanly:
-    cout << box;
-
-Box Volume
-----------
-
-To get the volume of the simulation box for any frame::
-
-    // For frame 0
-    double vol = traj.GetBoxVolume(0);
-
-Number of Frames
-----------------
-
-To get the number of frames in the simulation use GetNFrames()::
-
-    int nframes = traj.GetNFrames();
-
-Number of Atoms
----------------
-
-To get the number of atoms in the entire system use GetNAtoms()::
-
-    int natoms = traj.GetNAtoms();
-
-To get the size (number of atoms in) a specific group pass the index name as an
-argument::
-
-    // Gets the number of atoms in group "SOL"
-    int solsize = traj.GetNAtoms("SOL"):
-
-Time and Step
--------------
-
-To get the time (in ps) corresponding with a frame use GetTime(frame)::
-
-    // Gets the time of the 5th frame
-    float time = traj.GetTime(4);
-
-To get the step for a frame use GetStep(frame)::
-
-    // Gets the step corresponding with the 5th frame
-    int step = traj.GetStep(4);
+Additionally `there is an example program which calculates the radial
+distribution function using this library <https://github.com/wesbarnett/rdf>`_.
