@@ -1,8 +1,16 @@
 
-Example Workflow
-================
+Usage
+=====
 
 .. highlight:: cpp
+
+The basic idea of the library is two-fold and contains two main aspects: 1)
+Reading in Gromacs files into memory using constructors and using getters to
+access their information in an analysis program, and 2) a set of basic analysis
+functions (see next section). Currently libgmxcpp can read in .xtc, .ndx, and
+.tpr files (tpr files are limited currently to mass and charge). Below is an
+example workflow which contains both of these aspects. The next two sections
+contain the API details for the classes and functions.
 
 Workflow
 --------
@@ -90,6 +98,7 @@ on the analysis. A full program might be:::
     #include "gmxcpp/Topology.h"
     #include "gmxcpp/Trajectory.h"
     #include "gmxcpp/Utils.h"
+    using namespace std;
 
     int main()
     {
@@ -118,7 +127,7 @@ on the analysis. A full program might be:::
 Compiling a Program
 -------------------
 
-Say that you have written the above program and saved it to ``com.cpp``. To
+Say you have written the above program and saved it to ``com.cpp``. To
 compile you need to link your program to libgmxcpp. Additionally if the headers
 for your Gromacs installation are in a non-standard installation, which they
 most probably are, you need to add that path to the ``CPLUS_INCLUDE_PATH``
@@ -135,6 +144,7 @@ compile a new program.
 
 Other Examples
 --------------
+
 There is an example program in the ``example`` directory. Use ``make`` to compile it
 and test it out on an .xtc and .ndx file from a recent simulation.
 
