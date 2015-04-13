@@ -6,7 +6,8 @@ Installation
 Requirements
 ------------
 
-``cmake``
+``cmake`` is required for building the library. ``Gromacs`` is required, since
+the library links to some of it's functions.
 
 Installing
 -----------
