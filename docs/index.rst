@@ -9,7 +9,7 @@ libgmxcpp
 http://github.com/wesbarnett/libgmxcpp
 
 This is a C++ toolkit used for reading in `Gromacs <http://www.gromacs.org/>`_
-files (.xtc and .ndx) for use in analyzing simulation results. This interfaces
+files (.xtc, .ndx, and .tpr) for use in analyzing simulation results. This interfaces
 with libxdrfile and implements an object-oriented style. The main usage of the
 library is to be able to create a Trajectory object which reads in an XTC file
 along with an optional GROMACS index file such that the user only has to worry
