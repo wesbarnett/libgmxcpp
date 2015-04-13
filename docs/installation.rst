@@ -40,7 +40,7 @@ To test your build you can run ``make test`` in the build directory (see above).
 
 Automated tests are performed `via
 Travis <https://travis-ci.org/wesbarnett/libgmxcpp>`_ when new commits are pushed.
-Tests are in the "tests" directory.
+Tests are in the ``tests`` directory.
 
 Documentation
 -------------
