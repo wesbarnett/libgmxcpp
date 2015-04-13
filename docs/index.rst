@@ -17,12 +17,6 @@ with implementing the actual analysis. Several functions which are repeatedly
 used in Molecular Dynamics analysis (periodic boundary condition calculations,
 distances, etc.) are also included. 
 
-Development
------------
-
-The development branch is ``master``. Releases are merged into the ``release``
-branch.
-
 Advantages
 ----------
 
@@ -39,6 +33,13 @@ Advantages
   this project).
 
 .. image:: images/screenshot.png
+
+Development
+-----------
+
+The development branch is ``master``. Releases are merged into the ``release``
+branch.
+
 
 .. toctree::
 
