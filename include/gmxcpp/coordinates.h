@@ -58,6 +58,8 @@ coordinates();
 /** Constructor, sets size of vector to 3 and set actual coordinates */
 coordinates(double x, double y, double z);
 
+void set(double x, double y, double z);
+
 /** Subtracts two sets of coordinates together, element-by-element */
 coordinates operator-(coordinates rhs);
 

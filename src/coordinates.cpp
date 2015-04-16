@@ -43,6 +43,14 @@ coordinates::coordinates()
     this->resize(DIM);
 };
 
+void coordinates::set(double x, double y, double z)
+{
+	this->at(X) = x;
+	this->at(Y) = Y;
+	this->at(Z) = Z;
+    return;
+}
+
 coordinates coordinates::operator-(coordinates rhs)
 {
     coordinates x;
