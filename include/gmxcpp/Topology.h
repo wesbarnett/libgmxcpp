@@ -32,6 +32,7 @@
 #include <string>
 #include <vector>
 #include "gmxcpp/Index.h"
+#include "gmxcpp/Trajectory.h"
 #include "gromacs/fileio/tpxio.h"
 #include "gromacs/utility/smalloc.h"
 #include "gromacs/legacyheaders/mtop_util.h"

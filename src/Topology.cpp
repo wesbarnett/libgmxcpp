@@ -169,12 +169,13 @@ vector <double> Topology::GetMass(string group) const
 }
 
 /* TODO: Isn't correct for c6 and c12 - need a way to map them to the whole system */
+/*
 void GetLJ(int frame, Trajectory &trj, int atomi, int atomj)
 {
     coordinates ri = trj.GetXYZ(frame,atomi);
     coordinates rj = trj.GetXYZ(frame,atomj);
     triclinicbox box = trj.GetBox(frame);
-    double rij2 = distance2(atomi,atomj,box);
+    double rij2 = distance2(trj.GetXYZ(atomi),trj.GetXYZ(atomj),box);
     double rij6 = pow(rij2,3);
     double rij12 = pow(rij6,2);
     double c12 = this->c12.at(atomi,atomj);
@@ -183,3 +184,4 @@ void GetLJ(int frame, Trajectory &trj, int atomi, int atomj)
     return c12/rij12 - c6/rij6;
 
 }
+*/
