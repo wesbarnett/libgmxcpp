@@ -23,6 +23,7 @@ int main()
     coordinates c2(x2, y2, z2);
     coordinates c3;
     coordinates c4;
+    coordinates c5;
 
     assert(test_equal(x1, c1.at(X)));
     assert(test_equal(y1, c1.at(Y)));
@@ -85,6 +86,11 @@ int main()
     assert(test_equal(c4.at(X) * 3.14, c3.at(X)));
     assert(test_equal(c4.at(Y) * 3.14, c3.at(Y)));
     assert(test_equal(c4.at(Z) * 3.14, c3.at(Z)));
+
+    c5.set(x1,y1,z1);
+    assert(test_equal(c5.at(X),x1));
+    assert(test_equal(c5.at(Y),y1));
+    assert(test_equal(c5.at(Z),z1));
 
     return 0;
 }
