@@ -13,9 +13,10 @@ the library links to some of it's functions.
 Installing
 -----------
 ::
-    wget https://github.com/wesbarnett/libgmxcpp/archive/v3.2-beta3.tar.gz
-    tar xvzf libgmxcpp-v3.2-beta3.tar.gz
-    cd libgmxcpp-v3.2-beta3
+
+    wget https://github.com/wesbarnett/libgmxcpp/archive/v3.2-rc1.tar.gz
+    tar xvzf libgmxcpp-v3.2-rc1.tar.gz
+    cd libgmxcpp-v3.2-rc1
     mkdir build
     cd build
     cmake ..
