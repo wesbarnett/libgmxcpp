@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=releases)](https://travis-ci.org/wesbarnett/libgmxcpp)
 [![Documentation
-Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=v3.2-rc0)](https://readthedocs.org/projects/libgmxcpp/?badge=v3.2-rc0)
+Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=v3.2-rc1)](https://readthedocs.org/projects/libgmxcpp/?badge=v3.2-rc1)
 
 This is a C++ toolkit used for reading in Gromacs files (.xtc and .ndx) for
 use in analyzing simulation results. This interfaces with libxdrfile and
