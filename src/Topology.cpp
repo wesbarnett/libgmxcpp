@@ -50,8 +50,6 @@ void Topology::read(string tprfile)
     int i;
     int natoms;
     gmx_mtop_t *mtop;
-    int ftype;
-    int lj_n = 0;
 
     snew(mtop,1);
     read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
@@ -64,49 +62,6 @@ void Topology::read(string tprfile)
         this->m.push_back(top.atoms.atom[i].m);
     }
 
-    /* Get the nonbonded interactions */
-    for (i = 0; i < top.idef.ntypes; i++)
-    {
-        ftype = top.idef.functype[i];
-        if (ftype == F_LJ) 
-        {
-            lj_n++;
-        }
-    }
-
-    lj_n--;
-    for (i = 0; (lj_n-i) != 0; i++)
-    {
-        if (lj_n - i == 0) break;
-        lj_n -= i;
-    }
-
-    int atomi = 0;
-    int atomj = 0;
-    vector < vector <double> > c6(lj_n,vector<double>(lj_n));
-    vector < vector <double> > c12(lj_n,vector<double>(lj_n));
-    for (i = 0; i < top.idef.ntypes; i++)
-    {
-        ftype = top.idef.functype[i];
-        switch (ftype)
-        {
-            case F_LJ:
-                c6.at(atomi).at(atomj)  = top.idef.iparams[i].lj.c6;
-                c6.at(atomj).at(atomi)  = c6.at(atomj).at(atomi);
-                c12.at(atomi).at(atomj) = top.idef.iparams[i].lj.c12;
-                c12.at(atomj).at(atomi) = c12.at(atomj).at(atomi);
-                atomj++;
-                if (atomj == lj_n-1)
-                {
-                    atomi++;
-                    atomj = 0;
-                }
-                break;
-        }
-    }
-
-    this->c6 = c6;
-    this->c12 = c12;
     return;
 }
 
@@ -167,21 +122,3 @@ vector <double> Topology::GetMass(string group) const
     }
     return m;
 }
-
-/* TODO: Isn't correct for c6 and c12 - need a way to map them to the whole system */
-/*
-void GetLJ(int frame, Trajectory &trj, int atomi, int atomj)
-{
-    coordinates ri = trj.GetXYZ(frame,atomi);
-    coordinates rj = trj.GetXYZ(frame,atomj);
-    triclinicbox box = trj.GetBox(frame);
-    double rij2 = distance2(trj.GetXYZ(atomi),trj.GetXYZ(atomj),box);
-    double rij6 = pow(rij2,3);
-    double rij12 = pow(rij6,2);
-    double c12 = this->c12.at(atomi,atomj);
-    double c6 = this->c6.at(atomi,atomj);
-
-    return c12/rij12 - c6/rij6;
-
-}
-*/
