@@ -102,6 +102,20 @@ Trajectory::Trajectory(string filename, string ndxfile, int initialFrames)
     return;
 }
 
+Trajectory::Trajectory(string filename, Index index, int initialFrames)
+{
+    cout << endl;
+    try {
+        this->index=index;
+        InitXTC(filename);
+    } catch (runtime_error &excpt) {
+        cerr << endl << "Problem with creating Trajectory object." << endl;
+        terminate();
+    }
+    read(initialFrames);
+    return;
+}
+
 
 // Initializes the xtc file by opening the file and reading the number of atoms.
 // We'll need that for read() later. read_xtc_natoms and xdrfile_open come from
