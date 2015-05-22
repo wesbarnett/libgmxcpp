@@ -112,4 +112,6 @@ int main()
     assert(test_equal(tc8.at(9).at(X), 1.095));
     assert(test_equal(tc8.at(9).at(Y), 2.881));
     assert(test_equal(tc8.at(9).at(Z), 1.157));
+
+    // TODO add test for reading in entire frame
 }
