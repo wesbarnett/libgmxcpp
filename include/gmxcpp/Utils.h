@@ -88,6 +88,7 @@ coordinates cross(coordinates a, coordinates b);
  * @param box Box dimensions
  */
 double distance(coordinates a, coordinates b, triclinicbox box);
+double distance(coordinates a, coordinates b);
 
 /** @brief Calculates the distance squared between atom a and atom b.
  * @return Distance
@@ -96,6 +97,7 @@ double distance(coordinates a, coordinates b, triclinicbox box);
  * @param box Box dimensions
  */
 double distance2(coordinates a, coordinates b, triclinicbox box);
+double distance2(coordinates a, coordinates b);
 
 /** @brief Calculates the dot product between two vectors
  * @param a First vector in dot product
