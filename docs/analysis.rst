@@ -68,3 +68,7 @@ Surface area
 Vector magnitude
 ----------------
 .. doxygenfunction:: magnitude
+
+Volume of Box
+----------------
+.. doxygenfunction:: volume

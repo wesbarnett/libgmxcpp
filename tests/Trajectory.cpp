@@ -102,5 +102,16 @@ int main()
     Trajectory t4("tests/test.xtc", "tests/test.ndx", 10);
     assert(test_equal(t4.GetNFrames(), 10));
 
-    // TODO add test for vector return functions
+    vector <coordinates> tc8 = t4.GetXYZ(3,"C");
+    assert(test_equal(tc8.at(0).at(X), 0.532));
+    assert(test_equal(tc8.at(0).at(Y), 2.833));
+    assert(test_equal(tc8.at(0).at(Z), 2.718));
+    assert(test_equal(tc8.at(4).at(X), 2.474));
+    assert(test_equal(tc8.at(4).at(Y), 1.417));
+    assert(test_equal(tc8.at(4).at(Z), 2.398));
+    assert(test_equal(tc8.at(9).at(X), 1.095));
+    assert(test_equal(tc8.at(9).at(Y), 2.881));
+    assert(test_equal(tc8.at(9).at(Z), 1.157));
+
+    // TODO add test for reading in entire frame
 }

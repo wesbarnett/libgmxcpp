@@ -76,9 +76,20 @@ double distance2(coordinates a, coordinates b, triclinicbox box)
     return dot(c, c);
 }
 
+double distance2(coordinates a, coordinates b)
+{
+    coordinates c = a - b;
+    return dot(c, c);
+}
+
 double distance(coordinates a, coordinates b, triclinicbox box)
 {
     return sqrt(distance2(a, b, box));
+}
+
+double distance(coordinates a, coordinates b)
+{
+    return sqrt(distance2(a, b));
 }
 
 double dot(coordinates a, coordinates b)

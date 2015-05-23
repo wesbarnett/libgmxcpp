@@ -162,6 +162,20 @@ Trajectory(string xtcfile, string ndxfile);
 Trajectory(string xtcfile, string ndxfile, int maxFrames);
 
 /**
+ * @brief Constructor which reads in both the XTC file and an index
+ * file and maxFrames specified.
+ *
+ * @details Constructor which reads in xtc file, index file, and the programmer
+ * sets the number of frames to allocate for manually.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param index The Index object which has already had its index file read in.
+ * @param	maxFrames Maximum number of frames to read in. Default is
+ *			100,000.
+ */
+Trajectory(string xtcfile, Index index, int maxFrames);
+
+/**
  * @brief Gets the number of atoms in a system.
  * @return Number of atoms.
  */

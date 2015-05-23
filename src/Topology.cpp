@@ -50,8 +50,6 @@ void Topology::read(string tprfile)
     int i;
     int natoms;
     gmx_mtop_t *mtop;
-    int ftype;
-    int lj_n = 0;
 
     snew(mtop,1);
     read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
