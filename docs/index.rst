@@ -45,5 +45,6 @@ branch.
    installation
    usage
    files
+   data
    analysis
    license

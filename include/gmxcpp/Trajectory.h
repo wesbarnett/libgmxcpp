@@ -223,6 +223,7 @@ coordinates GetXYZ(int frame, int atom) const;
  * @brief Gets the coordinates for a specific atom in a group.
  * @details Gets the cartesian coordinates for the atom specified in the specific
  * index group for this frame.
+ * @see coordinates
  * @param frame Number of the frame desired.
  * @param groupName Name of index group in which atom is located.
  * @param atom The number corresponding with the atom in the index
@@ -237,6 +238,7 @@ coordinates GetXYZ(int frame, string groupName, int atom) const;
 /**
  * @brief Gets all of the coordinates for the system for a specific
  * frame.
+ * @see coordinates
  * @param frame Number of the frame desired.
  * @return A two dimensional vector with all cartesian coordinates
  * for the system at this frame. The first dimension is the atom number.
@@ -247,9 +249,7 @@ vector <coordinates> GetXYZ(int frame) const;
 /**
  * @brief Gets all of the coordinates for an index group for a specific
  * frame.
- * @details
- * This is the old way.
- * The new way is to return a vector (see above).
+ * @see coordinates
  * @param frame Number of the frame desired.
  * @param groupName Name of index group in which atom is located.
  * @return A two dimensional vector with all cartesian coordinates
@@ -261,6 +261,7 @@ vector <coordinates> GetXYZ(int frame, string groupName) const;
 /**
  * @brief Gets the triclinic box dimensions for a frame.
  * @param frame Number of the frame desired.
+ * @see triclinicbox
  * @return  Two-dimensional array with three elements in each
  * dimension, corresponding to a triclinic box.
  */

@@ -59,6 +59,7 @@ using namespace std;
  * it is longer than 1/2 the box size it accounts for the periodic boundary.
  * @param a Vector to be passed.
  * @param box The box dimensions.
+ * @see triclinicbox
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
@@ -66,7 +67,8 @@ coordinates pbc(coordinates a, triclinicbox box);
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
  * @details This centers a group of atoms, using the centeral atom as the
- * reference point for removing the periodic boundary condition.
+ * reference point for removing the periodic boundary condition. cf. Gromacs
+ * manual section 3.2.
  * @param atom Group of atoms to be centered
  * @param center The central atom, may be a part of the group or not
  * @param box Simulation box
@@ -81,23 +83,50 @@ void center_group(vector <coordinates> &atom, coordinates center, triclinicbox b
  */
 coordinates cross(coordinates a, coordinates b);
 
+/** \addtogroup distance
+ * @{
+ */
+
 /** @brief Calculates the distance between atom a and atom b.
+ * @details This version accounts for periodic boundary condition.
  * @return Distance
  * @param a First atom in distance calculation
  * @param b Second atom in distance calculation
  * @param box Box dimensions
  */
 double distance(coordinates a, coordinates b, triclinicbox box);
+
+/** @brief Calculates the distance between atom a and atom b.
+ * @details This version does not account for periodic boundary condition.
+ * @return Distance
+ * @param a First atom in distance calculation
+ * @param b Second atom in distance calculation
+ */
 double distance(coordinates a, coordinates b);
 
+/** @} */
+/** \addtogroup distance2
+ * @{
+ */
+
 /** @brief Calculates the distance squared between atom a and atom b.
+ * @details This version accounts for periodic boundary condition.
  * @return Distance
  * @param a First atom in distance squared calculation
  * @param b Second atom in distance squared calculation
  * @param box Box dimensions
  */
+
 double distance2(coordinates a, coordinates b, triclinicbox box);
+
+/** @brief Calculates the distance squared between atom a and atom b.
+ * @details Does not account for periodic boundary condition.
+ * @return Distance
+ * @param a First atom in distance squared calculation
+ * @param b Second atom in distance squared calculation
+ */
 double distance2(coordinates a, coordinates b);
+/** @} */
 
 /** @brief Calculates the dot product between two vectors
  * @param a First vector in dot product
