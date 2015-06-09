@@ -27,13 +27,13 @@ the masses).
 
 The first thing to do is to construct an object associated for each file type.
 First we'll read in the index file, since we'll be using it to locate the
-methanes in the trajectory:::
+methanes in the trajectory::
 
     Index ndx("index.ndx");
 
 Then we'll read in both the .xtc and .tpr files and associate the Index object
 with it. This is optional, but we want to do it in this case since we can easily
-find the methanes by our index groups:::
+find the methanes by our index groups::
 
     Trajectory trj("traj.xtc",ndx);
     Topology top("topol.tpr",ndx);
@@ -50,7 +50,7 @@ boundary condition. For this function we need the atomic coordinates of the
 atoms in the group we're interested in, the masses of those atoms, and the
 simulation box for the particular frame we're interested in. Here's how we can
 get that info for the methanes from the first frame, where we have an index
-group with the methanes labeled as ``CH4``:::
+group with the methanes labeled as ``CH4``::
 
     vector <coordinates> atom;
     vector <double> mass;
@@ -62,14 +62,14 @@ group with the methanes labeled as ``CH4``:::
 
 These getters are described in this documentation on the ``Trajectory`` and
 ``Topology`` class pages. Now to get the center of mass we just call our
-analysis function:::
+analysis function::
 
     coordinates com;
 
     com = center_of_mass(atom,mass,box);
 
 This only works for frame 0 (the first frame), so to do this for each frame we
-would put this into a loop:::
+would put this into a loop::
 
     coordinates com;
     vector <coordinates> atom;
@@ -91,7 +91,7 @@ would put this into a loop:::
 At this point outputting the data or averaging it, further analysis is up to
 you. Note that we would have to include the appropriate header files to be able
 to do this. Additionally the ``for`` loop can possibly be parallelized depending
-on the analysis. A full program might be:::
+on the analysis. A full program might be::
 
     #include <vector>
     #include "gmxcpp/Index.h"
