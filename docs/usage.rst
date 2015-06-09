@@ -88,7 +88,8 @@ would put this into a loop::
         com = center_of_mass(atom,mass,box);
     }
 
-At this point outputting the data or averaging it, further analysis is up to
+At this point one could output the data, average it, perform error analysis,
+etc. Further analysis is up to
 you. Note that we would have to include the appropriate header files to be able
 to do this. Additionally the ``for`` loop can possibly be parallelized depending
 on the analysis. A full program might be::
