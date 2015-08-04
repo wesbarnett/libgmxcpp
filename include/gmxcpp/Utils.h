@@ -62,8 +62,7 @@ using namespace std;
  * @see triclinicbox
  * @return Vector after pbc accounted for.
  */
-coordinates pbc(coordinates a, triclinicbox box);
-void pbc(coordinates *a, triclinicbox *box);
+coordinates pbc(coordinates &a, triclinicbox &box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -74,7 +73,7 @@ void pbc(coordinates *a, triclinicbox *box);
  * @param center The central atom, may be a part of the group or not
  * @param box Simulation box
  */
-void center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
+void center_group(vector <coordinates> &atom, coordinates &center, triclinicbox &box);
 
 /** @brief Calculates the cross product.
  * @details Gets the cross product between vectors a and b and returns it.
@@ -82,7 +81,7 @@ void center_group(vector <coordinates> &atom, coordinates center, triclinicbox b
  * @param b Second vector to be crossed.
  * @return The resultant vector of the cross of a and b.
  */
-coordinates cross(coordinates a, coordinates b);
+coordinates cross(coordinates &a, coordinates &b);
 
 /** \addtogroup distance
  * @{
@@ -95,7 +94,7 @@ coordinates cross(coordinates a, coordinates b);
  * @param b Second atom in distance calculation
  * @param box Box dimensions
  */
-double distance(coordinates a, coordinates b, triclinicbox box);
+double distance(coordinates &a, coordinates &b, triclinicbox &box);
 
 /** @brief Calculates the distance between atom a and atom b.
  * @details This version does not account for periodic boundary condition.
@@ -103,7 +102,7 @@ double distance(coordinates a, coordinates b, triclinicbox box);
  * @param a First atom in distance calculation
  * @param b Second atom in distance calculation
  */
-double distance(coordinates a, coordinates b);
+double distance(coordinates &a, coordinates &b);
 
 /** @} */
 /** \addtogroup distance2
@@ -126,7 +125,7 @@ double distance2(coordinates &a, coordinates &b, triclinicbox &box);
  * @param a First atom in distance squared calculation
  * @param b Second atom in distance squared calculation
  */
-double distance2(coordinates a, coordinates b);
+double distance2(coordinates &a, coordinates &b);
 /** @} */
 
 /** @brief Calculates the dot product between two vectors
@@ -134,25 +133,25 @@ double distance2(coordinates a, coordinates b);
  * @param b Second vector in dot product
  * @return Dot product of a and b
  */
-double dot(coordinates a, coordinates b);
+double dot(coordinates &a, coordinates &b);
 
 /** @brief Calculates the magnitude of a vector
  * @return Magnitude
  * @param x Vector for which magnitude is desired
  */
-double magnitude(coordinates x);
+double magnitude(coordinates &x);
 
 /** @brief Checks if a file exists
  * @param filename Name of the file to check
  * @return Whether or not the file exists
  */
-bool fileExists(string filename);
+bool fileExists(string &filename);
 
 /** @brief Calculates the volume of simulation box
  * @param box Box dimensions
  * @return Volume of box
  */
-double volume(triclinicbox box);
+double volume(triclinicbox &box);
 
 /** @brief Gets the bond vector between to atoms
  * @param atom1 First atom in bond
@@ -160,7 +159,7 @@ double volume(triclinicbox box);
  * @param box Simulation box
  * @return bond vector
  */
-coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box);
+coordinates bond_vector(coordinates &atom1, coordinates &atom2, triclinicbox &box);
 
 /** @brief Calculates the angle between two bonds
  * @details The central atom should be the middle input.
@@ -170,7 +169,7 @@ coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box);
  * @param box Simulation box
  * @return bond angle in radians
  */
-double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, triclinicbox box);
+double bond_angle(coordinates &atom1, coordinates &atom2, coordinates &atom3, triclinicbox &box);
 
 /** @brief Calculates the torsion / dihedral angle from four atoms'
     positions. 
@@ -183,7 +182,7 @@ double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, tricl
  * @param box Simulation box
  * @return dihedral angle in radians
  */
-double dihedral_angle(coordinates atom1, coordinates atom2, coordinates atom3, coordinates atom4, triclinicbox box);
+double dihedral_angle(coordinates &atom1, coordinates &atom2, coordinates &atom3, coordinates &atom4, triclinicbox &box);
 
 
 /** Prints out coordinates cleanly with << */
@@ -201,7 +200,7 @@ ostream& operator<<(ostream &os, triclinicbox box);
  * @param r The radius of the sphere.
  * @return The coordinates of the random point.
  */
-coordinates gen_sphere_point(coordinates center, double r);
+coordinates gen_sphere_point(coordinates &center, double &r);
 
 /** @brief Generates a random point on a sphere at the origin.
  * @param r The radius of the sphere.
@@ -233,7 +232,7 @@ coordinates gen_sphere_point();
 
 /** @} */
 
-double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
+double get_sphere_accept_ratio(vector <coordinates> &sites, double r, double rand_n, triclinicbox &box);
 
 /** @brief Gets the surface area of a group of atoms.
  * @details Gets the surface area of a group of atoms (could be a molecule)
@@ -250,7 +249,7 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
  * site.
  * @param box The box dimensions for the frame in question.
  */
-double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
+double get_surf_area(vector <coordinates> &sites, double r, double rand_n, triclinicbox &box);
 
 /** \addtogroup center_of_mass
  * @{
@@ -264,7 +263,7 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
  * @param mass The masses of the atoms.
  * @return The center of mass.
  */
-coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
+coordinates center_of_mass(vector <coordinates> &atom, vector <double> &mass);
 
 /** @brief Gets the center of mass of a group of atoms.
  * @details Gets the center of mass of a group of atoms. The masses must match
@@ -277,7 +276,7 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
  * @param box The simulation box.
  * @return The center of mass.
  */
-coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box);
+coordinates center_of_mass(vector <coordinates> &atom, vector <double> &mass, triclinicbox &box);
 /** @} */
 
 /** @brief Gets the geometric of a group of atoms.
@@ -288,7 +287,7 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, tric
  * @param box The simulation box.
  * @return Geometric center.
  */
-coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
+coordinates center_of_geometry(vector <coordinates> &atom, triclinicbox &box);
 
 /** @brief Centers a group of atoms
  * @details Centers a group of atoms around a specified point, removing the
@@ -297,6 +296,6 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
  * @param center The point around which to center the atoms.
  * @param box The simulation box.
  */
-void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
+void do_center_group(vector <coordinates> &atom, coordinates &center, triclinicbox &box);
 
 #endif
