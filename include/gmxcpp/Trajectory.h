@@ -53,6 +53,9 @@ using namespace std;
 class Trajectory {
 private:
 
+
+void init(string xtcfile);
+
 /**
  * @brief Vector of Frame objects which contain all the data in the
  * trajectory.
@@ -83,9 +86,6 @@ int nframes;
 
 /** @brief Number of atoms in the simulation. */
 int natoms;
-
-/** @brief Reads in the XTC and index files. */
-void read(string filename);
 
 public:
 
