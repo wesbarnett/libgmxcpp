@@ -104,9 +104,7 @@ coordinates cross(coordinates a, coordinates b)
 
 double distance2(coordinates &a, coordinates &b, triclinicbox &box)
 {
-    coordinates c = a - b;
-
-    c = pbc(c, box);
+    coordinates c = pbc(a - b,box);
     return dot(c, c);
 }
 
@@ -199,7 +197,9 @@ void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbo
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 {
     if (mass.size() != atom.size()) 
+    {
         throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+    }
 
     coordinates com(0.0,0.0,0.0);
     double total_mass = 0.0;
@@ -259,7 +259,9 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box)
 {
     if (mass.size() != atom.size()) 
+    {
         throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+    }
     /* Get the center of geometry of the group, taking into account periodic
      * effects. Then center the group around the cog. After that calculate
      * center of mass. */
@@ -374,13 +376,18 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
 
             for (k = 0; k < sites_n; k++) {
                 if (i != k) {
+                {
                     dist2 = distance2(sites.at(k), rand_point, box);
+                }
 
                     /*
                      * As soon as one site is closer to the random point than
                      * the site of interest, we can reject that random point.
                      */
-                    if (dist2 < r2) goto rejectpoint;
+                    if (dist2 < r2) 
+                    {
+                        goto rejectpoint;
+                    }
                 }
             }
 

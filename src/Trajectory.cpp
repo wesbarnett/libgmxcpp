@@ -90,7 +90,10 @@ void Trajectory::InitXTC(string filename)
     cfilename[filename.size()] = '\0';
     xd = xdrfile_open(cfilename, "r");
     cout << "Opening xtc file " << filename << "...";
-    if (read_xtc_natoms(cfilename, &natoms) != 0) throw runtime_error("Cannot open xtc file.");
+    if (read_xtc_natoms(cfilename, &natoms) != 0)
+    {
+        throw runtime_error("Cannot open xtc file.");
+    }
     cout << "OK" << endl;
     nframes = 0;
     return;
