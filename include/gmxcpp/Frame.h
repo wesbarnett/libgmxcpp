@@ -48,7 +48,7 @@
  */
 
 class Frame {
-private:
+public:
 /** Number of atoms in the system */
 int natoms;
 /** Simulation step corresponding with this frame. */
@@ -59,7 +59,6 @@ float time;
 vector <coordinates> x;
 /** Box dimensions for this frame. matrix comes from libxdrfile. */
 triclinicbox box;
-public:
 
 /** @brief Blank constructor used in Trajectory. */
 Frame();

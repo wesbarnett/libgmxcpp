@@ -186,16 +186,16 @@ void Trajectory::read(int initialFrames)
 // Gets the xyz coordinates when the frame and atom number are specified.
 coordinates Trajectory::GetXYZ(int frame, int atom) const
 {
-    return frameArray.at(frame).GetXYZ(atom);
+    return frameArray.at(frame).x.at(atom);
 }
 
 // Gets the xyz coordinates for the entire frame.
 vector <coordinates> Trajectory::GetXYZ(int frame) const
 {
-    return frameArray.at(frame).GetXYZ();
+    return frameArray.at(frame).x;
 }
 
-// Gets the xyz coordinates for an entire group.
+// Gets the xyz coordinates for an entire group. - TODO: is this necessary SLOW
 vector <coordinates> Trajectory::GetXYZ(int frame, string groupName) const
 {
     return frameArray.at(frame).GetXYZ(index, groupName);
@@ -208,12 +208,12 @@ coordinates Trajectory::GetXYZ(int frame, string group, int atom) const
 {
     int location = index.GetLocation(group, atom);
 
-    return frameArray.at(frame).GetXYZ(location);
+    return frameArray.at(frame).x.at(location);
 }
 
 triclinicbox Trajectory::GetBox(int frame) const
 {
-    return frameArray.at(frame).GetBox();
+    return frameArray.at(frame).box;
 }
 
 int Trajectory::GetNAtoms(string group) const
@@ -232,12 +232,12 @@ int Trajectory::GetNFrames() const
 }
 float Trajectory::GetTime(int frame) const
 {
-    return frameArray.at(frame).GetTime();
+    return frameArray.at(frame).time;
 }
 
 int Trajectory::GetStep(int frame) const
 {
-    return frameArray.at(frame).GetStep();
+    return frameArray.at(frame).step;
 }
 
 double Trajectory::GetBoxVolume(int frame) const
