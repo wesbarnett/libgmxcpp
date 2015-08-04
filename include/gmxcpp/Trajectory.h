@@ -90,29 +90,6 @@ void read(string filename);
 public:
 
 /**
- *  @brief Constructor where only XTC file is read.
- *
- *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects.
- *
- *  @param xtcfile Name of the Gromacs XTC file to be read in.
- */
-Trajectory(string xtcfile);
-
-/**
- *
- * @brief Constructor which reads in both the XTC file and incorporates a
- * previously read in Index object.
- *
- * @details When this constructor is used, both the Gromacs XTC file is
- * saved in the vector of Frame objects, and the group names and index
- * numbers from an Index object are copied into the Trajectory object.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param index The Index object which has already had its index file read in.
- */
-Trajectory(string xtcfile, Index index);
-
-/**
  *
  * @brief Constructor which reads in both the XTC file and a GROMACS index
  * file.
@@ -122,9 +99,9 @@ Trajectory(string xtcfile, Index index);
  * numbers for the index file are saved in an Index object.
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param ndxfile Name of the Gromacs index file to be read in.
+ * @param ndxfile Name of the Gromacs index file to be read in. Optional.
  */
-Trajectory(string xtcfile, string ndxfile);
+Trajectory(string xtcfile, string ndxfile="none");
 
 /**
  * @brief Gets the number of atoms in a system.

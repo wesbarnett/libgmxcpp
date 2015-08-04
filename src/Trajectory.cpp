@@ -34,24 +34,15 @@
 // system, saving how many frames we think there might be for memory allocation. Then calls
 // read().
 
-Trajectory::Trajectory(string filename)
-{
-    cout << endl;
-    try {
-        read(filename);
-    } catch (runtime_error &excpt) {
-        cerr << endl << "Problem with creating Trajectory object." << endl;
-        terminate();
-    }
-    return;
-}
-
 Trajectory::Trajectory(string filename, string ndxfile)
 {
     cout << endl;
     try {
-        Index index(ndxfile);
-        this->index=index;
+        if (ndxfile != "none")
+        {
+            Index index(ndxfile);
+            this->index=index;
+        }
         read(filename);
     } catch (runtime_error &excpt) {
         cerr << endl << "Problem with creating Trajectory object." << endl;
@@ -60,18 +51,6 @@ Trajectory::Trajectory(string filename, string ndxfile)
     return;
 }
 
-Trajectory::Trajectory(string filename, Index index)
-{
-    cout << endl;
-    try {
-        this->index=index;
-        read(filename);
-    } catch (runtime_error &excpt) {
-        cerr << endl << "Problem with creating Trajectory object." << endl;
-        terminate();
-    }
-    return;
-}
 
 // Reads in all of the frames from the xtc file. First, we resize frameArray to
 // a it's initial size. Then we read in the xtc file frame by frame using

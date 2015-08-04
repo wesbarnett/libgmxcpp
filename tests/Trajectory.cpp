@@ -69,8 +69,7 @@ int main()
     assert(test_equal(tb3->at(Z).at(Y), 0.0));
     assert(test_equal(tb3->at(Z).at(Z), 3.14139));
 
-    Index index("tests/test.ndx");
-    Trajectory t2("tests/test.xtc",index);
+    Trajectory t2("tests/test.xtc","tests/test.ndx");
     assert(test_equal(t2.GetNAtoms("System"), 4050));
     assert(test_equal(t2.GetNAtoms("C"), 10));
     assert(test_equal(t2.GetNAtoms("SOL"), 4000));
