@@ -84,7 +84,9 @@ void Trajectory::InitXTC(string filename)
     char cfilename[200];
 
     for (unsigned int i = 0; i < filename.size(); i++)
+    {
         cfilename[i] = filename[i];
+    }
     cfilename[filename.size()] = '\0';
     xd = xdrfile_open(cfilename, "r");
     cout << "Opening xtc file " << filename << "...";
@@ -103,6 +105,7 @@ void Trajectory::InitXTC(string filename)
 // and close the xd file pointer from libxdrfile's xdrfile_close.
 void Trajectory::read()
 {
+    Frame frame;
     int status = 0;
     int step;
     matrix box;
@@ -116,10 +119,10 @@ void Trajectory::read()
     {
         x = new rvec[natoms];
         status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
-        if (status != 0) {
+        if (status != 0) 
+        {
             break;
         }
-        Frame frame;
         frame.Set(step, time, box, x, natoms);
         frameArray.push_back(frame);
         if (nframes % 10 == 0) 
@@ -137,7 +140,6 @@ void Trajectory::read()
 }
 
 // Gets the xyz coordinates when the frame and atom number are specified.
-/* TODO: make versions that return pointers */
 coordinates *Trajectory::GetXYZ(int frame, int atom)
 {
     return &frameArray.at(frame).x.at(atom);
@@ -181,7 +183,6 @@ int Trajectory::GetStep(int frame) const
     return frameArray.at(frame).step;
 }
 
-// Gets the xyz coordinates for the entire frame. TODO: remove?
 vector <coordinates> Trajectory::GetXYZ(int frame) const
 {
     return frameArray.at(frame).x;

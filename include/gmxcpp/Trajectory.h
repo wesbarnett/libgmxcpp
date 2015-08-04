@@ -199,7 +199,6 @@ coordinates *GetXYZ(int frame, string groupName, int atom);
  * for the system at this frame. The first dimension is the atom number.
  * The second dimension contains the X, Y, and Z positions.
  */
-//TODO: remove?
 vector <coordinates> GetXYZ(int frame) const;
 
 

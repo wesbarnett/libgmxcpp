@@ -17,6 +17,8 @@ int main()
     assert(test_equal(t1.GetStep(1), 1000));
     assert(test_equal(t1.GetStep(1000), 1000000));
 
+    cout << "test " << endl;
+
     coordinates *tc1 = t1.GetXYZ(0, 0);
     coordinates *tc2 = t1.GetXYZ(500, 2025);
     coordinates *tc3 = t1.GetXYZ(1000, 4049);
