@@ -94,11 +94,5 @@ int main()
     assert(test_equal(tc7->at(Y), 1.206));
     assert(test_equal(tc7->at(Z), 1.413));
 
-    Trajectory t3("tests/test.xtc", 10);
-    assert(test_equal(t3.GetNFrames(), 10));
-
-    Trajectory t4("tests/test.xtc", "tests/test.ndx", 10);
-    assert(test_equal(t4.GetNFrames(), 10));
-
     // TODO add test for reading in entire frame
 }

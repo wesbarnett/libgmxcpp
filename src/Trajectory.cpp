@@ -33,18 +33,6 @@
 // Initializes the trajectory object by finding out how many atoms are in the
 // system, saving how many frames we think there might be for memory allocation. Then calls
 // read().
-Trajectory::Trajectory(string xtcfile, int maxFrames)
-{
-    cout << endl;
-    try {
-        InitXTC(xtcfile);
-    } catch (runtime_error &excpt) {
-        cerr << endl << "Problem with creating Trajectory object." << endl;
-        terminate();
-    }
-    read(maxFrames);
-    return;
-}
 
 Trajectory::Trajectory(string filename)
 {
@@ -55,7 +43,7 @@ Trajectory::Trajectory(string filename)
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    read(MAXFRAMES);
+    read();
     return;
 }
 
@@ -70,7 +58,7 @@ Trajectory::Trajectory(string filename, string ndxfile)
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    read(MAXFRAMES);
+    read();
     return;
 }
 
@@ -84,38 +72,9 @@ Trajectory::Trajectory(string filename, Index index)
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    read(MAXFRAMES);
+    read();
     return;
 }
-
-Trajectory::Trajectory(string filename, string ndxfile, int initialFrames)
-{
-    try {
-        InitXTC(filename);
-        Index index(ndxfile);
-        this->index=index;
-    } catch (runtime_error &excpt) {
-        cerr << endl << "Problem with creating Trajectory object." << endl;
-        terminate();
-    }
-    read(initialFrames);
-    return;
-}
-
-Trajectory::Trajectory(string filename, Index index, int initialFrames)
-{
-    cout << endl;
-    try {
-        this->index=index;
-        InitXTC(filename);
-    } catch (runtime_error &excpt) {
-        cerr << endl << "Problem with creating Trajectory object." << endl;
-        terminate();
-    }
-    read(initialFrames);
-    return;
-}
-
 
 // Initializes the xtc file by opening the file and reading the number of atoms.
 // We'll need that for read() later. read_xtc_natoms and xdrfile_open come from
@@ -142,7 +101,7 @@ void Trajectory::InitXTC(string filename)
 // warn the user (although we could do a resize, the user is allowed to choose a
 // smaller number of frames and may not want them). Lastly we resize frameArray
 // and close the xd file pointer from libxdrfile's xdrfile_close.
-void Trajectory::read(int initialFrames)
+void Trajectory::read()
 {
     int status = 0;
     int step;
@@ -150,33 +109,27 @@ void Trajectory::read(int initialFrames)
     float time;
     rvec *x;
 
-    frameArray.resize(initialFrames);
-
     cout << natoms << " particles are in the system." << endl;
 
-    cout << "Allocated memory for " << initialFrames << " frames of data." << endl;
     cout << "Reading in xtc file: " << endl;
-    while (status == 0 || nframes >= initialFrames) {
+    while (status == 0) 
+    {
         x = new rvec[natoms];
         status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
-        if (nframes >= initialFrames) break;
-        if (status != 0) break;
-        frameArray.at(nframes).Set(step, time, box, x, natoms);
-        if (nframes % 10 == 0) {
+        if (status != 0) {
+            break;
+        }
+        Frame frame;
+        frame.Set(step, time, box, x, natoms);
+        frameArray.push_back(frame);
+        if (nframes % 10 == 0) 
+        {
             cout << "   frame: " << nframes;
             cout << " | time (ps): " << time;
             cout << " | step: " << step << "\r";
         }
         nframes++;
     }
-
-    if (nframes >= initialFrames) {
-        cerr << "WARNING: More than " << initialFrames << " frames present in trajectory. Did not read all frames in." << endl;
-        cerr << "See README.md for more info, under heading \'Construction\'." << endl;
-    }
-
-    cout << endl << "Read in " << nframes << " frames." << endl;
-    frameArray.resize(nframes);
 
     status = xdrfile_close(xd);
     cout << "Finished reading in xtc file." << endl << endl;
