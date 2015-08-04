@@ -38,12 +38,11 @@ Trajectory::Trajectory(string filename)
 {
     cout << endl;
     try {
-        InitXTC(filename);
+        read(filename);
     } catch (runtime_error &excpt) {
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    read();
     return;
 }
 
@@ -53,12 +52,11 @@ Trajectory::Trajectory(string filename, string ndxfile)
     try {
         Index index(ndxfile);
         this->index=index;
-        InitXTC(filename);
+        read(filename);
     } catch (runtime_error &excpt) {
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    read();
     return;
 }
 
@@ -67,30 +65,11 @@ Trajectory::Trajectory(string filename, Index index)
     cout << endl;
     try {
         this->index=index;
-        InitXTC(filename);
+        read(filename);
     } catch (runtime_error &excpt) {
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    read();
-    return;
-}
-
-// Initializes the xtc file by opening the file and reading the number of atoms.
-// We'll need that for read() later. read_xtc_natoms and xdrfile_open come from
-// libxdrfile.
-void Trajectory::InitXTC(string filename)
-{
-    char cfilename[200];
-
-    for (unsigned int i = 0; i < filename.size(); i++)
-        cfilename[i] = filename[i];
-    cfilename[filename.size()] = '\0';
-    xd = xdrfile_open(cfilename, "r");
-    cout << "Opening xtc file " << filename << "...";
-    if (read_xtc_natoms(cfilename, &natoms) != 0) throw runtime_error("Cannot open xtc file.");
-    cout << "OK" << endl;
-    nframes = 0;
     return;
 }
 
@@ -101,14 +80,24 @@ void Trajectory::InitXTC(string filename)
 // warn the user (although we could do a resize, the user is allowed to choose a
 // smaller number of frames and may not want them). Lastly we resize frameArray
 // and close the xd file pointer from libxdrfile's xdrfile_close.
-void Trajectory::read()
+void Trajectory::read(string filename)
 {
+    this->nframes = 0;
     int status = 0;
     int step;
     matrix box;
     float time;
+    Frame *frame;
     rvec *x;
+    char cfilename[200];
 
+    for (unsigned int i = 0; i < filename.size(); i++)
+        cfilename[i] = filename[i];
+    cfilename[filename.size()] = '\0';
+    xd = xdrfile_open(cfilename, "r");
+    cout << "Opening xtc file " << filename << "...";
+    if (read_xtc_natoms(cfilename, &natoms) != 0) throw runtime_error("Cannot open xtc file.");
+    cout << "OK" << endl;
     cout << natoms << " particles are in the system." << endl;
 
     cout << "Reading in xtc file: " << endl;
