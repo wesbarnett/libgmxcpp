@@ -79,64 +79,6 @@ Frame(int step, float time, matrix box, rvec *x, int natoms);
  * */
 void Set(int step, float time, matrix box, rvec *x, int natoms);
 
-/**
- * @brief the simulation time in picoseconds of this frame.
- * @return Time
- */
-float GetTime() const;
-
-/**
- * @brief the simulation step corresponding with this frame.
- * @return Step
- */
-int GetStep() const;
-
-/**
- * @brief Gets the coordinates of a specific atom in the entire system.
- * @details Gets the cartesian coordinates for the atom specified at this frame
- * and returns it as a vector.
- * @param atom The number corresponding with the atom in the entire
- * system.
- * @return Vector with X, Y, and Z coordinates of the atom specified.
- */
-coordinates GetXYZ(int atom) const;
-
-/**
- * @brief Gets all of the coordinates for the system for this frame.
- * @details
- * @return  A two dimensional vector with all cartesian coordinates
- * for the system at this frame. The first dimension is the atom number.
- * The second dimension contains the X, Y, and Z positions.
- */
-vector <coordinates> GetXYZ() const;
-
-/**
- * @brief Gets the coordinates for all atoma in a group.
- * @details Gets the cartesian coordinates for the atom specified in the specific
- * index group for this frame.
- * @param groupName Name of index group in which atom is located.
- * @param index The index object containing the group specified.
- * @return  A two dimensional vector with all cartesian coordinates
- * for the system at this frame. The first dimension is the atom number
- * in the index group.
- * The second dimension contains the X, Y, and Z positions.
- */
-vector <coordinates> GetXYZ(Index index, string groupName) const;
-
-/**
- * @brief Gets the triclinic box dimensions for this frame.
- * @details Gets the cartesian coordinates for the atom specified in the specific
- * index group for this frame.
- * @return Two-dimensional array with three elements in each
- * dimension, corresponding to a triclinic box.
- */
-triclinicbox  GetBox() const;
-
-/**
- * @brief Gets the volume of the box at this frame.
- * @return Box volume.
- */
-double GetBoxVolume() const;
 };
 
 #endif

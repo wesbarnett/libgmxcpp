@@ -246,17 +246,6 @@ coordinates GetXYZ(int frame, string groupName, int atom) const;
  */
 vector <coordinates> GetXYZ(int frame) const;
 
-/**
- * @brief Gets all of the coordinates for an index group for a specific
- * frame.
- * @see coordinates
- * @param frame Number of the frame desired.
- * @param groupName Name of index group in which atom is located.
- * @return A two dimensional vector with all cartesian coordinates
- * for the system at this frame. The first dimension is the atom number
- * in the group. The second dimension contains the X, Y, and Z positions.
- */
-vector <coordinates> GetXYZ(int frame, string groupName) const;
 
 /**
  * @brief Gets the triclinic box dimensions for a frame.
@@ -267,12 +256,6 @@ vector <coordinates> GetXYZ(int frame, string groupName) const;
  */
 triclinicbox GetBox(int frame) const;
 
-/**
- * @brief Gets the volume of the box at a specific frame.
- * @return Box volume.
- * @param frame Number of the frame desired.
- */
-double GetBoxVolume(int frame) const;
 };
 
 #endif
