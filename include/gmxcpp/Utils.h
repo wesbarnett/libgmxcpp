@@ -117,7 +117,7 @@ double distance(coordinates a, coordinates b);
  * @param box Box dimensions
  */
 
-double distance2(coordinates a, coordinates b, triclinicbox box);
+double distance2(coordinates &a, coordinates &b, triclinicbox &box);
 
 /** @brief Calculates the distance squared between atom a and atom b.
  * @details Does not account for periodic boundary condition.

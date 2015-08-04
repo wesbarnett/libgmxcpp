@@ -73,7 +73,7 @@ coordinates cross(coordinates a, coordinates b)
     return r;
 }
 
-double distance2(coordinates a, coordinates b, triclinicbox box)
+double distance2(coordinates &a, coordinates &b, triclinicbox &box)
 {
     coordinates c = a - b;
 
