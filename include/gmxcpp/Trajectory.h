@@ -85,10 +85,7 @@ int nframes;
 int natoms;
 
 /** @brief Reads in the XTC and index files. */
-void read();
-
-/** @brief Initializes what is necessary for reading in the XTC file */
-void InitXTC(string filename);
+void read(string filename);
 
 public:
 
