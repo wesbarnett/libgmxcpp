@@ -31,15 +31,13 @@
 #include "gmxcpp/Topology.h"
 
 // Currently just saves charges and mass to an array. TODO: save all info!
-Topology::Topology(string tprfile)
+Topology::Topology(string tprfile, string ndxfile)
 {
-    read(tprfile);
-    return;
-}
-
-Topology::Topology(string tprfile, Index index)
-{
-    this->index=index;
+    if (ndxfile != "none")
+    {
+        Index index(ndxfile);
+        this->index=index;
+    }
     read(tprfile);
 
     return;
