@@ -105,11 +105,11 @@ void Trajectory::InitXTC(string filename)
 // and close the xd file pointer from libxdrfile's xdrfile_close.
 void Trajectory::read()
 {
-    Frame frame;
     int status = 0;
     int step;
     matrix box;
     float time;
+    Frame *frame;
     rvec *x;
 
     cout << natoms << " particles are in the system." << endl;
@@ -123,7 +123,7 @@ void Trajectory::read()
         {
             break;
         }
-        frame.Set(step, time, box, x, natoms);
+        frame = new Frame(step, time, box, x, natoms);
         frameArray.push_back(frame);
         if (nframes % 10 == 0) 
         {
@@ -142,7 +142,7 @@ void Trajectory::read()
 // Gets the xyz coordinates when the frame and atom number are specified.
 coordinates *Trajectory::GetXYZ(int frame, int atom)
 {
-    return &frameArray.at(frame).x.at(atom);
+    return &frameArray.at(frame)->x.at(atom);
 }
 
 // Gets the xyz coordinates when the frame, group, and atom number are
@@ -151,12 +151,12 @@ coordinates *Trajectory::GetXYZ(int frame, int atom)
 coordinates *Trajectory::GetXYZ(int frame, string group, int atom) 
 {
     int location = index.GetLocation(group, atom);
-    return &frameArray.at(frame).x.at(location);
+    return &frameArray.at(frame)->x.at(location);
 }
 
 triclinicbox *Trajectory::GetBox(int frame)
 {
-    return &frameArray.at(frame).box;
+    return &frameArray.at(frame)->box;
 }
 
 int Trajectory::GetNAtoms(string group) const
@@ -175,16 +175,16 @@ int Trajectory::GetNFrames() const
 }
 float Trajectory::GetTime(int frame) const
 {
-    return frameArray.at(frame).time;
+    return frameArray.at(frame)->time;
 }
 
 int Trajectory::GetStep(int frame) const
 {
-    return frameArray.at(frame).step;
+    return frameArray.at(frame)->step;
 }
 
 vector <coordinates> Trajectory::GetXYZ(int frame) const
 {
-    return frameArray.at(frame).x;
+    return frameArray.at(frame)->x;
 }
 

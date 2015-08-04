@@ -57,7 +57,7 @@ private:
  * @brief Vector of Frame objects which contain all the data in the
  * trajectory.
  */
-vector <Frame> frameArray;
+vector <Frame*> frameArray;
 
 /**
  * @brief Index object containing all group names, sizes, and indices
