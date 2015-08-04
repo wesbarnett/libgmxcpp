@@ -31,27 +31,7 @@
 #include "gmxcpp/Trajectory.h"
 
 // Initializes the trajectory object by finding out how many atoms are in the
-// system, saving how many frames we think there might be for memory allocation. Then calls
-// read().
-
-Trajectory::Trajectory(string filename, string ndxfile)
-{
-    cout << endl;
-    try {
-        if (ndxfile != "none")
-        {
-            Index index(ndxfile);
-            this->index=index;
-        }
-        read(filename);
-    } catch (runtime_error &excpt) {
-        cerr << endl << "Problem with creating Trajectory object." << endl;
-        terminate();
-    }
-    return;
-}
-
-
+// system, saving how many frames we think there might be for memory allocation.
 // Reads in all of the frames from the xtc file. First, we resize frameArray to
 // a it's initial size. Then we read in the xtc file frame by frame using
 // libxdrfile's read_xtc function. We set the relevant data at each frame. If
@@ -59,9 +39,9 @@ Trajectory::Trajectory(string filename, string ndxfile)
 // warn the user (although we could do a resize, the user is allowed to choose a
 // smaller number of frames and may not want them). Lastly we resize frameArray
 // and close the xd file pointer from libxdrfile's xdrfile_close.
-void Trajectory::read(string filename)
+
+Trajectory::Trajectory(string filename, string ndxfile)
 {
-    this->nframes = 0;
     int status = 0;
     int step;
     matrix box;
@@ -69,46 +49,65 @@ void Trajectory::read(string filename)
     Frame *frame;
     rvec *x;
     char cfilename[200];
+    cout << endl;
 
-    for (unsigned int i = 0; i < filename.size(); i++)
+    try 
     {
-        cfilename[i] = filename[i];
-    }
-    cfilename[filename.size()] = '\0';
-    xd = xdrfile_open(cfilename, "r");
-    cout << "Opening xtc file " << filename << "...";
-    if (read_xtc_natoms(cfilename, &natoms) != 0)
-    {
-        throw runtime_error("Cannot open xtc file.");
-    }
-    cout << "OK" << endl;
-
-    cout << natoms << " particles are in the system." << endl;
-
-    cout << "Reading in xtc file: " << endl;
-    while (status == 0) 
-    {
-        x = new rvec[natoms];
-        status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
-        if (status != 0) 
+        if (ndxfile != "none")
         {
-            break;
+            Index index(ndxfile);
+            this->index=index;
         }
-        frame = new Frame(step, time, box, x, natoms);
-        frameArray.push_back(frame);
-        if (nframes % 10 == 0) 
-        {
-            cout << "   frame: " << nframes;
-            cout << " | time (ps): " << time;
-            cout << " | step: " << step << "\r";
-        }
-        nframes++;
-    }
+    
+        this->nframes = 0;
 
-    status = xdrfile_close(xd);
-    cout << endl << "Finished reading in xtc file." << endl << endl;
+        for (unsigned int i = 0; i < filename.size(); i++)
+        {
+            cfilename[i] = filename[i];
+        }
+        cfilename[filename.size()] = '\0';
+        xd = xdrfile_open(cfilename, "r");
+        cout << "Opening xtc file " << filename << "...";
+        if (read_xtc_natoms(cfilename, &natoms) != 0)
+        {
+            throw runtime_error("Cannot open xtc file.");
+        }
+        cout << "OK" << endl;
+
+        cout << natoms << " particles are in the system." << endl;
+
+        cout << "Reading in xtc file: " << endl;
+
+        while (status == 0) 
+        {
+            x = new rvec[natoms];
+            status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
+            if (status != 0) 
+            {
+                break;
+            }
+            frame = new Frame(step, time, box, x, natoms);
+            frameArray.push_back(frame);
+            if (nframes % 10 == 0) 
+            {
+                cout << "   frame: " << nframes;
+                cout << " | time (ps): " << time;
+                cout << " | step: " << step << "\r";
+            }
+            nframes++;
+        }
+
+        status = xdrfile_close(xd);
+        cout << endl << "Finished reading in xtc file." << endl << endl;
+    } 
+    catch (runtime_error &excpt) 
+    {
+        cerr << endl << "Problem with creating Trajectory object." << endl;
+        terminate();
+    }
     return;
 }
+
 
 // Gets the xyz coordinates when the frame and atom number are specified.
 coordinates *Trajectory::GetXYZ(int frame, int atom)
