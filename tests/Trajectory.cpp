@@ -73,26 +73,26 @@ int main()
     assert(test_equal(t2.GetNAtoms("C"), 10));
     assert(test_equal(t2.GetNAtoms("SOL"), 4000));
 
-    coordinates tc4 = t2.GetXYZ(0, "C", 0);
-    coordinates tc5 = t2.GetXYZ(250, "OW", 500);
-    coordinates tc6 = t2.GetXYZ(500, "C", 9);
-    coordinates tc7 = t2.GetXYZ(1000, "OW", 999);
+    coordinates *tc4 = t2.GetXYZ(0, "C", 0);
+    coordinates *tc5 = t2.GetXYZ(250, "OW", 500);
+    coordinates *tc6 = t2.GetXYZ(500, "C", 9);
+    coordinates *tc7 = t2.GetXYZ(1000, "OW", 999);
 
-    assert(test_equal(tc4.at(X), 1.635));
-    assert(test_equal(tc4.at(Y), 2.921));
-    assert(test_equal(tc4.at(Z), 3.370));
+    assert(test_equal(tc4->at(X), 1.635));
+    assert(test_equal(tc4->at(Y), 2.921));
+    assert(test_equal(tc4->at(Z), 3.370));
 
-    assert(test_equal(tc5.at(X), 2.252));
-    assert(test_equal(tc5.at(Y), 1.456));
-    assert(test_equal(tc5.at(Z), 0.893));
+    assert(test_equal(tc5->at(X), 2.252));
+    assert(test_equal(tc5->at(Y), 1.456));
+    assert(test_equal(tc5->at(Z), 0.893));
 
-    assert(test_equal(tc6.at(X), 1.111));
-    assert(test_equal(tc6.at(Y), 0.966));
-    assert(test_equal(tc6.at(Z), 1.541));
+    assert(test_equal(tc6->at(X), 1.111));
+    assert(test_equal(tc6->at(Y), 0.966));
+    assert(test_equal(tc6->at(Z), 1.541));
 
-    assert(test_equal(tc7.at(X), 1.040));
-    assert(test_equal(tc7.at(Y), 1.206));
-    assert(test_equal(tc7.at(Z), 1.413));
+    assert(test_equal(tc7->at(X), 1.040));
+    assert(test_equal(tc7->at(Y), 1.206));
+    assert(test_equal(tc7->at(Z), 1.413));
 
     Trajectory t3("tests/test.xtc", 10);
     assert(test_equal(t3.GetNFrames(), 10));

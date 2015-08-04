@@ -90,7 +90,7 @@ vector <coordinates> Clusters::get_coordinates(int frame, Trajectory &traj, int 
 
 void Clusters::do_clustering(int frame, Trajectory &traj, string group, double rcut2)
 {
-    coordinates atom_j_vec;
+    coordinates* atom_j_vec;
     double r2;
     int atom_counter_i;
     int atom_counter_j;
@@ -102,7 +102,7 @@ void Clusters::do_clustering(int frame, Trajectory &traj, string group, double r
     int c_j;
     triclinicbox box;
 
-    vector <coordinates> atom_i_vec(atoms_per_mol);
+    vector <coordinates*> atom_i_vec(atoms_per_mol);
 
     box = traj.GetBox(frame);
     initialize();
@@ -131,7 +131,7 @@ void Clusters::do_clustering(int frame, Trajectory &traj, string group, double r
                     for (atom_j = 0; atom_j < this->atoms_per_mol; atom_j++) {
                         atom_j_vec = traj.GetXYZ(frame, group, atom_counter_j);
                         atom_counter_j++;
-                        r2 = distance2(atom_i_vec.at(atom_i), atom_j_vec, box);
+                        r2 = distance2(*atom_i_vec.at(atom_i), *atom_j_vec, box);
 
                         if (r2 < rcut2) {
                             add(c_i, c_j);

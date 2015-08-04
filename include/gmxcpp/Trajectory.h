@@ -233,8 +233,8 @@ coordinates GetXYZ(int frame, int atom) const;
  * the group.
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
-coordinates GetXYZ(int frame, string groupName, int atom) const;
-void GetXYZ(coordinates *x, int frame, string group, int atom);
+//coordinates GetXYZ(int frame, string groupName, int atom) const;
+coordinates *GetXYZ(int frame, string groupName, int atom);
 
 /**
  * @brief Gets all of the coordinates for the system for a specific
