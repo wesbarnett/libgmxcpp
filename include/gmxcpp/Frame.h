@@ -55,11 +55,10 @@ int natoms;
 int step;
 /** Simulation time (picoseconds) corresponding with this frame. */
 float time;
-/** Coordinates for all atoms in this frame. rvec comes from libxdrfile.
- * */
-rvec *x;
+/** Coordinates for all atoms in this frame. */
+vector <coordinates> x;
 /** Box dimensions for this frame. matrix comes from libxdrfile. */
-matrix box;
+triclinicbox box;
 public:
 
 /** @brief Blank constructor used in Trajectory. */
