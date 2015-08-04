@@ -42,9 +42,6 @@
 #include <stdexcept>
 using namespace std;
 
-/** @brief Maximum number of frames to read in. */
-const int MAXFRAMES = 100000;
-
 /**
  * @brief The main class in reading Gromacs files.
  *
@@ -88,7 +85,7 @@ int nframes;
 int natoms;
 
 /** @brief Reads in the XTC and index files. */
-void read(int initalFrames);
+void read();
 
 /** @brief Initializes what is necessary for reading in the XTC file */
 void InitXTC(string filename);
@@ -103,21 +100,6 @@ public:
  *  @param xtcfile Name of the Gromacs XTC file to be read in.
  */
 Trajectory(string xtcfile);
-
-/**
- * @brief   Constructor where programmer sets maximum frames to be
- *			read in.
- *
- * @details Constructor where then number of frames allocated is set by the
- *			programmer explicitly. By default, the constructor will only allocate
- *			100,000 frames. This overrides that to a higher number.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param	maxFrames Maximum number of frames to read in. Default is
- *			100,000.
- *
- */
-Trajectory(string xtcfile, int maxFrames);
 
 /**
  *
@@ -146,34 +128,6 @@ Trajectory(string xtcfile, Index index);
  * @param ndxfile Name of the Gromacs index file to be read in.
  */
 Trajectory(string xtcfile, string ndxfile);
-
-/**
- * @brief Constructor which reads in both the XTC file and an index
- * file and maxFrames specified.
- *
- * @details Constructor which reads in xtc file, index file, and the programmer
- * sets the number of frames to allocate for manually.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param ndxfile Name of the Gromacs index file to be read in.
- * @param	maxFrames Maximum number of frames to read in. Default is
- *			100,000.
- */
-Trajectory(string xtcfile, string ndxfile, int maxFrames);
-
-/**
- * @brief Constructor which reads in both the XTC file and an index
- * file and maxFrames specified.
- *
- * @details Constructor which reads in xtc file, index file, and the programmer
- * sets the number of frames to allocate for manually.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param index The Index object which has already had its index file read in.
- * @param	maxFrames Maximum number of frames to read in. Default is
- *			100,000.
- */
-Trajectory(string xtcfile, Index index, int maxFrames);
 
 /**
  * @brief Gets the number of atoms in a system.
