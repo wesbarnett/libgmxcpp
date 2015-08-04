@@ -60,9 +60,6 @@ vector <coordinates> x;
 /** Box dimensions for this frame. matrix comes from libxdrfile. */
 triclinicbox box;
 
-/** @brief Blank constructor used in Trajectory. */
-Frame();
-
 /** @brief A constructor where the private data for the object is set.
  * @param step The step number corresponding with this simulation frame.
  * @param time The time (in picoseconds) corresponding with this
@@ -72,12 +69,6 @@ Frame();
  * @param natoms The number of atoms in the system.
  * */
 Frame(int step, float time, matrix box, rvec *x, int natoms);
-
-/** Used in setting all of the private data for an object. Specifically
- * this is used in the Trajectory object with a vector of Frames.  See
- * above.
- * */
-void Set(int step, float time, matrix box, rvec *x, int natoms);
 
 };
 
