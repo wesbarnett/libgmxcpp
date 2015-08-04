@@ -63,6 +63,7 @@ using namespace std;
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
+void pbc(coordinates *a, triclinicbox *box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc

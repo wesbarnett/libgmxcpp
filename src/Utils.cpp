@@ -63,6 +63,35 @@ coordinates pbc(coordinates a, triclinicbox box)
     return b;
 }
 
+void pbc(coordinates *a, triclinicbox *box)
+{
+    vector <double> box_inv(3);
+    double shift;
+
+    box_inv.at(X) = ((float)1.0) / box->at(X).at(X); // 1.0 / V1(X)
+    box_inv.at(Y) = ((float)1.0) / box->at(Y).at(Y); // 1.0 / V2(Y)
+    box_inv.at(Z) = ((float)1.0) / box->at(Z).at(Z); // 1.0 / V3(Z)
+
+    // Treat V3 first, since it's the shortest
+    shift = round(a->at(Z) * box_inv.at(Z));
+    a->at(Z) -= box->at(Z).at(Z) * shift; // V3(Z)
+    a->at(Y) -= box->at(Z).at(Y) * shift; // V3(Y)
+    a->at(X) -= box->at(Z).at(X) * shift; // V3(X)
+
+    // Now treat V2 ( note that V2(Z) is always zero for Gromacs, so it is
+    // omitted here)
+    shift = round(a->at(Y) * box_inv.at(Y));
+    a->at(Y) -= box->at(Y).at(Y) * shift; // V2(Y)
+    a->at(X) -= box->at(Y).at(X) * shift; // V2(X)
+
+    // Lastly treat V1 (V1(Y) and V1(Z) are always zero for Gromacs, so they are
+    // omitted here)
+    shift = round(a->at(X) * box_inv.at(X));
+    a->at(X) -= box->at(X).at(X) * shift; // V1(X)
+
+    return;
+}
+
 coordinates cross(coordinates a, coordinates b)
 {
     coordinates r;
