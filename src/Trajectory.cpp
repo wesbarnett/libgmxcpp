@@ -132,7 +132,7 @@ void Trajectory::read()
     }
 
     status = xdrfile_close(xd);
-    cout << "Finished reading in xtc file." << endl << endl;
+    cout << endl << "Finished reading in xtc file." << endl << endl;
     return;
 }
 
