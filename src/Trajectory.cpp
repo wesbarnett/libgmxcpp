@@ -185,37 +185,23 @@ void Trajectory::read(int initialFrames)
 
 // Gets the xyz coordinates when the frame and atom number are specified.
 /* TODO: make versions that return pointers */
-coordinates Trajectory::GetXYZ(int frame, int atom) const
+coordinates *Trajectory::GetXYZ(int frame, int atom)
 {
-    return frameArray.at(frame).x.at(atom);
-}
-
-// Gets the xyz coordinates for the entire frame.
-vector <coordinates> Trajectory::GetXYZ(int frame) const
-{
-    return frameArray.at(frame).x;
+    return &frameArray.at(frame).x.at(atom);
 }
 
 // Gets the xyz coordinates when the frame, group, and atom number are
 // specified.
-/*
-coordinates Trajectory::GetXYZ(int frame, string group, int atom) const
-{
-    int location = index.GetLocation(group, atom);
-    return frameArray.at(frame).x.at(location);
-}
-*/
 
 coordinates *Trajectory::GetXYZ(int frame, string group, int atom) 
 {
     int location = index.GetLocation(group, atom);
-    coordinates *x = &frameArray.at(frame).x.at(location);
-    return x;
+    return &frameArray.at(frame).x.at(location);
 }
 
-triclinicbox Trajectory::GetBox(int frame) const
+triclinicbox *Trajectory::GetBox(int frame)
 {
-    return frameArray.at(frame).box;
+    return &frameArray.at(frame).box;
 }
 
 int Trajectory::GetNAtoms(string group) const
@@ -241,3 +227,10 @@ int Trajectory::GetStep(int frame) const
 {
     return frameArray.at(frame).step;
 }
+
+// Gets the xyz coordinates for the entire frame. TODO: remove?
+vector <coordinates> Trajectory::GetXYZ(int frame) const
+{
+    return frameArray.at(frame).x;
+}
+

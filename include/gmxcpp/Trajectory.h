@@ -217,7 +217,7 @@ int GetStep(int frame) const;
  * @param frame Number of the frame desired.
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
-coordinates GetXYZ(int frame, int atom) const;
+coordinates *GetXYZ(int frame, int atom);
 
 /**
  * @brief Gets the coordinates for a specific atom in a group.
@@ -245,6 +245,7 @@ coordinates *GetXYZ(int frame, string groupName, int atom);
  * for the system at this frame. The first dimension is the atom number.
  * The second dimension contains the X, Y, and Z positions.
  */
+//TODO: remove?
 vector <coordinates> GetXYZ(int frame) const;
 
 
@@ -255,7 +256,7 @@ vector <coordinates> GetXYZ(int frame) const;
  * @return  Two-dimensional array with three elements in each
  * dimension, corresponding to a triclinic box.
  */
-triclinicbox GetBox(int frame) const;
+triclinicbox *GetBox(int frame);
 
 };
 

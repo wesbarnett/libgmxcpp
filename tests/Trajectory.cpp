@@ -17,55 +17,55 @@ int main()
     assert(test_equal(t1.GetStep(1), 1000));
     assert(test_equal(t1.GetStep(1000), 1000000));
 
-    coordinates tc1 = t1.GetXYZ(0, 0);
-    coordinates tc2 = t1.GetXYZ(500, 2025);
-    coordinates tc3 = t1.GetXYZ(1000, 4049);
+    coordinates *tc1 = t1.GetXYZ(0, 0);
+    coordinates *tc2 = t1.GetXYZ(500, 2025);
+    coordinates *tc3 = t1.GetXYZ(1000, 4049);
 
-    triclinicbox tb1 = t1.GetBox(0);
-    triclinicbox tb2 = t1.GetBox(500);
-    triclinicbox tb3 = t1.GetBox(1000);
+    triclinicbox *tb1 = t1.GetBox(0);
+    triclinicbox *tb2 = t1.GetBox(500);
+    triclinicbox *tb3 = t1.GetBox(1000);
 
-    assert(test_equal(tc1.at(X), 1.635));
-    assert(test_equal(tc1.at(Y), 2.921));
-    assert(test_equal(tc1.at(Z), 3.370));
+    assert(test_equal(tc1->at(X), 1.635));
+    assert(test_equal(tc1->at(Y), 2.921));
+    assert(test_equal(tc1->at(Z), 3.370));
 
-    assert(test_equal(tc2.at(X), 2.350));
-    assert(test_equal(tc2.at(Y), 2.473));
-    assert(test_equal(tc2.at(Z), 1.098));
+    assert(test_equal(tc2->at(X), 2.350));
+    assert(test_equal(tc2->at(Y), 2.473));
+    assert(test_equal(tc2->at(Z), 1.098));
 
-    assert(test_equal(tc3.at(X), 1.035));
-    assert(test_equal(tc3.at(Y), 1.206));
-    assert(test_equal(tc3.at(Z), 1.402));
+    assert(test_equal(tc3->at(X), 1.035));
+    assert(test_equal(tc3->at(Y), 1.206));
+    assert(test_equal(tc3->at(Z), 1.402));
 
-    assert(test_equal(tb1.at(X).at(X), 4.0));
-    assert(test_equal(tb1.at(X).at(Y), 0.0));
-    assert(test_equal(tb1.at(X).at(Z), 0.0));
-    assert(test_equal(tb1.at(Y).at(X), 0.0));
-    assert(test_equal(tb1.at(Y).at(Y), 4.0));
-    assert(test_equal(tb1.at(Y).at(Z), 0.0));
-    assert(test_equal(tb1.at(Z).at(X), 0.0));
-    assert(test_equal(tb1.at(Z).at(Y), 0.0));
-    assert(test_equal(tb1.at(Z).at(Z), 4.0));
+    assert(test_equal(tb1->at(X).at(X), 4.0));
+    assert(test_equal(tb1->at(X).at(Y), 0.0));
+    assert(test_equal(tb1->at(X).at(Z), 0.0));
+    assert(test_equal(tb1->at(Y).at(X), 0.0));
+    assert(test_equal(tb1->at(Y).at(Y), 4.0));
+    assert(test_equal(tb1->at(Y).at(Z), 0.0));
+    assert(test_equal(tb1->at(Z).at(X), 0.0));
+    assert(test_equal(tb1->at(Z).at(Y), 0.0));
+    assert(test_equal(tb1->at(Z).at(Z), 4.0));
 
-    assert(test_equal(tb2.at(X).at(X), 3.11876));
-    assert(test_equal(tb2.at(X).at(Y), 0.0));
-    assert(test_equal(tb2.at(X).at(Z), 0.0));
-    assert(test_equal(tb2.at(Y).at(X), 0.0));
-    assert(test_equal(tb2.at(Y).at(Y), 3.11876));
-    assert(test_equal(tb2.at(Y).at(Z), 0.0));
-    assert(test_equal(tb2.at(Z).at(X), 0.0));
-    assert(test_equal(tb2.at(Z).at(Y), 0.0));
-    assert(test_equal(tb2.at(Z).at(Z), 3.11876));
+    assert(test_equal(tb2->at(X).at(X), 3.11876));
+    assert(test_equal(tb2->at(X).at(Y), 0.0));
+    assert(test_equal(tb2->at(X).at(Z), 0.0));
+    assert(test_equal(tb2->at(Y).at(X), 0.0));
+    assert(test_equal(tb2->at(Y).at(Y), 3.11876));
+    assert(test_equal(tb2->at(Y).at(Z), 0.0));
+    assert(test_equal(tb2->at(Z).at(X), 0.0));
+    assert(test_equal(tb2->at(Z).at(Y), 0.0));
+    assert(test_equal(tb2->at(Z).at(Z), 3.11876));
 
-    assert(test_equal(tb3.at(X).at(X), 3.14139));
-    assert(test_equal(tb3.at(X).at(Y), 0.0));
-    assert(test_equal(tb3.at(X).at(Z), 0.0));
-    assert(test_equal(tb3.at(Y).at(X), 0.0));
-    assert(test_equal(tb3.at(Y).at(Y), 3.14139));
-    assert(test_equal(tb3.at(Y).at(Z), 0.0));
-    assert(test_equal(tb3.at(Z).at(X), 0.0));
-    assert(test_equal(tb3.at(Z).at(Y), 0.0));
-    assert(test_equal(tb3.at(Z).at(Z), 3.14139));
+    assert(test_equal(tb3->at(X).at(X), 3.14139));
+    assert(test_equal(tb3->at(X).at(Y), 0.0));
+    assert(test_equal(tb3->at(X).at(Z), 0.0));
+    assert(test_equal(tb3->at(Y).at(X), 0.0));
+    assert(test_equal(tb3->at(Y).at(Y), 3.14139));
+    assert(test_equal(tb3->at(Y).at(Z), 0.0));
+    assert(test_equal(tb3->at(Z).at(X), 0.0));
+    assert(test_equal(tb3->at(Z).at(Y), 0.0));
+    assert(test_equal(tb3->at(Z).at(Z), 3.14139));
 
     Index index("tests/test.ndx");
     Trajectory t2("tests/test.xtc",index);
