@@ -35,7 +35,8 @@
 #include "gmxcpp/Trajectory.h"
 #include "gromacs/fileio/tpxio.h"
 #include "gromacs/utility/smalloc.h"
-#include "gromacs/legacyheaders/mtop_util.h"
+#include "gromacs/topology/mtop_util.h"
+#include "gromacs/topology/topology.h"
 using namespace std;
 
 /**
