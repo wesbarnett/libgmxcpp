@@ -53,6 +53,8 @@ private:
 	vector <double> q;
 	vector <double> m;
 	vector <string> elem;
+	vector <string> atomname;
+	vector <string> resname;
 	void read(string tprfile);
 
 public:
@@ -149,6 +151,12 @@ string GetElem(int atom);
  * @return Name of the atom
  */
 string GetElem(int atom, string group);
+
+string GetAtomName(int atom);
+string GetAtomName(int atom, string group);
+
+string GetResName(int atom);
+string GetResName(int atom, string group);
 
 };
 #endif

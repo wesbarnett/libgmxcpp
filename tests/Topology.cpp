@@ -24,5 +24,11 @@ int main()
     assert("H"==top.GetElem(1));
     assert("C"==top.GetElem(1,"C"));
 
+    assert("CH4"==top.GetResName(1,"C"));
+    assert("H1"==top.GetAtomName(1,"CH4"));
+    assert("OW"==top.GetAtomName(1002));
+    cout << top.GetResName(1002) << endl;
+    assert("SOL"==top.GetResName(1002));
+
     return 0;
 }

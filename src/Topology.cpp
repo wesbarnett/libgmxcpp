@@ -64,6 +64,8 @@ void Topology::read(string tprfile)
         this->q.push_back(top.atoms.atom[i].q);
         this->m.push_back(top.atoms.atom[i].m);
 		this->elem.push_back(top.atoms.atom[i].elem);
+        this->atomname.push_back(string(top.atoms.atomname[i][0]));
+        this->resname.push_back(string(top.atoms.resinfo[top.atoms.atom[i].resind].name[0]));
     }
 
     return;
@@ -136,4 +138,26 @@ string Topology::GetElem(int atom, string group)
 {
     int location = index.GetLocation(group, atom);
 	return this->elem.at(location);
+}
+
+string Topology::GetAtomName(int atom)
+{
+	return this->atomname.at(atom);
+}
+
+string Topology::GetAtomName(int atom, string group)
+{
+    int location = index.GetLocation(group, atom);
+	return this->atomname.at(location);
+}
+
+string Topology::GetResName(int atom)
+{
+	return this->resname.at(atom);
+}
+
+string Topology::GetResName(int atom, string group)
+{
+    int location = index.GetLocation(group, atom);
+	return this->resname.at(location);
 }
