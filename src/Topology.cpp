@@ -51,15 +51,19 @@ void Topology::read(string tprfile)
     int natoms;
     gmx_mtop_t *mtop;
 
+	/* NOTE: this uses the "old" topology file format. TODO: update for use with
+	 * newer format. */
     snew(mtop,1);
     read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
     t_topology top = gmx_mtop_t_to_t_topology(mtop);
 
     /* Get charge and mass for each atom */
+    /* NOTE: element names are not stored for water */
     for (i = 0; i < natoms; i++)
     {
         this->q.push_back(top.atoms.atom[i].q);
         this->m.push_back(top.atoms.atom[i].m);
+		this->elem.push_back(top.atoms.atom[i].elem);
     }
 
     return;
@@ -121,4 +125,15 @@ vector <double> Topology::GetMass(string group) const
         m.at(atom) = this->m.at(location);
     }
     return m;
+}
+
+string Topology::GetElem(int atom)
+{
+	return this->elem.at(atom);
+}
+
+string Topology::GetElem(int atom, string group)
+{
+    int location = index.GetLocation(group, atom);
+	return this->elem.at(location);
 }
