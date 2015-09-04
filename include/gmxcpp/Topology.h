@@ -52,6 +52,9 @@ private:
 	Index index;
 	vector <double> q;
 	vector <double> m;
+	vector <string> elem;
+	vector <string> atomname;
+	vector <string> resname;
 	void read(string tprfile);
 
 public:
@@ -134,6 +137,26 @@ vector <double> GetMass() const;
  */
 
 vector <double> GetMass(string group) const;
+
+/**
+ * @brief Gets the element name of an atom.
+ * @param atom The atom number
+ * @return Name of the atom
+ */
+string GetElem(int atom);
+
+/**
+ * @brief Gets the element name of an atom in a specified group.
+ * @param atom The atom number
+ * @return Name of the atom
+ */
+string GetElem(int atom, string group);
+
+string GetAtomName(int atom);
+string GetAtomName(int atom, string group);
+
+string GetResName(int atom);
+string GetResName(int atom, string group);
 
 };
 #endif
