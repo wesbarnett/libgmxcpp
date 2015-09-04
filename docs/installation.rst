@@ -14,9 +14,9 @@ Installing
 -----------
 ::
 
-    wget https://github.com/wesbarnett/libgmxcpp/archive/v3.2.tar.gz
-    tar xvzf libgmxcpp-v3.2.tar.gz
-    cd libgmxcpp-v3.2
+    wget https://github.com/wesbarnett/libgmxcpp/archive/v3.3.1.tar.gz
+    tar xvzf libgmxcpp-v3.3.1.tar.gz
+    cd libgmxcpp-v3.3.1
     mkdir build
     cd build
     cmake ..
