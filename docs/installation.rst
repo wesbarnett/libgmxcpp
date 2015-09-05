@@ -15,7 +15,7 @@ Installing
 
 A typical install consists of [downloading the most recent
 tarball](https://github.com/wesbarnett/libgmxcpp/releases) and extracting it.
-Enter the source directory. Then do:
+Enter the source directory. Then do::
 
     mkdir build
     cd build
