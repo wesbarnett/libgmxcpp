@@ -385,3 +385,25 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
      */
     return 4.0 * M_PI * pow(r, 2) * get_sphere_accept_ratio(sites, r, rand_n, box);
 }
+
+void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    double box_x = box.at(X).at(X);
+    double box_y = box.at(Y).at(Y);
+    double box_z = box.at(Z).at(Z);
+    uniform_real_distribution<double> dis_x(0.0,box_x);
+    uniform_real_distribution<double> dis_y(0.0,box_y);
+    uniform_real_distribution<double> dis_z(0.0,box_z);
+    coordinates point;
+
+    for (int i = 0; i < n; i++)
+    {
+        point.set(dis_x(gen), dis_y(gen), dis_z(gen));
+        xyz.push_back(point);
+    }
+
+    return;
+
+}

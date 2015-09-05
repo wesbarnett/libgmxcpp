@@ -223,6 +223,15 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
  */
 double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box);
 
+/** @brief Generates random points in a box.
+ * @details Given a rectangular box (NOT triclinic), this generates a set of
+ * random points inside the box.
+ * @param xyz The vector containing the random points generated.
+ * @param box The box. NOTE: Must only be rectangular/cubic.
+ * @param n Number of random points to generate.
+ */
+void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n);
+
 /** \addtogroup center_of_mass
  * @{
  */
