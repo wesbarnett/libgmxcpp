@@ -13,8 +13,8 @@ the library links to some of it's functions.
 Installing
 -----------
 
-A typical install consists of [downloading the most recent
-tarball](https://github.com/wesbarnett/libgmxcpp/releases) and extracting it.
+A typical install consists of `downloading the most recent
+tarball <https://github.com/wesbarnett/libgmxcpp/releases>`_ and extracting it.
 Enter the source directory. Then do::
 
     mkdir build
@@ -27,8 +27,8 @@ You may need superuser privileges for the last step, or you may need to specify
 a different installation directory (like your home folder) with the `cmake`
 option `-DCMAKE_INSTALL_PREFIX` above.
 
-Alternatively if you are running [Arch](https://www.archlinux.org/) you can
-[install it from the AUR](https://aur.archlinux.org/packages/libgmxcpp/).
+Alternatively if you are running `Arch <https://www.archlinux.org/>`_ you can
+`install it from the AUR <https://aur.archlinux.org/packages/libgmxcpp/>`_.
 
 Location
 --------
