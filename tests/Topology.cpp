@@ -19,5 +19,15 @@ int main()
     assert(test_equal(top.GetCharge("C").at(2),-0.24));
     assert(test_equal(top.GetCharge("OW").at(0),0.0));
 
+    assert("C"==top.GetElem(0));
+    assert("H"==top.GetElem(1));
+    assert("C"==top.GetElem(1,"C"));
+
+    assert("CH4"==top.GetResName(1,"C"));
+    assert("H1"==top.GetAtomName(1,"CH4"));
+    assert("OW"==top.GetAtomName(1002));
+    cout << top.GetResName(1002) << endl;
+    assert("SOL"==top.GetResName(1002));
+
     return 0;
 }
