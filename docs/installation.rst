@@ -25,7 +25,7 @@ Enter the source directory. Then do::
 
 You may need superuser privileges for the last step, or you may need to specify
 a different installation directory (like your home folder) with the `cmake`
-option `-DCMAKE_INSTALL_PREFIX` above.
+option ``-DCMAKE_INSTALL_PREFIX`` above.
 
 Alternatively if you are running `Arch <https://www.archlinux.org/>`_ you can
 `install it from the AUR <https://aur.archlinux.org/packages/libgmxcpp/>`_.
