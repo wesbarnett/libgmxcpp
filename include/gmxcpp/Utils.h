@@ -38,6 +38,7 @@
 #include <sys/stat.h>
 #include <iostream>
 #include <math.h>
+#include <random>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>

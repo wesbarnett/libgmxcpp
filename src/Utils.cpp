@@ -275,6 +275,9 @@ bool fileExists(string filename)
  */
 coordinates gen_sphere_point(coordinates center, double r)
 {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<double> dist(0.0,1.0);
     double xi_1;
     double xi_2;
     double zeta_1;
@@ -283,8 +286,8 @@ coordinates gen_sphere_point(coordinates center, double r)
     coordinates zeta;
 
     while (zeta2 > 1.0) {
-        xi_1 = (double)rand() / (RAND_MAX);
-        xi_2 = (double)rand() / (RAND_MAX);
+        xi_1 = dist(gen);
+        xi_2 = dist(gen);
         zeta_1 = 1.0 - 2.0 * xi_1;
         zeta_2 = 1.0 - 2.0 * xi_2;
         zeta2 = pow(zeta_1, 2) + pow(zeta_2, 2);
