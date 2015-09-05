@@ -15,16 +15,16 @@ install:
     - sudo make install
     - cd ..
     - rm -rf cmake-3.2.1*
-    - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.0.4.tar.gz
-    - tar xzf gromacs-5.0.4.tar.gz
-    - cd gromacs-5.0.4
+    - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.tar.gz
+    - tar xzf gromacs-5.1.tar.gz
+    - cd gromacs-5.1
     - mkdir build
     - cd build
     - cmake -Wno-dev ..
     - make -j 4
     - sudo make install
     - cd ../..
-    - rm -rf gromacs-5.0.4*
+    - rm -rf gromacs-5.1*
     - cd libgmxcpp
     - source /usr/local/gromacs/bin/GMXRC.bash
     - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/gromacs/include
