@@ -39,11 +39,11 @@ Dihedral angle
 
 Distance
 --------
-.. doxygengroup:: distance
+.. doxygenfunction:: distance
 
 Distance squared
 ----------------
-.. doxygengroup:: distance2
+.. doxygenfunction:: distance2
 
 Dot product
 -----------

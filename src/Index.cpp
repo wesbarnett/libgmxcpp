@@ -117,12 +117,7 @@ bool Index::IsIndexFile(string ndxfile) const
 int Index::GetHeaderIndex(string header) const
 {
     for (unsigned int i = 0; i < headers.size(); i++)
-	{
-        if (headers.at(i) == header)
-		{
-			return i;
-		}
-	}
+        if (headers.at(i) == header) return i;
     throw runtime_error("Group " + header + " is not in the index file!");
 }
 

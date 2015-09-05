@@ -30,40 +30,35 @@
 
 #include "gmxcpp/Utils.h"
 
-coordinates pbc(coordinates &a, triclinicbox &box)
+coordinates pbc(coordinates a, triclinicbox box)
 {
-    coordinates b; // New coordinates
+    coordinates b;
 
     vector <double> box_inv(3);
     double shift;
 
     b = a;
 
-    box_inv.at(X) = ((float)1.0) / box.at(X).at(X); // 1.0 / V1(X)
-    box_inv.at(Y) = ((float)1.0) / box.at(Y).at(Y); // 1.0 / V2(Y)
-    box_inv.at(Z) = ((float)1.0) / box.at(Z).at(Z); // 1.0 / V3(Z)
+    box_inv.at(X) = ((float)1.0) / box.at(X).at(X);
+    box_inv.at(Y) = ((float)1.0) / box.at(Y).at(Y);
+    box_inv.at(Z) = ((float)1.0) / box.at(Z).at(Z);
 
-    // Treat V3 first, since it's the shortest
     shift = round(b.at(Z) * box_inv.at(Z));
-    b.at(Z) -= box.at(Z).at(Z) * shift; // V3(Z)
-    b.at(Y) -= box.at(Z).at(Y) * shift; // V3(Y)
-    b.at(X) -= box.at(Z).at(X) * shift; // V3(X)
+    b.at(Z) -= box.at(Z).at(Z) * shift;
+    b.at(Y) -= box.at(Z).at(Y) * shift;
+    b.at(X) -= box.at(Z).at(X) * shift;
 
-    // Now treat V2 ( note that V2(Z) is always zero for Gromacs, so it is
-    // omitted here)
     shift = round(b.at(Y) * box_inv.at(Y));
-    b.at(Y) -= box.at(Y).at(Y) * shift; // V2(Y)
-    b.at(X) -= box.at(Y).at(X) * shift; // V2(X)
+    b.at(Y) -= box.at(Y).at(Y) * shift;
+    b.at(X) -= box.at(Y).at(X) * shift;
 
-    // Lastly treat V1 (V1(Y) and V1(Z) are always zero for Gromacs, so they are
-    // omitted here)
     shift = round(b.at(X) * box_inv.at(X));
-    b.at(X) -= box.at(X).at(X) * shift; // V1(X)
+    b.at(X) -= box.at(X).at(X) * shift;
 
     return b;
 }
 
-coordinates cross(coordinates &a, coordinates &b)
+coordinates cross(coordinates a, coordinates b)
 {
     coordinates r;
 
@@ -73,40 +68,41 @@ coordinates cross(coordinates &a, coordinates &b)
     return r;
 }
 
-double distance2(coordinates &a, coordinates &b, triclinicbox &box)
+double distance2(coordinates a, coordinates b, triclinicbox box)
 {
     coordinates c = a - b;
-    c = pbc(c,box);
+
+    c = pbc(c, box);
     return dot(c, c);
 }
 
-double distance2(coordinates &a, coordinates &b)
+double distance2(coordinates a, coordinates b)
 {
     coordinates c = a - b;
     return dot(c, c);
 }
 
-double distance(coordinates &a, coordinates &b, triclinicbox &box)
+double distance(coordinates a, coordinates b, triclinicbox box)
 {
     return sqrt(distance2(a, b, box));
 }
 
-double distance(coordinates &a, coordinates &b)
+double distance(coordinates a, coordinates b)
 {
     return sqrt(distance2(a, b));
 }
 
-double dot(coordinates &a, coordinates &b)
+double dot(coordinates a, coordinates b)
 {
     return a.at(X) * b.at(X) + a.at(Y) * b.at(Y) + a.at(Z) * b.at(Z);
 }
 
-double magnitude(coordinates &x)
+double magnitude(coordinates x)
 {
     return sqrt(dot(x, x));
 }
 
-double volume(triclinicbox &box)
+double volume(triclinicbox box)
 {
     return box.at(X).at(X) * box.at(Y).at(Y) * box.at(Z).at(Z) + \
            box.at(X).at(Y) * box.at(Y).at(Z) * box.at(Z).at(X) + \
@@ -116,14 +112,13 @@ double volume(triclinicbox &box)
            box.at(X).at(X) * box.at(Y).at(Z) * box.at(Z).at(Y);
 }
 
-coordinates bond_vector(coordinates &atom1, coordinates &atom2, triclinicbox &box)
+coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
 {
-    coordinates atom3 = atom1 - atom2;
-	return pbc(atom3,box);
+	return pbc(atom1-atom2,box);
 
 }
 
-double bond_angle(coordinates &atom1, coordinates &atom2, coordinates &atom3, triclinicbox &box)
+double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, triclinicbox box)
 {
 	coordinates bond1 = bond_vector(atom2,atom1,box);
 	coordinates bond2 = bond_vector(atom2,atom3,box);
@@ -136,7 +131,7 @@ double bond_angle(coordinates &atom1, coordinates &atom2, coordinates &atom3, tr
 
 }
 
-double dihedral_angle(coordinates &i, coordinates &j, coordinates &k, coordinates &l, triclinicbox &box)
+double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l, triclinicbox box)
 {
 	coordinates H = bond_vector(k,l,box);
 	coordinates G = bond_vector(k,j,box);
@@ -153,7 +148,7 @@ double dihedral_angle(coordinates &i, coordinates &j, coordinates &k, coordinate
 	return phi;
 }
 
-void do_center_group(vector <coordinates> &atom, coordinates &center, triclinicbox &box)
+void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box)
 {
     coordinates r;
     int atom_n = atom.size();
@@ -161,19 +156,16 @@ void do_center_group(vector <coordinates> &atom, coordinates &center, triclinicb
 
     for (i = 0; i < atom_n; i++)
     {
-        r = center-atom.at(i);
-        r = pbc(r,box);
+        r = pbc(center-atom.at(i),box);
         atom.at(i) = center - r;
     }
     return;
 }
 
-coordinates center_of_mass(vector <coordinates> &atom, vector <double> &mass)
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 {
     if (mass.size() != atom.size()) 
-    {
         throw runtime_error("A mass needs to be specified for each atom in com calculation.");
-    }
 
     coordinates com(0.0,0.0,0.0);
     double total_mass = 0.0;
@@ -194,7 +186,7 @@ coordinates center_of_mass(vector <coordinates> &atom, vector <double> &mass)
 /* Ref: Bai, L. and Breen, David. Calculating Center of Mass in an Unbounded 2D Environment
  * doi: 10.1080/2151237X.2008.10129266
  */
-coordinates center_of_geometry(vector <coordinates> &atom, triclinicbox &box)
+coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 {
 
     coordinates cog(0.0,0.0,0.0); // geometric center
@@ -230,12 +222,10 @@ coordinates center_of_geometry(vector <coordinates> &atom, triclinicbox &box)
 
 }
 
-coordinates center_of_mass(vector <coordinates> &atom, vector <double> &mass, triclinicbox &box)
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box)
 {
     if (mass.size() != atom.size()) 
-    {
         throw runtime_error("A mass needs to be specified for each atom in com calculation.");
-    }
     /* Get the center of geometry of the group, taking into account periodic
      * effects. Then center the group around the cog. After that calculate
      * center of mass. */
@@ -266,7 +256,7 @@ ostream& operator<<(ostream &os, triclinicbox box)
     return os;
 }
 
-bool fileExists(string &filename)
+bool fileExists(string filename)
 {
     ifstream infile(filename.c_str());
 
@@ -283,7 +273,7 @@ bool fileExists(string &filename)
  * http://projecteuclid.org/euclid.aoms/1177692644.
  *
  */
-coordinates gen_sphere_point(coordinates &center, double &r)
+coordinates gen_sphere_point(coordinates center, double r)
 {
     double xi_1;
     double xi_2;
@@ -330,11 +320,10 @@ coordinates gen_sphere_point()
     center.at(X) = 0.0;
     center.at(Y) = 0.0;
     center.at(Z) = 0.0;
-    double r = 1.0;
-    return gen_sphere_point(center, r);
+    return gen_sphere_point(center, 1.0);
 }
 
-double get_sphere_accept_ratio(vector <coordinates> &sites, double r, double rand_n, triclinicbox &box)
+double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
 {
     coordinates rand_point;
     double dist2;
@@ -351,18 +340,13 @@ double get_sphere_accept_ratio(vector <coordinates> &sites, double r, double ran
 
             for (k = 0; k < sites_n; k++) {
                 if (i != k) {
-                {
                     dist2 = distance2(sites.at(k), rand_point, box);
-                }
 
                     /*
                      * As soon as one site is closer to the random point than
                      * the site of interest, we can reject that random point.
                      */
-                    if (dist2 < r2) 
-                    {
-                        goto rejectpoint;
-                    }
+                    if (dist2 < r2) goto rejectpoint;
                 }
             }
 
@@ -386,7 +370,7 @@ rejectpoint:
  * The group of atoms could be a molecule or it could be just a cluster of atoms
  * close together or a combination of such.
  */
-double get_surf_area(vector <coordinates> &sites, double r, double rand_n, triclinicbox &box)
+double get_surf_area(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
 {
     /*
      * The area for each site is simply the area of a sphere multiplied by the

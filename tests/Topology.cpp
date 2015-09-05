@@ -4,7 +4,8 @@
 
 int main()
 {
-    Topology top("tests/test.tpr","tests/test.ndx");
+    Index ndx("tests/test.ndx");
+    Topology top("tests/test.tpr",ndx);
 
     assert(test_equal(top.GetCharge(0),-2.40000e-01));
     assert(test_equal(top.GetCharge(99),0.52422));

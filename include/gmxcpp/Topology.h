@@ -60,14 +60,24 @@ private:
 public:
 
 /**
+ * @brief Constructor which reads in a GROMACS tpr file.
+ *
+ * @details Constructor which reads in the tpr file. Currently only reads
+ * charges and masses of each atom into memory.
+ *
+ * @param tprfile Name of the Gromacs tpr file to be read in.
+ */
+Topology(string tprfile);
+
+/**
  * @brief Constructor which reads in a GROMACS tpr file and associates an index
  * file with it.
  * @details Constructor which reads in the tpr file and associates an index file
  * with it. Currently only reads charges and masses of each atom into memory.
+ * @param index Index object to associate with this topology.
  * @param tprfile Name of the Gromacs tpr file to be read in.
- * @param ndxfile Index file to associate with this topology. Optional
  */
-Topology(string tprfile, string ndxfile="none");
+Topology(string tprfile, Index index);
 
 /**
  * @brief Gets the electric charge of the specified atom

@@ -42,6 +42,9 @@
 #include <stdexcept>
 using namespace std;
 
+/** @brief Maximum number of frames to read in. */
+const int MAXFRAMES = 100000;
+
 /**
  * @brief The main class in reading Gromacs files.
  *
@@ -57,7 +60,7 @@ private:
  * @brief Vector of Frame objects which contain all the data in the
  * trajectory.
  */
-vector <Frame*> frameArray;
+vector <Frame> frameArray;
 
 /**
  * @brief Index object containing all group names, sizes, and indices
@@ -84,7 +87,51 @@ int nframes;
 /** @brief Number of atoms in the simulation. */
 int natoms;
 
+/** @brief Reads in the XTC and index files. */
+void read(int initalFrames);
+
+/** @brief Initializes what is necessary for reading in the XTC file */
+void InitXTC(string filename);
+
 public:
+
+/**
+ *  @brief Constructor where only XTC file is read.
+ *
+ *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects.
+ *
+ *  @param xtcfile Name of the Gromacs XTC file to be read in.
+ */
+Trajectory(string xtcfile);
+
+/**
+ * @brief   Constructor where programmer sets maximum frames to be
+ *			read in.
+ *
+ * @details Constructor where then number of frames allocated is set by the
+ *			programmer explicitly. By default, the constructor will only allocate
+ *			100,000 frames. This overrides that to a higher number.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param	maxFrames Maximum number of frames to read in. Default is
+ *			100,000.
+ *
+ */
+Trajectory(string xtcfile, int maxFrames);
+
+/**
+ *
+ * @brief Constructor which reads in both the XTC file and incorporates a
+ * previously read in Index object.
+ *
+ * @details When this constructor is used, both the Gromacs XTC file is
+ * saved in the vector of Frame objects, and the group names and index
+ * numbers from an Index object are copied into the Trajectory object.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param index The Index object which has already had its index file read in.
+ */
+Trajectory(string xtcfile, Index index);
 
 /**
  *
@@ -96,9 +143,37 @@ public:
  * numbers for the index file are saved in an Index object.
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param ndxfile Name of the Gromacs index file to be read in. Optional.
+ * @param ndxfile Name of the Gromacs index file to be read in.
  */
-Trajectory(string xtcfile, string ndxfile="none");
+Trajectory(string xtcfile, string ndxfile);
+
+/**
+ * @brief Constructor which reads in both the XTC file and an index
+ * file and maxFrames specified.
+ *
+ * @details Constructor which reads in xtc file, index file, and the programmer
+ * sets the number of frames to allocate for manually.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param ndxfile Name of the Gromacs index file to be read in.
+ * @param	maxFrames Maximum number of frames to read in. Default is
+ *			100,000.
+ */
+Trajectory(string xtcfile, string ndxfile, int maxFrames);
+
+/**
+ * @brief Constructor which reads in both the XTC file and an index
+ * file and maxFrames specified.
+ *
+ * @details Constructor which reads in xtc file, index file, and the programmer
+ * sets the number of frames to allocate for manually.
+ *
+ * @param xtcfile Name of the Gromacs XTC file to be read in.
+ * @param index The Index object which has already had its index file read in.
+ * @param	maxFrames Maximum number of frames to read in. Default is
+ *			100,000.
+ */
+Trajectory(string xtcfile, Index index, int maxFrames);
 
 /**
  * @brief Gets the number of atoms in a system.
@@ -142,13 +217,12 @@ int GetStep(int frame) const;
  * @param frame Number of the frame desired.
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
-coordinates *GetXYZ(int frame, int atom);
+coordinates GetXYZ(int frame, int atom) const;
 
 /**
  * @brief Gets the coordinates for a specific atom in a group.
  * @details Gets the cartesian coordinates for the atom specified in the specific
  * index group for this frame.
- * @see coordinates
  * @param frame Number of the frame desired.
  * @param groupName Name of index group in which atom is located.
  * @param atom The number corresponding with the atom in the index
@@ -158,13 +232,11 @@ coordinates *GetXYZ(int frame, int atom);
  * the group.
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
-//coordinates GetXYZ(int frame, string groupName, int atom) const;
-coordinates *GetXYZ(int frame, string groupName, int atom);
+coordinates GetXYZ(int frame, string groupName, int atom) const;
 
 /**
  * @brief Gets all of the coordinates for the system for a specific
  * frame.
- * @see coordinates
  * @param frame Number of the frame desired.
  * @return A two dimensional vector with all cartesian coordinates
  * for the system at this frame. The first dimension is the atom number.
@@ -172,16 +244,34 @@ coordinates *GetXYZ(int frame, string groupName, int atom);
  */
 vector <coordinates> GetXYZ(int frame) const;
 
+/**
+ * @brief Gets all of the coordinates for an index group for a specific
+ * frame.
+ * @details
+ * This is the old way.
+ * The new way is to return a vector (see above).
+ * @param frame Number of the frame desired.
+ * @param groupName Name of index group in which atom is located.
+ * @return A two dimensional vector with all cartesian coordinates
+ * for the system at this frame. The first dimension is the atom number
+ * in the group. The second dimension contains the X, Y, and Z positions.
+ */
+vector <coordinates> GetXYZ(int frame, string groupName) const;
 
 /**
  * @brief Gets the triclinic box dimensions for a frame.
  * @param frame Number of the frame desired.
- * @see triclinicbox
  * @return  Two-dimensional array with three elements in each
  * dimension, corresponding to a triclinic box.
  */
-triclinicbox *GetBox(int frame);
+triclinicbox GetBox(int frame) const;
 
+/**
+ * @brief Gets the volume of the box at a specific frame.
+ * @return Box volume.
+ * @param frame Number of the frame desired.
+ */
+double GetBoxVolume(int frame) const;
 };
 
 #endif

@@ -6,12 +6,9 @@ Installation
 Requirements
 ------------
 
-``cmake`` is required for building the library. `GROMACS
+``cmake`` is required for building the library. `Gromacs
 <http://www.gromacs.org/>`_ is required, since
-the library links to some of its functions. Be sure that you have sourced
-``GMXRC`` when you installed GROMACS.
-
-If you want to build the documentation Sphinx is required (see below).
+the library links to some of it's functions.
 
 Installing
 -----------
