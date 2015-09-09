@@ -54,10 +54,13 @@ class Trajectory {
 private:
 
 string filename;
-void init(string xtcfile);
+void init(string filename, int b, int s, int e);
 void open(string filename);
 int readFrame();
+int skipFrame();
 void close();
+
+int count;
 
 /**
  * @brief Vector of Frame objects which contain all the data in the
@@ -98,8 +101,13 @@ public:
  *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects.
  *
  *  @param xtcfile Name of the Gromacs XTC file to be read in.
+ *  @param b First frame to be read in. By default, starts at the first frame
+ *  (frame 0).
+ *  @param s Read in every sth frame.
+ *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  file.
  */
-Trajectory(string xtcfile);
+Trajectory(string xtcfile, int b = 0, int s = 1, int e = -1);
 
 /**
  *
@@ -112,8 +120,13 @@ Trajectory(string xtcfile);
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param index The Index object which has already had its index file read in.
+ *  @param b First frame to be read in. By default, starts at the first frame
+ *  (frame 0).
+ *  @param s Read in every sth frame.
+ *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  file.
  */
-Trajectory(string xtcfile, Index index);
+Trajectory(string xtcfile, Index index, int b = 0, int s = 1, int e = -1);
 
 /**
  *
@@ -126,8 +139,13 @@ Trajectory(string xtcfile, Index index);
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param ndxfile Name of the Gromacs index file to be read in.
+ *  @param b First frame to be read in. By default, starts at the first frame
+ *  (frame 0).
+ *  @param s Read in every sth frame.
+ *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  file.
  */
-Trajectory(string xtcfile, string ndxfile);
+Trajectory(string xtcfile, string ndxfile, int b = 0, int s = 1, int e = -1);
 
 /**
  * @brief Gets the number of atoms in a system.

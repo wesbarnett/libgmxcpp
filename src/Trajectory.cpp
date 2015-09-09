@@ -30,22 +30,22 @@
 
 #include "gmxcpp/Trajectory.h"
 
-Trajectory::Trajectory(string filename)
+Trajectory::Trajectory(string filename, int b, int s, int e)
 {
-    init(filename);
+    init(filename, b, s, e);
 }
 
-Trajectory::Trajectory(string filename, string ndxfile)
+Trajectory::Trajectory(string filename, string ndxfile, int b, int s, int e)
 {
     Index index(ndxfile);
     this->index=index;
-    init(filename);
+    init(filename, b, s, e);
 }
 
-Trajectory::Trajectory(string filename, Index index)
+Trajectory::Trajectory(string filename, Index index, int b, int s, int e)
 {
     this->index=index;
-    init(filename);
+    init(filename, b, s ,e);
 }
 
 /*
@@ -60,9 +60,10 @@ Trajectory::Trajectory(string filename, Index index)
  * and close the xd file pointer from libxdrfile's xdrfile_close.
  */
 
-void Trajectory::init(string filename)
+void Trajectory::init(string filename, int b, int s, int e)
 {
     int status = 0;
+    this->count = 0;
 
     this->filename = filename;
     this->nframes = 0;
@@ -71,12 +72,90 @@ void Trajectory::init(string filename)
 
     try 
     {
+
         open(filename);
+
         cout << "Reading in xtc file: " << endl;
-        while (status == 0) 
+        cout << "Starting frame: " << b << endl;
+
+        if (e == -1)
         {
-            status = readFrame();
+            cout << "Reading to the end of the file." << endl;
         }
+        else
+        {
+            cout << "Ending frame: " << e << endl;
+        }
+
+        if (s == 1)
+        {
+            cout << "Reading in every frame." << endl;
+        }
+        else if (s == 2)
+        {
+            cout << "Reading in every " << s << "nd frame." << endl;
+        }
+        else if (s == 3)
+        { 
+            cout << "Reading in every " << s << "rd frame." << endl;
+        }
+        else if (s >= 4)
+        {
+            cout << "Reading in every " << s << "th frame." << endl;
+        }
+
+        if (e <= b && e != -1)
+        {
+            cout << "NOTE: No frames being saved! Last frame comes before or is equal to first frame in Trajectory call!" << endl;
+        }
+
+        for (int i = 0; i < b; i++)
+        {
+            status = skipFrame();
+            if (status != 0)
+            {
+                break;
+            }
+            count++;
+        }
+
+        if (e == -1)
+        {
+            while (status == 0) 
+            {
+                if (count % s == 0)
+                {
+                    status = readFrame();
+                }
+                else
+                {
+                    status = skipFrame();
+                }
+                count++;
+            }
+        }
+        else
+        {
+            while (status == 0) 
+            {
+                if (count % s == 0)
+                {
+                    status = readFrame();
+                }
+                else
+                {
+                    status = skipFrame();
+                }
+                count++;
+
+                if (count >= e)
+                {
+                    break;
+                }
+
+            }
+        }
+
         close();
     } 
     catch (runtime_error &excpt) 
@@ -111,6 +190,7 @@ void Trajectory::open(string filename)
 int Trajectory::readFrame()
 {
     float time;
+    float prec;
     int status;
     int step;
     matrix box;
@@ -129,12 +209,41 @@ int Trajectory::readFrame()
 
     if (nframes % 10 == 0) 
     {
-        cout << "   frame: " << nframes;
+        cout << "   frame in: " << count;
         cout << " | time (ps): " << time;
-        cout << " | step: " << step << "\r";
+        cout << " | step: " << step;
+        cout << " | frame saved: " << nframes << "\r";
     }
 
     nframes++;
+
+    return 0;
+}
+
+int Trajectory::skipFrame()
+{
+    float time;
+    float prec;
+    int status;
+    int step;
+    matrix box;
+    rvec *x;
+
+    x = new rvec[natoms];
+    status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
+
+    if (status != 0) 
+    {
+        return -1;
+    }
+
+    if (nframes % 10 == 0) 
+    {
+        cout << "   frame in: " << count;
+        cout << " | time (ps): " << time;
+        cout << " | step: " << step;
+        cout << " | frame saved: " << nframes << "\r";
+    }
 
     return 0;
 }
