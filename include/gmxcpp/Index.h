@@ -52,6 +52,11 @@ class Index {
 private:
 
 /**
+ * @brief The name of the index file associated with this object.
+ */
+string filename;
+
+/**
  * @brief The names of the groups in the index file.
  */
 vector <string> headers;
@@ -89,7 +94,7 @@ bool IsIndexFile(string ndxfile) const;
  * or when, in general, an Index object is created but no index file is
  * specified initially.
  */
-bool Set(string ndxfile);
+bool init(string ndxfile);
 
 /**
  * @brief Prints info from index file.
@@ -131,6 +136,12 @@ int GetGroupSize(string groupName) const;
  * @param atomNumber The location of the atom in the group.
  */
 int GetLocation(string groupName, int atomNumber) const;
+
+/**
+ * @brief Gets the filename associated with this object.
+ */
+string GetFilename() const;
+
 };
 
 #endif
