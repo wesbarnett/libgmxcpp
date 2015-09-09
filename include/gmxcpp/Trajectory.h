@@ -53,10 +53,11 @@ using namespace std;
 class Trajectory {
 private:
 
-
 string filename;
-
 void init(string xtcfile);
+void open(string filename);
+int readFrame();
+void close();
 
 /**
  * @brief Vector of Frame objects which contain all the data in the

@@ -30,7 +30,6 @@
 
 #include "gmxcpp/Trajectory.h"
 
-
 Trajectory::Trajectory(string filename)
 {
     init(filename);
@@ -49,70 +48,36 @@ Trajectory::Trajectory(string filename, Index index)
     init(filename);
 }
 
-// Initializes the trajectory object by finding out how many atoms are in the
-// system, saving how many frames we think there might be for memory allocation.
-// Reads in all of the frames from the xtc file. First, we resize frameArray to
-// a it's initial size. Then we read in the xtc file frame by frame using
-// libxdrfile's read_xtc function. We set the relevant data at each frame. If
-// there are more frames left to read in but our vector wasn't large enough we
-// warn the user (although we could do a resize, the user is allowed to choose a
-// smaller number of frames and may not want them). Lastly we resize frameArray
-// and close the xd file pointer from libxdrfile's xdrfile_close.
+/*
+ * Initializes the trajectory object by finding out how many atoms are in the
+ * system, saving how many frames we think there might be for memory allocation.
+ * Reads in all of the frames from the xtc file. First, we resize frameArray to
+ * a it's initial size. Then we read in the xtc file frame by frame using
+ * libxdrfile's read_xtc function. We set the relevant data at each frame. If
+ * there are more frames left to read in but our vector wasn't large enough we
+ * warn the user (although we could do a resize, the user is allowed to choose a
+ * smaller number of frames and may not want them). Lastly we resize frameArray
+ * and close the xd file pointer from libxdrfile's xdrfile_close.
+ */
 
 void Trajectory::init(string filename)
 {
     int status = 0;
-    int step;
-    matrix box;
-    float time;
-    Frame frame;
-    rvec *x;
-    char cfilename[200];
-    cout << endl;
+
     this->filename = filename;
+    this->nframes = 0;
+
+    cout << endl;
 
     try 
     {
-        this->nframes = 0;
-
-        for (unsigned int i = 0; i < filename.size(); i++)
-        {
-            cfilename[i] = filename[i];
-        }
-        cfilename[filename.size()] = '\0';
-        xd = xdrfile_open(cfilename, "r");
-        cout << "Opening xtc file " << filename << "...";
-        if (read_xtc_natoms(cfilename, &natoms) != 0)
-        {
-            throw runtime_error("Cannot open " + this->filename + ".");
-        }
-        cout << "OK" << endl;
-
-        cout << natoms << " particles are in the system." << endl;
-
+        open(filename);
         cout << "Reading in xtc file: " << endl;
-
         while (status == 0) 
         {
-            x = new rvec[natoms];
-            status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
-            if (status != 0) 
-            {
-                break;
-            }
-            frame = Frame(step, time, box, x, natoms);
-            frameArray.push_back(frame);
-            if (nframes % 10 == 0) 
-            {
-                cout << "   frame: " << nframes;
-                cout << " | time (ps): " << time;
-                cout << " | step: " << step << "\r";
-            }
-            nframes++;
+            status = readFrame();
         }
-
-        status = xdrfile_close(xd);
-        cout << endl << "Finished reading in xtc file." << endl << endl;
+        close();
     } 
     catch (runtime_error &excpt) 
     {
@@ -122,6 +87,65 @@ void Trajectory::init(string filename)
     return;
 }
 
+void Trajectory::open(string filename)
+{
+    char cfilename[200];
+
+    for (unsigned int i = 0; i < filename.size(); i++)
+    {
+        cfilename[i] = filename[i];
+    }
+    cfilename[filename.size()] = '\0';
+    xd = xdrfile_open(cfilename, "r");
+    cout << "Opening xtc file " << filename << "...";
+    if (read_xtc_natoms(cfilename, &natoms) != 0)
+    {
+        throw runtime_error("Cannot open " + this->filename + ".");
+    }
+    cout << "OK" << endl;
+    cout << natoms << " particles are in the system." << endl;
+
+    return;
+}
+
+int Trajectory::readFrame()
+{
+    float time;
+    int status;
+    int step;
+    matrix box;
+    rvec *x;
+
+    x = new rvec[natoms];
+    status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
+
+    if (status != 0) 
+    {
+        return -1;
+    }
+
+    Frame frame = Frame(step, time, box, x, natoms);
+    frameArray.push_back(frame);
+
+    if (nframes % 10 == 0) 
+    {
+        cout << "   frame: " << nframes;
+        cout << " | time (ps): " << time;
+        cout << " | step: " << step << "\r";
+    }
+
+    nframes++;
+
+    return 0;
+}
+
+void Trajectory::close()
+{
+    xdrfile_close(xd);
+    cout << endl << "Finished reading in xtc file." << endl << endl;
+
+    return;
+}
 
 // Gets the xyz coordinates when the frame and atom number are specified.
 coordinates Trajectory::GetXYZ(int frame, int atom) const
