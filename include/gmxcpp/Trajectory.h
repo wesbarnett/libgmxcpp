@@ -54,6 +54,8 @@ class Trajectory {
 private:
 
 
+string filename;
+
 void init(string xtcfile);
 
 /**
@@ -223,6 +225,8 @@ triclinicbox GetBox(int frame) const;
  * @param frame Number of the frame desired.
  */
 double GetBoxVolume(int frame) const;
+
+string GetFilename() const;
 };
 
 #endif

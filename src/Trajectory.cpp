@@ -69,6 +69,7 @@ void Trajectory::init(string filename)
     rvec *x;
     char cfilename[200];
     cout << endl;
+    this->filename = filename;
 
     try 
     {
@@ -83,7 +84,7 @@ void Trajectory::init(string filename)
         cout << "Opening xtc file " << filename << "...";
         if (read_xtc_natoms(cfilename, &natoms) != 0)
         {
-            throw runtime_error("Cannot open xtc file.");
+            throw runtime_error("Cannot open " + this->filename + ".");
         }
         cout << "OK" << endl;
 
@@ -182,4 +183,9 @@ int Trajectory::GetStep(int frame) const
 double Trajectory::GetBoxVolume(int frame) const
 {
     return frameArray.at(frame).GetBoxVolume();
+}
+
+string Trajectory::GetFilename() const
+{   
+    return this->filename;
 }
