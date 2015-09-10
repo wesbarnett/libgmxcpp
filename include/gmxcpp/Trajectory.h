@@ -53,44 +53,44 @@ using namespace std;
 class Trajectory {
 private:
 
+/* The name of the .xtc file. */
 string filename;
+
+/* Part of the construction process */
 void init(string filename, int b, int s, int e);
+
+/* Opens the xtc file */
 void open(string filename);
+
+/* Reads a single frame. */
 int readFrame();
+
+/* Reads a frame, but does not save it to the vector of Frame objects. */
 int skipFrame();
+
+/* Closes the xtc file. */
 void close();
 
+/* Keeps track of the frames being read in (esp. when different than those
+ * frames saved. */
 int count;
 
-/**
- * @brief Vector of Frame objects which contain all the data in the
- * trajectory.
- */
+/* Vector of Frame objects which contain all the data in the trajectory. */
 vector <Frame> frameArray;
 
-/**
- * @brief Index object containing all group names, sizes, and indices
- * for the trajectory.
- */
+/* Index object containing all group names, sizes, and indices for the trajectory. */
 Index index;
 
-/**
- * @brief Special file pointer required by libxdrfile to read in
- * XTC files.
- */
+/* Special file pointer required by libxdrfile to read in XTC files. */
 XDRFILE *xd;
 
-/**
- * @brief Precision of coordinates.
- */
+/* Precision of coordinates. */
 float prec;
 
-/**
- * @brief Number of frames in the trajectory.
- */
+/* Number of frames in the Trajectory object. */
 int nframes;
 
-/** @brief Number of atoms in the simulation. */
+/* Number of atoms in the simulation. */
 int natoms;
 
 public:
@@ -220,8 +220,6 @@ vector <coordinates> GetXYZ(int frame) const;
  * @brief Gets all of the coordinates for an index group for a specific
  * frame.
  * @details
- * This is the old way.
- * The new way is to return a vector (see above).
  * @param frame Number of the frame desired.
  * @param groupName Name of index group in which atom is located.
  * @return A two dimensional vector with all cartesian coordinates
