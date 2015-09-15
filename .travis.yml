@@ -8,9 +8,9 @@ addons:
             -tcsh
             -python-sphinx
 install: 
-    - wget -q http://www.cmake.org/files/v3.2/cmake-3.2.1.tar.gz
-    - tar xzf cmake-3.2.1.tar.gz
-    - cd cmake-3.2.1
+    - wget -q http://www.cmake.org/files/v3.3/cmake-3.3.1.tar.gz
+    - tar xzf cmake-3.3.1.tar.gz
+    - cd cmake-3.3.1
     - ./configure --prefix=$HOME/cmake
     - make -j 4
     - make install
@@ -27,7 +27,6 @@ install:
     - rm -rf gromacs-5.1*
     - source $HOME/gromacs/bin/GMXRC.bash
     - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/gromacs/include
-    - pwd
 script: 
     - mkdir build 
     - cd build
