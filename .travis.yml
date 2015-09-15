@@ -5,7 +5,7 @@ addons:
     apt:
         packages:
             -doxygen
-            -libfftw3-3
+            -libfftw3-single3
             -libfftw3-dev
             -tcsh
             -python-sphinx
