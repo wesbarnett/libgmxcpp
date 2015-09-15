@@ -5,8 +5,6 @@ addons:
     apt:
         packages:
             -doxygen
-            -libfftw3-single3
-            -libfftw3-dev
             -tcsh
             -python-sphinx
 install: 
@@ -22,7 +20,7 @@ install:
     - cd gromacs-5.1
     - mkdir build
     - cd build
-    - $HOME/cmake/bin/cmake -Wno-dev -DCMAKE_INSTALL_PREFIX=$HOME/gromacs ..
+    - $HOME/cmake/bin/cmake .. -Wno-dev -DCMAKE_INSTALL_PREFIX=$HOME/gromacs -DGMX_BUILD_OWN_FFTW=ON
     - make -j 4
     - make install
     - cd ../..
