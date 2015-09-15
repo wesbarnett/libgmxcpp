@@ -1,37 +1,33 @@
 language: cpp
 compiler: gcc
+sudo: false
+addons:
+    apt:
+        packages:
+            -cmake
+            -doxygen
+            -libfftw3-3
+            -libfftw3-dev
+            -tcsh
+            -python-sphinx
 install: 
-    - sudo apt-get update -qq
-    - sudo apt-get install doxygen libfftw3-3 libfftw3-dev tcsh -qq
-    - sudo pip install --upgrade pip -q
-    - sudo pip install sphinx -q
-    - sudo pip install breathe -q
-    - cd ..
-    - wget -q http://www.cmake.org/files/v3.2/cmake-3.2.1.tar.gz
-    - tar xzf cmake-3.2.1.tar.gz
-    - cd cmake-3.2.1
-    - ./configure
-    - make -j 4
-    - sudo make install
-    - cd ..
-    - rm -rf cmake-3.2.1*
     - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.tar.gz
     - tar xzf gromacs-5.1.tar.gz
     - cd gromacs-5.1
     - mkdir build
     - cd build
-    - cmake -Wno-dev ..
+    - cmake -Wno-dev -DCMAKE_INSTALL_PREFIX=$HOME/gromacs ..
     - make -j 4
-    - sudo make install
+    - make install
     - cd ../..
     - rm -rf gromacs-5.1*
     - cd libgmxcpp
-    - source /usr/local/gromacs/bin/GMXRC.bash
-    - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/gromacs/include
+    - source $HOME/gromacs/bin/GMXRC.bash
+    - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/gromacs/include
 script: 
     - mkdir build 
     - cd build
     - cmake .. 
-    - make
+    - make -j 4
     - make test
-    - make docs
+#   - make docs
