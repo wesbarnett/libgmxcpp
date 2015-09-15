@@ -17,13 +17,12 @@ install:
     - make -j 4
     - make install
     - cd ..
-    - export PATH=$PATH:$HOME/cmake/bin
     - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.tar.gz
     - tar xzf gromacs-5.1.tar.gz
     - cd gromacs-5.1
     - mkdir build
     - cd build
-    - cmake -Wno-dev -DCMAKE_INSTALL_PREFIX=$HOME/gromacs ..
+    - $HOME/cmake/bin/cmake -Wno-dev -DCMAKE_INSTALL_PREFIX=$HOME/gromacs ..
     - make -j 4
     - make install
     - cd ../..
