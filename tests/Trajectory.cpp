@@ -96,22 +96,22 @@ int main()
     assert(test_equal(tc7.at(Y), 1.206));
     assert(test_equal(tc7.at(Z), 1.413));
 
-    Trajectory t3("tests/test.xtc", 10);
-    assert(test_equal(t3.GetNFrames(), 10));
+    Trajectory t3("tests/test.xtc", index, 1000, 1, 1001);
+    coordinates tc8 = t3.GetXYZ(0, "OW", 999);
+    assert(test_equal(tc8.at(X), 1.040));
+    assert(test_equal(tc8.at(Y), 1.206));
+    assert(test_equal(tc8.at(Z), 1.413));
 
-    Trajectory t4("tests/test.xtc", "tests/test.ndx", 10);
-    assert(test_equal(t4.GetNFrames(), 10));
+    Trajectory t4("tests/test.xtc", index, 0, 5, 1001);
+    coordinates tc9 = t4.GetXYZ(200, "OW", 999);
+    assert(test_equal(tc9.at(X), 1.040));
+    assert(test_equal(tc9.at(Y), 1.206));
+    assert(test_equal(tc9.at(Z), 1.413));
 
-    vector <coordinates> tc8 = t4.GetXYZ(3,"C");
-    assert(test_equal(tc8.at(0).at(X), 0.532));
-    assert(test_equal(tc8.at(0).at(Y), 2.833));
-    assert(test_equal(tc8.at(0).at(Z), 2.718));
-    assert(test_equal(tc8.at(4).at(X), 2.474));
-    assert(test_equal(tc8.at(4).at(Y), 1.417));
-    assert(test_equal(tc8.at(4).at(Z), 2.398));
-    assert(test_equal(tc8.at(9).at(X), 1.095));
-    assert(test_equal(tc8.at(9).at(Y), 2.881));
-    assert(test_equal(tc8.at(9).at(Z), 1.157));
+    Trajectory t5("tests/test.xtc", index, 0, 5);
+    coordinates tc10 = t5.GetXYZ(200, "OW", 999);
+    assert(test_equal(tc10.at(X), 1.040));
+    assert(test_equal(tc10.at(Y), 1.206));
+    assert(test_equal(tc10.at(Z), 1.413));
 
-    // TODO add test for reading in entire frame
 }

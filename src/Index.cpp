@@ -37,11 +37,11 @@ Index::Index()
 
 Index::Index(string ndxfile)
 {
-    Set(ndxfile);
+    init(ndxfile);
     return;
 }
 
-bool Index::Set(string ndxfile)
+bool Index::init(string ndxfile)
 {
     ifstream iFS;
     istringstream linestream;
@@ -49,17 +49,26 @@ bool Index::Set(string ndxfile)
     int num;
     int groupNum = 0;
 
+    this->filename = ndxfile;
+
     cout << "Reading in index file " << ndxfile << "...";
 
-    if (!IsIndexFile(ndxfile)) throw runtime_error("Not a valid index file.");
-
+    if (!IsIndexFile(ndxfile)) 
+    {
+        throw runtime_error(this->filename + "is not a valid index file.");
+    }
 
     iFS.open(ndxfile.c_str());
 
-    if (!iFS.is_open()) throw runtime_error("Cannot open index file.");
+    if (!iFS.is_open()) 
+    {
+        throw runtime_error("Cannot open " + this->filename);
+    }
 
-    while (getline(iFS, line)) {
-        if (isHeader(line)) {
+    while (getline(iFS, line)) 
+    {
+        if (isHeader(line)) 
+        {
             header = line.substr(2, line.length() - 4);
             headers.push_back(header);
             groupNum++;
@@ -70,10 +79,14 @@ bool Index::Set(string ndxfile)
 
     groupNum = -1;
     iFS.open(ndxfile.c_str());
-    while (getline(iFS, line)) {
-        if (isHeader(line)) {
+    while (getline(iFS, line)) 
+    {
+        if (isHeader(line)) 
+        {
             groupNum++;
-        } else if (line.length() != 0) {
+        } 
+        else if (line.length() != 0) 
+        {
             linestream.clear();
             linestream.str(line);
             while (linestream >> num)
@@ -109,7 +122,10 @@ bool Index::IsIndexFile(string ndxfile) const
     getline(iFS, line);
     iFS.close();
 
-    if (isHeader(line)) return true;
+    if (isHeader(line)) 
+    {
+        return true;
+    }
 
     return false;
 }
@@ -117,24 +133,35 @@ bool Index::IsIndexFile(string ndxfile) const
 int Index::GetHeaderIndex(string header) const
 {
     for (unsigned int i = 0; i < headers.size(); i++)
-        if (headers.at(i) == header) return i;
-    throw runtime_error("Group " + header + " is not in the index file!");
+    {
+        if (headers.at(i) == header)
+        { 
+            return i;
+        }
+    }
+    throw runtime_error("Group " + header + " is not in " + this->filename + "!");
 }
 
 int Index::GetGroupSize(string header) const
 {
-    try {
+    try 
+    {
         return locations.at(GetHeaderIndex(header)).size();
-    } catch (runtime_error &excpt) {
+    } 
+    catch (runtime_error &excpt) 
+    {
         terminate();
     }
 }
 
 int Index::GetLocation(string header, int i) const
 {
-    try {
+    try 
+    {
         return locations.at(GetHeaderIndex(header)).at(i) - 1;
-    } catch (runtime_error &excpt) {
+    } 
+    catch (runtime_error &excpt) 
+    {
         terminate();
     }
 }
@@ -142,4 +169,9 @@ int Index::GetLocation(string header, int i) const
 bool Index::isHeader(string line) const
 {
     return line[0] == '[' && line[line.length() - 1] == ']';
+}
+
+string Index::GetFilename() const
+{
+    return this->filename;
 }

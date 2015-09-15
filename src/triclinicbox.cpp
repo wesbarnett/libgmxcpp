@@ -34,14 +34,18 @@ triclinicbox::triclinicbox()
 {
     this->resize(DIM);
     for (int i = 0; i < DIM; i++)
+    {
         this->at(i).resize(DIM);
+    }
 }
 
 triclinicbox::triclinicbox(double x1, double x2, double x3, double y1, double y2, double y3, double z1, double z2, double z3)
 {
     this->resize(DIM);
     for (int i = 0; i < DIM; i++)
+    {
         this->at(i).resize(DIM);
+    }
     this->at(X).at(X) = x1;
     this->at(X).at(Y) = x2;
     this->at(X).at(Z) = x3;
@@ -57,7 +61,9 @@ triclinicbox::triclinicbox(double x, double y, double z)
 {
     this->resize(DIM);
     for (int i = 0; i < DIM; i++)
+    {
         this->at(i).resize(DIM);
+    }
     this->at(X).at(X) = x;
     this->at(X).at(Y) = 0.0;
     this->at(X).at(Z) = 0.0;

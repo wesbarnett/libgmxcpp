@@ -42,9 +42,6 @@
 #include <stdexcept>
 using namespace std;
 
-/** @brief Maximum number of frames to read in. */
-const int MAXFRAMES = 100000;
-
 /**
  * @brief The main class in reading Gromacs files.
  *
@@ -56,42 +53,45 @@ const int MAXFRAMES = 100000;
 class Trajectory {
 private:
 
-/**
- * @brief Vector of Frame objects which contain all the data in the
- * trajectory.
- */
+/* The name of the .xtc file. */
+string filename;
+
+/* Part of the construction process */
+void init(string filename, int b, int s, int e);
+
+/* Opens the xtc file */
+void open(string filename);
+
+/* Reads a single frame. */
+int readFrame();
+
+/* Reads a frame, but does not save it to the vector of Frame objects. */
+int skipFrame();
+
+/* Closes the xtc file. */
+void close();
+
+/* Keeps track of the frames being read in (esp. when different than those
+ * frames saved. */
+int count;
+
+/* Vector of Frame objects which contain all the data in the trajectory. */
 vector <Frame> frameArray;
 
-/**
- * @brief Index object containing all group names, sizes, and indices
- * for the trajectory.
- */
+/* Index object containing all group names, sizes, and indices for the trajectory. */
 Index index;
 
-/**
- * @brief Special file pointer required by libxdrfile to read in
- * XTC files.
- */
+/* Special file pointer required by libxdrfile to read in XTC files. */
 XDRFILE *xd;
 
-/**
- * @brief Precision of coordinates.
- */
+/* Precision of coordinates. */
 float prec;
 
-/**
- * @brief Number of frames in the trajectory.
- */
+/* Number of frames in the Trajectory object. */
 int nframes;
 
-/** @brief Number of atoms in the simulation. */
+/* Number of atoms in the simulation. */
 int natoms;
-
-/** @brief Reads in the XTC and index files. */
-void read(int initalFrames);
-
-/** @brief Initializes what is necessary for reading in the XTC file */
-void InitXTC(string filename);
 
 public:
 
@@ -101,23 +101,13 @@ public:
  *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects.
  *
  *  @param xtcfile Name of the Gromacs XTC file to be read in.
+ *  @param b First frame to be read in. By default, starts at the first frame
+ *  (frame 0).
+ *  @param s Read in every sth frame.
+ *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  file.
  */
-Trajectory(string xtcfile);
-
-/**
- * @brief   Constructor where programmer sets maximum frames to be
- *			read in.
- *
- * @details Constructor where then number of frames allocated is set by the
- *			programmer explicitly. By default, the constructor will only allocate
- *			100,000 frames. This overrides that to a higher number.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param	maxFrames Maximum number of frames to read in. Default is
- *			100,000.
- *
- */
-Trajectory(string xtcfile, int maxFrames);
+Trajectory(string xtcfile, int b = 0, int s = 1, int e = -1);
 
 /**
  *
@@ -130,8 +120,13 @@ Trajectory(string xtcfile, int maxFrames);
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param index The Index object which has already had its index file read in.
+ *  @param b First frame to be read in. By default, starts at the first frame
+ *  (frame 0).
+ *  @param s Read in every sth frame.
+ *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  file.
  */
-Trajectory(string xtcfile, Index index);
+Trajectory(string xtcfile, Index index, int b = 0, int s = 1, int e = -1);
 
 /**
  *
@@ -144,36 +139,13 @@ Trajectory(string xtcfile, Index index);
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param ndxfile Name of the Gromacs index file to be read in.
+ *  @param b First frame to be read in. By default, starts at the first frame
+ *  (frame 0).
+ *  @param s Read in every sth frame.
+ *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  file.
  */
-Trajectory(string xtcfile, string ndxfile);
-
-/**
- * @brief Constructor which reads in both the XTC file and an index
- * file and maxFrames specified.
- *
- * @details Constructor which reads in xtc file, index file, and the programmer
- * sets the number of frames to allocate for manually.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param ndxfile Name of the Gromacs index file to be read in.
- * @param	maxFrames Maximum number of frames to read in. Default is
- *			100,000.
- */
-Trajectory(string xtcfile, string ndxfile, int maxFrames);
-
-/**
- * @brief Constructor which reads in both the XTC file and an index
- * file and maxFrames specified.
- *
- * @details Constructor which reads in xtc file, index file, and the programmer
- * sets the number of frames to allocate for manually.
- *
- * @param xtcfile Name of the Gromacs XTC file to be read in.
- * @param index The Index object which has already had its index file read in.
- * @param	maxFrames Maximum number of frames to read in. Default is
- *			100,000.
- */
-Trajectory(string xtcfile, Index index, int maxFrames);
+Trajectory(string xtcfile, string ndxfile, int b = 0, int s = 1, int e = -1);
 
 /**
  * @brief Gets the number of atoms in a system.
@@ -248,8 +220,6 @@ vector <coordinates> GetXYZ(int frame) const;
  * @brief Gets all of the coordinates for an index group for a specific
  * frame.
  * @details
- * This is the old way.
- * The new way is to return a vector (see above).
  * @param frame Number of the frame desired.
  * @param groupName Name of index group in which atom is located.
  * @return A two dimensional vector with all cartesian coordinates
@@ -272,6 +242,8 @@ triclinicbox GetBox(int frame) const;
  * @param frame Number of the frame desired.
  */
 double GetBoxVolume(int frame) const;
+
+string GetFilename() const;
 };
 
 #endif

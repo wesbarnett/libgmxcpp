@@ -247,9 +247,12 @@ ostream& operator<<(ostream &os, coordinates xyz)
 
 ostream& operator<<(ostream &os, triclinicbox box)
 {
-    for (int j = 0; j < DIM; j++) {
+    for (int j = 0; j < DIM; j++) 
+    {
         for (int k = 0; k < DIM; k++)
+        {
             os << box.at(j).at(k) << " ";
+        }
         os << endl;
     }
     os << endl;
@@ -259,7 +262,6 @@ ostream& operator<<(ostream &os, triclinicbox box)
 bool fileExists(string filename)
 {
     ifstream infile(filename.c_str());
-
     return infile.good();
 }
 
@@ -275,6 +277,9 @@ bool fileExists(string filename)
  */
 coordinates gen_sphere_point(coordinates center, double r)
 {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<double> dist(0.0,1.0);
     double xi_1;
     double xi_2;
     double zeta_1;
@@ -282,9 +287,10 @@ coordinates gen_sphere_point(coordinates center, double r)
     double zeta2 = 100.0;
     coordinates zeta;
 
-    while (zeta2 > 1.0) {
-        xi_1 = (double)rand() / (RAND_MAX);
-        xi_2 = (double)rand() / (RAND_MAX);
+    while (zeta2 > 1.0) 
+    {
+        xi_1 = dist(gen);
+        xi_2 = dist(gen);
         zeta_1 = 1.0 - 2.0 * xi_1;
         zeta_2 = 1.0 - 2.0 * xi_2;
         zeta2 = pow(zeta_1, 2) + pow(zeta_2, 2);
@@ -334,12 +340,16 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
     int k;
     int sites_n = sites.size();
 
-    for (i = 0; i < sites_n; i++) {
-        for (j = 0; j < rand_n; j++) {
+    for (i = 0; i < sites_n; i++) 
+    {
+        for (j = 0; j < rand_n; j++) 
+        {
             rand_point = gen_sphere_point(sites.at(i), r);
 
-            for (k = 0; k < sites_n; k++) {
-                if (i != k) {
+            for (k = 0; k < sites_n; k++) 
+            {
+                if (i != k) 
+                {
                     dist2 = distance2(sites.at(k), rand_point, box);
 
                     /*
@@ -381,4 +391,26 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
      * is jus the sum of all accepted points.
      */
     return 4.0 * M_PI * pow(r, 2) * get_sphere_accept_ratio(sites, r, rand_n, box);
+}
+
+void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    double box_x = box.at(X).at(X);
+    double box_y = box.at(Y).at(Y);
+    double box_z = box.at(Z).at(Z);
+    uniform_real_distribution<double> dis_x(0.0,box_x);
+    uniform_real_distribution<double> dis_y(0.0,box_y);
+    uniform_real_distribution<double> dis_z(0.0,box_z);
+    coordinates point;
+
+    for (int i = 0; i < n; i++)
+    {
+        point.set(dis_x(gen), dis_y(gen), dis_z(gen));
+        xyz.push_back(point);
+    }
+
+    return;
+
 }

@@ -30,9 +30,7 @@
 
 #include "gmxcpp/Frame.h"
 
-Frame::Frame()
-{
-}
+Frame::Frame() { }
 
 Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
 {
@@ -46,8 +44,12 @@ void Frame::Set(int step, float time, matrix box, rvec *x, int natoms)
     this->step = step;
     this->time = time;
     for (int i = 0; i < DIM; i++)
+    {
         for (int j = 0; j < DIM; j++)
+        {
             this->box[i][j] = box[i][j];
+        }
+    }
     this->x = x;
     this->natoms = natoms;
     return;
@@ -77,7 +79,8 @@ vector <coordinates> Frame::GetXYZ() const
 {
     vector <coordinates> xyz;
     xyz.resize(natoms);
-    for (int atom = 0; atom < natoms; atom++) {
+    for (int atom = 0; atom < natoms; atom++) 
+    {
         xyz.at(atom).at(X) = this->x[atom][X];
         xyz.at(atom).at(Y) = this->x[atom][Y];
         xyz.at(atom).at(Z) = this->x[atom][Z];
@@ -91,7 +94,8 @@ vector <coordinates> Frame::GetXYZ(Index index, string group) const
 
     vector <coordinates> xyz;
     xyz.resize(index.GetGroupSize(group));
-    for (int atom = 0; atom < index.GetGroupSize(group); atom++) {
+    for (int atom = 0; atom < index.GetGroupSize(group); atom++) 
+    {
         location = index.GetLocation(group, atom);
         xyz.at(atom).at(X) = this->x[location][X];
         xyz.at(atom).at(Y) = this->x[location][Y];
@@ -105,14 +109,17 @@ triclinicbox Frame::GetBox() const
     triclinicbox box;
 
     for (int i = 0; i < DIM; i++)
+    {
         for (int j = 0; j < DIM; j++)
+        {
             box.at(i).at(j) = this->box[i][j];
+        }
+    }
     return box;
 }
 
 double Frame::GetBoxVolume() const
 {
     triclinicbox box = GetBox();
-
     return volume(box);
 }

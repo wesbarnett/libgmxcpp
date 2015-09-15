@@ -51,28 +51,27 @@ using namespace std;
 class Index {
 private:
 
-/**
- * @brief The names of the groups in the index file.
- */
+/* The name of the index file associated with this object. */
+string filename;
+
+/* The names of the groups in the index file. */
 vector <string> headers;
 
-/**
- * @brief The index locations for each group.
- */
+/* The index locations for each group. */
 vector < vector <int> > locations;
 
 /**
- * @brief Translates the string name of a header to its correct index integer.
- * @details If the header is not present in the index file, throw an exception
- * @param groupName Name of the group.
- * @return Integer corresponding with header (used in headers vector).
+ * Translates the string name of a header to its correct index integer.
+ * If the header is not present in the index file, throw an exception
+ * param groupName Name of the group.
+ * return Integer corresponding with header (used in headers vector).
  */
 int GetHeaderIndex(string groupName) const;
 
 /**
- * @brief Checks if a line read in is a header (group name).
- * @param line Line read in from index file.
- * @return True if is a header; false otherwise.
+ * brief Checks if a line read in is a header (group name).
+ * param line Line read in from index file.
+ * return True if is a header; false otherwise.
  */
 bool isHeader(string line) const;
 
@@ -84,15 +83,15 @@ bool isHeader(string line) const;
 bool IsIndexFile(string ndxfile) const;
 
 /**
- * @brief Reads in the GROMACS index file specified.
- * @details See above constructor. This is used in the Trajectory object
+ * brief Reads in the GROMACS index file specified.
+ * details See above constructor. This is used in the Trajectory object
  * or when, in general, an Index object is created but no index file is
  * specified initially.
  */
-bool Set(string ndxfile);
+bool init(string ndxfile);
 
 /**
- * @brief Prints info from index file.
+ * brief Prints info from index file.
  */
 void PrintInfo() const;
 
@@ -131,6 +130,12 @@ int GetGroupSize(string groupName) const;
  * @param atomNumber The location of the atom in the group.
  */
 int GetLocation(string groupName, int atomNumber) const;
+
+/**
+ * @brief Gets the filename associated with this object.
+ */
+string GetFilename() const;
+
 };
 
 #endif

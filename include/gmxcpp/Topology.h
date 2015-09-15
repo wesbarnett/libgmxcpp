@@ -141,21 +141,47 @@ vector <double> GetMass(string group) const;
 /**
  * @brief Gets the element name of an atom.
  * @param atom The atom number
- * @return Name of the atom
+ * @return Name of the element
  */
 string GetElem(int atom);
 
 /**
  * @brief Gets the element name of an atom in a specified group.
  * @param atom The atom number
- * @return Name of the atom
+ * @param group Index group of which the atom belongs
+ * @return Name of the element
  */
+//TODO Doesn't seem to work?
 string GetElem(int atom, string group);
 
+/**
+ * @brief Gets the atom name of an atom.
+ * @param atom The atom number
+ * @return Name of the atom
+ */
 string GetAtomName(int atom);
+
+/**
+ * @brief Gets the element name of an atom in a specified group.
+ * @param atom The atom number
+ * @param group Index group of which the atom belongs
+ * @return Name of the element
+ */
 string GetAtomName(int atom, string group);
 
+/**
+ * @brief Gets the residue name of an atom.
+ * @param atom The atom number
+ * @return Name of the residue
+ */
 string GetResName(int atom);
+
+/**
+ * @brief Gets the residue name of an atom in a specified group.
+ * @param atom The atom number
+ * @param group Index group of which the atom belongs
+ * @return Name of the residue
+ */
 string GetResName(int atom, string group);
 
 };

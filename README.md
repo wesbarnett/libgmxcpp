@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=releases)](https://travis-ci.org/wesbarnett/libgmxcpp)
+[![Build Status](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=master)](https://travis-ci.org/wesbarnett/libgmxcpp)
 [![Documentation
-Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=v3.3.1)](https://readthedocs.org/projects/libgmxcpp/?badge=v3.3.1)
+Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](https://readthedocs.org/projects/libgmxcpp/?badge=master)
 
 This is a C++ toolkit used for reading in GROMACS files (.xtc, .ndx, and .tpr) for
 use in analyzing simulation results. This interfaces with libxdrfile and

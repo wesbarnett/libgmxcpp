@@ -57,6 +57,10 @@ Periodic boundary condition
 ---------------------------
 .. doxygenfunction:: pbc
 
+Random points in a box
+----------------------
+.. doxygengroup:: gen_rand_box_points
+
 Random point on sphere
 ----------------------
 .. doxygengroup:: gen_sphere_point
