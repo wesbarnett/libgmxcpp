@@ -13,7 +13,7 @@ install:
     - wget -q http://www.cmake.org/files/v3.2/cmake-3.2.1.tar.gz
     - tar xzf cmake-3.2.1.tar.gz
     - cd cmake-3.2.1
-    - ./configure --PREFIX=$HOME/cmake
+    - ./configure --prefix=$HOME/cmake
     - make -j 4
     - make install
     - cd ..
