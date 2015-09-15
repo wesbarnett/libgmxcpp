@@ -25,7 +25,7 @@ install:
     - make install
     - cd ../..
     - rm -rf gromacs-5.1*
-    - cd libgmxcpp
+    - cd wesbarnett/libgmxcpp
     - source $HOME/gromacs/bin/GMXRC.bash
     - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/gromacs/include
 script: 
