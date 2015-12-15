@@ -9,13 +9,13 @@ addons:
             -python-sphinx
             -cmake
 install: 
-    - wget -g https://cmake.org/files/v3.4/cmake-3.4.1.tar.gz
+    - wget https://cmake.org/files/v3.4/cmake-3.4.1.tar.gz
     - tar xzf cmake-3.4.1.tar.gz
     - cd cmake-3.4.1
     - ./configure --prefix=$HOME/cmake/
     - make
     - make install
-    - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.1.tar.gz
+    - wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.1.tar.gz
     - tar xzf gromacs-5.1.1.tar.gz
     - cd gromacs-5.1.1
     - mkdir build
