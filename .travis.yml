@@ -7,24 +7,18 @@ addons:
             -doxygen
             -tcsh
             -python-sphinx
+            -cmake
 install: 
-    - wget -q http://www.cmake.org/files/v3.3/cmake-3.3.1.tar.gz
-    - tar xzf cmake-3.3.1.tar.gz
-    - cd cmake-3.3.1
-    - ./configure --prefix=$HOME/cmake
-    - make -j 4
-    - make install
-    - cd ..
-    - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.tar.gz
-    - tar xzf gromacs-5.1.tar.gz
-    - cd gromacs-5.1
+    - wget -q ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.1.tar.gz
+    - tar xzf gromacs-5.1.1.tar.gz
+    - cd gromacs-5.1.1
     - mkdir build
     - cd build
     - $HOME/cmake/bin/cmake .. -Wno-dev -DCMAKE_INSTALL_PREFIX=$HOME/gromacs -DGMX_BUILD_OWN_FFTW=ON
     - make -j 4
     - make install
     - cd ../..
-    - rm -rf gromacs-5.1*
+    - rm -rf gromacs-5.1.1*
     - source $HOME/gromacs/bin/GMXRC.bash
     - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/gromacs/include
 script: 
