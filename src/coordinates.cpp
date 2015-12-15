@@ -28,7 +28,7 @@
  * @see coordinates.h
  */
 
-#include "coordinates.h"
+#include "gmxcpp/coordinates.h"
 
 coordinates::coordinates(double x, double y, double z)
 {

@@ -12,8 +12,8 @@
  */
 
 #include <stdlib.h>
-#include "xdrfile.h"
-#include "xdrfile_xtc.h"
+#include "gmxcpp/xdrfile.h"
+#include "gmxcpp/xdrfile_xtc.h"
 
 #define MAGIC 1995
 
