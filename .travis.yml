@@ -31,7 +31,7 @@ install:
 script: 
     - mkdir build 
     - cd build
-    - cmake .. 
+    - $HOME/cmake/bin/cmake .. 
     - make -j 4
     - make test
 #   - make docs
