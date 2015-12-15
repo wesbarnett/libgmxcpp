@@ -28,7 +28,7 @@
  * @see Topology.h
  */
 
-#include "gmxcpp/Topology.h"
+#include "Topology.h"
 
 // Currently just saves charges and mass to an array. TODO: save all info!
 Topology::Topology(string tprfile)

@@ -1,4 +1,4 @@
-#include "gmxcpp/Clusters.h"
+#include "Clusters.h"
 
 Clusters::Clusters(int mol_n, int atoms_per_mol)
 {

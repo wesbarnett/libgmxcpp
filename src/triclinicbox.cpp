@@ -28,7 +28,7 @@
  * @see triclinicbox.h
  */
 
-#include "gmxcpp/triclinicbox.h"
+#include "triclinicbox.h"
 
 triclinicbox::triclinicbox()
 {

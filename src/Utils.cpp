@@ -28,7 +28,7 @@
  * @see Utils.h
  */
 
-#include "gmxcpp/Utils.h"
+#include "Utils.h"
 
 coordinates pbc(coordinates a, triclinicbox box)
 {

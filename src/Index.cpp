@@ -28,7 +28,7 @@
  * @see Index.h
  */
 
-#include "gmxcpp/Index.h"
+#include "Index.h"
 
 Index::Index()
 {

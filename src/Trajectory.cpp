@@ -28,7 +28,7 @@
  * @see Trajectory.h
  */
 
-#include "gmxcpp/Trajectory.h"
+#include "Trajectory.h"
 
 Trajectory::Trajectory(string filename, int b, int s, int e)
 {
