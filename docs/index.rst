@@ -34,12 +34,6 @@ Advantages
 
 .. image:: images/screenshot.png
 
-Development
------------
-
-The development branch is ``master``. Commits are then merged into releases in
-the ``releases`` branch.
-
 .. toctree::
 
    installation
