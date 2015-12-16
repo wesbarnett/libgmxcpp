@@ -28,6 +28,7 @@
 
 #ifndef FRAME_H
 #define FRAME_H
+
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
 #include "gmxcpp/Index.h"
@@ -55,11 +56,10 @@ int natoms;
 int step;
 /** Simulation time (picoseconds) corresponding with this frame. */
 float time;
-/** Coordinates for all atoms in this frame. rvec comes from libxdrfile.
- * */
-rvec *x;
-/** Box dimensions for this frame. matrix comes from libxdrfile. */
-matrix box;
+/** Coordinates for all atoms in this frame. */
+vector <coordinates> x;
+/** Box dimensions for this frame. */
+triclinicbox box;
 public:
 
 /** @brief Blank constructor used in Trajectory. */
