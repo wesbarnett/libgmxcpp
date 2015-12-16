@@ -20,4 +20,4 @@
 #
 
 all:
-	g++ example.cpp - o example - lgmxcpp
+	g++ example.cpp -o example -lgmxcpp
