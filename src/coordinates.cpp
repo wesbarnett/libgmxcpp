@@ -128,3 +128,12 @@ void coordinates::operator*=(double rhs)
     this->at(Y) *= rhs;
     this->at(Z) *= rhs;
 }
+
+void coordinates::operator=(double rhs)
+{
+    this->at(X) = rhs;
+    this->at(Y) = rhs;
+    this->at(Z) = rhs;
+    return;
+}
+

@@ -81,6 +81,9 @@ void operator/=(double rhs);
 /** Multiplies X, Y, and Z by a scalar **/
 void operator*=(double rhs);
 
+/** Sets every element in vector as the scalar specified **/
+void operator=(double rhs);
+
 /** Multiplies X, Y, and Z by a scalar **/
 friend coordinates operator*(coordinates lhs, double rhs);
 
