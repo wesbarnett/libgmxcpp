@@ -30,6 +30,7 @@
 #define TRAJECTORY_H
 
 #include <cstring>
+#include "omp.h"
 #include <string>
 #include <iostream>
 #include "gmxcpp/Frame.h"

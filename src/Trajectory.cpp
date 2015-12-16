@@ -68,7 +68,9 @@ void Trajectory::init(string filename, int b, int s, int e)
     this->filename = filename;
     this->nframes = 0;
 
-    cout << endl;
+    #pragma omp parallel
+    #pragma omp master
+    cout << "Using " << omp_get_num_threads() << " OpenMP threads." << endl;
 
     try 
     {
