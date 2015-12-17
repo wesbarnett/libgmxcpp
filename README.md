@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/wesbarnett/libgmxcpp.svg?branch=master)](https://travis-ci.org/wesbarnett/libgmxcpp)
 [![Documentation
 Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](https://readthedocs.org/projects/libgmxcpp/?badge=master)
 
