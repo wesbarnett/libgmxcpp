@@ -39,7 +39,6 @@ Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
     this->time = time;
     this->natoms = natoms;
 
-    #pragma omp parallel for
     for (int i = 0; i < DIM; i++)
     {
         for (int j = 0; j < DIM; j++)
@@ -48,7 +47,7 @@ Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
         }
     }
 
-    #pragma omp parallel for
+    #pragma omp parallel for schedule(static)
     for (int i = 0; i <natoms; i++)
     {
         this->x.at(i).at(X) = x[i][X];
