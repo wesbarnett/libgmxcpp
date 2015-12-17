@@ -10,8 +10,6 @@ actual analysis. Several functions which are repeatedly used in Molecular
 Dynamics analysis (periodic boundary condition calculations, distances, etc.)
 are also included. 
 
-Versions 3.2.1 and above require GROMACS 5.1.
-
 [Documentation is found here.](http://libgmxcpp.readthedocs.org/)
 
 Copyright (C) 2015 James W. Barnett <jbarnet4@tulane.edu>
