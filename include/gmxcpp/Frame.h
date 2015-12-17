@@ -75,12 +75,6 @@ Frame();
  * */
 Frame(int step, float time, matrix box, rvec *x, int natoms);
 
-/** Used in setting all of the private data for an object. Specifically
- * this is used in the Trajectory object with a vector of Frames.  See
- * above.
- * */
-void Set(int step, float time, matrix box, rvec *x, int natoms);
-
 /**
  * @brief the simulation time in picoseconds of this frame.
  * @return Time
