@@ -38,11 +38,13 @@ Header files will be installed within a folder named ``gmxcpp``.
 Testing the build
 -----------------
 
-To test your build you can run ``make test`` in the build directory (see above).
+To test your build you can run ``make test`` in the build directory (see
+above).
 
-Automated tests are performed `via
-Travis <https://travis-ci.org/wesbarnett/libgmxcpp>`_ when new commits are pushed.
-Tests are in the ``tests`` directory.
+Automated tests were performed `via
+Travis <https://travis-ci.org/wesbarnett/libgmxcpp>`_ when new commits were
+pushed, but a newer compiler is required than available.  Specifically, "<random>" 
+is used in some utilities. 
 
 Documentation
 -------------
