@@ -34,13 +34,6 @@ Frame::Frame() { }
 
 Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
 {
-    Set(step, time, box, x, natoms);
-}
-
-
-// Sets the info (step, time, coordinates) for this specific frame
-void Frame::Set(int step, float time, matrix box, rvec *x, int natoms)
-{
     this->x.resize(natoms);
     this->step = step;
     this->time = time;
