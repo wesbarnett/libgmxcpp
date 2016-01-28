@@ -96,6 +96,8 @@ int natoms;
 
 public:
 
+Trajectory();
+
 /**
  *  @brief Constructor where only XTC file is read.
  *
