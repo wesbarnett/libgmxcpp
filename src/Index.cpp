@@ -90,7 +90,9 @@ bool Index::init(string ndxfile)
             linestream.clear();
             linestream.str(line);
             while (linestream >> num)
+            {
                 locations.at(groupNum).push_back(num);
+            }
         }
     }
     iFS.close();
@@ -106,7 +108,8 @@ bool Index::init(string ndxfile)
 
 void Index::PrintInfo() const
 {
-    for (unsigned int i = 0; i < headers.size(); i++) {
+    for (unsigned int i = 0; i < headers.size(); i++) 
+    {
         cout << left << "  " << setw(15) << headers.at(i);
         cout << "(" << locations.at(i).size() << " particles)" << endl;
     }

@@ -70,15 +70,15 @@ int main()
     assert(test_equal(tb3.at(Z).at(Z), 3.14139));
 
     Index index("tests/test.ndx");
-    Trajectory t2("tests/test.xtc",index);
-    assert(test_equal(t2.GetNAtoms("System"), 4050));
-    assert(test_equal(t2.GetNAtoms("C"), 10));
-    assert(test_equal(t2.GetNAtoms("SOL"), 4000));
+    t1 = Trajectory("tests/test.xtc",index);
+    assert(test_equal(t1.GetNAtoms("System"), 4050));
+    assert(test_equal(t1.GetNAtoms("C"), 10));
+    assert(test_equal(t1.GetNAtoms("SOL"), 4000));
 
-    coordinates tc4 = t2.GetXYZ(0, "C", 0);
-    coordinates tc5 = t2.GetXYZ(250, "OW", 500);
-    coordinates tc6 = t2.GetXYZ(500, "C", 9);
-    coordinates tc7 = t2.GetXYZ(1000, "OW", 999);
+    coordinates tc4 = t1.GetXYZ(0, "C", 0);
+    coordinates tc5 = t1.GetXYZ(250, "OW", 500);
+    coordinates tc6 = t1.GetXYZ(500, "C", 9);
+    coordinates tc7 = t1.GetXYZ(1000, "OW", 999);
 
     assert(test_equal(tc4.at(X), 1.635));
     assert(test_equal(tc4.at(Y), 2.921));
