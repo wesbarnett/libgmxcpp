@@ -30,6 +30,11 @@
 
 #include "gmxcpp/Trajectory.h"
 
+Trajectory::Trajectory()
+{
+
+}
+
 Trajectory::Trajectory(string filename, int b, int s, int e)
 {
     init(filename, b, s, e);
