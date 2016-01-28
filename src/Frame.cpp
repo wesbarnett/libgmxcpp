@@ -29,12 +29,51 @@
  */
 
 #include "gmxcpp/Frame.h"
+#include <stdio.h>
+#include <string.h>
 
 Frame::Frame() { }
 
+Frame::~Frame()
+{
+    delete this->x;
+}
+
+Frame::Frame(const Frame& other)
+{
+    x = new rvec[other.natoms];
+    memcpy(x, other.x, sizeof(float)*other.natoms*3.0);
+    natoms = other.natoms;
+    step = other.step;
+    time = other.time;
+    for (int i = 0; i < DIM; i++)
+    {
+        for (int j = 0; j < DIM; j++)
+        {
+            box[i][j] = other.box[i][j];
+        }
+    }
+}
+
+Frame& Frame::operator=(const Frame& other ) 
+{
+    x = new rvec[other.natoms];
+    memcpy(x, other.x, sizeof(float)*other.natoms*3.0);
+    natoms = other.natoms;
+    step = other.step;
+    time = other.time;
+    for (int i = 0; i < DIM; i++)
+    {
+        for (int j = 0; j < DIM; j++)
+        {
+            box[i][j] = other.box[i][j];
+        }
+    }
+    return *this;
+}
+
 Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
 {
-    this->x.resize(natoms);
     this->step = step;
     this->time = time;
     for (int i = 0; i < DIM; i++)
@@ -44,8 +83,9 @@ Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
             this->box[i][j] = box[i][j];
         }
     }
-    this->x = x;
     this->natoms = natoms;
+    this->x = new rvec[natoms];
+    this->x = x;
     return;
 }
 
@@ -117,3 +157,4 @@ double Frame::GetBoxVolume() const
     triclinicbox box = GetBox();
     return volume(box);
 }
+

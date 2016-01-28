@@ -35,6 +35,10 @@ Trajectory::Trajectory()
 
 }
 
+Trajectory::~Trajectory()
+{
+}
+
 Trajectory::Trajectory(string filename, int b, int s, int e)
 {
     init(filename, b, s, e);
@@ -209,8 +213,7 @@ int Trajectory::readFrame()
         return -1;
     }
 
-    Frame frame = Frame(step, time, box, x, natoms);
-    frameArray.push_back(frame);
+    frameArray.push_back(Frame(step, time, box, x, natoms));
 
     if (nframes % 10 == 0) 
     {

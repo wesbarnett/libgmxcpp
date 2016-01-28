@@ -65,6 +65,12 @@ public:
 /** @brief Blank constructor used in Trajectory. */
 Frame();
 
+~Frame();
+
+Frame(const Frame& other);
+
+Frame& operator=(const Frame& other);
+
 /** @brief A constructor where the private data for the object is set.
  * @param step The step number corresponding with this simulation frame.
  * @param time The time (in picoseconds) corresponding with this

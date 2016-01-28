@@ -97,6 +97,8 @@ public:
 
 Trajectory();
 
+virtual ~Trajectory();
+
 /**
  *  @brief Constructor where only XTC file is read.
  *
