@@ -55,26 +55,26 @@ coordinates coordinates::operator-(coordinates rhs)
 {
     coordinates x;
 
-    x.push_back(this->at(X) - rhs.at(X));
-    x.push_back(this->at(Y) - rhs.at(Y));
-    x.push_back(this->at(Z) - rhs.at(Z));
+    x.push_back(this->at(X) - rhs[X]);
+    x.push_back(this->at(Y) - rhs[Y]);
+    x.push_back(this->at(Z) - rhs[Z]);
     return x;
 }
 
 void coordinates::operator-=(coordinates rhs)
 {
-    this->at(X) -= rhs.at(X);
-    this->at(Y) -= rhs.at(Y);
-    this->at(Z) -= rhs.at(Z);
+    this->at(X) -= rhs[X];
+    this->at(Y) -= rhs[Y];
+    this->at(Z) -= rhs[Z];
 }
 
 coordinates coordinates::operator+(coordinates rhs)
 {
     coordinates x;
 
-    x.push_back(this->at(X) + rhs.at(X));
-    x.push_back(this->at(Y) + rhs.at(Y));
-    x.push_back(this->at(Z) + rhs.at(Z));
+    x.push_back(this->at(X) + rhs[X]);
+    x.push_back(this->at(Y) + rhs[Y]);
+    x.push_back(this->at(Z) + rhs[Z]);
     return x;
 }
 

@@ -39,21 +39,21 @@ coordinates pbc(coordinates a, triclinicbox box)
 
     b = a;
 
-    box_inv.at(X) = ((float)1.0) / box.at(X).at(X);
-    box_inv.at(Y) = ((float)1.0) / box.at(Y).at(Y);
-    box_inv.at(Z) = ((float)1.0) / box.at(Z).at(Z);
+    box_inv[X] = ((float)1.0) / box[X][X];
+    box_inv[Y] = ((float)1.0) / box[Y][Y];
+    box_inv[Z] = ((float)1.0) / box[Z][Z];
 
-    shift = round(b.at(Z) * box_inv.at(Z));
-    b.at(Z) -= box.at(Z).at(Z) * shift;
-    b.at(Y) -= box.at(Z).at(Y) * shift;
-    b.at(X) -= box.at(Z).at(X) * shift;
+    shift = round(b[Z] * box_inv[Z]);
+    b[Z] -= box[Z][Z] * shift;
+    b[Y] -= box[Z][Y] * shift;
+    b[X] -= box[Z][X] * shift;
 
-    shift = round(b.at(Y) * box_inv.at(Y));
-    b.at(Y) -= box.at(Y).at(Y) * shift;
-    b.at(X) -= box.at(Y).at(X) * shift;
+    shift = round(b[Y] * box_inv[Y]);
+    b[Y] -= box[Y][Y] * shift;
+    b[X] -= box[Y][X] * shift;
 
-    shift = round(b.at(X) * box_inv.at(X));
-    b.at(X) -= box.at(X).at(X) * shift;
+    shift = round(b[X] * box_inv[X]);
+    b[X] -= box[X][X] * shift;
 
     return b;
 }
@@ -62,9 +62,9 @@ coordinates cross(coordinates a, coordinates b)
 {
     coordinates r;
 
-    r.push_back(a.at(Y) * b.at(Z) - a.at(Z) * b.at(Y));
-    r.push_back(a.at(Z) * b.at(X) - a.at(X) * b.at(Z));
-    r.push_back(a.at(X) * b.at(Y) - a.at(Y) * b.at(X));
+    r.push_back(a[Y] * b[Z] - a[Z] * b[Y]);
+    r.push_back(a[Z] * b[X] - a[X] * b[Z]);
+    r.push_back(a[X] * b[Y] - a[Y] * b[X]);
     return r;
 }
 
@@ -94,7 +94,7 @@ double distance(coordinates a, coordinates b)
 
 double dot(coordinates a, coordinates b)
 {
-    return a.at(X) * b.at(X) + a.at(Y) * b.at(Y) + a.at(Z) * b.at(Z);
+    return a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z];
 }
 
 double magnitude(coordinates x)
@@ -104,12 +104,12 @@ double magnitude(coordinates x)
 
 double volume(triclinicbox box)
 {
-    return box.at(X).at(X) * box.at(Y).at(Y) * box.at(Z).at(Z) + \
-           box.at(X).at(Y) * box.at(Y).at(Z) * box.at(Z).at(X) + \
-           box.at(X).at(Z) * box.at(Y).at(X) * box.at(Z).at(Y) - \
-           box.at(X).at(Z) * box.at(Y).at(Y) * box.at(Z).at(X) + \
-           box.at(X).at(Y) * box.at(Y).at(X) * box.at(Z).at(Z) + \
-           box.at(X).at(X) * box.at(Y).at(Z) * box.at(Z).at(Y);
+    return box[X][X] * box[Y][Y] * box[Z][Z] + \
+           box[X][Y] * box[Y][Z] * box[Z][X] + \
+           box[X][Z] * box[Y][X] * box[Z][Y] - \
+           box[X][Z] * box[Y][Y] * box[Z][X] + \
+           box[X][Y] * box[Y][X] * box[Z][Z] + \
+           box[X][X] * box[Y][Z] * box[Z][Y];
 }
 
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
@@ -156,8 +156,8 @@ void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbo
 
     for (i = 0; i < atom_n; i++)
     {
-        r = pbc(center-atom.at(i),box);
-        atom.at(i) = center - r;
+        r = pbc(center-atom[i],box);
+        atom[i] = center - r;
     }
     return;
 }
@@ -165,7 +165,9 @@ void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbo
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 {
     if (mass.size() != atom.size()) 
+    {
         throw runtime_error("A mass needs to be specified for each atom in com calculation.");
+    }
 
     coordinates com(0.0,0.0,0.0);
     double total_mass = 0.0;
@@ -174,8 +176,8 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 
     for (i = 0; i < atom_n; i++)
     {
-        com += atom.at(i) * mass.at(i);
-        total_mass += mass.at(i);
+        com += atom[i] * mass[i];
+        total_mass += mass[i];
     }
     com /= total_mass;
 
@@ -206,7 +208,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 		sigma = 0.0;
 		for (i = 0; i < atom_n; i++)
 		{
-			theta = atom.at(i).at(j) / (box.at(j).at(j)) * 2.0 * M_PI;
+			theta = atom[i][j] / (box[j][j]) * 2.0 * M_PI;
 			sigma += cos(theta);
 			xi += sin(theta);
 		}
@@ -215,7 +217,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 
 		theta = atan2(-xi,-sigma)+ M_PI;
 
-		cog.at(j) = box.at(j).at(j) * theta / ( 2.0 * M_PI);
+		cog[j] = box[j][j] * theta / ( 2.0 * M_PI);
 	}
 
     return cog;
@@ -241,7 +243,7 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, tric
 
 ostream& operator<<(ostream &os, coordinates xyz)
 {
-    os << xyz.at(X) << " " << xyz.at(Y) << " " << xyz.at(Z) << endl;
+    os << xyz[X] << " " << xyz[Y] << " " << xyz[Z] << endl;
     return os;
 }
 
@@ -251,7 +253,7 @@ ostream& operator<<(ostream &os, triclinicbox box)
     {
         for (int k = 0; k < DIM; k++)
         {
-            os << box.at(j).at(k) << " ";
+            os << box[j][k] << " ";
         }
         os << endl;
     }
@@ -295,9 +297,9 @@ coordinates gen_sphere_point(coordinates center, double r)
         zeta2 = pow(zeta_1, 2) + pow(zeta_2, 2);
     }
 
-    coordinates zeta(2.0 * zeta_1 * sqrt(1.0 - zeta2) * r + center.at(X),
-                     2.0 * zeta_2 * sqrt(1.0 - zeta2) * r + center.at(Y),
-                     (1.0 - 2.0 * zeta2) * r + center.at(Z));
+    coordinates zeta(2.0 * zeta_1 * sqrt(1.0 - zeta2) * r + center[X],
+                     2.0 * zeta_2 * sqrt(1.0 - zeta2) * r + center[Y],
+                     (1.0 - 2.0 * zeta2) * r + center[Z]);
 
     return zeta;
 }
@@ -335,13 +337,13 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
     {
         for (j = 0; j < rand_n; j++) 
         {
-            rand_point = gen_sphere_point(sites.at(i), r);
+            rand_point = gen_sphere_point(sites[i], r);
 
             for (k = 0; k < sites_n; k++) 
             {
                 if (i != k) 
                 {
-                    dist2 = distance2(sites.at(k), rand_point, box);
+                    dist2 = distance2(sites[k], rand_point, box);
 
                     /*
                      * As soon as one site is closer to the random point than
@@ -388,9 +390,9 @@ void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
 {
     random_device rd;
     mt19937 gen(rd());
-    double box_x = box.at(X).at(X);
-    double box_y = box.at(Y).at(Y);
-    double box_z = box.at(Z).at(Z);
+    double box_x = box[X][X];
+    double box_y = box[Y][Y];
+    double box_z = box[Z][Z];
     uniform_real_distribution<double> dis_x(0.0,box_x);
     uniform_real_distribution<double> dis_y(0.0,box_y);
     uniform_real_distribution<double> dis_z(0.0,box_z);
