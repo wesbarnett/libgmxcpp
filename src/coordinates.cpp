@@ -32,22 +32,22 @@
 
 coordinates::coordinates(double x, double y, double z)
 {
-    this->resize(DIM);
-    this->at(X) = x;
-    this->at(Y) = y;
-    this->at(Z) = z;
+    this->reserve(DIM);
+    this->push_back(x);
+    this->push_back(y);
+    this->push_back(z);
 };
 
 coordinates::coordinates()
 {
-    this->resize(DIM);
+    this->reserve(DIM);
 };
 
 void coordinates::set(double x, double y, double z)
 {
-	this->at(X) = x;
-	this->at(Y) = y;
-	this->at(Z) = z;
+	this->push_back(x);
+	this->push_back(y);
+	this->push_back(z);
     return;
 }
 
@@ -55,9 +55,9 @@ coordinates coordinates::operator-(coordinates rhs)
 {
     coordinates x;
 
-    x.at(X) = this->at(X) - rhs.at(X);
-    x.at(Y) = this->at(Y) - rhs.at(Y);
-    x.at(Z) = this->at(Z) - rhs.at(Z);
+    x.push_back(this->at(X) - rhs.at(X));
+    x.push_back(this->at(Y) - rhs.at(Y));
+    x.push_back(this->at(Z) - rhs.at(Z));
     return x;
 }
 
@@ -72,9 +72,9 @@ coordinates coordinates::operator+(coordinates rhs)
 {
     coordinates x;
 
-    x.at(X) = this->at(X) + rhs.at(X);
-    x.at(Y) = this->at(Y) + rhs.at(Y);
-    x.at(Z) = this->at(Z) + rhs.at(Z);
+    x.push_back(this->at(X) + rhs.at(X));
+    x.push_back(this->at(Y) + rhs.at(Y));
+    x.push_back(this->at(Z) + rhs.at(Z));
     return x;
 }
 
@@ -89,9 +89,9 @@ coordinates coordinates::operator/(double rhs)
 {
     coordinates x;
 
-    x.at(X) = this->at(X) / rhs;
-    x.at(Y) = this->at(Y) / rhs;
-    x.at(Z) = this->at(Z) / rhs;
+    x.push_back(this->at(X) / rhs);
+    x.push_back(this->at(Y) / rhs);
+    x.push_back(this->at(Z) / rhs);
     return x;
 }
 
@@ -106,9 +106,9 @@ coordinates operator*(coordinates lhs, double rhs)
 {
     coordinates x;
 
-    x.at(X) = lhs.at(X) * rhs;
-    x.at(Y) = lhs.at(Y) * rhs;
-    x.at(Z) = lhs.at(Z) * rhs;
+    x.push_back(lhs.at(X) * rhs);
+    x.push_back(lhs.at(Y) * rhs);
+    x.push_back(lhs.at(Z) * rhs);
     return x;
 }
 
@@ -116,9 +116,9 @@ coordinates operator*(double lhs, coordinates rhs)
 {
     coordinates x;
 
-    x.at(X) = rhs.at(X) * lhs;
-    x.at(Y) = rhs.at(Y) * lhs;
-    x.at(Z) = rhs.at(Z) * lhs;
+    x.push_back(rhs.at(X) * lhs);
+    x.push_back(rhs.at(Y) * lhs);
+    x.push_back(rhs.at(Z) * lhs);
     return x;
 }
 

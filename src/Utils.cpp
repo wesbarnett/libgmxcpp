@@ -62,9 +62,9 @@ coordinates cross(coordinates a, coordinates b)
 {
     coordinates r;
 
-    r.at(X) = a.at(Y) * b.at(Z) - a.at(Z) * b.at(Y);
-    r.at(Y) = a.at(Z) * b.at(X) - a.at(X) * b.at(Z);
-    r.at(Z) = a.at(X) * b.at(Y) - a.at(Y) * b.at(X);
+    r.push_back(a.at(Y) * b.at(Z) - a.at(Z) * b.at(Y));
+    r.push_back(a.at(Z) * b.at(X) - a.at(X) * b.at(Z));
+    r.push_back(a.at(X) * b.at(Y) - a.at(Y) * b.at(X));
     return r;
 }
 
@@ -285,7 +285,6 @@ coordinates gen_sphere_point(coordinates center, double r)
     double zeta_1;
     double zeta_2;
     double zeta2 = 100.0;
-    coordinates zeta;
 
     while (zeta2 > 1.0) 
     {
@@ -296,9 +295,9 @@ coordinates gen_sphere_point(coordinates center, double r)
         zeta2 = pow(zeta_1, 2) + pow(zeta_2, 2);
     }
 
-    zeta.at(X) = 2.0 * zeta_1 * sqrt(1.0 - zeta2) * r + center.at(X);
-    zeta.at(Y) = 2.0 * zeta_2 * sqrt(1.0 - zeta2) * r + center.at(Y);
-    zeta.at(Z) = (1.0 - 2.0 * zeta2) * r + center.at(Z);
+    coordinates zeta(2.0 * zeta_1 * sqrt(1.0 - zeta2) * r + center.at(X),
+                     2.0 * zeta_2 * sqrt(1.0 - zeta2) * r + center.at(Y),
+                     (1.0 - 2.0 * zeta2) * r + center.at(Z));
 
     return zeta;
 }
@@ -308,11 +307,7 @@ coordinates gen_sphere_point(coordinates center, double r)
  */
 coordinates gen_sphere_point(double r)
 {
-    coordinates center;
-
-    center.at(X) = 0.0;
-    center.at(Y) = 0.0;
-    center.at(Z) = 0.0;
+    coordinates center(0.0, 0.0, 0.0);
     return gen_sphere_point(center, r);
 }
 
@@ -321,11 +316,7 @@ coordinates gen_sphere_point(double r)
  */
 coordinates gen_sphere_point()
 {
-    coordinates center;
-
-    center.at(X) = 0.0;
-    center.at(Y) = 0.0;
-    center.at(Z) = 0.0;
+    coordinates center(0.0, 0.0, 0.0);
     return gen_sphere_point(center, 1.0);
 }
 
