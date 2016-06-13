@@ -103,9 +103,9 @@ coordinates Frame::GetXYZ(int atom) const
 {
     coordinates xyz;
 
-    xyz.at(X) = x[atom][X];
-    xyz.at(Y) = x[atom][Y];
-    xyz.at(Z) = x[atom][Z];
+    xyz.push_back(x[atom][X]);
+    xyz.push_back(x[atom][Y]);
+    xyz.push_back(x[atom][Z]);
     return xyz;
 }
 
@@ -115,9 +115,9 @@ vector <coordinates> Frame::GetXYZ() const
     xyz.resize(natoms);
     for (int atom = 0; atom < natoms; atom++) 
     {
-        xyz.at(atom).at(X) = this->x[atom][X];
-        xyz.at(atom).at(Y) = this->x[atom][Y];
-        xyz.at(atom).at(Z) = this->x[atom][Z];
+        xyz.at(atom).push_back(this->x[atom][X]);
+        xyz.at(atom).push_back(this->x[atom][Y]);
+        xyz.at(atom).push_back(this->x[atom][Z]);
     }
     return xyz;
 }
@@ -131,9 +131,9 @@ vector <coordinates> Frame::GetXYZ(Index index, string group) const
     for (int atom = 0; atom < index.GetGroupSize(group); atom++) 
     {
         location = index.GetLocation(group, atom);
-        xyz.at(atom).at(X) = this->x[location][X];
-        xyz.at(atom).at(Y) = this->x[location][Y];
-        xyz.at(atom).at(Z) = this->x[location][Z];
+        xyz.at(atom).push_back(this->x[location][X]);
+        xyz.at(atom).push_back(this->x[location][Y]);
+        xyz.at(atom).push_back(this->x[location][Z]);
     }
     return xyz;
 }
