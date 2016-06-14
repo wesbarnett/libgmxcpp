@@ -47,6 +47,9 @@ public:
 
     /** Constructor where user provides dimensions, cubic */
     triclinicbox(double x, double y, double z);
+
+    double& operator()(int i, int j);
+
 };
 
 #endif

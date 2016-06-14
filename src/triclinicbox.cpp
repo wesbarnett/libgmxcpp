@@ -74,3 +74,8 @@ triclinicbox::triclinicbox(double x, double y, double z)
     this->at(Z).at(Y) = 0.0;
     this->at(Z).at(Z) = z;
 }
+
+double& coordinates::operator()(int i, int j)
+{
+    return box[i][j];
+}

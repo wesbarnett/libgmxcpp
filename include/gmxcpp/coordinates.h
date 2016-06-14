@@ -59,6 +59,8 @@ public:
 
     double& operator[](int i);
 
+    const double& operator[](int i) const;
+
     /** Constructor, sets size of vector to 3 */
     coordinates();
 

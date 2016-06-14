@@ -44,6 +44,11 @@ double& coordinates::operator[](int i)
     return r[i];
 }
 
+const double& coordinates::operator[](int i) const
+{
+    return r[i];
+}
+
 void coordinates::set(double x, double y, double z)
 {
     this->r[X] = x;
