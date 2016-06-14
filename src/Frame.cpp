@@ -46,13 +46,15 @@ Frame::Frame(const Frame& other)
     natoms = other.natoms;
     step = other.step;
     time = other.time;
-    for (int i = 0; i < DIM; i++)
-    {
-        for (int j = 0; j < DIM; j++)
-        {
-            box[i][j] = other.box[i][j];
-        }
-    }
+    box[X][X] = other.box[X][X];
+    box[X][Y] = other.box[X][Y];
+    box[X][Z] = other.box[X][Z];
+    box[Y][X] = other.box[Y][X];
+    box[Y][Y] = other.box[Y][Y];
+    box[Y][Z] = other.box[Y][Z];
+    box[Z][X] = other.box[Z][X];
+    box[Z][Y] = other.box[Z][Y];
+    box[Z][Z] = other.box[Z][Z];
 }
 
 Frame& Frame::operator=(const Frame& other ) 
@@ -62,13 +64,15 @@ Frame& Frame::operator=(const Frame& other )
     natoms = other.natoms;
     step = other.step;
     time = other.time;
-    for (int i = 0; i < DIM; i++)
-    {
-        for (int j = 0; j < DIM; j++)
-        {
-            box[i][j] = other.box[i][j];
-        }
-    }
+    box[X][X] = other.box[X][X];
+    box[X][Y] = other.box[X][Y];
+    box[X][Z] = other.box[X][Z];
+    box[Y][X] = other.box[Y][X];
+    box[Y][Y] = other.box[Y][Y];
+    box[Y][Z] = other.box[Y][Z];
+    box[Z][X] = other.box[Z][X];
+    box[Z][Y] = other.box[Z][Y];
+    box[Z][Z] = other.box[Z][Z];
     return *this;
 }
 
@@ -111,8 +115,9 @@ vector <coordinates> Frame::GetXYZ() const
     xyz.resize(natoms);
     for (int atom = 0; atom < natoms; atom++) 
     {
-        for (int i = 0; i < DIM; i++)
-            xyz.at(atom)[i]= this->x[atom][i];
+        xyz.at(atom)[X]= this->x[atom][X];
+        xyz.at(atom)[Y]= this->x[atom][Y];
+        xyz.at(atom)[Z]= this->x[atom][Z];
     }
     return xyz;
 }
@@ -126,23 +131,24 @@ vector <coordinates> Frame::GetXYZ(Index index, string group) const
     for (int atom = 0; atom < index.GetGroupSize(group); atom++) 
     {
         location = index.GetLocation(group, atom);
-        for (int i = 0; i < DIM; i++)
-            xyz.at(atom)[i] = this->x[location][i];
+        xyz.at(atom)[X] = this->x[location][X];
+        xyz.at(atom)[Y] = this->x[location][Y];
+        xyz.at(atom)[Z] = this->x[location][Z];
     }
     return xyz;
 }
 
 triclinicbox Frame::GetBox() const
 {
-    triclinicbox box;
-
-    for (int i = 0; i < DIM; i++)
-    {
-        for (int j = 0; j < DIM; j++)
-        {
-            box(i,j) = this->box[i][j];
-        }
-    }
+    triclinicbox box(this->box[X][X],
+                     this->box[X][Y],
+                     this->box[X][Z],
+                     this->box[Y][X],
+                     this->box[Y][Y],
+                     this->box[Y][Z],
+                     this->box[Z][X],
+                     this->box[Z][Y],
+                     this->box[Z][Z]);
     return box;
 }
 
