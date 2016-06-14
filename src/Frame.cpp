@@ -76,17 +76,19 @@ Frame& Frame::operator=(const Frame& other )
     return *this;
 }
 
-Frame::Frame(int step, float time, matrix box, rvec *x, int natoms)
+Frame::Frame(int &step, float &time, matrix &box, rvec *x, int &natoms)
 {
     this->step = step;
     this->time = time;
-    for (int i = 0; i < DIM; i++)
-    {
-        for (int j = 0; j < DIM; j++)
-        {
-            this->box[i][j] = box[i][j];
-        }
-    }
+    this->box[X][X] = box[X][X];
+    this->box[X][Y] = box[X][Y];
+    this->box[X][Z] = box[X][Z];
+    this->box[Y][X] = box[Y][X];
+    this->box[Y][Y] = box[Y][Y];
+    this->box[Y][Z] = box[Y][Z];
+    this->box[Z][X] = box[Z][X];
+    this->box[Z][Y] = box[Z][Y];
+    this->box[Z][Z] = box[Z][Z];
     this->natoms = natoms;
     this->x = new rvec[natoms];
     this->x = x;

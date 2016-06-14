@@ -118,14 +118,14 @@ void Trajectory::init(string filename, int b, int s, int e)
             cout << "NOTE: No frames being saved! Last frame comes before or is equal to first frame in Trajectory call!" << endl;
         }
 
-        for (int i = 0; i < b; i++)
+        for (int i = 0; i < b; ++i)
         {
             status = skipFrame();
             if (status != 0)
             {
                 break;
             }
-            count++;
+            ++count;
         }
 
         if (e == -1)
@@ -140,7 +140,7 @@ void Trajectory::init(string filename, int b, int s, int e)
                 {
                     status = skipFrame();
                 }
-                count++;
+                ++count;
             }
         }
         else
@@ -155,7 +155,7 @@ void Trajectory::init(string filename, int b, int s, int e)
                 {
                     status = skipFrame();
                 }
-                count++;
+                ++count;
 
                 if (count >= e)
                 {
@@ -179,7 +179,7 @@ void Trajectory::open(string filename)
 {
     char cfilename[200];
 
-    for (unsigned int i = 0; i < filename.size(); i++)
+    for (unsigned int i = 0; i < filename.size(); ++i)
     {
         cfilename[i] = filename[i];
     }
@@ -223,7 +223,7 @@ int Trajectory::readFrame()
         cout << " | frame saved: " << nframes << "\r";
     }
 
-    nframes++;
+    ++nframes;
 
     return 0;
 }
@@ -282,14 +282,11 @@ vector <coordinates> Trajectory::GetXYZ(int frame, string groupName) const
     return frameArray.at(frame).GetXYZ(index, groupName);
 }
 
-
 // Gets the xyz coordinates when the frame, group, and atom number are
 // specified.
 coordinates Trajectory::GetXYZ(int frame, string group, int atom) const
 {
-    int location = index.GetLocation(group, atom);
-
-    return frameArray.at(frame).GetXYZ(location);
+    return frameArray.at(frame).GetXYZ(index.GetLocation(group, atom));
 }
 
 triclinicbox Trajectory::GetBox(int frame) const

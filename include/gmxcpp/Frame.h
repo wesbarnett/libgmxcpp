@@ -79,7 +79,7 @@ Frame& operator=(const Frame& other);
  * @param x The coordinates of every atom in this frame.
  * @param natoms The number of atoms in the system.
  * */
-Frame(int step, float time, matrix box, rvec *x, int natoms);
+Frame(int &step, float &time, matrix &box, rvec *x, int &natoms);
 
 /**
  * @brief the simulation time in picoseconds of this frame.
