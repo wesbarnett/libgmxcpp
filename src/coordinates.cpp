@@ -60,17 +60,15 @@ void coordinates::set(double x, double y, double z)
 coordinates coordinates::operator-(coordinates rhs)
 {
     coordinates x;
-    x[X] = r[X] - rhs[X];
-    x[Y] = r[Y] - rhs[Y];
-    x[Z] = r[Z] - rhs[Z];
+    for (int i = 0; i < DIM; i++)
+        x[i] = r[i] - rhs[i];
     return x;
 }
 
 void coordinates::operator-=(coordinates rhs)
 {
-    r[X] -= rhs[X];
-    r[Y] -= rhs[Y];
-    r[Z] -= rhs[Z];
+    for (int i = 0; i < DIM; i++)
+        r[i] -= rhs[i];
     return;
 }
 
@@ -78,65 +76,58 @@ coordinates coordinates::operator+(coordinates rhs)
 {
     coordinates x;
 
-    x[X] = r[X] + rhs[X];
-    x[Y] = r[Y] + rhs[Y];
-    x[Z] = r[Z] + rhs[Z];
+    for (int i = 0; i < DIM; i++)
+        x[i] = r[i] + rhs[i];
     return x;
 }
 
 void coordinates::operator+=(coordinates rhs)
 {
-    r[X] += rhs[X];
-    r[Y] += rhs[Y];
-    r[Z] += rhs[Z];
+    for (int i = 0; i < DIM; i++)
+        r[i] += rhs[i];
 }
 
 coordinates coordinates::operator/(double rhs)
 {
     coordinates x;
-    x[X] = r[X] / rhs;
-    x[Y] = r[Y] / rhs;
-    x[Z] = r[Z] / rhs;
+    for (int i = 0; i < DIM; i++)
+        x[i] = r[i] / rhs;
     return x;
 }
 
 void coordinates::operator/=(double rhs)
 {
-    r[X] /= rhs;
-    r[Y] /= rhs;
-    r[Z] /= rhs;
+    for (int i = 0; i < DIM; i++)
+        r[i] /= rhs;
 }
 
 coordinates operator*(coordinates lhs, double rhs)
 {
     coordinates x;
-    x[X] = lhs[X] * rhs;
-    x[Y] = lhs[Y] * rhs;
-    x[Z] = lhs[Z] * rhs;
+    for (int i = 0; i < DIM; i++)
+        x[i] = lhs[i] * rhs;
     return x;
 }
 
 coordinates operator*(double lhs, coordinates rhs)
 {
     coordinates x;
-    x[X] = rhs[X] * lhs;
-    x[Y] = rhs[Y] * lhs;
-    x[Z] = rhs[Z] * lhs;
+    for (int i = 0; i < DIM; i++)
+        x[i] = rhs[i] * lhs;
     return x;
 }
 
 void coordinates::operator*=(double rhs)
 {
-    r[X] *= rhs;
-    r[Y] *= rhs;
-    r[Z] *= rhs;
+    for (int i = 0; i < DIM; i++)
+        r[i] *= rhs;
+    return;
 }
 
 void coordinates::operator=(double rhs)
 {
-    r[X] = rhs;
-    r[Y] = rhs;
-    r[Z] = rhs;
+    for (int i = 0; i < DIM; i++)
+        r[i] = rhs;
     return;
 }
 

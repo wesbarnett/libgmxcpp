@@ -58,7 +58,11 @@ public:
 
     double& operator()(int i, int j);
 
+    const double& operator()(int i, int j) const;
+
     double& operator()(int i);
+
+    const double& operator()(int i) const;
 
 };
 

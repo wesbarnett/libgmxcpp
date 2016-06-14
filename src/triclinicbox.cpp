@@ -63,7 +63,17 @@ double& triclinicbox::operator()(int i)
     return box[i][i];
 }
 
+const double& triclinicbox::operator()(int i) const
+{
+    return box[i][i];
+}
+
 double& triclinicbox::operator()(int i, int j)
+{
+    return box[i][j];
+}
+
+const double& triclinicbox::operator()(int i, int j) const
 {
     return box[i][j];
 }
