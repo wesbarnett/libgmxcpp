@@ -35,8 +35,11 @@
 using namespace std;
 
 /** @brief Box dimensions.
- * @details This is just a two dimensional vector initialized to three
- * items in each dimension. */
+ * @details This is just a two dimensional array initialized to three
+ * items in each dimension. To access the elements of the array use operator().
+ * For example, to if the box is cubic and your have a triclinicbox object named
+ * mybox, to get the X dimension do mybox(0). If you it is truly a triclinicbox
+ * (not cubic) you can access elements with mybox(i,j).*/
 class triclinicbox : public vector < vector <double> > {
 
 private:

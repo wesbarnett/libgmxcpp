@@ -45,10 +45,10 @@ const int Z = 2;
  * it has three items automatically when contructed. Additionally
  * one can add or subtract two sets of coordinates without having
  * to operate on each X, Y, and Z part individually. Note that the
- * coordinates can be accessed using vector's at() method (i.e., to get
- * the x-coordinate for a coordinates variable need coord, do coord.at(0). In
+ * coordinates can be accessed using operator[] (i.e., to get
+ * the x-coordinate for a coordinates variable need coord, do coord[0]. In
  * addition, the constants X, Y, and Z have been assigned the values 0, 1, and
- * 2, respectively. So one can also access the x-coordinate with coord.at(X).*/
+ * 2, respectively. So one can also access the x-coordinate with coord[X].*/
 class coordinates {
 
 private:
@@ -57,11 +57,7 @@ private:
 
 public:
 
-    double& operator[](int i);
-
-    const double& operator[](int i) const;
-
-    /** Constructor, sets size of vector to 3 */
+    /** Constructor */
     coordinates();
 
     /** Constructor, sets size of vector to 3 and set actual coordinates */
@@ -98,6 +94,10 @@ public:
 
     /** Multiplies X, Y, and Z by a scalar **/
     friend coordinates operator*(double lhs, coordinates rhs);
+
+    double& operator[](int i);
+
+    const double& operator[](int i) const;
 
 };
 
