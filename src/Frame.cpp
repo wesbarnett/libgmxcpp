@@ -145,7 +145,7 @@ triclinicbox Frame::GetBox() const
     {
         for (int j = 0; j < DIM; j++)
         {
-            box.at(i).at(j) = this->box[i][j];
+            box(i,j) = this->box[i][j];
         }
     }
     return box;

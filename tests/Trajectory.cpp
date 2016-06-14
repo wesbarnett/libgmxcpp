@@ -17,11 +17,9 @@ int main()
     assert(test_equal(t1.GetStep(1), 1000));
     assert(test_equal(t1.GetStep(1000), 1000000));
 
-cout << "test" << endl;
     coordinates tc1 = t1.GetXYZ(0, 0);
     coordinates tc2 = t1.GetXYZ(500, 2025);
     coordinates tc3 = t1.GetXYZ(1000, 4049);
-cout << "test" << endl;
 
     triclinicbox tb1 = t1.GetBox(0);
     triclinicbox tb2 = t1.GetBox(500);
@@ -39,37 +37,37 @@ cout << "test" << endl;
     assert(test_equal(tc3[Y], 1.206));
     assert(test_equal(tc3[Z], 1.402));
 
-    assert(test_equal(tb1[X][X], 4.0));
-    assert(test_equal(tb1[X][Y], 0.0));
-    assert(test_equal(tb1[X][Z], 0.0));
-    assert(test_equal(tb1[Y][X], 0.0));
-    assert(test_equal(tb1[Y][Y], 4.0));
-    assert(test_equal(tb1[Y][Z], 0.0));
-    assert(test_equal(tb1[Z][X], 0.0));
-    assert(test_equal(tb1[Z][Y], 0.0));
-    assert(test_equal(tb1[Z][Z], 4.0));
+    assert(test_equal(tb1(X,X), 4.0));
+    assert(test_equal(tb1(X,Y), 0.0));
+    assert(test_equal(tb1(X,Z), 0.0));
+    assert(test_equal(tb1(Y,X), 0.0));
+    assert(test_equal(tb1(Y,Y), 4.0));
+    assert(test_equal(tb1(Y,Z), 0.0));
+    assert(test_equal(tb1(Z,X), 0.0));
+    assert(test_equal(tb1(Z,Y), 0.0));
+    assert(test_equal(tb1(Z,Z), 4.0));
 
     assert(test_equal(t1.GetBoxVolume(0), 64.0));
 
-    assert(test_equal(tb2[X][X], 3.11876));
-    assert(test_equal(tb2[X][Y], 0.0));
-    assert(test_equal(tb2[X][Z], 0.0));
-    assert(test_equal(tb2[Y][X], 0.0));
-    assert(test_equal(tb2[Y][Y], 3.11876));
-    assert(test_equal(tb2[Y][Z], 0.0));
-    assert(test_equal(tb2[Z][X], 0.0));
-    assert(test_equal(tb2[Z][Y], 0.0));
-    assert(test_equal(tb2[Z][Z], 3.11876));
+    assert(test_equal(tb2(X,X), 3.11876));
+    assert(test_equal(tb2(X,Y), 0.0));
+    assert(test_equal(tb2(X,Z), 0.0));
+    assert(test_equal(tb2(Y,X), 0.0));
+    assert(test_equal(tb2(Y,Y), 3.11876));
+    assert(test_equal(tb2(Y,Z), 0.0));
+    assert(test_equal(tb2(Z,X), 0.0));
+    assert(test_equal(tb2(Z,Y), 0.0));
+    assert(test_equal(tb2(Z,Z), 3.11876));
 
-    assert(test_equal(tb3[X][X], 3.14139));
-    assert(test_equal(tb3[X][Y], 0.0));
-    assert(test_equal(tb3[X][Z], 0.0));
-    assert(test_equal(tb3[Y][X], 0.0));
-    assert(test_equal(tb3[Y][Y], 3.14139));
-    assert(test_equal(tb3[Y][Z], 0.0));
-    assert(test_equal(tb3[Z][X], 0.0));
-    assert(test_equal(tb3[Z][Y], 0.0));
-    assert(test_equal(tb3[Z][Z], 3.14139));
+    assert(test_equal(tb3(X,X), 3.14139));
+    assert(test_equal(tb3(X,Y), 0.0));
+    assert(test_equal(tb3(X,Z), 0.0));
+    assert(test_equal(tb3(Y,X), 0.0));
+    assert(test_equal(tb3(Y,Y), 3.14139));
+    assert(test_equal(tb3(Y,Z), 0.0));
+    assert(test_equal(tb3(Z,X), 0.0));
+    assert(test_equal(tb3(Z,Y), 0.0));
+    assert(test_equal(tb3(Z,Z), 3.14139));
 
     Index index("tests/test.ndx");
     t1 = Trajectory("tests/test.xtc",index);

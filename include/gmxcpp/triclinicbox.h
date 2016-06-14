@@ -38,6 +38,11 @@ using namespace std;
  * @details This is just a two dimensional vector initialized to three
  * items in each dimension. */
 class triclinicbox : public vector < vector <double> > {
+
+private:
+
+    double box[3][3];
+
 public:
     /** Constructor, makes the 2d vector 3x3 */
     triclinicbox();
@@ -49,6 +54,8 @@ public:
     triclinicbox(double x, double y, double z);
 
     double& operator()(int i, int j);
+
+    double& operator()(int i);
 
 };
 

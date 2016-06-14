@@ -30,52 +30,40 @@
 
 #include "gmxcpp/triclinicbox.h"
 
-triclinicbox::triclinicbox()
-{
-    this->resize(DIM);
-    for (int i = 0; i < DIM; i++)
-    {
-        this->at(i).resize(DIM);
-    }
-}
+triclinicbox::triclinicbox() { }
 
 triclinicbox::triclinicbox(double x1, double x2, double x3, double y1, double y2, double y3, double z1, double z2, double z3)
 {
-    this->resize(DIM);
-    for (int i = 0; i < DIM; i++)
-    {
-        this->at(i).resize(DIM);
-    }
-    this->at(X).at(X) = x1;
-    this->at(X).at(Y) = x2;
-    this->at(X).at(Z) = x3;
-    this->at(Y).at(X) = y1;
-    this->at(Y).at(Y) = y2;
-    this->at(Y).at(Z) = y3;
-    this->at(Z).at(X) = z1;
-    this->at(Z).at(Y) = z2;
-    this->at(Z).at(Z) = z3;
+    this->box[X][X] = x1;
+    this->box[X][Y] = x2;
+    this->box[X][Z] = x3;
+    this->box[Y][X] = y1;
+    this->box[Y][Y] = y2;
+    this->box[Y][Z] = y3;
+    this->box[Z][X] = z1;
+    this->box[Z][Y] = z2;
+    this->box[Z][Z] = z3;
 }
 
 triclinicbox::triclinicbox(double x, double y, double z)
 {
-    this->resize(DIM);
-    for (int i = 0; i < DIM; i++)
-    {
-        this->at(i).resize(DIM);
-    }
-    this->at(X).at(X) = x;
-    this->at(X).at(Y) = 0.0;
-    this->at(X).at(Z) = 0.0;
-    this->at(Y).at(X) = 0.0;
-    this->at(Y).at(Y) = y;
-    this->at(Y).at(Z) = 0.0;
-    this->at(Z).at(X) = 0.0;
-    this->at(Z).at(Y) = 0.0;
-    this->at(Z).at(Z) = z;
+    this->box[X][X] = x;
+    this->box[X][Y] = 0.0;
+    this->box[X][Z] = 0.0;
+    this->box[Y][X] = 0.0;
+    this->box[Y][Y] = y;
+    this->box[Y][Z] = 0.0;
+    this->box[Z][X] = 0.0;
+    this->box[Z][Y] = 0.0;
+    this->box[Z][Z] = z;
 }
 
-double& coordinates::operator()(int i, int j)
+double& triclinicbox::operator()(int i)
+{
+    return box[i][i];
+}
+
+double& triclinicbox::operator()(int i, int j)
 {
     return box[i][j];
 }

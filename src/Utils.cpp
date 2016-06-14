@@ -39,21 +39,21 @@ coordinates pbc(coordinates a, triclinicbox box)
 
     b = a;
 
-    box_inv[X] = ((float)1.0) / box[X][X];
-    box_inv[Y] = ((float)1.0) / box[Y][Y];
-    box_inv[Z] = ((float)1.0) / box[Z][Z];
+    box_inv[X] = ((float)1.0) / box(X);
+    box_inv[Y] = ((float)1.0) / box(Y);
+    box_inv[Z] = ((float)1.0) / box(Z);
 
     shift = round(b[Z] * box_inv[Z]);
-    b[Z] -= box[Z][Z] * shift;
-    b[Y] -= box[Z][Y] * shift;
-    b[X] -= box[Z][X] * shift;
+    b[Z] -= box(Z,Z) * shift;
+    b[Y] -= box(Z,Y) * shift;
+    b[X] -= box(Z,X) * shift;
 
     shift = round(b[Y] * box_inv[Y]);
-    b[Y] -= box[Y][Y] * shift;
-    b[X] -= box[Y][X] * shift;
+    b[Y] -= box(Y,Y) * shift;
+    b[X] -= box(Y,X) * shift;
 
     shift = round(b[X] * box_inv[X]);
-    b[X] -= box[X][X] * shift;
+    b[X] -= box(X,X) * shift;
 
     return b;
 }
@@ -103,12 +103,12 @@ double magnitude(coordinates x)
 
 double volume(triclinicbox box)
 {
-    return box[X][X] * box[Y][Y] * box[Z][Z] + \
-           box[X][Y] * box[Y][Z] * box[Z][X] + \
-           box[X][Z] * box[Y][X] * box[Z][Y] - \
-           box[X][Z] * box[Y][Y] * box[Z][X] + \
-           box[X][Y] * box[Y][X] * box[Z][Z] + \
-           box[X][X] * box[Y][Z] * box[Z][Y];
+    return box(X,X) * box(Y,Y) * box(Z,Z) + \
+           box(X,Y) * box(Y,Z) * box(Z,X) + \
+           box(X,Z) * box(Y,X) * box(Z,Y) - \
+           box(X,Z) * box(Y,Y) * box(Z,X) + \
+           box(X,Y) * box(Y,X) * box(Z,Z) + \
+           box(X,X) * box(Y,Z) * box(Z,Y);
 }
 
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
@@ -207,7 +207,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 		sigma = 0.0;
 		for (i = 0; i < atom_n; i++)
 		{
-			theta = atom[i][j] / (box[j][j]) * 2.0 * M_PI;
+			theta = atom[i][j] / (box(j,j)) * 2.0 * M_PI;
 			sigma += cos(theta);
 			xi += sin(theta);
 		}
@@ -216,7 +216,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 
 		theta = atan2(-xi,-sigma)+ M_PI;
 
-		cog[j] = box[j][j] * theta / ( 2.0 * M_PI);
+		cog[j] = box(j,j) * theta / ( 2.0 * M_PI);
 	}
 
     return cog;
@@ -252,7 +252,7 @@ ostream& operator<<(ostream &os, triclinicbox box)
     {
         for (int k = 0; k < DIM; k++)
         {
-            os << box[j][k] << " ";
+            os << box(j,k) << " ";
         }
         os << endl;
     }
@@ -389,9 +389,9 @@ void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
 {
     random_device rd;
     mt19937 gen(rd());
-    double box_x = box[X][X];
-    double box_y = box[Y][Y];
-    double box_z = box[Z][Z];
+    double box_x = box(X);
+    double box_y = box(Y);
+    double box_z = box(Z);
     uniform_real_distribution<double> dis_x(0.0,box_x);
     uniform_real_distribution<double> dis_y(0.0,box_y);
     uniform_real_distribution<double> dis_z(0.0,box_z);
