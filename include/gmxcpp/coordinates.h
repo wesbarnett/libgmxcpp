@@ -30,7 +30,7 @@
 #define COORDINATES_H
 
 #include "gmxcpp/xdrfile.h"
-#include <vector>
+#include <array>
 using namespace std;
 
 /** X coordinate */
@@ -53,7 +53,7 @@ class coordinates {
 
 private:
 
-    double r[3];
+    array <double,3> r;
 
 public:
 
