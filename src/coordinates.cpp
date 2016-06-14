@@ -30,14 +30,14 @@
 
 #include "gmxcpp/coordinates.h"
 
+coordinates::coordinates(){ }
+
 coordinates::coordinates(double x, double y, double z)
 {
     this->r[X] = x;
     this->r[Y] = y;
     this->r[Z] = z;
 }
-
-coordinates::coordinates(){ }
 
 double& coordinates::operator[](int i)
 {
