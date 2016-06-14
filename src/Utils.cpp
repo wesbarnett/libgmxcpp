@@ -34,7 +34,7 @@ coordinates pbc(coordinates a, triclinicbox box)
 {
     coordinates b;
 
-    vector <double> box_inv(3);
+    double box_inv[3];
     double shift;
 
     b = a;
@@ -387,19 +387,17 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
 
 void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
 {
+    xyz.resize(0);
+    xyz.reserve(n);
     random_device rd;
     mt19937 gen(rd());
-    double box_x = box(X);
-    double box_y = box(Y);
-    double box_z = box(Z);
-    uniform_real_distribution<double> dis_x(0.0,box_x);
-    uniform_real_distribution<double> dis_y(0.0,box_y);
-    uniform_real_distribution<double> dis_z(0.0,box_z);
-    coordinates point;
+    uniform_real_distribution<double> dis_x(0.0,box(X));
+    uniform_real_distribution<double> dis_y(0.0,box(Y));
+    uniform_real_distribution<double> dis_z(0.0,box(Z));
 
     for (int i = 0; i < n; i++)
     {
-        point.set(dis_x(gen), dis_y(gen), dis_z(gen));
+        coordinates point(dis_x(gen), dis_y(gen), dis_z(gen));
         xyz.push_back(point);
     }
 

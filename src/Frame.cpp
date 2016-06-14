@@ -101,9 +101,7 @@ int Frame::GetStep() const
 
 coordinates Frame::GetXYZ(int atom) const
 {
-    coordinates xyz;
-    for (int i = 0; i < DIM; i++)
-        xyz[i] = x[atom][i];
+    coordinates xyz(x[atom][X], x[atom][Y], x[atom][Z]);
     return xyz;
 }
 
