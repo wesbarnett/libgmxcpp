@@ -13,17 +13,17 @@ int main()
 
     coordinates c6(3.6, 4.7, 5.0);
     coordinates c7 = pbc(c6, b1);
-    assert(test_equal(c7.at(X), 0.1));
-    assert(test_equal(c7.at(Y), 0.2));
-    assert(test_equal(c7.at(Z), 1.0));
+    assert(test_equal(c7[X], 0.1));
+    assert(test_equal(c7[Y], 0.2));
+    assert(test_equal(c7[Z], 1.0));
 
     triclinicbox b2(5.0, 0.0, 0.0, 0.0, 5.0, 0.0, 2.5, 2.5, 3.5);
     coordinates c8(5.5, 5.5, 3.5);
 
     coordinates c9 = pbc(c8, b2);
-    assert(test_equal(c9.at(X), -2.0));
-    assert(test_equal(c9.at(Y), -2.0));
-    assert(test_equal(c9.at(Z), 0.0));
+    assert(test_equal(c9[X], -2.0));
+    assert(test_equal(c9[Y], -2.0));
+    assert(test_equal(c9[Z], 0.0));
 
     assert(test_equal(dot(c6, c7), 6.3));
     assert(test_equal(magnitude(c6), 7.749193506));
@@ -85,21 +85,21 @@ int main()
     triclinicbox combox(4.0,4.0,4.0);
 
     coordinates com = center_of_mass(com_test,mass,combox);
-    assert(test_equal(com.at(X),0.0));
-    assert(test_equal(com.at(Y),0.0));
-    assert(test_equal(com.at(Z),0.0));
+    assert(test_equal(com[X],0.0));
+    assert(test_equal(com[Y],0.0));
+    assert(test_equal(com[Z],0.0));
 
     coordinates com4(1.0,1.0,1.0);
     coordinates com5(3.0,3.0,3.0);
     coordinates com6(0.0,0.0,0.0);
-    com_test.at(0) = com4;
-    com_test.at(1) = com5;
-    com_test.at(2) = com6;
+    com_test[0] = com4;
+    com_test[1] = com5;
+    com_test[2] = com6;
 
     com = center_of_mass(com_test,mass,combox);
-    assert(test_equal(com.at(X),-0.16667));
+    assert(test_equal(com[X],-0.16667));
     com = center_of_mass(com_test,mass);
-    assert(test_equal(com.at(X),1.16667));
+    assert(test_equal(com[X],1.16667));
 
     return 0;
 }

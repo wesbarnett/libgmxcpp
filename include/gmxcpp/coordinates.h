@@ -49,46 +49,54 @@ const int Z = 2;
  * the x-coordinate for a coordinates variable need coord, do coord.at(0). In
  * addition, the constants X, Y, and Z have been assigned the values 0, 1, and
  * 2, respectively. So one can also access the x-coordinate with coord.at(X).*/
-class coordinates : public vector<double> {
+class coordinates {
+
+private:
+
+    double r[3];
+
 public:
 
-/** Constructor, sets size of vector to 3 */
-coordinates();
+    double& operator[](int i);
 
-/** Constructor, sets size of vector to 3 and set actual coordinates */
-coordinates(double x, double y, double z);
+    /** Constructor, sets size of vector to 3 */
+    coordinates();
 
-void set(double x, double y, double z);
+    /** Constructor, sets size of vector to 3 and set actual coordinates */
+    coordinates(double x, double y, double z);
 
-/** Subtracts two sets of coordinates together, element-by-element */
-coordinates operator-(coordinates rhs);
+    void set(double x, double y, double z);
 
-/** Subtracts two sets of coordinates together, element-by-element */
-void operator-=(coordinates rhs);
+    /** Subtracts two sets of coordinates together, element-by-element */
+    coordinates operator-(coordinates rhs);
 
-/** Adds two sets of coordinates together, element-by-element */
-coordinates operator+(coordinates rhs);
+    /** Subtracts two sets of coordinates together, element-by-element */
+    void operator-=(coordinates rhs);
 
-/** Adds two sets of coordinates together, element-by-element */
-void operator+=(coordinates rhs);
+    /** Adds two sets of coordinates together, element-by-element */
+    coordinates operator+(coordinates rhs);
 
-/** Divides X, Y, and Z by a scalar **/
-coordinates operator/(double rhs);
+    /** Adds two sets of coordinates together, element-by-element */
+    void operator+=(coordinates rhs);
 
-/** Divides X, Y, and Z by a scalar **/
-void operator/=(double rhs);
+    /** Divides X, Y, and Z by a scalar **/
+    coordinates operator/(double rhs);
 
-/** Multiplies X, Y, and Z by a scalar **/
-void operator*=(double rhs);
+    /** Divides X, Y, and Z by a scalar **/
+    void operator/=(double rhs);
 
-/** Sets every element in vector as the scalar specified **/
-void operator=(double rhs);
+    /** Multiplies X, Y, and Z by a scalar **/
+    void operator*=(double rhs);
 
-/** Multiplies X, Y, and Z by a scalar **/
-friend coordinates operator*(coordinates lhs, double rhs);
+    /** Sets every element in vector as the scalar specified **/
+    void operator=(double rhs);
 
-/** Multiplies X, Y, and Z by a scalar **/
-friend coordinates operator*(double lhs, coordinates rhs);
+    /** Multiplies X, Y, and Z by a scalar **/
+    friend coordinates operator*(coordinates lhs, double rhs);
+
+    /** Multiplies X, Y, and Z by a scalar **/
+    friend coordinates operator*(double lhs, coordinates rhs);
+
 };
 
 #endif

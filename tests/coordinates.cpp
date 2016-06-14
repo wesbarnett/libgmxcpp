@@ -25,72 +25,72 @@ int main()
     coordinates c4;
     coordinates c5;
 
-    assert(test_equal(x1, c1.at(X)));
-    assert(test_equal(y1, c1.at(Y)));
-    assert(test_equal(z1, c1.at(Z)));
+    assert(test_equal(x1, c1[X]));
+    assert(test_equal(y1, c1[Y]));
+    assert(test_equal(z1, c1[Z]));
 
-    assert(test_equal(x2, c2.at(X)));
-    assert(test_equal(y2, c2.at(Y)));
-    assert(test_equal(z2, c2.at(Z)));
+    assert(test_equal(x2, c2[X]));
+    assert(test_equal(y2, c2[Y]));
+    assert(test_equal(z2, c2[Z]));
 
     c3 = c2 - c1;
-    assert(test_equal(x2 - x1, c3.at(X)));
-    assert(test_equal(y2 - y1, c3.at(Y)));
-    assert(test_equal(z2 - z1, c3.at(Z)));
+    assert(test_equal(x2 - x1, c3[X]));
+    assert(test_equal(y2 - y1, c3[Y]));
+    assert(test_equal(z2 - z1, c3[Z]));
 
     c4 = c3;
     c3 -= c2;
-    assert(test_equal(c4.at(X) - x2, c3.at(X)));
-    assert(test_equal(c4.at(Y) - y2, c3.at(Y)));
-    assert(test_equal(c4.at(Z) - z2, c3.at(Z)));
+    assert(test_equal(c4[X] - x2, c3[X]));
+    assert(test_equal(c4[Y] - y2, c3[Y]));
+    assert(test_equal(c4[Z] - z2, c3[Z]));
 
     c3 -= c3;
-    assert(test_equal(0.0, c3.at(X)));
-    assert(test_equal(0.0, c3.at(Y)));
-    assert(test_equal(0.0, c3.at(Z)));
+    assert(test_equal(0.0, c3[X]));
+    assert(test_equal(0.0, c3[Y]));
+    assert(test_equal(0.0, c3[Z]));
 
     c3 = c2 + c1;
-    assert(test_equal(x2 + x1, c3.at(X)));
-    assert(test_equal(y2 + y1, c3.at(Y)));
-    assert(test_equal(z2 + z1, c3.at(Z)));
+    assert(test_equal(x2 + x1, c3[X]));
+    assert(test_equal(y2 + y1, c3[Y]));
+    assert(test_equal(z2 + z1, c3[Z]));
 
     c4 = c3;
     c3 += c1;
-    assert(test_equal(c4.at(X) + x1, c3.at(X)));
-    assert(test_equal(c4.at(Y) + y1, c3.at(Y)));
-    assert(test_equal(c4.at(Z) + z1, c3.at(Z)));
+    assert(test_equal(c4[X] + x1, c3[X]));
+    assert(test_equal(c4[Y] + y1, c3[Y]));
+    assert(test_equal(c4[Z] + z1, c3[Z]));
 
     c3 = c2 / 5.8;
-    assert(test_equal(x2 / 5.8, c3.at(X)));
-    assert(test_equal(y2 / 5.8, c3.at(Y)));
-    assert(test_equal(z2 / 5.8, c3.at(Z)));
+    assert(test_equal(x2 / 5.8, c3[X]));
+    assert(test_equal(y2 / 5.8, c3[Y]));
+    assert(test_equal(z2 / 5.8, c3[Z]));
 
     c4 = c3;
     c3 /= 3.14;
-    assert(test_equal(c4.at(X) / 3.14, c3.at(X)));
-    assert(test_equal(c4.at(Y) / 3.14, c3.at(Y)));
-    assert(test_equal(c4.at(Z) / 3.14, c3.at(Z)));
+    assert(test_equal(c4[X] / 3.14, c3[X]));
+    assert(test_equal(c4[Y] / 3.14, c3[Y]));
+    assert(test_equal(c4[Z] / 3.14, c3[Z]));
 
     c3 = c1 * 1.2;
-    assert(test_equal(x1 * 1.2, c3.at(X)));
-    assert(test_equal(y1 * 1.2, c3.at(Y)));
-    assert(test_equal(z1 * 1.2, c3.at(Z)));
+    assert(test_equal(x1 * 1.2, c3[X]));
+    assert(test_equal(y1 * 1.2, c3[Y]));
+    assert(test_equal(z1 * 1.2, c3[Z]));
 
     c3 = 1.2 * c1;
-    assert(test_equal(x1 * 1.2, c3.at(X)));
-    assert(test_equal(y1 * 1.2, c3.at(Y)));
-    assert(test_equal(z1 * 1.2, c3.at(Z)));
+    assert(test_equal(x1 * 1.2, c3[X]));
+    assert(test_equal(y1 * 1.2, c3[Y]));
+    assert(test_equal(z1 * 1.2, c3[Z]));
 
     c4 = c3;
     c3 *= 3.14;
-    assert(test_equal(c4.at(X) * 3.14, c3.at(X)));
-    assert(test_equal(c4.at(Y) * 3.14, c3.at(Y)));
-    assert(test_equal(c4.at(Z) * 3.14, c3.at(Z)));
+    assert(test_equal(c4[X] * 3.14, c3[X]));
+    assert(test_equal(c4[Y] * 3.14, c3[Y]));
+    assert(test_equal(c4[Z] * 3.14, c3[Z]));
 
     c5.set(x1,y1,z1);
-    assert(test_equal(c5.at(X),x1));
-    assert(test_equal(c5.at(Y),y1));
-    assert(test_equal(c5.at(Z),z1));
+    assert(test_equal(c5[X],x1));
+    assert(test_equal(c5[Y],y1));
+    assert(test_equal(c5[Z],z1));
 
     return 0;
 }

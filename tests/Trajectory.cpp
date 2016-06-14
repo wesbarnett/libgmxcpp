@@ -27,49 +27,49 @@ cout << "test" << endl;
     triclinicbox tb2 = t1.GetBox(500);
     triclinicbox tb3 = t1.GetBox(1000);
 
-    assert(test_equal(tc1.at(X), 1.635));
-    assert(test_equal(tc1.at(Y), 2.921));
-    assert(test_equal(tc1.at(Z), 3.370));
+    assert(test_equal(tc1[X], 1.635));
+    assert(test_equal(tc1[Y], 2.921));
+    assert(test_equal(tc1[Z], 3.370));
 
-    assert(test_equal(tc2.at(X), 2.350));
-    assert(test_equal(tc2.at(Y), 2.473));
-    assert(test_equal(tc2.at(Z), 1.098));
+    assert(test_equal(tc2[X], 2.350));
+    assert(test_equal(tc2[Y], 2.473));
+    assert(test_equal(tc2[Z], 1.098));
 
-    assert(test_equal(tc3.at(X), 1.035));
-    assert(test_equal(tc3.at(Y), 1.206));
-    assert(test_equal(tc3.at(Z), 1.402));
+    assert(test_equal(tc3[X], 1.035));
+    assert(test_equal(tc3[Y], 1.206));
+    assert(test_equal(tc3[Z], 1.402));
 
-    assert(test_equal(tb1.at(X).at(X), 4.0));
-    assert(test_equal(tb1.at(X).at(Y), 0.0));
-    assert(test_equal(tb1.at(X).at(Z), 0.0));
-    assert(test_equal(tb1.at(Y).at(X), 0.0));
-    assert(test_equal(tb1.at(Y).at(Y), 4.0));
-    assert(test_equal(tb1.at(Y).at(Z), 0.0));
-    assert(test_equal(tb1.at(Z).at(X), 0.0));
-    assert(test_equal(tb1.at(Z).at(Y), 0.0));
-    assert(test_equal(tb1.at(Z).at(Z), 4.0));
+    assert(test_equal(tb1[X][X], 4.0));
+    assert(test_equal(tb1[X][Y], 0.0));
+    assert(test_equal(tb1[X][Z], 0.0));
+    assert(test_equal(tb1[Y][X], 0.0));
+    assert(test_equal(tb1[Y][Y], 4.0));
+    assert(test_equal(tb1[Y][Z], 0.0));
+    assert(test_equal(tb1[Z][X], 0.0));
+    assert(test_equal(tb1[Z][Y], 0.0));
+    assert(test_equal(tb1[Z][Z], 4.0));
 
     assert(test_equal(t1.GetBoxVolume(0), 64.0));
 
-    assert(test_equal(tb2.at(X).at(X), 3.11876));
-    assert(test_equal(tb2.at(X).at(Y), 0.0));
-    assert(test_equal(tb2.at(X).at(Z), 0.0));
-    assert(test_equal(tb2.at(Y).at(X), 0.0));
-    assert(test_equal(tb2.at(Y).at(Y), 3.11876));
-    assert(test_equal(tb2.at(Y).at(Z), 0.0));
-    assert(test_equal(tb2.at(Z).at(X), 0.0));
-    assert(test_equal(tb2.at(Z).at(Y), 0.0));
-    assert(test_equal(tb2.at(Z).at(Z), 3.11876));
+    assert(test_equal(tb2[X][X], 3.11876));
+    assert(test_equal(tb2[X][Y], 0.0));
+    assert(test_equal(tb2[X][Z], 0.0));
+    assert(test_equal(tb2[Y][X], 0.0));
+    assert(test_equal(tb2[Y][Y], 3.11876));
+    assert(test_equal(tb2[Y][Z], 0.0));
+    assert(test_equal(tb2[Z][X], 0.0));
+    assert(test_equal(tb2[Z][Y], 0.0));
+    assert(test_equal(tb2[Z][Z], 3.11876));
 
-    assert(test_equal(tb3.at(X).at(X), 3.14139));
-    assert(test_equal(tb3.at(X).at(Y), 0.0));
-    assert(test_equal(tb3.at(X).at(Z), 0.0));
-    assert(test_equal(tb3.at(Y).at(X), 0.0));
-    assert(test_equal(tb3.at(Y).at(Y), 3.14139));
-    assert(test_equal(tb3.at(Y).at(Z), 0.0));
-    assert(test_equal(tb3.at(Z).at(X), 0.0));
-    assert(test_equal(tb3.at(Z).at(Y), 0.0));
-    assert(test_equal(tb3.at(Z).at(Z), 3.14139));
+    assert(test_equal(tb3[X][X], 3.14139));
+    assert(test_equal(tb3[X][Y], 0.0));
+    assert(test_equal(tb3[X][Z], 0.0));
+    assert(test_equal(tb3[Y][X], 0.0));
+    assert(test_equal(tb3[Y][Y], 3.14139));
+    assert(test_equal(tb3[Y][Z], 0.0));
+    assert(test_equal(tb3[Z][X], 0.0));
+    assert(test_equal(tb3[Z][Y], 0.0));
+    assert(test_equal(tb3[Z][Z], 3.14139));
 
     Index index("tests/test.ndx");
     t1 = Trajectory("tests/test.xtc",index);
@@ -82,38 +82,38 @@ cout << "test" << endl;
     coordinates tc6 = t1.GetXYZ(500, "C", 9);
     coordinates tc7 = t1.GetXYZ(1000, "OW", 999);
 
-    assert(test_equal(tc4.at(X), 1.635));
-    assert(test_equal(tc4.at(Y), 2.921));
-    assert(test_equal(tc4.at(Z), 3.370));
+    assert(test_equal(tc4[X], 1.635));
+    assert(test_equal(tc4[Y], 2.921));
+    assert(test_equal(tc4[Z], 3.370));
 
-    assert(test_equal(tc5.at(X), 2.252));
-    assert(test_equal(tc5.at(Y), 1.456));
-    assert(test_equal(tc5.at(Z), 0.893));
+    assert(test_equal(tc5[X], 2.252));
+    assert(test_equal(tc5[Y], 1.456));
+    assert(test_equal(tc5[Z], 0.893));
 
-    assert(test_equal(tc6.at(X), 1.111));
-    assert(test_equal(tc6.at(Y), 0.966));
-    assert(test_equal(tc6.at(Z), 1.541));
+    assert(test_equal(tc6[X], 1.111));
+    assert(test_equal(tc6[Y], 0.966));
+    assert(test_equal(tc6[Z], 1.541));
 
-    assert(test_equal(tc7.at(X), 1.040));
-    assert(test_equal(tc7.at(Y), 1.206));
-    assert(test_equal(tc7.at(Z), 1.413));
+    assert(test_equal(tc7[X], 1.040));
+    assert(test_equal(tc7[Y], 1.206));
+    assert(test_equal(tc7[Z], 1.413));
 
     Trajectory t3("tests/test.xtc", index, 1000, 1, 1001);
     coordinates tc8 = t3.GetXYZ(0, "OW", 999);
-    assert(test_equal(tc8.at(X), 1.040));
-    assert(test_equal(tc8.at(Y), 1.206));
-    assert(test_equal(tc8.at(Z), 1.413));
+    assert(test_equal(tc8[X], 1.040));
+    assert(test_equal(tc8[Y], 1.206));
+    assert(test_equal(tc8[Z], 1.413));
 
     Trajectory t4("tests/test.xtc", index, 0, 5, 1001);
     coordinates tc9 = t4.GetXYZ(200, "OW", 999);
-    assert(test_equal(tc9.at(X), 1.040));
-    assert(test_equal(tc9.at(Y), 1.206));
-    assert(test_equal(tc9.at(Z), 1.413));
+    assert(test_equal(tc9[X], 1.040));
+    assert(test_equal(tc9[Y], 1.206));
+    assert(test_equal(tc9[Z], 1.413));
 
     Trajectory t5("tests/test.xtc", index, 0, 5);
     coordinates tc10 = t5.GetXYZ(200, "OW", 999);
-    assert(test_equal(tc10.at(X), 1.040));
-    assert(test_equal(tc10.at(Y), 1.206));
-    assert(test_equal(tc10.at(Z), 1.413));
+    assert(test_equal(tc10[X], 1.040));
+    assert(test_equal(tc10[Y], 1.206));
+    assert(test_equal(tc10[Z], 1.413));
 
 }

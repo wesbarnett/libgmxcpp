@@ -61,10 +61,9 @@ coordinates pbc(coordinates a, triclinicbox box)
 coordinates cross(coordinates a, coordinates b)
 {
     coordinates r;
-
-    r.push_back(a[Y] * b[Z] - a[Z] * b[Y]);
-    r.push_back(a[Z] * b[X] - a[X] * b[Z]);
-    r.push_back(a[X] * b[Y] - a[Y] * b[X]);
+    r[X] = a[Y] * b[Z] - a[Z] * b[Y];
+    r[Y] = a[Z] * b[X] - a[X] * b[Z];
+    r[Z] = a[X] * b[Y] - a[Y] * b[X];
     return r;
 }
 
