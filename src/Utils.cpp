@@ -207,7 +207,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 		sigma = 0.0;
 		for (i = 0; i < atom_n; i++)
 		{
-			theta = atom[i][j] / (box(j,j)) * 2.0 * M_PI;
+			theta = atom[i][j] / (box(j)) * 2.0 * M_PI;
 			sigma += cos(theta);
 			xi += sin(theta);
 		}
@@ -216,7 +216,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 
 		theta = atan2(-xi,-sigma)+ M_PI;
 
-		cog[j] = box(j,j) * theta / ( 2.0 * M_PI);
+		cog[j] = box(j) * theta / ( 2.0 * M_PI);
 	}
 
     return cog;

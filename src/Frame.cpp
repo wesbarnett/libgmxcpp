@@ -102,9 +102,8 @@ int Frame::GetStep() const
 coordinates Frame::GetXYZ(int atom) const
 {
     coordinates xyz;
-    xyz[X] = x[atom][X];
-    xyz[Y] = x[atom][Y];
-    xyz[Z] = x[atom][Z];
+    for (int i = 0; i < DIM; i++)
+        xyz[i] = x[atom][i];
     return xyz;
 }
 
@@ -114,9 +113,8 @@ vector <coordinates> Frame::GetXYZ() const
     xyz.resize(natoms);
     for (int atom = 0; atom < natoms; atom++) 
     {
-        xyz.at(atom)[X]= this->x[atom][X];
-        xyz.at(atom)[Y]= this->x[atom][Y];
-        xyz.at(atom)[Z]= this->x[atom][Z];
+        for (int i = 0; i < DIM; i++)
+            xyz.at(atom)[i]= this->x[atom][i];
     }
     return xyz;
 }
@@ -130,9 +128,8 @@ vector <coordinates> Frame::GetXYZ(Index index, string group) const
     for (int atom = 0; atom < index.GetGroupSize(group); atom++) 
     {
         location = index.GetLocation(group, atom);
-        xyz.at(atom)[X] = this->x[location][X];
-        xyz.at(atom)[Y] = this->x[location][Y];
-        xyz.at(atom)[Z] = this->x[location][Z];
+        for (int i = 0; i < DIM; i++)
+            xyz.at(atom)[i] = this->x[location][i];
     }
     return xyz;
 }
