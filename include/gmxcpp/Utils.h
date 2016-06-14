@@ -107,6 +107,12 @@ double distance2(coordinates a, coordinates b);
  */
 double dot(coordinates a, coordinates b);
 
+/** @brief Calculates the dot product between a vector with itself
+ * @param a Vector to be used in dot product
+ * @return Dot product of a with itself
+ */
+double dot(coordinates a);
+
 /** @brief Calculates the magnitude of a vector
  * @return Magnitude
  * @param x Vector for which magnitude is desired

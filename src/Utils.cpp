@@ -95,6 +95,11 @@ double dot(coordinates a, coordinates b)
     return a[X] * b[X] + a[Y] * b[Y] + a[Z] * b[Z];
 }
 
+double dot(coordinates a)
+{
+    return a[X] * a[X] + a[Y] * a[Y] + a[Z] * a[Z];
+}
+
 double magnitude(coordinates x)
 {
     return sqrt(dot(x, x));
