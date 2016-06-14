@@ -29,7 +29,6 @@
 #ifndef COMMANDLINE_H
 #define COMMANDLINE_H
 
-#include <iostream>
 #include <string>
 using namespace std;
 

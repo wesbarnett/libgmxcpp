@@ -77,45 +77,43 @@ void Trajectory::init(string filename, int b, int s, int e)
     this->filename = filename;
     this->nframes = 0;
 
-    cout << endl;
-
     try 
     {
 
         open(filename);
 
-        cout << "Reading in xtc file: " << endl;
-        cout << "Starting frame: " << b << endl;
+        printf("\nReading in xtc file...\n");;
+        printf("Starting frame: %d\n", b);
 
         if (e == -1)
         {
-            cout << "Reading to the end of the file." << endl;
+            printf("Reading to the end of the file.\n");
         }
         else
         {
-            cout << "Ending frame: " << e << endl;
+            printf("Ending frame: %d\n", e);
         }
 
         if (s == 1)
         {
-            cout << "Reading in every frame." << endl;
+            printf("Reading in every frame.\n");
         }
         else if (s == 2)
         {
-            cout << "Reading in every " << s << "nd frame." << endl;
+            printf("Reading in every %dnd frame.\n", s);
         }
         else if (s == 3)
         { 
-            cout << "Reading in every " << s << "rd frame." << endl;
+            printf("Reading in every %drd frame.\n", s);
         }
         else if (s >= 4)
         {
-            cout << "Reading in every " << s << "th frame." << endl;
+            printf("Reading in every %dth frame.\n", s);
         }
 
         if (e <= b && e != -1)
         {
-            cout << "NOTE: No frames being saved! Last frame comes before or is equal to first frame in Trajectory call!" << endl;
+            printf("NOTE: No frames being saved! Last frame comes before or is equal to first frame in Trajectory call!\n");
         }
 
         for (int i = 0; i < b; ++i)
@@ -185,13 +183,13 @@ void Trajectory::open(string filename)
     }
     cfilename[filename.size()] = '\0';
     xd = xdrfile_open(cfilename, "r");
-    cout << "Opening xtc file " << filename << "...";
+    printf("Opening xtc file %s...", filename.c_str());
     if (read_xtc_natoms(cfilename, &natoms) != 0)
     {
         throw runtime_error("Cannot open " + this->filename + ".");
     }
-    cout << "OK" << endl;
-    cout << natoms << " particles are in the system." << endl;
+    printf("OK\n");
+    printf("%d particles are in the system.\n", natoms);
 
     return;
 }
@@ -217,10 +215,10 @@ int Trajectory::readFrame()
 
     if (nframes % 10 == 0) 
     {
-        cout << "   frame in: " << count;
-        cout << " | time (ps): " << time;
-        cout << " | step: " << step;
-        cout << " | frame saved: " << nframes << "\r";
+        printf("   frame in: %d", count);
+        printf(" | time (ps): %f", time);
+        printf(" | step: %d", step);
+        printf(" | frame saved: %d\r", nframes);
     }
 
     ++nframes;
@@ -247,10 +245,10 @@ int Trajectory::skipFrame()
 
     if (nframes % 10 == 0) 
     {
-        cout << "   frame in: " << count;
-        cout << " | time (ps): " << time;
-        cout << " | step: " << step;
-        cout << " | frame saved: " << nframes << "\r";
+        printf("   frame in: %d", count);
+        printf(" | time (ps): %f", time);
+        printf(" | step: %d", step);
+        printf(" | frame saved: %d\r", nframes);
     }
 
     return 0;
@@ -259,7 +257,7 @@ int Trajectory::skipFrame()
 void Trajectory::close()
 {
     xdrfile_close(xd);
-    cout << endl << "Finished reading in xtc file." << endl << endl;
+    printf("\nFinished reading in xtc file.\n");
 
     return;
 }

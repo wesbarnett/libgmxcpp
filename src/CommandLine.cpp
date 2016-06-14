@@ -41,7 +41,7 @@ bool getArgument(int argc, char *argv[], string flag, string *argToReturn)
         {
             if (i + 1 >= argc) 
             {
-                cout << "ERROR: missing argument to " << flag << "." << endl;
+                printf("ERROR: missing argument to %s.\n", flag.c_str());
                 return false;
             }
             *argToReturn = argv[i + 1];
