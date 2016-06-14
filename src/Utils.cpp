@@ -60,11 +60,10 @@ coordinates pbc(coordinates a, triclinicbox box)
 
 coordinates cross(coordinates a, coordinates b)
 {
-    coordinates r;
-    r[X] = a[Y] * b[Z] - a[Z] * b[Y];
-    r[Y] = a[Z] * b[X] - a[X] * b[Z];
-    r[Z] = a[X] * b[Y] - a[Y] * b[X];
-    return r;
+    return (coordinates (
+        a[Y] * b[Z] - a[Z] * b[Y],
+        a[Z] * b[X] - a[X] * b[Z],
+        a[X] * b[Y] - a[Y] * b[X]));
 }
 
 double distance2(coordinates a, coordinates b, triclinicbox box)

@@ -59,11 +59,7 @@ void coordinates::set(double x, double y, double z)
 
 coordinates coordinates::operator-(coordinates rhs)
 {
-    coordinates x;
-    x[X] = r[X] - rhs[X];
-    x[Y] = r[Y] - rhs[Y];
-    x[Z] = r[Z] - rhs[Z];
-    return x;
+    return (coordinates (r[X] - rhs[X], r[Y] - rhs[Y], r[Z] - rhs[Z]));
 }
 
 void coordinates::operator-=(coordinates rhs)
@@ -76,11 +72,7 @@ void coordinates::operator-=(coordinates rhs)
 
 coordinates coordinates::operator+(coordinates rhs)
 {
-    coordinates x;
-    x[X] = r[X] + rhs[X];
-    x[Y] = r[Y] + rhs[Y];
-    x[Z] = r[Z] + rhs[Z];
-    return x;
+    return (coordinates (r[X] + rhs[X], r[Y] + rhs[Y], r[Z] + rhs[Z]));
 }
 
 void coordinates::operator+=(coordinates rhs)
@@ -93,11 +85,7 @@ void coordinates::operator+=(coordinates rhs)
 
 coordinates coordinates::operator/(double rhs)
 {
-    coordinates x;
-    x[X] = r[X] / rhs;
-    x[Y] = r[Y] / rhs;
-    x[Z] = r[Z] / rhs;
-    return x;
+    return (coordinates (r[X] / rhs, r[Y] / rhs, r[Z] / rhs));
 }
 
 void coordinates::operator/=(double rhs)
@@ -110,20 +98,12 @@ void coordinates::operator/=(double rhs)
 
 coordinates operator*(coordinates lhs, double rhs)
 {
-    coordinates x;
-    x[X] = lhs[X] * rhs;
-    x[Y] = lhs[Y] * rhs;
-    x[Z] = lhs[Z] * rhs;
-    return x;
+    return (coordinates (lhs[X] * rhs, lhs[Y] * rhs, lhs[Z] * rhs));
 }
 
 coordinates operator*(double lhs, coordinates rhs)
 {
-    coordinates x;
-    x[X] = rhs[X] * lhs;
-    x[Y] = rhs[Y] * lhs;
-    x[Z] = rhs[Z] * lhs;
-    return x;
+    return (coordinates (rhs[X] * lhs, rhs[Y] * lhs, rhs[Z] * lhs));
 }
 
 void coordinates::operator*=(double rhs)

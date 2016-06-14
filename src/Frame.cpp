@@ -105,8 +105,7 @@ int Frame::GetStep() const
 
 coordinates Frame::GetXYZ(int atom) const
 {
-    coordinates xyz(x[atom][X], x[atom][Y], x[atom][Z]);
-    return xyz;
+    return (coordinates (x[atom][X], x[atom][Y], x[atom][Z]));
 }
 
 vector <coordinates> Frame::GetXYZ() const
@@ -140,21 +139,19 @@ vector <coordinates> Frame::GetXYZ(Index index, string group) const
 
 triclinicbox Frame::GetBox() const
 {
-    triclinicbox box(this->box[X][X],
-                     this->box[X][Y],
-                     this->box[X][Z],
-                     this->box[Y][X],
-                     this->box[Y][Y],
-                     this->box[Y][Z],
-                     this->box[Z][X],
-                     this->box[Z][Y],
-                     this->box[Z][Z]);
-    return box;
+    return (triclinicbox(this->box[X][X],
+                         this->box[X][Y],
+                         this->box[X][Z],
+                         this->box[Y][X],
+                         this->box[Y][Y],
+                         this->box[Y][Z],
+                         this->box[Z][X],
+                         this->box[Z][Y],
+                         this->box[Z][Z]));
 }
 
 double Frame::GetBoxVolume() const
 {
-    triclinicbox box = GetBox();
-    return volume(box);
+    return volume(this->GetBox());
 }
 
