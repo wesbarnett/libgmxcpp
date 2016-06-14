@@ -94,21 +94,20 @@ void Trajectory::init(string filename, int b, int s, int e)
             printf("Ending frame: %d\n", e);
         }
 
-        if (s == 1)
+        switch (s)
         {
-            printf("Reading in every frame.\n");
-        }
-        else if (s == 2)
-        {
-            printf("Reading in every %dnd frame.\n", s);
-        }
-        else if (s == 3)
-        { 
-            printf("Reading in every %drd frame.\n", s);
-        }
-        else if (s >= 4)
-        {
-            printf("Reading in every %dth frame.\n", s);
+            case 1:
+                printf("Reading in every frame.\n");
+                break;
+            case 2:
+                printf("Reading in every %dnd frame.\n", s);
+                break;
+            case 3:
+                printf("Reading in every %drd frame.\n", s);
+                break;
+            default:
+                printf("Reading in every %dth frame.\n", s);
+                break;
         }
 
         if (e <= b && e != -1)
