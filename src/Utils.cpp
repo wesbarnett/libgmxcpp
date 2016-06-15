@@ -69,9 +69,8 @@ coordinates pbc(coordinates a, triclinicbox box)
 coordinates4 pbc(coordinates4 a, triclinicbox box)
 {
 
-    __m128 shift;
     const int cntrl = _MM_FROUND_TO_NEAREST_INT;
-    shift = _mm_round_ps(_mm_div_ps(a.mmz, _mm_set1_ps(box(Z))),cntrl);
+    __m128 shift = _mm_round_ps(_mm_div_ps(a.mmz, _mm_set1_ps(box(Z))), cntrl);
     a.mmz = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Z))));
     if (box(Z,Y) > 0.0)
     {
