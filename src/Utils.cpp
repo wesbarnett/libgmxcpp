@@ -32,30 +32,20 @@
 
 coordinates pbc(coordinates a, triclinicbox box)
 {
-    coordinates b;
 
-    double box_inv[3];
-    double shift;
+    int shift = nearbyint(a[Z] / box(Z));
+    a[Z] -= box(Z,Z) * shift;
+    a[Y] -= box(Z,Y) * shift;
+    a[X] -= box(Z,X) * shift;
 
-    b = a;
+    shift = nearbyint(a[Y] / box(Y));
+    a[Y] -= box(Y,Y) * shift;
+    a[X] -= box(Y,X) * shift;
 
-    box_inv[X] = ((float)1.0) / box(X);
-    box_inv[Y] = ((float)1.0) / box(Y);
-    box_inv[Z] = ((float)1.0) / box(Z);
+    shift = nearbyint(a[X] / box(X));
+    a[X] -= box(X,X) * shift;
 
-    shift = round(b[Z] * box_inv[Z]);
-    b[Z] -= box(Z,Z) * shift;
-    b[Y] -= box(Z,Y) * shift;
-    b[X] -= box(Z,X) * shift;
-
-    shift = round(b[Y] * box_inv[Y]);
-    b[Y] -= box(Y,Y) * shift;
-    b[X] -= box(Y,X) * shift;
-
-    shift = round(b[X] * box_inv[X]);
-    b[X] -= box(X,X) * shift;
-
-    return b;
+    return a;
 }
 
 coordinates cross(coordinates a, coordinates b)
