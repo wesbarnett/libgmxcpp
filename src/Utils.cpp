@@ -34,16 +34,34 @@ coordinates pbc(coordinates a, triclinicbox box)
 {
 
     int shift = nearbyint(a[Z] / box(Z));
-    a[Z] -= box(Z,Z) * shift;
-    a[Y] -= box(Z,Y) * shift;
-    a[X] -= box(Z,X) * shift;
+    if (shift != 0)
+    {
+        a[Z] -= box(Z,Z) * shift;
+        if (box(Z,Y) > 0.0)
+        {
+            a[Y] -= box(Z,Y) * shift;
+        }
+        if (box(Z,X) > 0.0)
+        {
+            a[X] -= box(Z,X) * shift;
+        }
+    }
 
     shift = nearbyint(a[Y] / box(Y));
-    a[Y] -= box(Y,Y) * shift;
-    a[X] -= box(Y,X) * shift;
+    if (shift != 0)
+    {
+        a[Y] -= box(Y,Y) * shift;
+        if (box(Y,X) > 0.0)
+        {
+            a[X] -= box(Y,X) * shift;
+        }
+    }
 
     shift = nearbyint(a[X] / box(X));
-    a[X] -= box(X,X) * shift;
+    if (shift != 0)
+    {
+        a[X] -= box(X,X) * shift;
+    }
 
     return a;
 }
