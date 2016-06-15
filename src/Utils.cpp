@@ -58,7 +58,7 @@ coordinates cross(coordinates a, coordinates b)
 
 double distance2(coordinates a, coordinates b, triclinicbox box)
 {
-    return dot(pbc(a-b, box));
+    return dot(bond_vector(a, b, box));
 }
 
 double distance2(coordinates a, coordinates b)
