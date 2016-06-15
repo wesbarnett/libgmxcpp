@@ -112,13 +112,12 @@ coordinates Frame::GetXYZ(int atom) const
 
 vector <coordinates> Frame::GetXYZ() const
 {
-    vector <coordinates> xyz;
-    xyz.resize(natoms);
+    vector <coordinates> xyz(natoms);
     for (int atom = 0; atom < natoms; atom++) 
     {
-        xyz.at(atom)[X]= this->x[atom][X];
-        xyz.at(atom)[Y]= this->x[atom][Y];
-        xyz.at(atom)[Z]= this->x[atom][Z];
+        xyz[atom][X] = this->x[atom][X];
+        xyz[atom][Y] = this->x[atom][Y];
+        xyz[atom][Z] = this->x[atom][Z];
     }
     return xyz;
 }
@@ -126,15 +125,13 @@ vector <coordinates> Frame::GetXYZ() const
 vector <coordinates> Frame::GetXYZ(Index index, string group) const
 {
     int location;
-
-    vector <coordinates> xyz;
-    xyz.resize(index.GetGroupSize(group));
+    vector <coordinates> xyz(index.GetGroupSize(group));
     for (int atom = 0; atom < index.GetGroupSize(group); atom++) 
     {
         location = index.GetLocation(group, atom);
-        xyz.at(atom)[X] = this->x[location][X];
-        xyz.at(atom)[Y] = this->x[location][Y];
-        xyz.at(atom)[Z] = this->x[location][Z];
+        xyz[atom][X] = this->x[location][X];
+        xyz[atom][Y] = this->x[location][Y];
+        xyz[atom][Z] = this->x[location][Z];
     }
     return xyz;
 }
