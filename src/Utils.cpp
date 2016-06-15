@@ -68,16 +68,12 @@ coordinates cross(coordinates a, coordinates b)
 
 double distance2(coordinates a, coordinates b, triclinicbox box)
 {
-    coordinates c = a - b;
-
-    c = pbc(c, box);
-    return dot(c);
+    return dot(pbc(a-b, box));
 }
 
 double distance2(coordinates a, coordinates b)
 {
-    coordinates c = a - b;
-    return dot(c);
+    return dot(a-b);
 }
 
 double distance(coordinates a, coordinates b, triclinicbox box)
@@ -107,12 +103,12 @@ double magnitude(coordinates x)
 
 double volume(triclinicbox box)
 {
-    return box(X,X) * box(Y,Y) * box(Z,Z) + \
-           box(X,Y) * box(Y,Z) * box(Z,X) + \
-           box(X,Z) * box(Y,X) * box(Z,Y) - \
-           box(X,Z) * box(Y,Y) * box(Z,X) + \
-           box(X,Y) * box(Y,X) * box(Z,Z) + \
-           box(X,X) * box(Y,Z) * box(Z,Y);
+    return (box(X,X) * box(Y,Y) * box(Z,Z) +
+            box(X,Y) * box(Y,Z) * box(Z,X) +
+            box(X,Z) * box(Y,X) * box(Z,Y) -
+            box(X,Z) * box(Y,Y) * box(Z,X) +
+            box(X,Y) * box(Y,X) * box(Z,Z) +
+            box(X,X) * box(Y,Z) * box(Z,Y));
 }
 
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
@@ -124,13 +120,7 @@ double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, tricl
 {
 	coordinates bond1 = bond_vector(atom2,atom1,box);
 	coordinates bond2 = bond_vector(atom2,atom3,box);
-
-	double bond1_mag = magnitude(bond1);
-	double bond2_mag = magnitude(bond2);
-	double angle = acos(dot(bond1,bond2)/(bond1_mag*bond2_mag));
-
-	return angle;
-
+	return acos(dot(bond1,bond2)/(magnitude(bond1)*magnitude(bond2)));
 }
 
 double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l, triclinicbox box)
@@ -144,22 +134,15 @@ double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l
 	double A_mag = magnitude(A);
 	double B_mag = magnitude(B);
 	double G_mag = magnitude(G);
-	double sin_phi = dot(cross_BA,G)/(A_mag * B_mag *G_mag);
-	double cos_phi = dot(A,B)/(A_mag * B_mag);
-	double phi = atan2(sin_phi,cos_phi);
-	return phi;
+    // atan2(sin(phi), cos(phi));
+	return atan2(dot(cross_BA,G)/(A_mag * B_mag *G_mag), dot(A,B)/(A_mag * B_mag));
 }
 
 void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box)
 {
-    coordinates r;
-    int atom_n = atom.size();
-    int i;
-
-    for (i = 0; i < atom_n; i++)
+    for (unsigned int i = 0; i < atom.size(); i++)
     {
-        r = pbc(center-atom[i],box);
-        atom[i] = center - r;
+        atom[i] = center - pbc(center-atom[i],box);
     }
     return;
 }
@@ -173,10 +156,8 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 
     coordinates com(0.0,0.0,0.0);
     double total_mass = 0.0;
-    int atom_n = atom.size();
-    int i;
 
-    for (i = 0; i < atom_n; i++)
+    for (unsigned int i = 0; i < atom.size(); i++)
     {
         com += atom[i] * mass[i];
         total_mass += mass[i];
@@ -195,8 +176,6 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 
     coordinates cog(0.0,0.0,0.0); // geometric center
     int atom_n = atom.size();
-    int i;
-	int j;
 
 	double theta;
 	double xi;
@@ -204,11 +183,11 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 
     /* Transform each coordinate to a circle, then transform the average back.
      * This removes periodic affects in order to get the center of geometry */
-	for (j = 0; j < DIM; j++)
+	for (int j = 0; j < DIM; j++)
 	{
 		xi = 0.0;
 		sigma = 0.0;
-		for (i = 0; i < atom_n; i++)
+		for (int i = 0; i < atom_n; i++)
 		{
 			theta = atom[i][j] / (box(j)) * 2.0 * M_PI;
 			sigma += cos(theta);
@@ -234,13 +213,9 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, tric
      * effects. Then center the group around the cog. After that calculate
      * center of mass. */
 
-    coordinates cog;
-    coordinates com;
-    cog = center_of_geometry(atom, box);
+    coordinates cog = center_of_geometry(atom, box);
     do_center_group(atom, cog, box);
-    com = center_of_mass(atom, mass);
-
-    return com;
+    return center_of_mass(atom, mass);
 }
 
 ostream& operator<<(ostream &os, coordinates xyz)
@@ -299,11 +274,9 @@ coordinates gen_sphere_point(coordinates center, double r)
         zeta2 = pow(zeta_1, 2) + pow(zeta_2, 2);
     }
 
-    coordinates zeta(2.0 * zeta_1 * sqrt(1.0 - zeta2) * r + center[X],
-                     2.0 * zeta_2 * sqrt(1.0 - zeta2) * r + center[Y],
-                     (1.0 - 2.0 * zeta2) * r + center[Z]);
-
-    return zeta;
+    return (coordinates (2.0 * zeta_1 * sqrt(1.0 - zeta2) * r + center[X],
+                         2.0 * zeta_2 * sqrt(1.0 - zeta2) * r + center[Y],
+                        (1.0 - 2.0 * zeta2) * r + center[Z]));
 }
 
 /*
@@ -311,8 +284,7 @@ coordinates gen_sphere_point(coordinates center, double r)
  */
 coordinates gen_sphere_point(double r)
 {
-    coordinates center(0.0, 0.0, 0.0);
-    return gen_sphere_point(center, r);
+    return gen_sphere_point(coordinates(0.0, 0.0, 0.0), r);
 }
 
 /*
@@ -320,8 +292,7 @@ coordinates gen_sphere_point(double r)
  */
 coordinates gen_sphere_point()
 {
-    coordinates center(0.0, 0.0, 0.0);
-    return gen_sphere_point(center, 1.0);
+    return gen_sphere_point(coordinates(0.0, 0.0, 0.0), 1.0);
 }
 
 double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand_n, triclinicbox box)
@@ -361,7 +332,7 @@ double get_sphere_accept_ratio(vector <coordinates> sites, double r, double rand
              * random point and the site of interest, that means it is closest
              * to the site of interest and is accepted.
              */
-            accept_n++;
+            ++accept_n;
 
 rejectpoint:
             continue;
@@ -400,8 +371,7 @@ void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
 
     for (int i = 0; i < n; i++)
     {
-        coordinates point(dis_x(gen), dis_y(gen), dis_z(gen));
-        xyz.push_back(point);
+        xyz.push_back(coordinates(dis_x(gen), dis_y(gen), dis_z(gen)));
     }
 
     return;
