@@ -40,11 +40,11 @@ using namespace std;
  * For example, to if the box is cubic and your have a triclinicbox object named
  * mybox, to get the X dimension do mybox(0). If you it is truly a triclinicbox
  * (not cubic) you can access elements with mybox(i,j).*/
-class triclinicbox : public vector < vector <double> > {
+class triclinicbox {
 
 private:
 
-    double box[3][3];
+    array <array<double,3>, 3> box;
 
 public:
     /** Constructor, makes the 2d vector 3x3 */
