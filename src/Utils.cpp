@@ -101,7 +101,7 @@ double dot(coordinates a, coordinates b)
 
 double dot(coordinates a)
 {
-    return a[X] * a[X] + a[Y] * a[Y] + a[Z] * a[Z];
+    return dot(a, a);
 }
 
 double magnitude(coordinates x)
