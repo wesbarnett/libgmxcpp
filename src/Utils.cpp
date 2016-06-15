@@ -71,21 +71,21 @@ coordinates4 pbc(coordinates4 a, triclinicbox box)
 
     const int cntrl = _MM_FROUND_TO_NEAREST_INT;
     __m128 shift = _mm_round_ps(_mm_div_ps(a.mmz, _mm_set1_ps(box(Z))), cntrl);
-    a.mmz = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Z))));
+    a.mmz = _mm_sub_ps(a.mmz, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Z))));
     if (box(Z,Y) > 0.0)
     {
         a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Y))));
     }
     if (box(Z,X) > 0.0)
     {
-        a.mmx = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,X))));
+        a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Z,X))));
     }
 
     shift = _mm_round_ps(_mm_div_ps(a.mmy, _mm_set1_ps(box(Y))),cntrl);
     a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Y,Y))));
     if (box(Y,X) > 0.0)
     {
-        a.mmx = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Y,X))));
+        a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Y,X))));
     }
 
     shift = _mm_round_ps(_mm_div_ps(a.mmx, _mm_set1_ps(box(X))),cntrl);
@@ -109,7 +109,9 @@ double distance2(coordinates a, coordinates b, triclinicbox box)
 
 vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
 {
-    pbc(a-b,box);
+
+    coordinates4 c = pbc(a-b,box);
+
     union{
         __m128 dx;
         float x[4];
@@ -123,13 +125,15 @@ vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
         float z[4];
     };
         
-    dx = _mm_mul_ps(a.mmx, _mm_set1_ps(b[X]));
-    dy = _mm_mul_ps(a.mmy, _mm_set1_ps(b[Y]));
-    dz = _mm_mul_ps(a.mmz, _mm_set1_ps(b[Z]));
+// TODO better dot product
+    dx = _mm_mul_ps(c.mmx, c.mmx);
+    dy = _mm_mul_ps(c.mmy, c.mmy);
+    dz = _mm_mul_ps(c.mmz, c.mmz);
+
     vector <float> d(4);// TODO
     for (int i = 0; i < 4; i ++)
     {
-        d[i] = dx[i] + dy[i] + dz[i];
+        d[i] = x[i] + y[i] + z[i];
     }
     return d;
 }
