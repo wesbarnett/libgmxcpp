@@ -110,6 +110,14 @@ coordinates Frame::GetXYZ(int atom) const
     return (coordinates (x[atom][X], x[atom][Y], x[atom][Z]));
 }
 
+coordinates4 Frame::GetXYZ4(int atom) const
+{
+    return (coordinates4 (x[atom][X], x[atom][Y], x[atom][Z],
+                          x[atom+1][X], x[atom+1][Y], x[atom+1][Z],
+                          x[atom+2][X], x[atom+2][Y], x[atom+2][Z],
+                          x[atom+3][X], x[atom+3][Y], x[atom+3][Z]));
+}
+
 vector <coordinates> Frame::GetXYZ() const
 {
     vector <coordinates> xyz(natoms);

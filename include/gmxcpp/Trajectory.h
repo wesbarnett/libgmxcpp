@@ -36,6 +36,7 @@
 #include "gmxcpp/Index.h"
 #include "gmxcpp/Utils.h"
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/coordinates4.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -194,6 +195,7 @@ int GetStep(int frame) const;
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
 coordinates GetXYZ(int frame, int atom) const;
+coordinates4 GetXYZ4(int frame, int atom) const;
 
 /**
  * @brief Gets the coordinates for a specific atom in a group.
@@ -209,6 +211,7 @@ coordinates GetXYZ(int frame, int atom) const;
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
 coordinates GetXYZ(int frame, string groupName, int atom) const;
+coordinates4 GetXYZ4(int frame, string group, int atom) const;
 
 /**
  * @brief Gets all of the coordinates for the system for a specific

@@ -102,6 +102,7 @@ int GetStep() const;
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
 coordinates GetXYZ(int atom) const;
+coordinates4 GetXYZ4(int atom) const;
 
 /**
  * @brief Gets all of the coordinates for the system for this frame.
