@@ -45,8 +45,11 @@
 #include <time.h>
 #include <vector>
 #include <stdexcept>
+#include <smmintrin.h>
+#include <xmmintrin.h>
 
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/coordinates4.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -63,6 +66,7 @@ using namespace std;
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
+coordinates4 pbc(coordinates4 a, triclinicbox box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -98,6 +102,7 @@ double distance(coordinates a, coordinates b);
  * @param box Box dimensions
  */
 double distance2(coordinates a, coordinates b, triclinicbox box);
+vector <float> distance2(coordinates4 a, coordinates4 b, triclinicbox box);
 double distance2(coordinates a, coordinates b);
 
 /** @brief Calculates the dot product between two vectors

@@ -66,6 +66,35 @@ coordinates pbc(coordinates a, triclinicbox box)
     return a;
 }
 
+coordinates4 pbc(coordinates4 a, triclinicbox box)
+{
+
+    __m128 shift;
+    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+    shift = _mm_round_ps(_mm_div_ps(a.mmz, _mm_set1_ps(box(Z))),cntrl);
+    a.mmz = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Z))));
+    if (box(Z,Y) > 0.0)
+    {
+        a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Y))));
+    }
+    if (box(Z,X) > 0.0)
+    {
+        a.mmx = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,X))));
+    }
+
+    shift = _mm_round_ps(_mm_div_ps(a.mmy, _mm_set1_ps(box(Y))),cntrl);
+    a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Y,Y))));
+    if (box(Y,X) > 0.0)
+    {
+        a.mmx = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Y,X))));
+    }
+
+    shift = _mm_round_ps(_mm_div_ps(a.mmx, _mm_set1_ps(box(X))),cntrl);
+    a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(X,X))));
+
+    return a;
+}
+
 coordinates cross(coordinates a, coordinates b)
 {
     return (coordinates (
@@ -77,6 +106,33 @@ coordinates cross(coordinates a, coordinates b)
 double distance2(coordinates a, coordinates b, triclinicbox box)
 {
     return dot(bond_vector(a, b, box));
+}
+
+vector <float> distance2(coordinates4 a, coordinates4 b, triclinicbox box)
+{
+    pbc(a-b,box);
+    union{
+        __m128 dx;
+        float x[4];
+    };
+    union{
+        __m128 dy;
+        float y[4];
+    };
+    union{
+        __m128 dz;
+        float z[4];
+    };
+        
+    dx = _mm_mul_ps(a.mmx, b.mmx);
+    dy = _mm_mul_ps(a.mmy, b.mmy);
+    dz = _mm_mul_ps(a.mmz, b.mmz);
+    vector <float> d(4);
+    for (int i = 0; i < 4; i ++)
+    {
+        d[i] = dx[i] + dy[i] + dz[i];
+    }
+    return d;
 }
 
 double distance2(coordinates a, coordinates b)
