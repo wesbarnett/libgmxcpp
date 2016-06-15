@@ -293,7 +293,10 @@ coordinates Trajectory::GetXYZ(int frame, string group, int atom) const
 
 coordinates4 Trajectory::GetXYZ4(int frame, string group, int atom) const
 {
-    return frameArray[frame].GetXYZ4(index.GetLocation(group, atom));
+    return frameArray[frame].GetXYZ4(index.GetLocation(group, atom),
+                                     index.GetLocation(group, atom+1),
+                                     index.GetLocation(group, atom+2),
+                                     index.GetLocation(group, atom+3));
 }
 
 triclinicbox Trajectory::GetBox(int frame) const

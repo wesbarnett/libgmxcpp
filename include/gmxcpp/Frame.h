@@ -103,6 +103,7 @@ int GetStep() const;
  */
 coordinates GetXYZ(int atom) const;
 coordinates4 GetXYZ4(int atom) const;
+coordinates4 GetXYZ4(int a, int b, int c, int d) const;
 
 /**
  * @brief Gets all of the coordinates for the system for this frame.
