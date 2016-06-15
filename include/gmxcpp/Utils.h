@@ -102,7 +102,7 @@ double distance(coordinates a, coordinates b);
  * @param box Box dimensions
  */
 double distance2(coordinates a, coordinates b, triclinicbox box);
-vector <float> distance2(coordinates4 a, coordinates4 b, triclinicbox box);
+vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b);
 
 /** @brief Calculates the dot product between two vectors

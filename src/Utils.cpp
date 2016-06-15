@@ -108,7 +108,7 @@ double distance2(coordinates a, coordinates b, triclinicbox box)
     return dot(bond_vector(a, b, box));
 }
 
-vector <float> distance2(coordinates4 a, coordinates4 b, triclinicbox box)
+vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
 {
     pbc(a-b,box);
     union{
@@ -124,10 +124,10 @@ vector <float> distance2(coordinates4 a, coordinates4 b, triclinicbox box)
         float z[4];
     };
         
-    dx = _mm_mul_ps(a.mmx, b.mmx);
-    dy = _mm_mul_ps(a.mmy, b.mmy);
-    dz = _mm_mul_ps(a.mmz, b.mmz);
-    vector <float> d(4);
+    dx = _mm_mul_ps(a.mmx, _mm_set1_ps(b[X]));
+    dy = _mm_mul_ps(a.mmy, _mm_set1_ps(b[Y]));
+    dz = _mm_mul_ps(a.mmz, _mm_set1_ps(b[Z]));
+    vector <float> d(4);// TODO
     for (int i = 0; i < 4; i ++)
     {
         d[i] = dx[i] + dy[i] + dz[i];
