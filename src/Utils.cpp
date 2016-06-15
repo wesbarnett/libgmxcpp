@@ -71,13 +71,13 @@ double distance2(coordinates a, coordinates b, triclinicbox box)
     coordinates c = a - b;
 
     c = pbc(c, box);
-    return dot(c, c);
+    return dot(c);
 }
 
 double distance2(coordinates a, coordinates b)
 {
     coordinates c = a - b;
-    return dot(c, c);
+    return dot(c);
 }
 
 double distance(coordinates a, coordinates b, triclinicbox box)
@@ -102,7 +102,7 @@ double dot(coordinates a)
 
 double magnitude(coordinates x)
 {
-    return sqrt(dot(x, x));
+    return sqrt(dot(x));
 }
 
 double volume(triclinicbox box)
@@ -118,7 +118,6 @@ double volume(triclinicbox box)
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
 {
 	return pbc(atom1-atom2,box);
-
 }
 
 double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, triclinicbox box)
