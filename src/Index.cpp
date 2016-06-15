@@ -91,7 +91,7 @@ bool Index::init(string ndxfile)
             linestream.str(line);
             while (linestream >> num)
             {
-                locations.at(groupNum).push_back(num);
+                locations[groupNum].push_back(num);
             }
         }
     }
@@ -110,8 +110,8 @@ void Index::PrintInfo() const
 {
     for (unsigned int i = 0; i < headers.size(); i++) 
     {
-        printf("  %s", headers.at(i).c_str());
-        printf("( %ld particles)\n", locations.at(i).size());
+        printf("  %s", headers[i].c_str());
+        printf("( %ld particles)\n", locations[i].size());
     }
     return;
 }
@@ -137,36 +137,22 @@ int Index::GetHeaderIndex(string header) const
 {
     for (unsigned int i = 0; i < headers.size(); i++)
     {
-        if (headers.at(i) == header)
+        if (headers[i] == header)
         { 
             return i;
         }
     }
-    throw runtime_error("Group " + header + " is not in " + this->filename + "!");
+    throw runtime_error("Tried to access index group " + header + ", which was not found in " + this->filename + ".");
 }
 
 int Index::GetGroupSize(string header) const
 {
-    try 
-    {
-        return locations.at(GetHeaderIndex(header)).size();
-    } 
-    catch (runtime_error &excpt) 
-    {
-        terminate();
-    }
+    return locations[GetHeaderIndex(header)].size();
 }
 
 int Index::GetLocation(string header, int i) const
 {
-    try 
-    {
-        return locations.at(GetHeaderIndex(header)).at(i) - 1;
-    } 
-    catch (runtime_error &excpt) 
-    {
-        terminate();
-    }
+    return (locations[GetHeaderIndex(header)][i] - 1);
 }
 
 bool Index::isHeader(string line) const

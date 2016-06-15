@@ -113,7 +113,7 @@ coordinates Frame::GetXYZ(int atom) const
 vector <coordinates> Frame::GetXYZ() const
 {
     vector <coordinates> xyz(natoms);
-    for (int atom = 0; atom < natoms; atom++) 
+    for (int atom = 0; atom < natoms; ++atom) 
     {
         xyz[atom][X] = this->x[atom][X];
         xyz[atom][Y] = this->x[atom][Y];
@@ -125,8 +125,9 @@ vector <coordinates> Frame::GetXYZ() const
 vector <coordinates> Frame::GetXYZ(Index index, string group) const
 {
     int location;
-    vector <coordinates> xyz(index.GetGroupSize(group));
-    for (int atom = 0; atom < index.GetGroupSize(group); atom++) 
+    const int grp_size = index.GetGroupSize(group);
+    vector <coordinates> xyz(grp_size);
+    for (int atom = 0; atom < grp_size; ++atom) 
     {
         location = index.GetLocation(group, atom);
         xyz[atom][X] = this->x[location][X];
