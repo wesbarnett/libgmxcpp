@@ -316,6 +316,19 @@ coordinates8 Trajectory::GetXYZ8(int frame, string group, int atom) const
                                      index.GetLocation(group, atom+7));
 }
 
+coordinates8 Trajectory::GetXYZ8F(int frame, string group, int atom) const
+{
+    return ( coordinates8 (frameArray[frame].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+1)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+2)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+3)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+4)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+5)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+6)),
+                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+7))) );
+
+}
+
 triclinicbox Trajectory::GetBox(int frame) const
 {
     return frameArray[frame].GetBox();

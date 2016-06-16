@@ -128,6 +128,11 @@ double volume(cubicbox_m256 box)
     return volume(cubicbox(box));
 }
 
+__m256 volume(cubicbox8 box)
+{
+    return _mm256_mul_ps(_mm256_mul_ps(box.mmx, box.mmy), box.mmz);
+}
+
 double volume(cubicbox box)
 {
     return (box[X] * box[Y] * box[Z]);
@@ -440,10 +445,10 @@ coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
     __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
     a.mmz = _mm256_fnmadd_ps(shift, box.mmz, a.mmz);
 
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy),cntrl);
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy), cntrl);
     a.mmy = _mm256_fnmadd_ps(shift, box.mmy, a.mmy);
 
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx),cntrl);
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx), cntrl);
     a.mmx = _mm256_fnmadd_ps(shift, box.mmx, a.mmx);
 
     return a;

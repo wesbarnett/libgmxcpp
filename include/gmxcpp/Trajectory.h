@@ -215,6 +215,7 @@ coordinates8 GetXYZ8(int frame, int atom) const;
 coordinates GetXYZ(int frame, string groupName, int atom) const;
 coordinates4 GetXYZ4(int frame, string group, int atom) const;
 coordinates8 GetXYZ8(int frame, string group, int atom) const;
+coordinates8 GetXYZ8F(int frame, string group, int atom) const; // From 8 different frames in a row
 
 /**
  * @brief Gets all of the coordinates for the system for a specific
