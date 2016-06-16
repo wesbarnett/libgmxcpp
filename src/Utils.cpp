@@ -111,31 +111,15 @@ vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
 {
 
     coordinates4 c = pbc(a-b,box);
-
-    union{
-        __m128 dx;
-        float x[4];
+    union {
+        __m128 d2;
+        float d[4];
     };
-    union{
-        __m128 dy;
-        float y[4];
-    };
-    union{
-        __m128 dz;
-        float z[4];
-    };
-        
-// TODO better dot product
-    dx = _mm_mul_ps(c.mmx, c.mmx);
-    dy = _mm_mul_ps(c.mmy, c.mmy);
-    dz = _mm_mul_ps(c.mmz, c.mmz);
-
-    vector <float> d(4);// TODO
-    for (int i = 0; i < 4; i ++)
-    {
-        d[i] = x[i] + y[i] + z[i];
-    }
-    return d;
+    __m128 dx = _mm_mul_ps(c.mmx, c.mmx);
+    __m128 dy = _mm_mul_ps(c.mmy, c.mmy);
+    __m128 dz = _mm_mul_ps(c.mmz, c.mmz);
+    d2 = _mm_add_ps(_mm_add_ps(dx, dy), dz);
+    return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
 double distance2(coordinates a, coordinates b)
