@@ -234,6 +234,11 @@ double volume(triclinicbox box)
             box(X,X) * box(Y,Z) * box(Z,Y));
 }
 
+double volume(cubicbox_m256 box)
+{
+    return (box[X] * box[Y] * box[Z]);
+}
+
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
 {
 	return pbc(atom1-atom2,box);

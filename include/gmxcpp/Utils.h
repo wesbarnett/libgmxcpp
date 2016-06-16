@@ -145,6 +145,7 @@ bool fileExists(string filename);
  * @return Volume of box
  */
 double volume(triclinicbox box);
+double volume(cubicbox_m256 box);
 
 /** @brief Gets the bond vector between to atoms
  * @param atom1 First atom in bond
