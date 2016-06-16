@@ -139,6 +139,7 @@ vector <coordinates> GetXYZ(Index index, string groupName) const;
  */
 triclinicbox GetBox() const;
 cubicbox GetCubicBox() const;
+cubicbox_m256 GetCubicBoxM256() const;
 
 /**
  * @brief Gets the volume of the box at this frame.

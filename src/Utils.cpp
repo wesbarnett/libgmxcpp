@@ -103,12 +103,29 @@ coordinates8 pbc(coordinates8 a, triclinicbox box)
     return a;
 }
 
+coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
+{
+
+    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+
+    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
+    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift, box.mmz));
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy),cntrl);
+    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift, box.mmy));
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx),cntrl);
+    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,box.mmx));
+
+    return a;
+}
+
 coordinates pbc(coordinates a, cubicbox box)
 {
 
     a[Z] -= box[Z] * nearbyint(a[Z] / box[Z]);
-    a[Y] -= box[Y] * nearbyint(a[Y] / box[Y]);;
-    a[X] -= box[X] * nearbyint(a[X] / box[X]);;
+    a[Y] -= box[Y] * nearbyint(a[Y] / box[Y]);
+    a[X] -= box[X] * nearbyint(a[X] / box[X]);
     return a;
 }
 
@@ -140,6 +157,7 @@ vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
     return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
+// TODO
 //__m256 distance2(coordinates8 a, coordinates b, triclinicbox box)
 vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
 {
@@ -154,6 +172,20 @@ vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
     __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
     d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
     //return d2;
+    return vector<float> (d, d+sizeof d / sizeof d[0]);
+}
+
+vector <float> distance2(coordinates8 a, coordinates b, cubicbox_m256 box)
+{
+    coordinates8 c = pbc(a-b,box);
+    union {
+        __m256 d2;
+        float d[8];
+    };
+    __m256 dx = _mm256_mul_ps(c.mmx, c.mmx);
+    __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
+    __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
+    d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
     return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 

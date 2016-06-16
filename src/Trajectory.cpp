@@ -326,6 +326,11 @@ cubicbox Trajectory::GetCubicBox(int frame) const
     return frameArray[frame].GetCubicBox();
 }
 
+cubicbox_m256 Trajectory::GetCubicBoxM256(int frame) const
+{
+    return frameArray[frame].GetCubicBoxM256();
+}
+
 int Trajectory::GetNAtoms(string group) const
 {
     return index.GetGroupSize(group);

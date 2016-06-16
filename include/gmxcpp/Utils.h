@@ -52,6 +52,7 @@
 #include "gmxcpp/coordinates4.h"
 #include "gmxcpp/coordinates8.h"
 #include "gmxcpp/cubicbox.h"
+#include "gmxcpp/cubicbox_m256.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -71,6 +72,7 @@ coordinates pbc(coordinates a, triclinicbox box);
 coordinates pbc(coordinates a, cubicbox box);
 coordinates4 pbc(coordinates4 a, triclinicbox box);
 coordinates8 pbc(coordinates8 a, triclinicbox box);
+coordinates8 pbc(coordinates8 a, cubicbox_m256 box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -108,6 +110,7 @@ double distance(coordinates a, coordinates b);
 double distance2(coordinates a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box);
+vector <float> distance2(coordinates8 a, coordinates b, cubicbox_m256 box);
 //__m256 distance2(coordinates8 a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);

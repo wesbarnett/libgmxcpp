@@ -195,6 +195,11 @@ cubicbox Frame::GetCubicBox() const
     return (cubicbox(this->box[X][X], this->box[Y][Y], this->box[Z][Z]));
 }
 
+cubicbox_m256 Frame::GetCubicBoxM256() const
+{
+    return (cubicbox_m256(this->box[X][X], this->box[Y][Y], this->box[Z][Z]));
+}
+
 double Frame::GetBoxVolume() const
 {
     return volume(this->GetBox());
