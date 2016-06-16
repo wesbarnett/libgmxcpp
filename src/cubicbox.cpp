@@ -39,6 +39,13 @@ cubicbox::cubicbox(float x, float y, float z)
     this->box[Z] = z;
 }
 
+cubicbox::cubicbox(cubicbox_m256 box)
+{
+    this->box[X] = box[X];
+    this->box[Y] = box[Y];
+    this->box[Z] = box[Z];
+}
+
 
 float& cubicbox::operator[](int i)
 {

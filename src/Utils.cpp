@@ -510,3 +510,41 @@ void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
     return;
 
 }
+
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n)
+{
+    xyz.resize(0);
+    xyz.reserve(n);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<double> dis_x(0.0,box[X]);
+    uniform_real_distribution<double> dis_y(0.0,box[Y]);
+    uniform_real_distribution<double> dis_z(0.0,box[Z]);
+
+    for (int i = 0; i < n; i++)
+    {
+        xyz.push_back(coordinates(dis_x(gen), dis_y(gen), dis_z(gen)));
+    }
+
+    return;
+
+}
+
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
+{
+    xyz.resize(0);
+    xyz.reserve(n);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<double> dis_x(0.0,box[X]);
+    uniform_real_distribution<double> dis_y(0.0,box[Y]);
+    uniform_real_distribution<double> dis_z(0.0,box[Z]);
+
+    for (int i = 0; i < n; i++)
+    {
+        xyz.push_back(coordinates(dis_x(gen), dis_y(gen), dis_z(gen)));
+    }
+
+    return;
+
+}

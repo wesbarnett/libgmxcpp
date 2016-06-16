@@ -112,6 +112,7 @@ vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box);
 //__m256 distance2(coordinates8 a, coordinates b, triclinicbox box);
+double distance2(coordinates a, coordinates b, cubicbox_m256 box);
 double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);
 
@@ -254,6 +255,8 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
  * @param n Number of random points to generate.
  */
 void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n);
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n);
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n);
 
 /** \addtogroup center_of_mass
  * @{

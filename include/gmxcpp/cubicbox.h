@@ -30,8 +30,8 @@
 #define CUBICBOX_H
 
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/cubicbox_m256.h"
 #include "gmxcpp/xdrfile.h"
-#include <vector>
 using namespace std;
 
 /** @brief Box dimensions.
@@ -52,6 +52,9 @@ public:
 
     /** Constructor where user provides dimensions, cubic */
     cubicbox(float x, float y, float z);
+
+    /** Convert from 8 copies of box */
+    cubicbox(cubicbox_m256 box);
 
     float& operator[](int i);
 
