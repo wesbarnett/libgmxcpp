@@ -438,13 +438,13 @@ coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
     const int cntrl = _MM_FROUND_TO_NEAREST_INT;
 
     __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
-    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift, box.mmz));
+    a.mmz = _mm256_fnmadd_ps(shift, box.mmz, a.mmz);
 
     shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy),cntrl);
-    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift, box.mmy));
+    a.mmy = _mm256_fnmadd_ps(shift, box.mmy, a.mmy);
 
     shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx),cntrl);
-    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,box.mmx));
+    a.mmx = _mm256_fnmadd_ps(shift, box.mmx, a.mmx);
 
     return a;
 }
@@ -452,12 +452,8 @@ coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
 __m256 distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
 {
     coordinates8 c = pbc(a-b,box);
-    union {
-        __m256 d2;
-        float d[8];
-    };
-    __m256 dx = _mm256_mul_ps(c.mmx, c.mmx);
-    __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
-    __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
-    return _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
+    __m256 d = _mm256_mul_ps(c.mmx, c.mmx);
+    __m256 e = _mm256_fmadd_ps(c.mmy, c.mmy, d);
+    __m256 f = _mm256_fmadd_ps(c.mmz, c.mmz, e);
+    return f;
 }
