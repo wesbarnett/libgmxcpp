@@ -50,6 +50,7 @@
 
 #include "gmxcpp/coordinates.h"
 #include "gmxcpp/coordinates4.h"
+#include "gmxcpp/coordinates8.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -67,6 +68,7 @@ using namespace std;
  */
 coordinates pbc(coordinates a, triclinicbox box);
 coordinates4 pbc(coordinates4 a, triclinicbox box);
+coordinates8 pbc(coordinates8 a, triclinicbox box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -103,6 +105,7 @@ double distance(coordinates a, coordinates b);
  */
 double distance2(coordinates a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box);
+vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b);
 
 /** @brief Calculates the dot product between two vectors

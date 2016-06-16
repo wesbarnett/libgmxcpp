@@ -196,6 +196,7 @@ int GetStep(int frame) const;
  */
 coordinates GetXYZ(int frame, int atom) const;
 coordinates4 GetXYZ4(int frame, int atom) const;
+coordinates8 GetXYZ8(int frame, int atom) const;
 
 /**
  * @brief Gets the coordinates for a specific atom in a group.
@@ -212,6 +213,7 @@ coordinates4 GetXYZ4(int frame, int atom) const;
  */
 coordinates GetXYZ(int frame, string groupName, int atom) const;
 coordinates4 GetXYZ4(int frame, string group, int atom) const;
+coordinates8 GetXYZ8(int frame, string group, int atom) const;
 
 /**
  * @brief Gets all of the coordinates for the system for a specific

@@ -272,6 +272,11 @@ coordinates4 Trajectory::GetXYZ4(int frame, int atom) const
     return frameArray[frame].GetXYZ4(atom);
 }
 
+coordinates8 Trajectory::GetXYZ8(int frame, int atom) const
+{
+    return frameArray[frame].GetXYZ8(atom);
+}
+
 // Gets the xyz coordinates for the entire frame.
 vector <coordinates> Trajectory::GetXYZ(int frame) const
 {
@@ -297,6 +302,18 @@ coordinates4 Trajectory::GetXYZ4(int frame, string group, int atom) const
                                      index.GetLocation(group, atom+1),
                                      index.GetLocation(group, atom+2),
                                      index.GetLocation(group, atom+3));
+}
+
+coordinates8 Trajectory::GetXYZ8(int frame, string group, int atom) const
+{
+    return frameArray[frame].GetXYZ8(index.GetLocation(group, atom),
+                                     index.GetLocation(group, atom+1),
+                                     index.GetLocation(group, atom+2),
+                                     index.GetLocation(group, atom+3),
+                                     index.GetLocation(group, atom+4),
+                                     index.GetLocation(group, atom+5),
+                                     index.GetLocation(group, atom+6),
+                                     index.GetLocation(group, atom+7));
 }
 
 triclinicbox Trajectory::GetBox(int frame) const
