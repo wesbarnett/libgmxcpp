@@ -47,6 +47,7 @@
 #include <stdexcept>
 
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/cubicbox.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -63,6 +64,7 @@ using namespace std;
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
+coordinates pbc(coordinates a, cubicbox box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -98,6 +100,7 @@ double distance(coordinates a, coordinates b);
  * @param box Box dimensions
  */
 double distance2(coordinates a, coordinates b, triclinicbox box);
+double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);
 
 /** @brief Calculates the dot product between two vectors
@@ -138,6 +141,7 @@ double volume(triclinicbox box);
  * @return bond vector
  */
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box);
+coordinates bond_vector(coordinates atom1, coordinates atom2, cubicbox box);
 
 /** @brief Calculates the angle between two bonds
  * @details The central atom should be the middle input.
