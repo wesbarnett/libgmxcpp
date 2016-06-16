@@ -57,69 +57,6 @@ coordinates pbc(coordinates a, triclinicbox box)
     return a;
 }
 
-coordinates4 pbc(coordinates4 a, triclinicbox box)
-{
-
-    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
-
-    __m128 shift = _mm_round_ps(_mm_div_ps(a.mmz, _mm_set1_ps(box(Z))), cntrl);
-    a.mmz = _mm_sub_ps(a.mmz, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Z))));
-    a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Y))));
-    a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Z,X))));
-
-    shift = _mm_round_ps(_mm_div_ps(a.mmy, _mm_set1_ps(box(Y))),cntrl);
-    a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Y,Y))));
-    a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Y,X))));
-
-    shift = _mm_round_ps(_mm_div_ps(a.mmx, _mm_set1_ps(box(X))),cntrl);
-    a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(X,X))));
-
-    return a;
-}
-
-coordinates8 pbc(coordinates8 a, triclinicbox box)
-{
-
-    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
-
-    //TODO box remains constant during most loops, so need to have these as
-    //constants outside and passed in
-    __m256 boxZ = _mm256_set1_ps(box(Z));
-    __m256 boxY = _mm256_set1_ps(box(Y));
-    __m256 boxX = _mm256_set1_ps(box(X));
-
-    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, boxZ), cntrl);
-    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift, boxZ));
-    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,Y))));
-    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,X))));
-
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, boxY),cntrl);
-    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift, boxY));
-    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Y,X))));
-
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, boxX),cntrl);
-    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,boxX));
-
-    return a;
-}
-
-coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
-{
-
-    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
-
-    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
-    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift, box.mmz));
-
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy),cntrl);
-    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift, box.mmy));
-
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx),cntrl);
-    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,box.mmx));
-
-    return a;
-}
-
 coordinates pbc(coordinates a, cubicbox box)
 {
 
@@ -128,7 +65,6 @@ coordinates pbc(coordinates a, cubicbox box)
     a[X] -= box[X] * nearbyint(a[X] / box[X]);
     return a;
 }
-
 coordinates cross(coordinates a, coordinates b)
 {
     return (coordinates (
@@ -140,53 +76,6 @@ coordinates cross(coordinates a, coordinates b)
 double distance2(coordinates a, coordinates b, triclinicbox box)
 {
     return dot(bond_vector(a, b, box));
-}
-
-vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
-{
-
-    coordinates4 c = pbc(a-b,box);
-    union {
-        __m128 d2;
-        float d[4];
-    };
-    __m128 dx = _mm_mul_ps(c.mmx, c.mmx);
-    __m128 dy = _mm_mul_ps(c.mmy, c.mmy);
-    __m128 dz = _mm_mul_ps(c.mmz, c.mmz);
-    d2 = _mm_add_ps(_mm_add_ps(dx, dy), dz);
-    return vector<float> (d, d+sizeof d / sizeof d[0]);
-}
-
-// TODO
-//__m256 distance2(coordinates8 a, coordinates b, triclinicbox box)
-vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
-{
-
-    coordinates8 c = pbc(a-b,box);
-    union {
-        __m256 d2;
-        float d[8];
-    };
-    __m256 dx = _mm256_mul_ps(c.mmx, c.mmx);
-    __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
-    __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
-    d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
-    //return d2;
-    return vector<float> (d, d+sizeof d / sizeof d[0]);
-}
-
-vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
-{
-    coordinates8 c = pbc(a-b,box);
-    union {
-        __m256 d2;
-        float d[8];
-    };
-    __m256 dx = _mm256_mul_ps(c.mmx, c.mmx);
-    __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
-    __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
-    d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
-    return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
 double distance2(coordinates a, coordinates b, cubicbox box)
@@ -236,7 +125,7 @@ double volume(triclinicbox box)
 
 double volume(cubicbox_m256 box)
 {
-    return (box[X] * box[Y] * box[Z]);
+    return volume(cubicbox(box));
 }
 
 double volume(cubicbox box)
@@ -537,19 +426,39 @@ void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n)
 
 void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
 {
-    xyz.resize(0);
-    xyz.reserve(n);
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_real_distribution<double> dis_x(0.0,box[X]);
-    uniform_real_distribution<double> dis_y(0.0,box[Y]);
-    uniform_real_distribution<double> dis_z(0.0,box[Z]);
-
-    for (int i = 0; i < n; i++)
-    {
-        xyz.push_back(coordinates(dis_x(gen), dis_y(gen), dis_z(gen)));
-    }
-
+    cubicbox x = cubicbox(box);
+    gen_rand_box_points(xyz, x, n);
     return;
+}
 
+// AVX instructions
+coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
+{
+
+    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+
+    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
+    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift, box.mmz));
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy),cntrl);
+    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift, box.mmy));
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx),cntrl);
+    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,box.mmx));
+
+    return a;
+}
+
+vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
+{
+    coordinates8 c = pbc(a-b,box);
+    union {
+        __m256 d2;
+        float d[8];
+    };
+    __m256 dx = _mm256_mul_ps(c.mmx, c.mmx);
+    __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
+    __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
+    d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
+    return vector<float> (d, d+sizeof d / sizeof d[0]);
 }

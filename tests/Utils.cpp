@@ -32,12 +32,14 @@ int main()
     assert(test_equal(distance(c8, c9, b2), 0.0));
     assert(test_equal(distance(c6, c8, b1), 2.33452));
 
+/*
     coordinates4 c_4(c6, c7, c8, c9);
     vector <float> d2_4 = distance2(c_4, c9, b2);
     assert(test_equal(distance2(c6, c9, b2), d2_4[0]));
     assert(test_equal(distance2(c7, c9, b2), d2_4[1]));
     assert(test_equal(distance2(c8, c9, b2), d2_4[2]));
     assert(test_equal(distance2(c9, c9, b2), d2_4[3]));
+*/
 
     vector <coordinates> sites;
     triclinicbox b3(10.0, 10.0, 10.0);
