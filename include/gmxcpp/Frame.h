@@ -33,6 +33,7 @@
 #include "gmxcpp/Index.h"
 #include "gmxcpp/Utils.h"
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/cubicbox.h"
 #include "gmxcpp/triclinicbox.h"
 
 /**
@@ -136,7 +137,8 @@ vector <coordinates> GetXYZ(Index index, string groupName) const;
  * @return Two-dimensional array with three elements in each
  * dimension, corresponding to a triclinic box.
  */
-triclinicbox  GetBox() const;
+triclinicbox GetBox() const;
+cubicbox GetCubicBox() const;
 
 /**
  * @brief Gets the volume of the box at this frame.

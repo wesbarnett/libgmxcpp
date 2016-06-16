@@ -190,6 +190,11 @@ triclinicbox Frame::GetBox() const
                          this->box[Z][Z]));
 }
 
+cubicbox Frame::GetCubicBox() const
+{
+    return (cubicbox(this->box[X][X], this->box[Y][Y], this->box[Z][Z]));
+}
+
 double Frame::GetBoxVolume() const
 {
     return volume(this->GetBox());

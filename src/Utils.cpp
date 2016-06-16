@@ -37,24 +37,15 @@ coordinates pbc(coordinates a, triclinicbox box)
     if (shift != 0)
     {
         a[Z] -= box(Z,Z) * shift;
-        if (box(Z,Y) > 0.0)
-        {
-            a[Y] -= box(Z,Y) * shift;
-        }
-        if (box(Z,X) > 0.0)
-        {
-            a[X] -= box(Z,X) * shift;
-        }
+        a[Y] -= box(Z,Y) * shift;
+        a[X] -= box(Z,X) * shift;
     }
 
     shift = nearbyint(a[Y] / box(Y));
     if (shift != 0)
     {
         a[Y] -= box(Y,Y) * shift;
-        if (box(Y,X) > 0.0)
-        {
-            a[X] -= box(Y,X) * shift;
-        }
+        a[X] -= box(Y,X) * shift;
     }
 
     shift = nearbyint(a[X] / box(X));
@@ -112,6 +103,15 @@ coordinates8 pbc(coordinates8 a, triclinicbox box)
     return a;
 }
 
+coordinates pbc(coordinates a, cubicbox box)
+{
+
+    a[Z] -= box[Z] * nearbyint(a[Z] / box[Z]);
+    a[Y] -= box[Y] * nearbyint(a[Y] / box[Y]);;
+    a[X] -= box[X] * nearbyint(a[X] / box[X]);;
+    return a;
+}
+
 coordinates cross(coordinates a, coordinates b)
 {
     return (coordinates (
@@ -157,6 +157,11 @@ vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
     return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
+double distance2(coordinates a, coordinates b, cubicbox box)
+{
+    return dot(bond_vector(a, b, box));
+}
+
 double distance2(coordinates a, coordinates b)
 {
     return dot(a-b);
@@ -198,6 +203,11 @@ double volume(triclinicbox box)
 }
 
 coordinates bond_vector(coordinates atom1, coordinates atom2, triclinicbox box)
+{
+	return pbc(atom1-atom2,box);
+}
+
+coordinates bond_vector(coordinates atom1, coordinates atom2, cubicbox box)
 {
 	return pbc(atom1-atom2,box);
 }
