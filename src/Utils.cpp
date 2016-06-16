@@ -91,17 +91,23 @@ coordinates8 pbc(coordinates8 a, triclinicbox box)
 
     const int cntrl = _MM_FROUND_TO_NEAREST_INT;
 
-    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, _mm256_set1_ps(box(Z))), cntrl);
-    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,Z))));
+    //TODO box remains constant during most loops, so need to have these as
+    //constants outside and passed in
+    __m256 boxZ = _mm256_set1_ps(box(Z));
+    __m256 boxY = _mm256_set1_ps(box(Y));
+    __m256 boxX = _mm256_set1_ps(box(X));
+
+    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, boxZ), cntrl);
+    a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift, boxZ));
     a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,Y))));
     a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,X))));
 
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, _mm256_set1_ps(box(Y))),cntrl);
-    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift,_mm256_set1_ps(box(Y,Y))));
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, boxY),cntrl);
+    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift, boxY));
     a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Y,X))));
 
-    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, _mm256_set1_ps(box(X))),cntrl);
-    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(X,X))));
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, boxX),cntrl);
+    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,boxX));
 
     return a;
 }
