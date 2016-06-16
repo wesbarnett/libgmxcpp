@@ -70,23 +70,15 @@ coordinates4 pbc(coordinates4 a, triclinicbox box)
 {
 
     const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+
     __m128 shift = _mm_round_ps(_mm_div_ps(a.mmz, _mm_set1_ps(box(Z))), cntrl);
     a.mmz = _mm_sub_ps(a.mmz, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Z))));
-    if (box(Z,Y) > 0.0)
-    {
-        a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Y))));
-    }
-    if (box(Z,X) > 0.0)
-    {
-        a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Z,X))));
-    }
+    a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Z,Y))));
+    a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Z,X))));
 
     shift = _mm_round_ps(_mm_div_ps(a.mmy, _mm_set1_ps(box(Y))),cntrl);
     a.mmy = _mm_sub_ps(a.mmy, _mm_mul_ps(shift,_mm_set1_ps(box(Y,Y))));
-    if (box(Y,X) > 0.0)
-    {
-        a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Y,X))));
-    }
+    a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(Y,X))));
 
     shift = _mm_round_ps(_mm_div_ps(a.mmx, _mm_set1_ps(box(X))),cntrl);
     a.mmx = _mm_sub_ps(a.mmx, _mm_mul_ps(shift,_mm_set1_ps(box(X,X))));
@@ -98,23 +90,15 @@ coordinates8 pbc(coordinates8 a, triclinicbox box)
 {
 
     const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+
     __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, _mm256_set1_ps(box(Z))), cntrl);
     a.mmz = _mm256_sub_ps(a.mmz, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,Z))));
-    if (box(Z,Y) > 0.0)
-    {
-        a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,Y))));
-    }
-    if (box(Z,X) > 0.0)
-    {
-        a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,X))));
-    }
+    a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,Y))));
+    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Z,X))));
 
     shift = _mm256_round_ps(_mm256_div_ps(a.mmy, _mm256_set1_ps(box(Y))),cntrl);
     a.mmy = _mm256_sub_ps(a.mmy, _mm256_mul_ps(shift,_mm256_set1_ps(box(Y,Y))));
-    if (box(Y,X) > 0.0)
-    {
-        a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Y,X))));
-    }
+    a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(Y,X))));
 
     shift = _mm256_round_ps(_mm256_div_ps(a.mmx, _mm256_set1_ps(box(X))),cntrl);
     a.mmx = _mm256_sub_ps(a.mmx, _mm256_mul_ps(shift,_mm256_set1_ps(box(X,X))));
@@ -150,6 +134,7 @@ vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box)
     return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
+//__m256 distance2(coordinates8 a, coordinates b, triclinicbox box)
 vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
 {
 
@@ -162,6 +147,7 @@ vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
     __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
     __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
     d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
+    //return d2;
     return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
