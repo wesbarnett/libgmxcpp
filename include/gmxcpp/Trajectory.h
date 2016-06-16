@@ -36,6 +36,7 @@
 #include "gmxcpp/Index.h"
 #include "gmxcpp/Utils.h"
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/cubicbox.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -239,6 +240,7 @@ vector <coordinates> GetXYZ(int frame, string groupName) const;
  * dimension, corresponding to a triclinic box.
  */
 triclinicbox GetBox(int frame) const;
+cubicbox GetCubicBox(int frame) const;
 
 /**
  * @brief Gets the volume of the box at a specific frame.

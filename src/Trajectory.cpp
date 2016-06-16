@@ -291,6 +291,11 @@ triclinicbox Trajectory::GetBox(int frame) const
     return frameArray[frame].GetBox();
 }
 
+cubicbox Trajectory::GetCubicBox(int frame) const
+{
+    return frameArray[frame].GetCubicBox();
+}
+
 int Trajectory::GetNAtoms(string group) const
 {
     return index.GetGroupSize(group);
