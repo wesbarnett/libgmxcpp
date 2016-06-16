@@ -60,6 +60,13 @@ coordinates8::coordinates8(coordinates a,
     mmz = _mm256_set_ps(h[Z], g[Z], f[Z], e[Z], d[Z], c[Z], b[Z], a[Z]);
 }
 
+coordinates8::coordinates8(coordinates a)
+{
+    mmx = _mm256_set1_ps(a[X]);
+    mmy = _mm256_set1_ps(a[Y]);
+    mmz = _mm256_set1_ps(a[Z]);
+}
+
 coordinates8 coordinates8::operator-(coordinates8 rhs)
 {
     coordinates8 x;

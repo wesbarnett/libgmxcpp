@@ -175,7 +175,7 @@ vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box)
     return vector<float> (d, d+sizeof d / sizeof d[0]);
 }
 
-vector <float> distance2(coordinates8 a, coordinates b, cubicbox_m256 box)
+vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
 {
     coordinates8 c = pbc(a-b,box);
     union {

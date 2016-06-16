@@ -110,7 +110,7 @@ double distance(coordinates a, coordinates b);
 double distance2(coordinates a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates4 a, coordinates b, triclinicbox box);
 vector <float> distance2(coordinates8 a, coordinates b, triclinicbox box);
-vector <float> distance2(coordinates8 a, coordinates b, cubicbox_m256 box);
+vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box);
 //__m256 distance2(coordinates8 a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);

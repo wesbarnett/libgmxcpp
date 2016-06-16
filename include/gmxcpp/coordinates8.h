@@ -70,6 +70,8 @@ public:
                  coordinates g,
                  coordinates h);
 
+    coordinates8(coordinates a);
+
     coordinates8 operator-(coordinates rhs);
     coordinates8 operator-(coordinates8 rhs);
 
