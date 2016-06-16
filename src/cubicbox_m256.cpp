@@ -51,6 +51,7 @@ float& cubicbox_m256::operator[](int i)
         case 2:
             return z[0];
     }
+//TODO
 }
 
 const float& cubicbox_m256::operator[](int i) const
@@ -64,5 +65,6 @@ const float& cubicbox_m256::operator[](int i) const
         case 2:
             return z[0];
     }
+//TODO
 }
 

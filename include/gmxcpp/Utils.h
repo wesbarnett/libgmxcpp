@@ -108,7 +108,7 @@ double distance(coordinates a, coordinates b);
 double distance2(coordinates a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);
-vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box);
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box);
 
 /** @brief Calculates the dot product between two vectors
  * @param a First vector in dot product

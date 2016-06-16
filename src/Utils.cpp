@@ -449,7 +449,7 @@ coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
     return a;
 }
 
-vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
 {
     coordinates8 c = pbc(a-b,box);
     union {
@@ -459,6 +459,5 @@ vector <float> distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
     __m256 dx = _mm256_mul_ps(c.mmx, c.mmx);
     __m256 dy = _mm256_mul_ps(c.mmy, c.mmy);
     __m256 dz = _mm256_mul_ps(c.mmz, c.mmz);
-    d2 = _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
-    return vector<float> (d, d+sizeof d / sizeof d[0]);
+    return _mm256_add_ps(_mm256_add_ps(dx, dy), dz);
 }
