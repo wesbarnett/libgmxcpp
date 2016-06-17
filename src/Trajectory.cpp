@@ -277,6 +277,18 @@ coordinates8 Trajectory::GetXYZ8(int frame, int atom) const
     return frameArray[frame].GetXYZ8(atom);
 }
 
+coordinates8 Trajectory::GetXYZ8F(int frame, int atom) const
+{
+    return  (coordinates8 (frameArray[frame].GetXYZ(atom),
+                           frameArray[frame+1].GetXYZ(atom),
+                           frameArray[frame+2].GetXYZ(atom),
+                           frameArray[frame+3].GetXYZ(atom),
+                           frameArray[frame+4].GetXYZ(atom),
+                           frameArray[frame+5].GetXYZ(atom),
+                           frameArray[frame+6].GetXYZ(atom),
+                           frameArray[frame+7].GetXYZ(atom)) );
+}
+
 // Gets the xyz coordinates for the entire frame.
 vector <coordinates> Trajectory::GetXYZ(int frame) const
 {
@@ -319,13 +331,13 @@ coordinates8 Trajectory::GetXYZ8(int frame, string group, int atom) const
 coordinates8 Trajectory::GetXYZ8F(int frame, string group, int atom) const
 {
     return ( coordinates8 (frameArray[frame].GetXYZ(index.GetLocation(group, atom)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+1)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+2)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+3)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+4)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+5)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+6)),
-                           frameArray[frame].GetXYZ(index.GetLocation(group, atom+7))) );
+                           frameArray[frame+1].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+2].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+3].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+4].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+5].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+6].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+7].GetXYZ(index.GetLocation(group, atom))) );
 
 }
 
