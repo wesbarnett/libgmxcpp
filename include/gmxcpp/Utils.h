@@ -72,6 +72,7 @@ using namespace std;
 coordinates pbc(coordinates a, triclinicbox box);
 coordinates pbc(coordinates a, cubicbox box);
 coordinates8 pbc(coordinates8 a, cubicbox_m256 box);
+coordinates8 pbc(coordinates8 a, cubicbox8 box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -110,6 +111,7 @@ double distance2(coordinates a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);
 __m256 distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box);
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox8 box);
 
 /** @brief Calculates the dot product between two vectors
  * @param a First vector in dot product
