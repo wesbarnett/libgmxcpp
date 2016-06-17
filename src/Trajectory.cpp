@@ -351,6 +351,18 @@ cubicbox Trajectory::GetCubicBox(int frame) const
     return frameArray[frame].GetCubicBox();
 }
 
+cubicbox8 Trajectory::GetCubicBox8F(int frame) const
+{
+    return ( cubicbox8 (frameArray[frame].GetCubicBox(),
+                        frameArray[frame+1].GetCubicBox(),
+                        frameArray[frame+2].GetCubicBox(),
+                        frameArray[frame+3].GetCubicBox(),
+                        frameArray[frame+4].GetCubicBox(),
+                        frameArray[frame+5].GetCubicBox(),
+                        frameArray[frame+6].GetCubicBox(),
+                        frameArray[frame+7].GetCubicBox()) );
+}
+
 cubicbox_m256 Trajectory::GetCubicBoxM256(int frame) const
 {
     return frameArray[frame].GetCubicBoxM256();

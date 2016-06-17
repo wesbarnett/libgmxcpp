@@ -52,6 +52,7 @@
 #include "gmxcpp/coordinates4.h"
 #include "gmxcpp/coordinates8.h"
 #include "gmxcpp/cubicbox.h"
+#include "gmxcpp/cubicbox8.h"
 #include "gmxcpp/cubicbox_m256.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
@@ -252,6 +253,7 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
 void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n);
 void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n);
 void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n);
+void gen_rand_box_points(vector <coordinates8> &xyz, cubicbox8 &box, int n);
 
 /** \addtogroup center_of_mass
  * @{

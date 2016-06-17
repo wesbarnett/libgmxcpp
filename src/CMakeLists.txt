@@ -20,8 +20,8 @@
 
 add_library(gmxcpp SHARED Frame.cpp Index.cpp Trajectory.cpp CommandLine.cpp
     Utils.cpp coordinates.cpp coordinates4.cpp coordinates8.cpp cubicbox.cpp
-    cubicbox_m256.cpp triclinicbox.cpp xdrfile.c xdrfile_xtc.c Clusters.cpp
-    Topology.cpp)
+    cubicbox8.cpp cubicbox_m256.cpp triclinicbox.cpp xdrfile.c xdrfile_xtc.c
+    Clusters.cpp Topology.cpp)
 set_target_properties(gmxcpp PROPERTIES LIBRARY_OUTPUT_DIRECTORY lib)
 set_target_properties(gmxcpp PROPERTIES OUTPUT_NAME gmxcpp${BUILD_POSTFIX})
 

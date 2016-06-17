@@ -436,6 +436,40 @@ void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
     return;
 }
 
+void gen_rand_box_points(vector <coordinates8> &xyz, cubicbox8 &box, int n)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    xyz.resize(0);
+    xyz.reserve(n);
+    array < uniform_real_distribution<double>, 8> dis_x;
+    array < uniform_real_distribution<double>, 8> dis_y;
+    array < uniform_real_distribution<double>, 8> dis_z;
+
+    for (int i = 0; i < 8; i++)
+    {
+        dis_x[i] = uniform_real_distribution<double>(0.0,box.x[i]);
+        dis_y[i] = uniform_real_distribution<double>(0.0,box.y[i]);
+        dis_z[i] = uniform_real_distribution<double>(0.0,box.z[i]);
+    }
+
+    for (int j = 0; j < n; j++)
+    {
+        xyz.push_back(coordinates8(
+            dis_x[0](gen), dis_y[0](gen), dis_z[0](gen),
+            dis_x[1](gen), dis_y[1](gen), dis_z[1](gen),
+            dis_x[2](gen), dis_y[2](gen), dis_z[2](gen),
+            dis_x[3](gen), dis_y[3](gen), dis_z[3](gen),
+            dis_x[4](gen), dis_y[4](gen), dis_z[4](gen),
+            dis_x[5](gen), dis_y[5](gen), dis_z[5](gen),
+            dis_x[6](gen), dis_y[6](gen), dis_z[6](gen),
+            dis_x[7](gen), dis_y[7](gen), dis_z[7](gen)));
+    }
+
+    return;
+
+}
+
 // AVX instructions
 coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
 {
