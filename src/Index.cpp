@@ -51,7 +51,7 @@ bool Index::init(string ndxfile)
 
     this->filename = ndxfile;
 
-    printf("Reading in index file %s...\n", ndxfile.c_str());
+    printf("Reading in index file %s...", ndxfile.c_str());
 
     if (!IsIndexFile(ndxfile)) 
     {
@@ -111,7 +111,7 @@ void Index::PrintInfo() const
     for (unsigned int i = 0; i < headers.size(); i++) 
     {
         printf("  %s", headers[i].c_str());
-        printf("( %ld particles)\n", locations[i].size());
+        printf("\t\t(%ld particles)\n", locations[i].size());
     }
     return;
 }
