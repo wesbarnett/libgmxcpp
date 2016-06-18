@@ -1,7 +1,7 @@
 # libgmxcpp
 
 [![Documentation
-Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](https://readthedocs.org/projects/libgmxcpp/?badge=master)
+Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)]http://libgmxcpp.readthedocs.io/en/master/)
 [![License](https://img.shields.io/aur/license/libgmxcpp.svg)](https://github.com/wesbarnett/libgmxcpp/blob/master/LICENSE)
 [![AUR
 Version](https://img.shields.io/aur/version/libgmxcpp.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
@@ -17,6 +17,4 @@ actual analysis. Several functions which are repeatedly used in Molecular
 Dynamics analysis (periodic boundary condition calculations, distances, etc.)
 are also included. 
 
-[Documentation is found here.](http://libgmxcpp.readthedocs.org/)
-
-Copyright (C) 2015 James W. Barnett <jbarnet4@tulane.edu>
+Copyright (C) 2016 James W. Barnett <jbarnet4@tulane.edu>
