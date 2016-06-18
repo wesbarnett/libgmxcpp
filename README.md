@@ -1,7 +1,7 @@
 # libgmxcpp
 
 [![Documentation
-Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)]http://libgmxcpp.readthedocs.io/en/master/)
+Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)]http://libgmxcpp.readthedocs.io/en/master/)]
 [![License](https://img.shields.io/aur/license/libgmxcpp.svg)](https://github.com/wesbarnett/libgmxcpp/blob/master/LICENSE)
 [![AUR
 Version](https://img.shields.io/aur/version/libgmxcpp.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
