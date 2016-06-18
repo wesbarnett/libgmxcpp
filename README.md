@@ -2,11 +2,11 @@
 
 [![Documentation
 Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](https://readthedocs.org/projects/libgmxcpp/?badge=master)
-[![License](https://img.shields.io/aur/license/snap-pac.svg)](https://github.com/wesbarnett/libgmxcpp/blob/master/LICENSE)
+[![License](https://img.shields.io/aur/license/libgmxcpp.svg)](https://github.com/wesbarnett/libgmxcpp/blob/master/LICENSE)
 [![AUR
-Version](https://img.shields.io/aur/version/snap-pac.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
+Version](https://img.shields.io/aur/version/libgmxcpp.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
 [![AUR
-Votes](https://img.shields.io/aur/votes/snap-pac.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
+Votes](https://img.shields.io/aur/votes/libgmxcpp.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
 
 This is a C++ toolkit used for reading in GROMACS files (.xtc, .ndx, and .tpr) for
 use in analyzing simulation results. This interfaces with libxdrfile and
