@@ -160,3 +160,10 @@ double Frame::GetBoxVolume() const
     return volume(this->GetBox());
 }
 
+void Frame::CenterAtoms() const
+{
+    vector <coordinates> x = GetXYZ();
+    cubicbox b = GetCubicBox();
+    do_center_group(x, b);
+    return;
+}

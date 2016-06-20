@@ -329,3 +329,9 @@ string Trajectory::GetFilename() const
 {   
     return this->filename;
 }
+
+void Trajectory::CenterAtoms(int frame) const
+{
+    frameArray[frame].CenterAtoms();
+    return;
+}

@@ -141,6 +141,9 @@ cubicbox GetCubicBox() const;
  * @return Box volume.
  */
 double GetBoxVolume() const;
+
+/** Center all atoms in a cubic box */
+void CenterAtoms() const;
 };
 
 #endif

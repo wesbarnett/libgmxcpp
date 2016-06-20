@@ -290,5 +290,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
  * @param box The simulation box.
  */
 void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
+void do_center_group(vector <coordinates> &atom, coordinates center, cubicbox box);
+void do_center_group(vector <coordinates> &atom, cubicbox box);
 
 #endif

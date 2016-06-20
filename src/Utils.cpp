@@ -170,6 +170,25 @@ void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbo
     return;
 }
 
+void do_center_group(vector <coordinates> &atom, coordinates center, cubicbox box)
+{
+    for (unsigned int i = 0; i < atom.size(); i++)
+    {
+        atom[i] = center - pbc(center-atom[i],box);
+    }
+    return;
+}
+
+void do_center_group(vector <coordinates> &atom, cubicbox box)
+{
+    coordinates center(box[X]/2.0, box[Y]/2.0, box[Z]/2.0);
+    for (unsigned int i = 0; i < atom.size(); i++)
+    {
+        atom[i] = center - pbc(center-atom[i],box);
+    }
+    return;
+}
+
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 {
     if (mass.size() != atom.size()) 
