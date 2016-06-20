@@ -242,6 +242,7 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
  * @param n Number of random points to generate.
  */
 void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n);
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n);
 
 /** \addtogroup center_of_mass
  * @{
