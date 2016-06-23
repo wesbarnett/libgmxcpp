@@ -197,6 +197,7 @@ int Trajectory::read_next(int n)
 {
     frameArray.resize(0);
     frameArray.reserve(n);
+    nframes = 0;
     int status;
     for (int i = 0; i < n; i++)
     {
