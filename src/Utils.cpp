@@ -179,6 +179,25 @@ void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbo
     return;
 }
 
+void do_center_group(vector <coordinates> &atom, coordinates center, cubicbox box)
+{
+    for (unsigned int i = 0; i < atom.size(); i++)
+    {
+        atom[i] = center - pbc(center-atom[i],box);
+    }
+    return;
+}
+
+void do_center_group(vector <coordinates> &atom, cubicbox &box)
+{
+    coordinates center = center_of_geometry(atom, box);
+    for (unsigned int i = 0; i < atom.size(); i++)
+    {
+        atom[i] = center - pbc(center-atom[i],box);
+    }
+    return;
+}
+
 coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 {
     if (mass.size() != atom.size()) 
@@ -203,7 +222,7 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass)
 /* Ref: Bai, L. and Breen, David. Calculating Center of Mass in an Unbounded 2D Environment
  * doi: 10.1080/2151237X.2008.10129266
  */
-coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
+coordinates center_of_geometry(vector <coordinates> &atom, cubicbox &box)
 {
 
     coordinates cog(0.0,0.0,0.0); // geometric center
@@ -221,7 +240,7 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 		sigma = 0.0;
 		for (int i = 0; i < atom_n; i++)
 		{
-			theta = atom[i][j] / (box(j)) * 2.0 * M_PI;
+			theta = atom[i][j] / (box[j]) * 2.0 * M_PI;
 			sigma += cos(theta);
 			xi += sin(theta);
 		}
@@ -230,14 +249,14 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box)
 
 		theta = atan2(-xi,-sigma)+ M_PI;
 
-		cog[j] = box(j) * theta / ( 2.0 * M_PI);
+		cog[j] = box[j] * theta / ( 2.0 * M_PI);
 	}
 
     return cog;
 
 }
 
-coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box)
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, cubicbox box)
 {
     if (mass.size() != atom.size()) 
         throw runtime_error("A mass needs to be specified for each atom in com calculation.");
@@ -428,7 +447,6 @@ void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n)
     return;
 
 }
-
 void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
 {
     cubicbox x = cubicbox(box);

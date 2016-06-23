@@ -1,5 +1,11 @@
-[![Documentation
-Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](https://readthedocs.org/projects/libgmxcpp/?badge=master)
+# libgmxcpp
+
+[![Documentation Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](http://libgmxcpp.readthedocs.io/en/master/)
+[![License](https://img.shields.io/aur/license/libgmxcpp.svg)](https://github.com/wesbarnett/libgmxcpp/blob/master/LICENSE)
+[![AUR
+Version](https://img.shields.io/aur/version/libgmxcpp.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
+[![AUR
+Votes](https://img.shields.io/aur/votes/libgmxcpp.svg)](https://aur.archlinux.org/packages/libgmxcpp/)
 
 This is a C++ toolkit used for reading in GROMACS files (.xtc, .ndx, and .tpr) for
 use in analyzing simulation results. This interfaces with libxdrfile and
@@ -10,21 +16,4 @@ actual analysis. Several functions which are repeatedly used in Molecular
 Dynamics analysis (periodic boundary condition calculations, distances, etc.)
 are also included. 
 
-[Documentation is found here.](http://libgmxcpp.readthedocs.org/)
-
-Copyright (C) 2015 James W. Barnett <jbarnet4@tulane.edu>
- 
-This program is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation; either version 2 of the License, or (at your option) any later
-version.
- 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
- 
-You should have received a copy of the GNU General Public License along with
-this program; if not, write to the Free Software Foundation, Inc., 51
-Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-The full license is located in a text file titled "LICENSE" in the root
-directory of the source.
+Copyright (C) 2016 James W. Barnett <jbarnet4@tulane.edu>

@@ -12,4 +12,11 @@ std::map<std::string,double> VDW_RADII = {
     {"O", 0.152}
 };
 
+std::map<std::string,double> VDW_RADII2 = {
+    {"H", 0.0144},
+    {"C", 0.0289},
+    {"N", 0.024025},
+    {"O", 0.023104}
+};
+
 #endif

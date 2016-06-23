@@ -260,6 +260,8 @@ cubicbox8 GetCubicBox8F(int frame) const;
 double GetBoxVolume(int frame) const;
 
 string GetFilename() const;
+
+void CenterAtoms(int frame) const;
 };
 
 #endif
