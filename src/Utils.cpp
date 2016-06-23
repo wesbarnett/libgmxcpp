@@ -403,7 +403,7 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
 
 void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
 {
-    xyz.resize(0);
+    xyz.clear();
     xyz.reserve(n);
     random_device rd;
     mt19937 gen(rd());
@@ -422,7 +422,7 @@ void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n)
 
 void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n)
 {
-    xyz.resize(0);
+    xyz.clear();
     xyz.reserve(n);
     random_device rd;
     mt19937 gen(rd());
