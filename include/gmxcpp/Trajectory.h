@@ -59,9 +59,6 @@ private:
 /* The name of the .xtc file. */
 string filename;
 
-/* Part of the construction process */
-void init(string filename, int b, int s, int e);
-
 /* Opens the xtc file */
 void open(string filename);
 
@@ -71,8 +68,6 @@ int readFrame();
 /* Reads a frame, but does not save it to the vector of Frame objects. */
 int skipFrame();
 
-/* Closes the xtc file. */
-void close();
 
 /* Keeps track of the frames being read in (esp. when different than those
  * frames saved. */
@@ -105,20 +100,16 @@ virtual ~Trajectory();
 /**
  *  @brief Constructor where only XTC file is read.
  *
- *  @details Constructor of Trajectory object in which entire system is read into a vector of Frame objects.
+ *  @details Constructor of Trajectory object, with no index file specified
  *
  *  @param xtcfile Name of the Gromacs XTC file to be read in.
- *  @param b First frame to be read in. By default, starts at the first frame
- *  (frame 0).
- *  @param s Read in every sth frame.
- *  @param e Stop reading at this frame. -1 means read until the end of the
  *  file.
  */
-Trajectory(string xtcfile, int b = 0, int s = 1, int e = -1);
+Trajectory(string xtcfile);
 
 /**
  *
- * @brief Constructor which reads in both the XTC file and incorporates a
+ * @brief Constructor which sets both the XTC file and incorporates a
  * previously read in Index object.
  *
  * @details When this constructor is used, both the Gromacs XTC file is
@@ -127,17 +118,12 @@ Trajectory(string xtcfile, int b = 0, int s = 1, int e = -1);
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param index The Index object which has already had its index file read in.
- *  @param b First frame to be read in. By default, starts at the first frame
- *  (frame 0).
- *  @param s Read in every sth frame.
- *  @param e Stop reading at this frame. -1 means read until the end of the
- *  file.
  */
-Trajectory(string xtcfile, Index index, int b = 0, int s = 1, int e = -1);
+Trajectory(string xtcfile, Index index);
 
 /**
  *
- * @brief Constructor which reads in both the XTC file and a GROMACS index
+ * @brief Constructor that sets both the XTC file and a GROMACS index
  * file.
  *
  * @details When this constructor is used, both the Gromacs XTC file is
@@ -146,13 +132,23 @@ Trajectory(string xtcfile, Index index, int b = 0, int s = 1, int e = -1);
  *
  * @param xtcfile Name of the Gromacs XTC file to be read in.
  * @param ndxfile Name of the Gromacs index file to be read in.
+ */
+Trajectory(string xtcfile, string ndxfile);
+
+/** @brief Reads in simulation frames into memory and then closes the file.
  *  @param b First frame to be read in. By default, starts at the first frame
  *  (frame 0).
  *  @param s Read in every sth frame.
  *  @param e Stop reading at this frame. -1 means read until the end of the
- *  file.
  */
-Trajectory(string xtcfile, string ndxfile, int b = 0, int s = 1, int e = -1);
+void read(int b = 0, int s = 1, int e = -1);
+
+/** @brief Reads in n simulations frames into memory and keeps the file open
+ * @details Frames are saved into the frameArray object, overwriting previously
+ * saved frames
+ *  @param n Number of frames to read into memory.
+ */
+int read_next(int n = 1);
 
 /**
  * @brief Gets the number of atoms in a system.
@@ -262,6 +258,10 @@ double GetBoxVolume(int frame) const;
 string GetFilename() const;
 
 void CenterAtoms(int frame) const;
+
+/* Closes the xtc file. */
+void close();
+
 };
 
 #endif
