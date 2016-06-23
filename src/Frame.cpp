@@ -162,8 +162,14 @@ double Frame::GetBoxVolume() const
 
 void Frame::CenterAtoms() const
 {
-    vector <coordinates> x = GetXYZ();
+    vector <coordinates> xyz = GetXYZ();
     cubicbox b = GetCubicBox();
-    do_center_group(x, b);
+    do_center_group(xyz, b);
+    for (int atom = 0; atom < natoms; ++atom) 
+    {
+        this->x[atom][X] = xyz[atom][X];
+        this->x[atom][Y] = xyz[atom][Y];
+        this->x[atom][Z] = xyz[atom][Z];
+    }
     return;
 }

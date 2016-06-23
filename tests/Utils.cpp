@@ -82,7 +82,7 @@ int main()
     com_test.push_back(com2);
     com_test.push_back(com3);
 
-    triclinicbox combox(4.0,4.0,4.0);
+    cubicbox combox(4.0,4.0,4.0);
 
     coordinates com = center_of_mass(com_test,mass,combox);
     assert(test_equal(com[X],0.0));

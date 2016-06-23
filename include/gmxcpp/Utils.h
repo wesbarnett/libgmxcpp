@@ -269,7 +269,7 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass);
  * @param box The simulation box.
  * @return The center of mass.
  */
-coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, triclinicbox box);
+coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, cubicbox box);
 /** @} */
 
 /** @brief Gets the geometric of a group of atoms.
@@ -280,7 +280,7 @@ coordinates center_of_mass(vector <coordinates> atom, vector <double> mass, tric
  * @param box The simulation box.
  * @return Geometric center.
  */
-coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
+coordinates center_of_geometry(vector <coordinates> &atom, cubicbox &box);
 
 /** @brief Centers a group of atoms
  * @details Centers a group of atoms around a specified point, removing the
@@ -291,6 +291,6 @@ coordinates center_of_geometry(vector <coordinates> atom, triclinicbox box);
  */
 void do_center_group(vector <coordinates> &atom, coordinates center, triclinicbox box);
 void do_center_group(vector <coordinates> &atom, coordinates center, cubicbox box);
-void do_center_group(vector <coordinates> &atom, cubicbox box);
+void do_center_group(vector <coordinates> &atom, cubicbox &box);
 
 #endif
