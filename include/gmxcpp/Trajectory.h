@@ -66,6 +66,7 @@ int readFrame();
 /* Reads a frame, but does not save it to the vector of Frame objects. */
 int skipFrame();
 
+void printInfo();
 
 /* Keeps track of the frames being read in (esp. when different than those
  * frames saved. */
