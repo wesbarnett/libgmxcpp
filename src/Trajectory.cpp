@@ -198,7 +198,7 @@ void Trajectory::open(string filename)
 
 int Trajectory::read_next(int n)
 {
-    frameArray.resize(0);
+    frameArray.clear();
     frameArray.reserve(n);
     nframes = 0;
     int status;
