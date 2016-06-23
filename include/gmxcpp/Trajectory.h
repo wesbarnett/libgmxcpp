@@ -66,8 +66,6 @@ int readFrame();
 /* Reads a frame, but does not save it to the vector of Frame objects. */
 int skipFrame();
 
-/* Closes the xtc file. */
-void close();
 
 /* Keeps track of the frames being read in (esp. when different than those
  * frames saved. */
@@ -250,6 +248,10 @@ double GetBoxVolume(int frame) const;
 string GetFilename() const;
 
 void CenterAtoms(int frame) const;
+
+/* Closes the xtc file. */
+void close();
+
 };
 
 #endif
