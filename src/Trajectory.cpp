@@ -123,6 +123,7 @@ void Trajectory::read(int b, int s, int e)
                 break;
             }
             ++count;
+            printInfo();
         }
 
         if (e == -1)
@@ -138,6 +139,7 @@ void Trajectory::read(int b, int s, int e)
                     status = skipFrame();
                 }
                 ++count;
+                printInfo();
             }
         }
         else
@@ -158,6 +160,7 @@ void Trajectory::read(int b, int s, int e)
                 {
                     break;
                 }
+                printInfo();
 
             }
         }
@@ -229,18 +232,12 @@ int Trajectory::readFrame()
 
     frameArray.push_back(Frame(step, time, box, x, natoms));
 
-    if (nframes % 10 == 0) 
-    {
-        printf("   frame in: %d", count);
-        printf(" | time (ps): %f", time);
-        printf(" | step: %d", step);
-        printf(" | frame saved: %d\r", nframes);
-    }
-
     ++nframes;
 
     return 0;
 }
+
+
 
 int Trajectory::skipFrame()
 {
@@ -259,15 +256,17 @@ int Trajectory::skipFrame()
         return -1;
     }
 
+    return 0;
+}
+
+void Trajectory::printInfo()
+{
     if (nframes % 10 == 0) 
     {
         printf("   frame in: %d", count);
-        printf(" | time (ps): %f", time);
-        printf(" | step: %d", step);
         printf(" | frame saved: %d\r", nframes);
     }
-
-    return 0;
+    return;
 }
 
 void Trajectory::close()
