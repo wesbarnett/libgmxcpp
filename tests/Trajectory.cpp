@@ -7,6 +7,9 @@
 int main()
 {
     Trajectory t1("tests/test.xtc");
+cout << "test" << endl;
+    t1.read();
+cout << "test" << endl;
 
     assert(test_equal(t1.GetNAtoms(), 4050));
     assert(test_equal(t1.GetNFrames(), 1001));
@@ -71,6 +74,7 @@ int main()
 
     Index index("tests/test.ndx");
     t1 = Trajectory("tests/test.xtc",index);
+    t1.read();
     assert(test_equal(t1.GetNAtoms("System"), 4050));
     assert(test_equal(t1.GetNAtoms("C"), 10));
     assert(test_equal(t1.GetNAtoms("SOL"), 4000));
@@ -96,19 +100,22 @@ int main()
     assert(test_equal(tc7[Y], 1.206));
     assert(test_equal(tc7[Z], 1.413));
 
-    Trajectory t3("tests/test.xtc", index, 1000, 1, 1001);
+    Trajectory t3("tests/test.xtc", index);
+    t3.read(1000, 1, 1001);
     coordinates tc8 = t3.GetXYZ(0, "OW", 999);
     assert(test_equal(tc8[X], 1.040));
     assert(test_equal(tc8[Y], 1.206));
     assert(test_equal(tc8[Z], 1.413));
 
-    Trajectory t4("tests/test.xtc", index, 0, 5, 1001);
+    Trajectory t4("tests/test.xtc", index);
+    t4.read(0, 5, 1001);
     coordinates tc9 = t4.GetXYZ(200, "OW", 999);
     assert(test_equal(tc9[X], 1.040));
     assert(test_equal(tc9[Y], 1.206));
     assert(test_equal(tc9[Z], 1.413));
 
-    Trajectory t5("tests/test.xtc", index, 0, 5);
+    Trajectory t5("tests/test.xtc", index);
+    t5.read(0, 5);
     coordinates tc10 = t5.GetXYZ(200, "OW", 999);
     assert(test_equal(tc10[X], 1.040));
     assert(test_equal(tc10[Y], 1.206));

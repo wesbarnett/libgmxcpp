@@ -39,22 +39,25 @@ Trajectory::~Trajectory()
 {
 }
 
-Trajectory::Trajectory(string filename, int b, int s, int e)
+Trajectory::Trajectory(string filename)
 {
-    init(filename, b, s, e);
+    this->filename = filename;
+    open(filename);
 }
 
-Trajectory::Trajectory(string filename, string ndxfile, int b, int s, int e)
+Trajectory::Trajectory(string filename, string ndxfile)
 {
     Index index(ndxfile);
     this->index=index;
-    init(filename, b, s, e);
+    this->filename = filename;
+    open(filename);
 }
 
-Trajectory::Trajectory(string filename, Index index, int b, int s, int e)
+Trajectory::Trajectory(string filename, Index index)
 {
     this->index=index;
-    init(filename, b, s ,e);
+    this->filename = filename;
+    open(filename);
 }
 
 /*
@@ -69,18 +72,15 @@ Trajectory::Trajectory(string filename, Index index, int b, int s, int e)
  * and close the xd file pointer from libxdrfile's xdrfile_close.
  */
 
-void Trajectory::init(string filename, int b, int s, int e)
+void Trajectory::read(int b, int s, int e)
 {
     int status = 0;
     this->count = 0;
 
-    this->filename = filename;
     this->nframes = 0;
 
     try 
     {
-
-        open(filename);
 
         printf("\nReading in xtc file...\n");;
         printf("Starting frame: %d\n", b);
@@ -190,6 +190,17 @@ void Trajectory::open(string filename)
     printf("OK\n");
     printf("%d particles are in the system.\n", natoms);
 
+    return;
+}
+
+void Trajectory::read_next(int n)
+{
+    frameArray.resize(0);
+    frameArray.reserve(n);
+    for (int i = 0; i < n; i++)
+    {
+        readFrame();
+    }
     return;
 }
 
