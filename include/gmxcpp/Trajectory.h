@@ -141,13 +141,15 @@ Trajectory(string xtcfile, string ndxfile);
  *  (frame 0).
  *  @param s Read in every sth frame.
  *  @param e Stop reading at this frame. -1 means read until the end of the
+ *  @return Number of frames read in.
  */
-void read(int b = 0, int s = 1, int e = -1);
+int read(int b = 0, int s = 1, int e = -1);
 
 /** @brief Reads in n simulations frames into memory and keeps the file open
  * @details Frames are saved into the frameArray object, overwriting previously
  * saved frames
  *  @param n Number of frames to read into memory.
+ *  @return Number of frames actually read in.
  */
 int read_next(int n = 1);
 

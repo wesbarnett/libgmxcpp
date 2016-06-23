@@ -47,10 +47,12 @@ Trajectory::Trajectory(string filename)
 
 Trajectory::Trajectory(string filename, string ndxfile)
 {
+cout << "test" << endl;
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
     open(filename);
+cout << "test" << endl;
 }
 
 Trajectory::Trajectory(string filename, Index index)
@@ -72,7 +74,7 @@ Trajectory::Trajectory(string filename, Index index)
  * and close the xd file pointer from libxdrfile's xdrfile_close.
  */
 
-void Trajectory::read(int b, int s, int e)
+int Trajectory::read(int b, int s, int e)
 {
     int status = 0;
     this->count = 0;
@@ -172,7 +174,7 @@ void Trajectory::read(int b, int s, int e)
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
-    return;
+    return nframes;
 }
 
 void Trajectory::open(string filename)
@@ -207,10 +209,10 @@ int Trajectory::read_next(int n)
         status = readFrame();
         if (status != 0)
         {
-            return -1;
+            return 0;
         }
     }
-    return 0;
+    return nframes;
 }
 
 int Trajectory::readFrame()
