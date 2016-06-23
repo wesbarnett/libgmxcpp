@@ -193,15 +193,20 @@ void Trajectory::open(string filename)
     return;
 }
 
-void Trajectory::read_next(int n)
+int Trajectory::read_next(int n)
 {
     frameArray.resize(0);
     frameArray.reserve(n);
+    int status;
     for (int i = 0; i < n; i++)
     {
-        readFrame();
+        status = readFrame();
+        if (status != 0)
+        {
+            return -1;
+        }
     }
-    return;
+    return 0;
 }
 
 int Trajectory::readFrame()

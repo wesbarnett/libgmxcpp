@@ -148,7 +148,7 @@ void read(int b = 0, int s = 1, int e = -1);
  * saved frames
  *  @param n Number of frames to read into memory.
  */
-void read_next(int n = 1);
+int read_next(int n = 1);
 
 /**
  * @brief Gets the number of atoms in a system.
