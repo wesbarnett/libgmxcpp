@@ -47,12 +47,10 @@ Trajectory::Trajectory(string filename)
 
 Trajectory::Trajectory(string filename, string ndxfile)
 {
-cout << "test" << endl;
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
     open(filename);
-cout << "test" << endl;
 }
 
 Trajectory::Trajectory(string filename, Index index)
