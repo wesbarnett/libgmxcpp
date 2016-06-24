@@ -45,8 +45,7 @@
 #include <time.h>
 #include <vector>
 #include <stdexcept>
-#include <smmintrin.h>
-#include <xmmintrin.h>
+#include <immintrin.h>
 
 #include "gmxcpp/coordinates.h"
 #include "gmxcpp/coordinates4.h"
