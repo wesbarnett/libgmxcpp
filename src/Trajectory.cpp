@@ -207,7 +207,7 @@ int Trajectory::read_next(int n)
         status = readFrame();
         if (status != 0)
         {
-            return 0;
+            break;
         }
     }
     return nframes;
