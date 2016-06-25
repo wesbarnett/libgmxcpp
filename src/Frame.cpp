@@ -110,46 +110,6 @@ coordinates Frame::GetXYZ(int atom) const
     return (coordinates (x[atom][X], x[atom][Y], x[atom][Z]));
 }
 
-coordinates4 Frame::GetXYZ4(int atom) const
-{
-    return (coordinates4 (x[atom][X], x[atom][Y], x[atom][Z],
-                          x[atom+1][X], x[atom+1][Y], x[atom+1][Z],
-                          x[atom+2][X], x[atom+2][Y], x[atom+2][Z],
-                          x[atom+3][X], x[atom+3][Y], x[atom+3][Z]));
-}
-coordinates8 Frame::GetXYZ8(int atom) const
-{
-    return (coordinates8 (x[atom][X], x[atom][Y], x[atom][Z],
-                          x[atom+1][X], x[atom+1][Y], x[atom+1][Z],
-                          x[atom+2][X], x[atom+2][Y], x[atom+2][Z],
-                          x[atom+3][X], x[atom+3][Y], x[atom+3][Z],
-                          x[atom+4][X], x[atom+4][Y], x[atom+4][Z],
-                          x[atom+5][X], x[atom+5][Y], x[atom+5][Z],
-                          x[atom+6][X], x[atom+6][Y], x[atom+6][Z],
-                          x[atom+7][X], x[atom+7][Y], x[atom+7][Z]));
-}
-
-coordinates4 Frame::GetXYZ4(int a, int b, int c, int d) const
-{
-    return (coordinates4 (x[a][X], x[a][Y], x[a][Z],
-                          x[b][X], x[b][Y], x[b][Z],
-                          x[c][X], x[c][Y], x[c][Z],
-                          x[d][X], x[d][Y], x[d][Z]));
-}
-
-coordinates8 Frame::GetXYZ8(int a, int b, int c, int d,
-                            int e, int f, int g, int h) const
-{
-    return (coordinates8 (x[a][X], x[a][Y], x[a][Z],
-                          x[b][X], x[b][Y], x[b][Z],
-                          x[c][X], x[c][Y], x[c][Z],
-                          x[d][X], x[d][Y], x[d][Z],
-                          x[e][X], x[e][Y], x[e][Z],
-                          x[f][X], x[f][Y], x[f][Z],
-                          x[g][X], x[g][Y], x[g][Z],
-                          x[h][X], x[h][Y], x[h][Z]));
-}
-
 vector <coordinates> Frame::GetXYZ() const
 {
     vector <coordinates> xyz(natoms);
@@ -195,11 +155,6 @@ cubicbox Frame::GetCubicBox() const
     return (cubicbox(this->box[X][X], this->box[Y][Y], this->box[Z][Z]));
 }
 
-cubicbox_m256 Frame::GetCubicBoxM256() const
-{
-    return (cubicbox_m256(this->box[X][X], this->box[Y][Y], this->box[Z][Z]));
-}
-
 double Frame::GetBoxVolume() const
 {
     return volume(this->GetBox());
@@ -218,3 +173,51 @@ void Frame::CenterAtoms() const
     }
     return;
 }
+
+
+#ifdef AVX
+coordinates4 Frame::GetXYZ4(int atom) const
+{
+    return (coordinates4 (x[atom][X], x[atom][Y], x[atom][Z],
+                          x[atom+1][X], x[atom+1][Y], x[atom+1][Z],
+                          x[atom+2][X], x[atom+2][Y], x[atom+2][Z],
+                          x[atom+3][X], x[atom+3][Y], x[atom+3][Z]));
+}
+coordinates8 Frame::GetXYZ8(int atom) const
+{
+    return (coordinates8 (x[atom][X], x[atom][Y], x[atom][Z],
+                          x[atom+1][X], x[atom+1][Y], x[atom+1][Z],
+                          x[atom+2][X], x[atom+2][Y], x[atom+2][Z],
+                          x[atom+3][X], x[atom+3][Y], x[atom+3][Z],
+                          x[atom+4][X], x[atom+4][Y], x[atom+4][Z],
+                          x[atom+5][X], x[atom+5][Y], x[atom+5][Z],
+                          x[atom+6][X], x[atom+6][Y], x[atom+6][Z],
+                          x[atom+7][X], x[atom+7][Y], x[atom+7][Z]));
+}
+
+coordinates4 Frame::GetXYZ4(int a, int b, int c, int d) const
+{
+    return (coordinates4 (x[a][X], x[a][Y], x[a][Z],
+                          x[b][X], x[b][Y], x[b][Z],
+                          x[c][X], x[c][Y], x[c][Z],
+                          x[d][X], x[d][Y], x[d][Z]));
+}
+
+coordinates8 Frame::GetXYZ8(int a, int b, int c, int d,
+                            int e, int f, int g, int h) const
+{
+    return (coordinates8 (x[a][X], x[a][Y], x[a][Z],
+                          x[b][X], x[b][Y], x[b][Z],
+                          x[c][X], x[c][Y], x[c][Z],
+                          x[d][X], x[d][Y], x[d][Z],
+                          x[e][X], x[e][Y], x[e][Z],
+                          x[f][X], x[f][Y], x[f][Z],
+                          x[g][X], x[g][Y], x[g][Z],
+                          x[h][X], x[h][Y], x[h][Z]));
+}
+
+cubicbox_m256 Frame::GetCubicBoxM256() const
+{
+    return (cubicbox_m256(this->box[X][X], this->box[Y][Y], this->box[Z][Z]));
+}
+#endif

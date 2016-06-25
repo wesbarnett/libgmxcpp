@@ -123,16 +123,6 @@ double volume(triclinicbox box)
             box(X,X) * box(Y,Z) * box(Z,Y));
 }
 
-double volume(cubicbox_m256 box)
-{
-    return volume(cubicbox(box));
-}
-
-__m256 volume(cubicbox8 box)
-{
-    return _mm256_mul_ps(_mm256_mul_ps(box.mmx, box.mmy), box.mmz);
-}
-
 double volume(cubicbox box)
 {
     return (box[X] * box[Y] * box[Z]);
@@ -447,13 +437,8 @@ void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n)
     return;
 
 }
-void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
-{
-    cubicbox x = cubicbox(box);
-    gen_rand_box_points(xyz, x, n);
-    return;
-}
 
+#ifdef AVX
 void gen_rand_box_points(vector <coordinates8> &xyz, cubicbox8 &box, int n)
 {
     random_device rd;
@@ -540,3 +525,22 @@ __m256 distance2(coordinates8 a, coordinates8 b, cubicbox8 box)
     __m256 f = _mm256_fmadd_ps(c.mmz, c.mmz, e);
     return f;
 }
+
+double volume(cubicbox_m256 box)
+{
+    return volume(cubicbox(box));
+}
+
+__m256 volume(cubicbox8 box)
+{
+    return _mm256_mul_ps(_mm256_mul_ps(box.mmx, box.mmy), box.mmz);
+}
+
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
+{
+    cubicbox x = cubicbox(box);
+    gen_rand_box_points(xyz, x, n);
+    return;
+}
+
+#endif
