@@ -16,4 +16,6 @@ actual analysis. Several functions which are repeatedly used in Molecular
 Dynamics analysis (periodic boundary condition calculations, distances, etc.)
 are also included. 
 
-Copyright (C) 2016 James W. Barnett <jbarnet4@tulane.edu>
+Copyright (C) 2016 James W. Barnett
+
+Was this software helpful? Send me a BTC tip: `1PZziQoUJfhMKZC8gXQZtS5ebHWMba3Geb`
