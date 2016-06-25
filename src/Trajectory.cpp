@@ -32,7 +32,9 @@
 
 Trajectory::Trajectory()
 {
+#ifdef BANNER
     PrintInfo();
+#endif
 }
 
 Trajectory::~Trajectory()
@@ -41,14 +43,18 @@ Trajectory::~Trajectory()
 
 Trajectory::Trajectory(string filename)
 {
+#ifdef BANNER
     PrintInfo();
+#endif
     this->filename = filename;
     open(filename);
 }
 
 Trajectory::Trajectory(string filename, string ndxfile)
 {
+#ifdef BANNER
     PrintInfo();
+#endif
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
@@ -57,7 +63,9 @@ Trajectory::Trajectory(string filename, string ndxfile)
 
 Trajectory::Trajectory(string filename, Index index)
 {
+#ifdef BANNER
     PrintInfo();
+#endif
     this->index=index;
     this->filename = filename;
     open(filename);
@@ -362,6 +370,8 @@ void Trajectory::PrintInfo() const
     cerr << "==========================================================" << endl;
     cerr << "=  libgmxcpp v5.0 - Copyright (C) 2016 James W. Barnett  =" << endl;
     cerr << "=  http://github.com/wesbarnett/libgmxcpp                =" << endl;
+    cerr << "=                                                        =" << endl;
+    cerr << "=  Bitcoin tips: 1PZziQoUJfhMKZC8gXQZtS5ebHWMba3Geb      =" << endl;
     cerr << "==========================================================" << endl;
     cerr << endl;
     return;
