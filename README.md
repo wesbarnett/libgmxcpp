@@ -19,3 +19,5 @@ are also included.
 Copyright (C) 2016 James W. Barnett
 
 Was this software helpful? Send me a BTC tip: `1PZziQoUJfhMKZC8gXQZtS5ebHWMba3Geb`
+
+Latest documentation: http://libgmxcpp.readthedocs.io

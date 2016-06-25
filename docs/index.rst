@@ -17,6 +17,9 @@ user only has to worry with implementing the actual analysis. Several functions
 which are repeatedly used in Molecular Dynamics analysis (periodic boundary
 condition calculations, distances, etc.) are also included. 
 
+Is this software useful? Tip me some BTC:
+``1PZziQoUJfhMKZC8gXQZtS5ebHWMba3Geb``.
+
 Advantages
 ----------
 
