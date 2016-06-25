@@ -53,7 +53,7 @@ void printUsage(string program);
 /** Parses the command line, then prints data to standard out */
 int main(int argc, char *argv[])
 {
-    const string group = "C";
+    const string group = "OW"; // Water oxygen - change to suit your simulation
     const int first = 0;
     const int last = 5;
     string outfile = "out.dat";
@@ -63,6 +63,9 @@ int main(int argc, char *argv[])
 
     // Example of creating a Trajectory object as a pointer
     Trajectory *traj = new Trajectory(xtcfile, ndxfile);
+
+    // Only reading in from frame first to last
+    traj->read(first, 1, last);
 
     print(traj, first, last, group, outfile);
 
@@ -150,7 +153,7 @@ void print(Trajectory *traj, int first, int last, string group, string outfile)
 
     oFS << fixed << setprecision(3);
 
-    for (int frame = first; frame <= last; frame++) {
+    for (int frame = first; frame < last; frame++) {
         oFS << "------------------------------------" << endl;
 
         // Getting and printing the time and step
