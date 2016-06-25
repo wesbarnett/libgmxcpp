@@ -18,7 +18,6 @@
 # The full license is located in a text file titled "LICENSE" in the root
 # directory of the source.
 
-set(AVX OFF CACHE INTERNAL "")
 if(${AVX})
     message(STATUS "Compiling with AVX support.")
     add_definitions(-DAVX)
