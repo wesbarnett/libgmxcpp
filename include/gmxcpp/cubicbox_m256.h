@@ -29,6 +29,7 @@
 #ifndef CUBICBOX_M256_H
 #define CUBICBOX_M256_H
 
+#include <stdexcept>
 #include <immintrin.h>
 using namespace std;
 

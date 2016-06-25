@@ -51,7 +51,7 @@ float& cubicbox_m256::operator[](int i)
         case 2:
             return z[0];
     }
-//TODO
+    throw std::invalid_argument("cubicbox_m256[] only takes 0, 1, or 2");
 }
 
 const float& cubicbox_m256::operator[](int i) const
@@ -65,6 +65,6 @@ const float& cubicbox_m256::operator[](int i) const
         case 2:
             return z[0];
     }
-//TODO
+    throw std::invalid_argument("cubicbox_m256[] only takes 0, 1, or 2");
 }
 
