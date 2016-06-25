@@ -40,7 +40,28 @@ find the methanes by our index groups:::
 
 Now all information from the simulation is available to us using object getters
 from ``trj`` and ``top``. Since ``ndx`` is now associated with both of these
-object we don't have to worry about calling anything from it directly.
+object we don't have to worry about calling anything from it directly. The first
+thing you should do is either read in the entire trajectory, or read in some
+frames. To read in the entire xtc file do::
+
+    trj.read();
+
+To read in only one frame do::
+
+    trj.read_next();
+
+To read in the next 10 frames do::
+
+    trj.read_next(10);
+
+``read_next`` is useful in a loop and returns the actual number of frames read
+in, so you know when you are at the end of the file. It does not close the xtc
+file like ``read`` does. To do so simply call::
+
+    trj.close();
+
+In most cases ``read()`` should be enough unless you are dealing with a large
+system and run out of memory.
 
 Now that we've called our constructors, we can get any information we want from
 these objects such as atomic coordinates and masses, which is what we need for
@@ -78,6 +99,7 @@ would put this into a loop:::
 
     Index ndx("index.ndx");
     Trajectory trj("traj.xtc",ndx);
+    trj.read();
     Topology top("topol.tpr",ndx);
 
     for (int i = 0; i < trj.GetNFrames(); i++)
@@ -110,6 +132,7 @@ on the analysis. A full program might be:::
 
         Index ndx("index.ndx");
         Trajectory trj("traj.xtc",ndx);
+        trj.read();
         Topology top("topol.tpr",ndx);
 
         for (int i = 0; i < trj.GetNFrames(); i++)
@@ -122,7 +145,6 @@ on the analysis. A full program might be:::
 
         return 0;
     }
-
 
 Compiling a Program
 -------------------
@@ -152,3 +174,5 @@ and test it out on an .xtc and .ndx file from a recent simulation.
 Additionally `there is an example program which calculates the radial
 distribution function using this library <https://github.com/wesbarnett/rdf>`_.
 
+An example of using ``read_next()`` in a loop along with using OpenMP for
+parallelization is found `here <https://github.com/wesbarnett/tpi/blob/master/src/main.cpp>`_.
