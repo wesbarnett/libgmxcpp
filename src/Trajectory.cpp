@@ -32,7 +32,7 @@
 
 Trajectory::Trajectory()
 {
-
+    PrintInfo();
 }
 
 Trajectory::~Trajectory()
@@ -41,12 +41,14 @@ Trajectory::~Trajectory()
 
 Trajectory::Trajectory(string filename)
 {
+    PrintInfo();
     this->filename = filename;
     open(filename);
 }
 
 Trajectory::Trajectory(string filename, string ndxfile)
 {
+    PrintInfo();
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
@@ -55,6 +57,7 @@ Trajectory::Trajectory(string filename, string ndxfile)
 
 Trajectory::Trajectory(string filename, Index index)
 {
+    PrintInfo();
     this->index=index;
     this->filename = filename;
     open(filename);
@@ -350,6 +353,17 @@ string Trajectory::GetFilename() const
 void Trajectory::CenterAtoms(int frame) const
 {
     frameArray[frame].CenterAtoms();
+    return;
+}
+
+void Trajectory::PrintInfo() const
+{
+    cerr << endl;
+    cerr << "==========================================================" << endl;
+    cerr << "=  libgmxcpp v5.0 - Copyright (C) 2016 James W. Barnett  =" << endl;
+    cerr << "=  http://github.com/wesbarnett/libgmxcpp                =" << endl;
+    cerr << "==========================================================" << endl;
+    cerr << endl;
     return;
 }
 
