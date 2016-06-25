@@ -46,6 +46,12 @@ A good example of this in practice, is my test particle insertion code found
 `here <http://github.com/wesbarnett/tpi>`_. Specifically look at the CalcPE
 function in Atomtype.cpp.
 
+Turning off banner
+------------------
+
+By default a banner is printed to stderr every time a Trajectory object is
+created. If this annoys you, use the cmake flag ``-DBANNER=OFF`` to turn it off.
+
 Location
 --------
 
