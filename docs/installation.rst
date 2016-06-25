@@ -30,6 +30,22 @@ option ``-DCMAKE_INSTALL_PREFIX`` above.
 Alternatively if you are running `Arch <https://www.archlinux.org/>`_ you can
 `install it from the AUR <https://aur.archlinux.org/packages/libgmxcpp/>`_.
 
+Classes for use with AVX Instructions
+-------------------------------------
+
+Some classes are provided for use with SIMD intrinsics, specifically the AVX
+set. To compile with these classes available, add ``-DAVX=ON`` to your cmake
+call when installing. This is experimental, since tests have not been implemented
+for these classes yet.
+
+Unfortunately I don't have time to cover all instruction
+sets, so I'm focusing on those most useful to myself. If you're interested in
+adding more, please file a pull request.
+
+A good example of this in practice, is my test particle insertion code found
+`here <http://github.com/wesbarnett/tpi>`_. Specifically look at the CalcPE
+function in Atomtype.cpp.
+
 Location
 --------
 

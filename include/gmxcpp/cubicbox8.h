@@ -26,39 +26,49 @@
  * @brief Header for cubicbox class
  */
 
-#ifndef CUBICBOX_H
-#define CUBICBOX_H
+#ifndef CUBICBOX8_H
+#define CUBICBOX8_H
 
-#include "gmxcpp/coordinates.h"
-#include "gmxcpp/cubicbox_m256.h"
-#include "gmxcpp/xdrfile.h"
+#include "cubicbox.h"
+#include <immintrin.h>
 using namespace std;
 
-/** @brief Box dimensions.
- * @details This is just a two dimensional array initialized to three
- * items in each dimension. To access the elements of the array use operator().
- * For example, to if the box is cubic and your have a cubicbox object named
- * mybox, to get the X dimension do mybox(0). If you it is truly a cubicbox
- * (not cubic) you can access elements with mybox(i,j).*/
-class cubicbox {
+class cubicbox8 
+{
 
-private:
+    public:
 
-    array <float,3> box;
+        union 
+        {
+            __m256 mmz;
+            float z[8];
+        };
+        union 
+        {
+            __m256 mmy;
+            float y[8];
+        };
+        union 
+        {
+            __m256 mmx;
+            float x[8];
+        };
 
-public:
-    /** Constructor, makes the 2d vector 3x3 */
-    cubicbox();
+        /** Constructor, makes the 2d vector 3x3 */
+        cubicbox8();
 
-    /** Constructor where user provides dimensions, cubic */
-    cubicbox(float x, float y, float z);
+        cubicbox8(float x1, float y1, float z1,
+                     float x2, float y2, float z2,
+                     float x3, float y3, float z3,
+                     float x4, float y4, float z4,
+                     float x5, float y5, float z5,
+                     float x6, float y6, float z6,
+                     float x7, float y7, float z7,
+                     float x8, float y8, float z8);
 
-    /** Convert from 8 copies of box */
-    cubicbox(cubicbox_m256 box);
+        cubicbox8(cubicbox a, cubicbox b, cubicbox c, cubicbox d,
+                  cubicbox e, cubicbox f, cubicbox g, cubicbox h);
 
-    float& operator[](int i);
-
-    const float& operator[](int i) const;
 
 };
 

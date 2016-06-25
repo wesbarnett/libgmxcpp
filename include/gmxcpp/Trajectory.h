@@ -36,7 +36,9 @@
 #include "gmxcpp/Index.h"
 #include "gmxcpp/Utils.h"
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/coordinates4.h"
 #include "gmxcpp/cubicbox.h"
+#include "gmxcpp/cubicbox8.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -194,6 +196,8 @@ int GetStep(int frame) const;
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
 coordinates GetXYZ(int frame, int atom) const;
+coordinates4 GetXYZ4(int frame, int atom) const;
+coordinates8 GetXYZ8(int frame, int atom) const;
 
 /**
  * @brief Gets the coordinates for a specific atom in a group.
@@ -209,6 +213,10 @@ coordinates GetXYZ(int frame, int atom) const;
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
 coordinates GetXYZ(int frame, string groupName, int atom) const;
+coordinates4 GetXYZ4(int frame, string group, int atom) const;
+coordinates8 GetXYZ8(int frame, string group, int atom) const;
+coordinates8 GetXYZ8F(int frame, int atom) const; // From 8 different frames in a row
+coordinates8 GetXYZ8F(int frame, string group, int atom) const; // From 8 different frames in a row
 
 /**
  * @brief Gets all of the coordinates for the system for a specific
@@ -240,6 +248,8 @@ vector <coordinates> GetXYZ(int frame, string groupName) const;
  */
 triclinicbox GetBox(int frame) const;
 cubicbox GetCubicBox(int frame) const;
+cubicbox_m256 GetCubicBoxM256(int frame) const;
+cubicbox8 GetCubicBox8F(int frame) const;
 
 /**
  * @brief Gets the volume of the box at a specific frame.

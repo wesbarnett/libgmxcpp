@@ -61,11 +61,10 @@ coordinates pbc(coordinates a, cubicbox box)
 {
 
     a[Z] -= box[Z] * nearbyint(a[Z] / box[Z]);
-    a[Y] -= box[Y] * nearbyint(a[Y] / box[Y]);;
-    a[X] -= box[X] * nearbyint(a[X] / box[X]);;
+    a[Y] -= box[Y] * nearbyint(a[Y] / box[Y]);
+    a[X] -= box[X] * nearbyint(a[X] / box[X]);
     return a;
 }
-
 coordinates cross(coordinates a, coordinates b)
 {
     return (coordinates (
@@ -438,3 +437,110 @@ void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n)
     return;
 
 }
+
+#ifdef AVX
+void gen_rand_box_points(vector <coordinates8> &xyz, cubicbox8 &box, int n)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    xyz.resize(0);
+    xyz.reserve(n);
+    array < uniform_real_distribution<double>, 8> dis_x;
+    array < uniform_real_distribution<double>, 8> dis_y;
+    array < uniform_real_distribution<double>, 8> dis_z;
+
+    for (int i = 0; i < 8; i++)
+    {
+        dis_x[i] = uniform_real_distribution<double>(0.0,box.x[i]);
+        dis_y[i] = uniform_real_distribution<double>(0.0,box.y[i]);
+        dis_z[i] = uniform_real_distribution<double>(0.0,box.z[i]);
+    }
+
+    for (int j = 0; j < n; j++)
+    {
+        xyz.push_back(coordinates8(
+            dis_x[0](gen), dis_y[0](gen), dis_z[0](gen),
+            dis_x[1](gen), dis_y[1](gen), dis_z[1](gen),
+            dis_x[2](gen), dis_y[2](gen), dis_z[2](gen),
+            dis_x[3](gen), dis_y[3](gen), dis_z[3](gen),
+            dis_x[4](gen), dis_y[4](gen), dis_z[4](gen),
+            dis_x[5](gen), dis_y[5](gen), dis_z[5](gen),
+            dis_x[6](gen), dis_y[6](gen), dis_z[6](gen),
+            dis_x[7](gen), dis_y[7](gen), dis_z[7](gen)));
+    }
+
+    return;
+
+}
+
+// AVX instructions
+coordinates8 pbc(coordinates8 a, cubicbox_m256 box)
+{
+
+    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+
+    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
+    a.mmz = _mm256_fnmadd_ps(shift, box.mmz, a.mmz);
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy), cntrl);
+    a.mmy = _mm256_fnmadd_ps(shift, box.mmy, a.mmy);
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx), cntrl);
+    a.mmx = _mm256_fnmadd_ps(shift, box.mmx, a.mmx);
+
+    return a;
+}
+
+coordinates8 pbc(coordinates8 a, cubicbox8 box)
+{
+
+    const int cntrl = _MM_FROUND_TO_NEAREST_INT;
+
+    __m256 shift = _mm256_round_ps(_mm256_div_ps(a.mmz, box.mmz), cntrl);
+    a.mmz = _mm256_fnmadd_ps(shift, box.mmz, a.mmz);
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmy, box.mmy), cntrl);
+    a.mmy = _mm256_fnmadd_ps(shift, box.mmy, a.mmy);
+
+    shift = _mm256_round_ps(_mm256_div_ps(a.mmx, box.mmx), cntrl);
+    a.mmx = _mm256_fnmadd_ps(shift, box.mmx, a.mmx);
+
+    return a;
+}
+
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box)
+{
+    coordinates8 c = pbc(a-b,box);
+    __m256 d = _mm256_mul_ps(c.mmx, c.mmx);
+    __m256 e = _mm256_fmadd_ps(c.mmy, c.mmy, d);
+    __m256 f = _mm256_fmadd_ps(c.mmz, c.mmz, e);
+    return f;
+}
+
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox8 box)
+{
+    coordinates8 c = pbc(a-b,box);
+    __m256 d = _mm256_mul_ps(c.mmx, c.mmx);
+    __m256 e = _mm256_fmadd_ps(c.mmy, c.mmy, d);
+    __m256 f = _mm256_fmadd_ps(c.mmz, c.mmz, e);
+    return f;
+}
+
+double volume(cubicbox_m256 box)
+{
+    return volume(cubicbox(box));
+}
+
+__m256 volume(cubicbox8 box)
+{
+    return _mm256_mul_ps(_mm256_mul_ps(box.mmx, box.mmy), box.mmz);
+}
+
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n)
+{
+    cubicbox x = cubicbox(box);
+    gen_rand_box_points(xyz, x, n);
+    return;
+}
+
+#endif

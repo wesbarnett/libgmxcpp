@@ -1,6 +1,7 @@
 #include <assert.h>
 #include "tests.h"
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/coordinates4.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/Utils.h"
 #include <iomanip>
@@ -31,6 +32,15 @@ int main()
     assert(test_equal(distance(c8, c9, b2), 0.0));
     assert(test_equal(distance(c6, c8, b1), 2.33452));
 
+/*
+    coordinates4 c_4(c6, c7, c8, c9);
+    vector <float> d2_4 = distance2(c_4, c9, b2);
+    assert(test_equal(distance2(c6, c9, b2), d2_4[0]));
+    assert(test_equal(distance2(c7, c9, b2), d2_4[1]));
+    assert(test_equal(distance2(c8, c9, b2), d2_4[2]));
+    assert(test_equal(distance2(c9, c9, b2), d2_4[3]));
+*/
+
     vector <coordinates> sites;
     triclinicbox b3(10.0, 10.0, 10.0);
     coordinates site1(1.0, 1.0, 1.0);
@@ -40,20 +50,6 @@ int main()
     coordinates site2(1.0, 1.0, 4.0);
     sites.push_back(site2);
     assert(test_equal(get_surf_area(sites, 1.0, 10000, b3), 25.13274123));
-
-    /*
-     * TODO: fix these
-     * sites.at(1).at(X) = 1.0;
-     * sites.at(1).at(Y) = 1.0;
-     * sites.at(1).at(Z) = 1.5;
-     * cout << std::setprecision(12) << get_surf_area(sites, 1.0, 10000, b3);
-     * assert(test_equal(get_surf_area(sites, 1.0, 10000, b3)-15.77456));
-     *
-     * coordinates site3(1.0,1.0,2.0);
-     * sites.push_back(site3);
-     * cout << std::setprecision(12) << get_surf_area(sites, 1.0, 10000, b3);
-     * assert(test_equal(get_surf_area(sites, 1.0, 10000, b3),18.7641));
-     */
 
 	coordinates a(0.0,0.0,0.0);
 	coordinates b(1.0,0.0,0.0);

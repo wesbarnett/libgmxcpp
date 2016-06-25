@@ -45,9 +45,14 @@
 #include <time.h>
 #include <vector>
 #include <stdexcept>
+#include <immintrin.h>
 
 #include "gmxcpp/coordinates.h"
+#include "gmxcpp/coordinates4.h"
+#include "gmxcpp/coordinates8.h"
 #include "gmxcpp/cubicbox.h"
+#include "gmxcpp/cubicbox8.h"
+#include "gmxcpp/cubicbox_m256.h"
 #include "gmxcpp/triclinicbox.h"
 #include "gmxcpp/xdrfile.h"
 #include "gmxcpp/xdrfile_xtc.h"
@@ -65,6 +70,8 @@ using namespace std;
  */
 coordinates pbc(coordinates a, triclinicbox box);
 coordinates pbc(coordinates a, cubicbox box);
+coordinates8 pbc(coordinates8 a, cubicbox_m256 box);
+coordinates8 pbc(coordinates8 a, cubicbox8 box);
 
 /**
  * @brief Centers a group of atoms around another atom, removing pbc
@@ -102,6 +109,8 @@ double distance(coordinates a, coordinates b);
 double distance2(coordinates a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b, cubicbox box);
 double distance2(coordinates a, coordinates b);
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox_m256 box);
+__m256 distance2(coordinates8 a, coordinates8 b, cubicbox8 box);
 
 /** @brief Calculates the dot product between two vectors
  * @param a First vector in dot product
@@ -133,7 +142,9 @@ bool fileExists(string filename);
  * @return Volume of box
  */
 double volume(triclinicbox box);
+double volume(cubicbox_m256 box);
 double volume(cubicbox box);
+__m256 volume(cubicbox8 box);
 
 /** @brief Gets the bond vector between to atoms
  * @param atom1 First atom in bond
@@ -243,6 +254,8 @@ double get_surf_area(vector <coordinates> sites, double r, double rand_n, tricli
  */
 void gen_rand_box_points(vector <coordinates> &xyz, triclinicbox &box, int n);
 void gen_rand_box_points(vector <coordinates> &xyz, cubicbox &box, int n);
+void gen_rand_box_points(vector <coordinates> &xyz, cubicbox_m256 &box, int n);
+void gen_rand_box_points(vector <coordinates8> &xyz, cubicbox8 &box, int n);
 
 /** \addtogroup center_of_mass
  * @{

@@ -312,6 +312,7 @@ cubicbox Trajectory::GetCubicBox(int frame) const
     return frameArray[frame].GetCubicBox();
 }
 
+
 int Trajectory::GetNAtoms(string group) const
 {
     return index.GetGroupSize(group);
@@ -351,3 +352,78 @@ void Trajectory::CenterAtoms(int frame) const
     frameArray[frame].CenterAtoms();
     return;
 }
+
+#ifdef AVX
+
+coordinates4 Trajectory::GetXYZ4(int frame, int atom) const
+{
+    return frameArray[frame].GetXYZ4(atom);
+}
+
+coordinates8 Trajectory::GetXYZ8(int frame, int atom) const
+{
+    return frameArray[frame].GetXYZ8(atom);
+}
+
+coordinates8 Trajectory::GetXYZ8F(int frame, int atom) const
+{
+    return  (coordinates8 (frameArray[frame].GetXYZ(atom),
+                           frameArray[frame+1].GetXYZ(atom),
+                           frameArray[frame+2].GetXYZ(atom),
+                           frameArray[frame+3].GetXYZ(atom),
+                           frameArray[frame+4].GetXYZ(atom),
+                           frameArray[frame+5].GetXYZ(atom),
+                           frameArray[frame+6].GetXYZ(atom),
+                           frameArray[frame+7].GetXYZ(atom)) );
+}
+
+coordinates4 Trajectory::GetXYZ4(int frame, string group, int atom) const
+{
+    return frameArray[frame].GetXYZ4(index.GetLocation(group, atom),
+                                     index.GetLocation(group, atom+1),
+                                     index.GetLocation(group, atom+2),
+                                     index.GetLocation(group, atom+3));
+}
+
+coordinates8 Trajectory::GetXYZ8(int frame, string group, int atom) const
+{
+    return frameArray[frame].GetXYZ8(index.GetLocation(group, atom),
+                                     index.GetLocation(group, atom+1),
+                                     index.GetLocation(group, atom+2),
+                                     index.GetLocation(group, atom+3),
+                                     index.GetLocation(group, atom+4),
+                                     index.GetLocation(group, atom+5),
+                                     index.GetLocation(group, atom+6),
+                                     index.GetLocation(group, atom+7));
+}
+
+coordinates8 Trajectory::GetXYZ8F(int frame, string group, int atom) const
+{
+    return ( coordinates8 (frameArray[frame].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+1].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+2].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+3].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+4].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+5].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+6].GetXYZ(index.GetLocation(group, atom)),
+                           frameArray[frame+7].GetXYZ(index.GetLocation(group, atom))) );
+
+}
+
+cubicbox_m256 Trajectory::GetCubicBoxM256(int frame) const
+{
+    return frameArray[frame].GetCubicBoxM256();
+}
+
+cubicbox8 Trajectory::GetCubicBox8F(int frame) const
+{
+    return ( cubicbox8 (frameArray[frame].GetCubicBox(),
+                        frameArray[frame+1].GetCubicBox(),
+                        frameArray[frame+2].GetCubicBox(),
+                        frameArray[frame+3].GetCubicBox(),
+                        frameArray[frame+4].GetCubicBox(),
+                        frameArray[frame+5].GetCubicBox(),
+                        frameArray[frame+6].GetCubicBox(),
+                        frameArray[frame+7].GetCubicBox()) );
+}
+#endif

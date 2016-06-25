@@ -103,6 +103,10 @@ int GetStep() const;
  * @return Vector with X, Y, and Z coordinates of the atom specified.
  */
 coordinates GetXYZ(int atom) const;
+coordinates4 GetXYZ4(int atom) const;
+coordinates4 GetXYZ4(int a, int b, int c, int d) const;
+coordinates8 GetXYZ8(int atom) const;
+coordinates8 GetXYZ8(int a, int b, int c, int d, int e, int f, int g, int h) const;
 
 /**
  * @brief Gets all of the coordinates for the system for this frame.
@@ -135,6 +139,7 @@ vector <coordinates> GetXYZ(Index index, string groupName) const;
  */
 triclinicbox GetBox() const;
 cubicbox GetCubicBox() const;
+cubicbox_m256 GetCubicBoxM256() const;
 
 /**
  * @brief Gets the volume of the box at this frame.

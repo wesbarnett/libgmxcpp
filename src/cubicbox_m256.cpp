@@ -20,46 +20,51 @@
  *
  */
 
-/** @file
+/**
+ * @file
  * @author James W. Barnett jbarnet4@tulane.edu
  * @date December 5, 2014
- * @brief Header for cubicbox class
+ * @brief Header for cubicbox_m256 class
+ * @see cubicbox_m256.h
  */
 
-#ifndef CUBICBOX_H
-#define CUBICBOX_H
-
-#include "gmxcpp/coordinates.h"
 #include "gmxcpp/cubicbox_m256.h"
-#include "gmxcpp/xdrfile.h"
-using namespace std;
 
-/** @brief Box dimensions.
- * @details This is just a two dimensional array initialized to three
- * items in each dimension. To access the elements of the array use operator().
- * For example, to if the box is cubic and your have a cubicbox object named
- * mybox, to get the X dimension do mybox(0). If you it is truly a cubicbox
- * (not cubic) you can access elements with mybox(i,j).*/
-class cubicbox {
+cubicbox_m256::cubicbox_m256() { }
 
-private:
+cubicbox_m256::cubicbox_m256(float x, float y, float z)
+{
+    mmz = _mm256_set1_ps(z);
+    mmy = _mm256_set1_ps(y);
+    mmx = _mm256_set1_ps(x);
+}
 
-    array <float,3> box;
 
-public:
-    /** Constructor, makes the 2d vector 3x3 */
-    cubicbox();
+float& cubicbox_m256::operator[](int i)
+{
+    switch(i)
+    {
+        case 0:
+            return x[0];
+        case 1:
+            return y[0];
+        case 2:
+            return z[0];
+    }
+    throw std::invalid_argument("cubicbox_m256[] only takes 0, 1, or 2");
+}
 
-    /** Constructor where user provides dimensions, cubic */
-    cubicbox(float x, float y, float z);
+const float& cubicbox_m256::operator[](int i) const
+{
+    switch(i)
+    {
+        case 0:
+            return x[0];
+        case 1:
+            return y[0];
+        case 2:
+            return z[0];
+    }
+    throw std::invalid_argument("cubicbox_m256[] only takes 0, 1, or 2");
+}
 
-    /** Convert from 8 copies of box */
-    cubicbox(cubicbox_m256 box);
-
-    float& operator[](int i);
-
-    const float& operator[](int i) const;
-
-};
-
-#endif

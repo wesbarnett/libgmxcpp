@@ -26,12 +26,11 @@
  * @brief Header for cubicbox class
  */
 
-#ifndef CUBICBOX_H
-#define CUBICBOX_H
+#ifndef CUBICBOX_M256_H
+#define CUBICBOX_M256_H
 
-#include "gmxcpp/coordinates.h"
-#include "gmxcpp/cubicbox_m256.h"
-#include "gmxcpp/xdrfile.h"
+#include <stdexcept>
+#include <immintrin.h>
 using namespace std;
 
 /** @brief Box dimensions.
@@ -40,25 +39,36 @@ using namespace std;
  * For example, to if the box is cubic and your have a cubicbox object named
  * mybox, to get the X dimension do mybox(0). If you it is truly a cubicbox
  * (not cubic) you can access elements with mybox(i,j).*/
-class cubicbox {
+class cubicbox_m256 
+{
 
-private:
+    public:
 
-    array <float,3> box;
+        union 
+        {
+            __m256 mmz;
+            float z[8];
+        };
+        union 
+        {
+            __m256 mmy;
+            float y[8];
+        };
+        union 
+        {
+            __m256 mmx;
+            float x[8];
+        };
 
-public:
-    /** Constructor, makes the 2d vector 3x3 */
-    cubicbox();
+        /** Constructor, makes the 2d vector 3x3 */
+        cubicbox_m256();
 
-    /** Constructor where user provides dimensions, cubic */
-    cubicbox(float x, float y, float z);
+        /** Constructor where user provides dimensions, cubic */
+        cubicbox_m256(float x, float y, float z);
 
-    /** Convert from 8 copies of box */
-    cubicbox(cubicbox_m256 box);
+        float& operator[](int i);
 
-    float& operator[](int i);
-
-    const float& operator[](int i) const;
+        const float& operator[](int i) const;
 
 };
 

@@ -23,42 +23,50 @@
 /** @file
  * @author James W. Barnett jbarnet4@tulane.edu
  * @date December 5, 2014
- * @brief Header for cubicbox class
+ * @brief Header for coordinates class
  */
 
-#ifndef CUBICBOX_H
-#define CUBICBOX_H
+#ifndef COORDINATES4_H
+#define COORDINATES4_H
 
-#include "gmxcpp/coordinates.h"
-#include "gmxcpp/cubicbox_m256.h"
-#include "gmxcpp/xdrfile.h"
+#include "coordinates.h"
+#include <xmmintrin.h>
 using namespace std;
 
-/** @brief Box dimensions.
- * @details This is just a two dimensional array initialized to three
- * items in each dimension. To access the elements of the array use operator().
- * For example, to if the box is cubic and your have a cubicbox object named
- * mybox, to get the X dimension do mybox(0). If you it is truly a cubicbox
- * (not cubic) you can access elements with mybox(i,j).*/
-class cubicbox {
-
-private:
-
-    array <float,3> box;
+class coordinates4 {
 
 public:
-    /** Constructor, makes the 2d vector 3x3 */
-    cubicbox();
 
-    /** Constructor where user provides dimensions, cubic */
-    cubicbox(float x, float y, float z);
+    union{
+        __m128 mmx;
+        float x[4];
+    };
+    union{
+        __m128 mmy;
+        float y[4];
+    };
+    union{
+        __m128 mmz;
+        float z[4];
+    };
 
-    /** Convert from 8 copies of box */
-    cubicbox(cubicbox_m256 box);
+    coordinates4();
 
-    float& operator[](int i);
+    coordinates4(float x1, float y1, float z1,
+                 float x2, float y2, float z2,
+                 float x3, float y3, float z3,
+                 float x4, float y4, float z4);
 
-    const float& operator[](int i) const;
+    coordinates4(coordinates a,
+                 coordinates b,
+                 coordinates c,
+                 coordinates d);
+
+    coordinates4 operator-(coordinates rhs);
+    coordinates4 operator-(coordinates4 rhs);
+
+    coordinates4& operator-=(coordinates rhs);
+    coordinates4& operator-=(coordinates4 rhs);
 
 };
 
