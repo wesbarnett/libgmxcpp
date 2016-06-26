@@ -17,6 +17,10 @@
 # The full license is located in a text file titled "LICENSE" in the root
 # directory of the source.
 
+message(STATUS "==============================================")
+message(STATUS "= libgmxcpp documentation:                   =")
+message(STATUS "= http://github.com/wesbarnett/libgmxpp      =")
+message(STATUS "==============================================")
 cmake_minimum_required(VERSION 2.8)
 project(gmxcpp)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
@@ -25,6 +29,8 @@ set (gmxcpp_VERSION_MINOR 0)
 set(BANNER ON CACHE INTERNAL "")
 if(${BANNER})
     add_definitions(-DBANNER)
+else()
+    message(STATUS "Compiling without banner.")
 endif()
 set(AVX OFF CACHE INTERNAL "")
 if(${AVX})
