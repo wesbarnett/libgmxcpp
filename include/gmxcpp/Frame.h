@@ -28,8 +28,6 @@
 
 #ifndef FRAME_H
 #define FRAME_H
-#include "gmxcpp/xdrfile.h"
-#include "gmxcpp/xdrfile_xtc.h"
 #include "gmxcpp/Index.h"
 #include "gmxcpp/Utils.h"
 #include "gmxcpp/coordinates.h"

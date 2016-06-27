@@ -30,7 +30,7 @@
 #define TRICLINICBOX_H
 
 #include "gmxcpp/coordinates.h"
-#include "gmxcpp/xdrfile.h"
+#include "xdrfile/xdrfile.h"
 #include <vector>
 using namespace std;
 

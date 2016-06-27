@@ -31,7 +31,7 @@
 
 #include "gmxcpp/coordinates.h"
 #include "gmxcpp/cubicbox_m256.h"
-#include "gmxcpp/xdrfile.h"
+#include "xdrfile/xdrfile.h"
 using namespace std;
 
 /** @brief Box dimensions.
