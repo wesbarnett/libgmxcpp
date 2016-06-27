@@ -57,9 +57,9 @@ int main(int argc, char *argv[])
     const int first = 0;
     const int last = 5;
     string outfile = "out.dat";
-    string xtcfile, ndxfile;
-
-    if (!parseCommandLine(argc, argv, &xtcfile, &ndxfile)) return -1;
+    if (argc != 3) {printUsage(argv[0]) return -1};
+    string xtcfile = argv[1];
+    string ndxfile = argv[2];
 
     // Example of creating a Trajectory object as a pointer
     Trajectory *traj = new Trajectory(xtcfile, ndxfile);
@@ -82,35 +82,6 @@ int main(int argc, char *argv[])
  * @param argv[] Command line parameter
  * @return True If there is no error or help flag not called. Otherwise false.
  */
-bool parseCommandLine(int argc, char *argv[], string *xtcfile, string *ndxfile)
-{
-    if (checkHelpArg(argc, argv, "-h")) {
-        printUsage(argv[0]);
-        return false;
-    }
-
-    if (!getArgument(argc, argv, "-f", xtcfile)) {
-        printUsage(argv[0]);
-        return false;
-    }
-
-    if (!getArgument(argc, argv, "-n", ndxfile)) {
-        printUsage(argv[0]);
-        return false;
-    }
-
-    if (!fileExists(*xtcfile)) {
-        cout << "ERROR: File " << *xtcfile << " does not exist." << endl;
-        return false;
-    }
-
-    if (!fileExists(*ndxfile)) {
-        cout << "ERROR: File " << *ndxfile << " does not exist." << endl;
-        return false;
-    }
-
-    return true;
-}
 
 /**
  * @brief Prints the usage of the program.
@@ -120,7 +91,7 @@ void printUsage(string program)
 {
     cout << endl;
     cout << "Usage:" << endl;
-    cout << "  " << program << " -f traj.xtc -n index.ndx" << endl;
+    cout << "  " << program << " traj.xtc index.ndx" << endl;
     cout << "Arguments:" << endl;
     cout << "   traj.xtc  (Input, Gromacs xtc file)" << endl;
     cout << "   index.ndx (Input, Gromacs index file)" << endl;
