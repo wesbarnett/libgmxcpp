@@ -265,7 +265,7 @@ void CenterAtoms(int frame) const;
 /* Closes the xtc file. */
 void close();
 
-void PrintInfo() const;
+void PrintBanner() const;
 
 };
 

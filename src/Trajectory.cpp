@@ -32,9 +32,7 @@
 
 Trajectory::Trajectory()
 {
-#ifdef BANNER
-    PrintInfo();
-#endif
+    PrintBanner();
 }
 
 Trajectory::~Trajectory()
@@ -43,18 +41,14 @@ Trajectory::~Trajectory()
 
 Trajectory::Trajectory(string filename)
 {
-#ifdef BANNER
-    PrintInfo();
-#endif
+    PrintBanner();
     this->filename = filename;
     open(filename);
 }
 
 Trajectory::Trajectory(string filename, string ndxfile)
 {
-#ifdef BANNER
-    PrintInfo();
-#endif
+    PrintBanner();
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
@@ -63,9 +57,7 @@ Trajectory::Trajectory(string filename, string ndxfile)
 
 Trajectory::Trajectory(string filename, Index index)
 {
-#ifdef BANNER
-    PrintInfo();
-#endif
+    PrintBanner();
     this->index=index;
     this->filename = filename;
     open(filename);
@@ -364,16 +356,16 @@ void Trajectory::CenterAtoms(int frame) const
     return;
 }
 
-void Trajectory::PrintInfo() const
+void Trajectory::PrintBanner() const
 {
+#ifdef BANNER
     cerr << endl;
-    cerr << "==========================================================" << endl;
-    cerr << "=  libgmxcpp v5.0 - Copyright (C) 2016 James W. Barnett  =" << endl;
-    cerr << "=  http://github.com/wesbarnett/libgmxcpp                =" << endl;
-    cerr << "=                                                        =" << endl;
-    cerr << "=  Bitcoin tips: 1PZziQoUJfhMKZC8gXQZtS5ebHWMba3Geb      =" << endl;
-    cerr << "==========================================================" << endl;
+    cerr << "===========================================================" << endl;
+    cerr << "=  libgmxcpp v5.0 -- Copyright (C) 2016 James W. Barnett  =" << endl;
+    cerr << "=  http://github.com/wesbarnett/libgmxcpp                 =" << endl;
+    cerr << "===========================================================" << endl;
     cerr << endl;
+#endif
     return;
 }
 

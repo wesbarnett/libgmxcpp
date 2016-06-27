@@ -26,6 +26,7 @@ if(${AVX})
     Clusters.cpp Topology.cpp coordinates4.cpp coordinates8.cpp
     cubicbox8.cpp cubicbox_m256.cpp)
 else()
+    message(STATUS "Compiling without AVX support.")
     add_library(gmxcpp SHARED Frame.cpp Index.cpp Trajectory.cpp CommandLine.cpp
     Utils.cpp coordinates.cpp cubicbox.cpp triclinicbox.cpp xdrfile.c xdrfile_xtc.c
     Clusters.cpp Topology.cpp)
