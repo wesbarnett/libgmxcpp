@@ -54,8 +54,6 @@
 #include "gmxcpp/cubicbox8.h"
 #include "gmxcpp/cubicbox_m256.h"
 #include "gmxcpp/triclinicbox.h"
-#include "gmxcpp/xdrfile.h"
-#include "gmxcpp/xdrfile_xtc.h"
 
 using namespace std;
 
