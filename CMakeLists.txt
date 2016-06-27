@@ -17,10 +17,6 @@
 # The full license is located in a text file titled "LICENSE" in the root
 # directory of the source.
 
-message(STATUS "==============================================")
-message(STATUS "= libgmxcpp documentation:                   =")
-message(STATUS "= http://github.com/wesbarnett/libgmxpp      =")
-message(STATUS "==============================================")
 cmake_minimum_required(VERSION 2.8)
 project(gmxcpp)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
