@@ -51,7 +51,7 @@ bool Index::init(string ndxfile)
 
     this->filename = ndxfile;
 
-    printf("Reading in index file %s...", ndxfile.c_str());
+    cout << "Reading in index file " << ndxfile << "...";
 
     if (!IsIndexFile(ndxfile)) 
     {
@@ -97,11 +97,11 @@ bool Index::init(string ndxfile)
     }
     iFS.close();
 
-    printf("OK\n");
+    cout << "OK" << endl;
 
-    printf("Found the following groups: \n");
+    cout << "Found the following groups: " << endl;
     PrintInfo();
-    printf("Finished reading in index file.\n");
+    cout << "Finished reading in index file." << endl << endl;
 
     return true;
 }
@@ -110,8 +110,8 @@ void Index::PrintInfo() const
 {
     for (unsigned int i = 0; i < headers.size(); i++) 
     {
-        printf("  %s", headers[i].c_str());
-        printf("\t\t(%ld particles)\n", locations[i].size());
+        cout << left << "  " << setw(15) << headers.at(i);
+        cout << "(" << locations.at(i).size() << " particles)" << endl;
     }
     return;
 }
