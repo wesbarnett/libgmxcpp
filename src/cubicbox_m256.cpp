@@ -50,17 +50,6 @@ float& cubicbox_m256::operator[](int i)
             return y[0];
         case 2:
             return z[0];
-        arg = argv[i];
-        if (arg == flag) 
-        {
-            if (i + 1 >= argc) 
-            {
-                cout << "ERROR: missing argument to " << flag << "." << endl;
-                return false;
-            }
-            *argToReturn = argv[i + 1];
-            return true;
-        }
     }
     throw std::invalid_argument("cubicbox_m256[] only takes 0, 1, or 2");
 }

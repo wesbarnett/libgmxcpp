@@ -43,9 +43,9 @@ if(${AVX})
     set(AVXFILECPP coordinates4.cpp coordinates8.cpp cubicbox8.cpp cubicbox_m256.cpp)
 endif()
 
-add_library(gmxcpp SHARED Frame.cpp Index.cpp Trajectory.cpp CommandLine.cpp
-Utils.cpp coordinates.cpp cubicbox.cpp triclinicbox.cpp ${XDRFILEC}
-Clusters.cpp Topology.cpp ${AVXFILECPP})
+add_library(gmxcpp SHARED Frame.cpp Index.cpp Trajectory.cpp Utils.cpp
+coordinates.cpp cubicbox.cpp triclinicbox.cpp ${XDRFILEC} Clusters.cpp
+Topology.cpp ${AVXFILECPP})
 set_target_properties(gmxcpp PROPERTIES LIBRARY_OUTPUT_DIRECTORY lib)
 set_target_properties(gmxcpp PROPERTIES OUTPUT_NAME gmxcpp${BUILD_POSTFIX})
 
