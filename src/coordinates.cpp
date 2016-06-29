@@ -34,7 +34,9 @@ coordinates::coordinates(){ }
 
 coordinates::coordinates(double x, double y, double z)
 {
-    this->r = {x, y, z};
+    this->r[X] = x;
+    this->r[Y] = y;
+    this->r[Z] = z;
 }
 
 double& coordinates::operator[](int i)
@@ -49,7 +51,9 @@ const double& coordinates::operator[](int i) const
 
 void coordinates::set(double x, double y, double z)
 {
-    this->r = {x, y, z};
+    this->r[X] = x;
+    this->r[Y] = y;
+    this->r[Z] = z;
     return;
 }
 
