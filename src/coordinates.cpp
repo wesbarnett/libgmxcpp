@@ -34,9 +34,7 @@ coordinates::coordinates(){ }
 
 coordinates::coordinates(double x, double y, double z)
 {
-    this->r[X] = x;
-    this->r[Y] = y;
-    this->r[Z] = z;
+    this->r = {x, y, z};
 }
 
 double& coordinates::operator[](int i)
@@ -51,9 +49,7 @@ const double& coordinates::operator[](int i) const
 
 void coordinates::set(double x, double y, double z)
 {
-    this->r[X] = x;
-    this->r[Y] = y;
-    this->r[Z] = z;
+    this->r = {x, y, z};
     return;
 }
 
@@ -64,9 +60,7 @@ coordinates coordinates::operator-(coordinates rhs)
 
 void coordinates::operator-=(coordinates rhs)
 {
-    r[X] -= rhs[X];
-    r[Y] -= rhs[Y];
-    r[Z] -= rhs[Z];
+    r = {r[X] - rhs[X], r[Y] - rhs[Y], r[Z] - rhs[Z]};
     return;
 }
 
@@ -77,9 +71,7 @@ coordinates coordinates::operator+(coordinates rhs)
 
 void coordinates::operator+=(coordinates rhs)
 {
-    r[X] += rhs[X];
-    r[Y] += rhs[Y];
-    r[Z] += rhs[Z];
+    r = {r[X] + rhs[X], r[Y] + rhs[Y], r[Z] + rhs[Z]};
     return;
 }
 
@@ -90,9 +82,7 @@ coordinates coordinates::operator/(double rhs)
 
 void coordinates::operator/=(double rhs)
 {
-    r[X] /= rhs;
-    r[Y] /= rhs;
-    r[Z] /= rhs;
+    r = {r[X] / rhs, r[Y] / rhs, r[Z] / rhs};
     return;
 }
 
@@ -108,17 +98,13 @@ coordinates operator*(double lhs, coordinates rhs)
 
 void coordinates::operator*=(double rhs)
 {
-    r[X] *= rhs;
-    r[Y] *= rhs;
-    r[Z] *= rhs;
+    r = {r[X] * rhs, r[Y] * rhs, r[Z] * rhs};
     return;
 }
 
 void coordinates::operator=(double rhs)
 {
-    r[X] = rhs;
-    r[Y] = rhs;
-    r[Z] = rhs;
+    r = {rhs, rhs, rhs};
     return;
 }
 
