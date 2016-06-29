@@ -59,12 +59,12 @@ coordinates pbc(coordinates a, triclinicbox box)
 
 coordinates pbc(coordinates a, cubicbox box)
 {
-
-    a[Z] -= box[Z] * nearbyint(a[Z] / box[Z]);
-    a[Y] -= box[Y] * nearbyint(a[Y] / box[Y]);
-    a[X] -= box[X] * nearbyint(a[X] / box[X]);
-    return a;
+    return (coordinates(
+        a[X] - box[X] * nearbyint(a[X] / box[X]),
+        a[Y] - box[Y] * nearbyint(a[Y] / box[Y]),
+        a[Z] - box[Z] * nearbyint(a[Z] / box[Z])));
 }
+
 coordinates cross(coordinates a, coordinates b)
 {
     return (coordinates (
