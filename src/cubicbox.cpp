@@ -34,9 +34,7 @@ cubicbox::cubicbox() { }
 
 cubicbox::cubicbox(float x, float y, float z)
 {
-    this->box[X] = x;
-    this->box[Y] = y;
-    this->box[Z] = z;
+    box = {x, y, z};
 }
 
 float& cubicbox::operator[](int i)
@@ -49,12 +47,9 @@ const float& cubicbox::operator[](int i) const
     return box[i];
 }
 
-
 #ifdef AVX
 cubicbox::cubicbox(cubicbox_m256 box)
 {
-    this->box[X] = box[X];
-    this->box[Y] = box[Y];
-    this->box[Z] = box[Z];
+    box = {box[X], box[Y], box[Z]};
 }
 #endif
