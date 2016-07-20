@@ -145,6 +145,13 @@ double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, tricl
 	return acos(dot(bond1,bond2)/(magnitude(bond1)*magnitude(bond2)));
 }
 
+double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, cubicbox box)
+{
+	coordinates bond1 = bond_vector(atom2,atom1,box);
+	coordinates bond2 = bond_vector(atom2,atom3,box);
+	return acos(dot(bond1,bond2)/(magnitude(bond1)*magnitude(bond2)));
+}
+
 double dihedral_angle(coordinates i, coordinates j, coordinates k, coordinates l, triclinicbox box)
 {
 	coordinates H = bond_vector(k,l,box);
