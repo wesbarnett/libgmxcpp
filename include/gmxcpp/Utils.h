@@ -162,6 +162,7 @@ coordinates bond_vector(coordinates atom1, coordinates atom2, cubicbox box);
  * @return bond angle in radians
  */
 double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, triclinicbox box);
+double bond_angle(coordinates atom1, coordinates atom2, coordinates atom3, cubicbox box);
 
 /** @brief Calculates the torsion / dihedral angle from four atoms'
     positions. 
