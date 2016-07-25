@@ -37,13 +37,13 @@ Trajectory::Trajectory()
 
 Trajectory::~Trajectory()
 {
+    vector<Frame>().swap(this->frameArray);
 }
 
 Trajectory::Trajectory(string filename)
 {
     PrintBanner();
     this->filename = filename;
-    open(filename);
 }
 
 Trajectory::Trajectory(string filename, string ndxfile)
@@ -52,7 +52,6 @@ Trajectory::Trajectory(string filename, string ndxfile)
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
-    open(filename);
 }
 
 Trajectory::Trajectory(string filename, Index index)
@@ -60,7 +59,6 @@ Trajectory::Trajectory(string filename, Index index)
     PrintBanner();
     this->index=index;
     this->filename = filename;
-    open(filename);
 }
 
 /*
@@ -228,10 +226,9 @@ int Trajectory::readFrame()
     int status;
     int step;
     matrix box;
-    rvec *x;
+    rvec x[natoms];
 
-    x = new rvec[natoms];
-    status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
+    status = read_xtc(xd, natoms, &step, &time, box, &x[0], &prec);
 
     if (status != 0) 
     {
@@ -239,7 +236,6 @@ int Trajectory::readFrame()
     }
 
     frameArray.push_back(Frame(step, time, box, x, natoms));
-
     ++nframes;
 
     return 0;
@@ -254,10 +250,9 @@ int Trajectory::skipFrame()
     int status;
     int step;
     matrix box;
-    rvec *x;
+    rvec x[natoms];
 
-    x = new rvec[natoms];
-    status = read_xtc(xd, natoms, &step, &time, box, x, &prec);
+    status = read_xtc(xd, natoms, &step, &time, box, &x[0], &prec);
 
     if (status != 0) 
     {

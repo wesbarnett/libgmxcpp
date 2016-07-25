@@ -36,7 +36,7 @@ Frame::Frame() { }
 
 Frame::~Frame()
 {
-    delete this->x;
+    delete[] this->x;
 }
 
 Frame::Frame(const Frame& other)
@@ -91,7 +91,7 @@ Frame::Frame(int &step, float &time, matrix &box, rvec *x, int &natoms)
     this->box[Z][Z] = box[Z][Z];
     this->natoms = natoms;
     this->x = new rvec[natoms];
-    this->x = x;
+    memcpy(this->x, x, sizeof(float)*natoms*3.0);
     return;
 }
 
