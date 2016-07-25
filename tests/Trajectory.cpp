@@ -7,9 +7,7 @@
 int main()
 {
     Trajectory t1("tests/test.xtc");
-cout << "test" << endl;
     t1.read();
-cout << "test" << endl;
 
     assert(test_equal(t1.GetNAtoms(), 4050));
     assert(test_equal(t1.GetNFrames(), 1001));
@@ -74,7 +72,7 @@ cout << "test" << endl;
 
     Index index("tests/test.ndx");
     t1 = Trajectory("tests/test.xtc",index);
-    t1.read();
+    t1.read_next(4050);
     assert(test_equal(t1.GetNAtoms("System"), 4050));
     assert(test_equal(t1.GetNAtoms("C"), 10));
     assert(test_equal(t1.GetNAtoms("SOL"), 4000));
