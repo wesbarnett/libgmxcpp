@@ -85,8 +85,6 @@ int Trajectory::read(int b, int s, int e)
     try 
     {
 
-        open(filename);
-
         cout << "Reading in xtc file: " << endl;
         cout << "Starting frame: " << b << endl;
 
