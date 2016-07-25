@@ -44,6 +44,7 @@ Trajectory::Trajectory(string filename)
 {
     PrintBanner();
     this->filename = filename;
+    open(filename);
 }
 
 Trajectory::Trajectory(string filename, string ndxfile)
@@ -52,6 +53,7 @@ Trajectory::Trajectory(string filename, string ndxfile)
     Index index(ndxfile);
     this->index=index;
     this->filename = filename;
+    open(filename);
 }
 
 Trajectory::Trajectory(string filename, Index index)
@@ -59,6 +61,7 @@ Trajectory::Trajectory(string filename, Index index)
     PrintBanner();
     this->index=index;
     this->filename = filename;
+    open(filename);
 }
 
 /*
@@ -84,8 +87,6 @@ int Trajectory::read(int b, int s, int e)
 
     try 
     {
-
-        open(filename);
 
         cout << "Reading in xtc file: " << endl;
         cout << "Starting frame: " << b << endl;
