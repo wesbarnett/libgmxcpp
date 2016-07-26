@@ -151,6 +151,7 @@ int Trajectory::read(int b, int s, int e)
         }
         else
         {
+            frameArray.reserve(e/s);
             while (status == 0) 
             {
                 if (count % s == 0)
@@ -179,6 +180,7 @@ int Trajectory::read(int b, int s, int e)
         cerr << endl << "Problem with creating Trajectory object." << endl;
         terminate();
     }
+    frameArray.shrink_to_fit();
     return nframes;
 }
 
