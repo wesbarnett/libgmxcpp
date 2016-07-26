@@ -50,6 +50,6 @@ const float& cubicbox::operator[](int i) const
 #ifdef AVX
 cubicbox::cubicbox(cubicbox_m256 box)
 {
-    box = {box[X], box[Y], box[Z]};
+    this->box = {box[X], box[Y], box[Z]};
 }
 #endif
