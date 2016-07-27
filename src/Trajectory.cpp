@@ -222,6 +222,20 @@ int Trajectory::read_next(int n)
     return nframes;
 }
 
+int Trajectory::skip_next(int n)
+{
+    int status;
+    for (int i = 0; i < n; i++)
+    {
+        status = skipFrame();
+        if (status != 0)
+        {
+            break;
+        }
+    }
+    return nframes;
+}
+
 int Trajectory::readFrame()
 {
     float time;
@@ -243,8 +257,6 @@ int Trajectory::readFrame()
 
     return 0;
 }
-
-
 
 int Trajectory::skipFrame()
 {
@@ -277,8 +289,16 @@ void Trajectory::printInfo()
 
 void Trajectory::close()
 {
-    xdrfile_close(xd);
-    cout << endl << "Finished reading in xtc file." << endl << endl;
+    try 
+    {
+        xdrfile_close(xd);
+    }
+    catch(int e)
+    {
+        cout << "Problem closing " << this->filename << endl;
+        cout << "Error " << e << endl;
+    }
+    cout << endl << "Closed " << this->filename << endl << endl;
 
     return;
 }

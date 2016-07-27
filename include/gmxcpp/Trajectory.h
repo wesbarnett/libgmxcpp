@@ -154,6 +154,12 @@ int read(int b = 0, int s = 1, int e = -1);
  */
 int read_next(int n = 1);
 
+/** @brief Skip n frames
+ *  @param n Number of frames to skip
+ *  @return Number of frames actually skipped
+ */
+int skip_next(int n = 1);
+
 /**
  * @brief Gets the number of atoms in a system.
  * @return Number of atoms.
