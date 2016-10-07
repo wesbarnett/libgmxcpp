@@ -54,7 +54,7 @@ void Topology::read(string tprfile)
 	/* NOTE: this uses the "old" topology file format. TODO: update for use with
 	 * newer format. */
     snew(mtop,1);
-    read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,NULL,mtop);
+    read_tpx(tprfile.c_str(),NULL,NULL,&natoms,NULL,NULL,mtop);
     t_topology top = gmx_mtop_t_to_t_topology(mtop);
 
     /* Get charge and mass for each atom */
