@@ -19,3 +19,6 @@ are also included.
 Copyright (C) 2016 James W. Barnett <libgmxcpp@wbarnett.us>
 
 Latest documentation: http://libgmxcpp.readthedocs.io
+
+Also [check out libgmxcpp's Fortran
+cousin.](https://github.com/wesbarnett/libgmxfort)
