@@ -29,7 +29,7 @@
 #ifndef COORDINATES_H
 #define COORDINATES_H
 
-#include "xdrfile/xdrfile.h"
+#include "xdrfile.h"
 #include <array>
 using namespace std;
 
