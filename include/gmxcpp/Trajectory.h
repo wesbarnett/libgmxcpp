@@ -41,8 +41,8 @@
 #include "gmxcpp/cubicbox.h"
 #include "gmxcpp/cubicbox8.h"
 #include "gmxcpp/triclinicbox.h"
-#include "xdrfile/xdrfile.h"
-#include "xdrfile/xdrfile_xtc.h"
+#include "xdrfile.h"
+#include "xdrfile_xtc.h"
 #include <stdexcept>
 using namespace std;
 
