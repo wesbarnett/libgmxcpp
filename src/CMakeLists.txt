@@ -32,6 +32,8 @@ else()
        XDRFILE_INCLUDES
        NAMES "xdrfile/xdrfile.h"
        NAMES "xdrfile/xdrfile_xtc.h"
+       NAMES "xdrfile.h"
+       NAMES "xdrfile_xtc.h"
        HINTS ENV CPLUS_INCLUDE_PATH
    )
    message(STATUS "Found xdrfile headers at: ${XDRFILE_INCLUDES}")
