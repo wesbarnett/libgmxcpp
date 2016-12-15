@@ -68,7 +68,7 @@ find_path(
 message(STATUS "Found gromacs library at: ${LIBGROMACS}")
 message(STATUS "Found gromacs headers at: ${GROMACS_INCLUDES}")
 
-target_link_libraries(gmxcpp ${LIBGROMACS} ${XDRFILE_LIBRARIES})
-target_include_directories(gmxcpp PUBLIC ${GROMACS_INCLUDES} ${XDRFILE_INCLUDE_DIRS})
+target_link_libraries ( ${CMAKE_PROJECT_NAME} ${xdrfile_LIBRARIES} ${LIBGROMACS})
+target_include_directories ( ${CMAKE_PROJECT_NAME} PUBLIC ${xdrfile_INCLUDE_DIRS} ${GROMACS_INCLUDES})
 
 install (TARGETS gmxcpp LIBRARY DESTINATION lib)

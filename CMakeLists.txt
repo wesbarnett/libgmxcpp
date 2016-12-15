@@ -62,7 +62,6 @@ add_subdirectory(docs)
 # ----------------------------------
 # Tests
 # ---------------------------------
-project(tests)
 add_subdirectory(tests)
 enable_testing()
 add_test(coordinates tests/coordinates_test)
