@@ -20,25 +20,48 @@
 cmake_minimum_required(VERSION 2.8)
 project(gmxcpp)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
-set (gmxcpp_VERSION_MAJOR 1)
-set (gmxcpp_VERSION_MINOR 0)
+
+# -------------------------
+# Package version
+# -------------------------
+file ( STRINGS "${CMAKE_SOURCE_DIR}/.VERSION" VERSION )
+string( REPLACE "." ";" VERSION_LIST ${VERSION} )
+list(GET VERSION_LIST 0 VERSION_MAJOR)
+list(GET VERSION_LIST 1 VERSION_MINOR)
+list(GET VERSION_LIST 2 VERSION_PATCH)
+set(PROJECT_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+message ( STATUS "CMake build configuration for ${CMAKE_PROJECT_NAME} ${PROJECT_VERSION}" )
+string ( TOLOWER ${CMAKE_PROJECT_NAME} PACKAGE_NAME )
+set ( PACKAGE_VERSION "${PACKAGE_NAME}-${VERSION}" )
+
+# --------------------------
+# Optional banner
+# --------------------------
 set(BANNER ON CACHE INTERNAL "")
 if(${BANNER})
     add_definitions(-DBANNER)
 else()
     message(STATUS "Compiling without banner.")
 endif()
+
+# ----------------------------------
+# Add AVX instructions if requested
+# ---------------------------------
 set(AVX OFF CACHE INTERNAL "")
 if(${AVX})
     set(CMAKE_CXX_FLAGS "-O3 -Wall -march=native")
 else()
     set(CMAKE_CXX_FLAGS "-O3 -Wall")
 endif()
+
 add_subdirectory(include)
 include_directories(include)
 add_subdirectory(src)
 add_subdirectory(docs)
 
+# ----------------------------------
+# Tests
+# ---------------------------------
 project(tests)
 add_subdirectory(tests)
 enable_testing()

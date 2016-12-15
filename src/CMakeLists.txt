@@ -18,27 +18,16 @@
 # The full license is located in a text file titled "LICENSE" in the root
 # directory of the source.
 
-find_library(
-    LIBXDRFILE xdrfile
-    HINTS ENV LD_LIBRARY_PATH
-)
+# -------------------------
+# Find xdrfile
+# -------------------------
+find_package ( xdrfile REQUIRED )
+message(STATUS "Found xdrfile library at: ${xdrfile_LIBRARIES}")
+message(STATUS "Found xdrfile include dirs at: ${xdrfile_INCLUDE_DIRS}")
 
-if(${LIBXDRFILE} STREQUAL "LIBXDRFILE-NOTFOUND")
-   message(STATUS "Couldn't find the xdrfile library. Providing internally.")
-   set(XDRFILEC xdrfile.c xdrfile_xtc.c)
-else()
-    message(STATUS "Found xdrfile library at: ${LIBXDRFILE}")
-    find_path(
-       XDRFILE_INCLUDES
-       NAMES "xdrfile/xdrfile.h"
-       NAMES "xdrfile/xdrfile_xtc.h"
-       NAMES "xdrfile.h"
-       NAMES "xdrfile_xtc.h"
-       HINTS ENV CPLUS_INCLUDE_PATH
-   )
-   message(STATUS "Found xdrfile headers at: ${XDRFILE_INCLUDES}")
-endif()
-
+# -----------------------------------------------------------
+# Additional files need to be compiled with avx support added
+# -----------------------------------------------------------
 if(${AVX})
     message(STATUS "Compiling with AVX support.")
     add_definitions(-DAVX)
@@ -48,38 +37,38 @@ endif()
 add_library(gmxcpp SHARED Frame.cpp Index.cpp Trajectory.cpp Utils.cpp
 coordinates.cpp cubicbox.cpp triclinicbox.cpp ${XDRFILEC} Clusters.cpp
 Topology.cpp ${AVXFILECPP})
-set_target_properties(gmxcpp PROPERTIES LIBRARY_OUTPUT_DIRECTORY lib)
-set_target_properties(gmxcpp PROPERTIES OUTPUT_NAME gmxcpp${BUILD_POSTFIX})
 
+set_target_properties ( ${CMAKE_PROJECT_NAME}
+  PROPERTIES
+  OUTPUT_NAME ${CMAKE_PROJECT_NAME}
+  PREFIX lib
+  SOVERSION ${VERSION_MAJOR}.${VERSION_MINOR}
+  VERSION ${VERSION}
+  LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" 
+)
+
+# -------------------------
+# Find GROMACS
+# -------------------------
 find_library(
     LIBGROMACS gromacs
     HINTS $ENV{GMXLDLIB}
     HINTS ENV LD_LIBRARY_PATH
+    REQUIRED
 )
-
-if(${LIBGROMACS} STREQUAL "LIBGROMACS-NOTFOUND")
-    message(FATAL_ERROR "Couldn't find the gromacs library.")
-endif()
 
 find_path(
     GROMACS_INCLUDES
     NAMES "gromacs/fileio/tpxio.h"
     HINTS "$ENV{GMXPREFIX}/include"
     HINTS ENV CPLUS_INCLUDE_PATH
+    REQUIRED
 )
-
-if(${GROMACS_INCLUDES} STREQUAL "GROMACS_INCLUDES-NOTFOUND")
-    message(FATAL_ERROR "Couldn't find the gromacs header files.")
-endif()
 
 message(STATUS "Found gromacs library at: ${LIBGROMACS}")
 message(STATUS "Found gromacs headers at: ${GROMACS_INCLUDES}")
-if(${LIBXDRFILE} STREQUAL "LIBXDRFILE-NOTFOUND")
-    target_link_libraries(gmxcpp ${LIBGROMACS})
-    target_include_directories(gmxcpp PUBLIC ${GROMACS_INCLUDES})
-else()
-    target_link_libraries(gmxcpp ${LIBGROMACS} ${LIBXDRFILE})
-    target_include_directories(gmxcpp PUBLIC ${GROMACS_INCLUDES} ${XDRFILE_INCLUDES})
-endif()
+
+target_link_libraries(gmxcpp ${LIBGROMACS} ${XDRFILE_LIBRARIES})
+target_include_directories(gmxcpp PUBLIC ${GROMACS_INCLUDES} ${XDRFILE_INCLUDE_DIRS})
 
 install (TARGETS gmxcpp LIBRARY DESTINATION lib)
