@@ -67,8 +67,38 @@ using namespace std;
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
+
+/**
+ * @brief Adjusts for periodic boundary condition
+ * @details User passes a vector, most likely a vector pointing from one atom
+ * to another in the simulation. This function adjusts the vector such that if
+ * it is longer than 1/2 the box size it accounts for the periodic boundary.
+ * @param a Vector to be passed.
+ * @param box The box dimensions.
+ * @return Vector after pbc accounted for.
+ */
 coordinates pbc(coordinates a, cubicbox box);
+
+/**
+ * @brief Adjusts for periodic boundary condition
+ * @details User passes a vector, most likely a vector pointing from one atom
+ * to another in the simulation. This function adjusts the vector such that if
+ * it is longer than 1/2 the box size it accounts for the periodic boundary.
+ * @param a Vector to be passed.
+ * @param box The box dimensions.
+ * @return Vector after pbc accounted for.
+ */
 coordinates8 pbc(coordinates8 a, cubicbox_m256 box);
+
+/**
+ * @brief Adjusts for periodic boundary condition
+ * @details User passes a vector, most likely a vector pointing from one atom
+ * to another in the simulation. This function adjusts the vector such that if
+ * it is longer than 1/2 the box size it accounts for the periodic boundary.
+ * @param a Vector to be passed.
+ * @param box The box dimensions.
+ * @return Vector after pbc accounted for.
+ */
 coordinates8 pbc(coordinates8 a, cubicbox8 box);
 
 /**
@@ -96,6 +126,13 @@ coordinates cross(coordinates a, coordinates b);
  * @param box Box dimensions
  */
 double distance(coordinates a, coordinates b, triclinicbox box);
+
+/** @brief Calculates the distance between atom a and atom b without pbc
+ * accounting.
+ * @return Distance
+ * @param a First atom in distance calculation
+ * @param b Second atom in distance calculation
+ */
 double distance(coordinates a, coordinates b);
 
 /** @brief Calculates the distance squared between atom a and atom b.
