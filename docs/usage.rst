@@ -69,16 +69,18 @@ getting the center of mass. There is a provided analysis function in the library
 which gets the center of mass for a group of atoms, removing the periodic
 boundary condition. For this function we need the atomic coordinates of the
 atoms in the group we're interested in, the masses of those atoms, and the
-simulation box for the particular frame we're interested in. Here's how we can
-get that info for the methanes from the first frame, where we have an index
-group with the methanes labeled as ``CH4``:::
+simulation box for the particular frame we're interested in. Here I know that my
+simulation is using a cubic box so I am using the ``cubicbox`` class instead of
+the ``triclinicbox`` class. Here's how we can get that info for the methanes
+from the first frame, where we have an index group with the methanes labeled as
+``CH4``:::
 
     vector <coordinates> atom;
     vector <double> mass;
-    triclinicbox box;
+    cubicbox box;
 
     atom = trj.GetXYZ(0,"CH4");
-    box = trj.GetBox(0);
+    box = trj.GetCubicBox(0);
     mass = top.GetMass("CH4");
 
 These getters are described in this documentation on the ``Trajectory`` and
@@ -95,7 +97,7 @@ would put this into a loop:::
     coordinates com;
     vector <coordinates> atom;
     vector <double> mass;
-    triclinicbox box;
+    cubicbox box;
 
     Index ndx("index.ndx");
     Trajectory trj("traj.xtc",ndx);
@@ -105,7 +107,7 @@ would put this into a loop:::
     for (int i = 0; i < trj.GetNFrames(); i++)
     {
         atom = trj.GetXYZ(i,"CH4");
-        box = trj.GetBox(i);
+        box = trj.GetCubicBox(i);
         mass = top.GetMass("CH4");
         com = center_of_mass(atom,mass,box);
     }

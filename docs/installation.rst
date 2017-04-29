@@ -7,7 +7,7 @@ Requirements
 ------------
 
 ``cmake`` is required for building the library. `Gromacs
-<http://www.gromacs.org/>`_ 5.1+ is required, since the library links to some of it's
+<http://www.gromacs.org/>`_ 2016+ is required, since the library links to some of its
 functions. `xdrfile <https://github.com/wesbarnett/libxdrfile>`_ is required.
 
 Installing
