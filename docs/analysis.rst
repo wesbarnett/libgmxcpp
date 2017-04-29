@@ -47,7 +47,7 @@ Distance squared
 
 Dot product
 -----------
-.. doxygenfunction:: dot
+.. doxygenfunction:: dot(coordinates, coordinates);
 
 Geometric center
 ----------------
@@ -63,7 +63,7 @@ Random points in a box
 
 Random point on sphere
 ----------------------
-.. doxygengroup:: gen_sphere_point
+.. doxygenfunction:: gen_sphere_point
 
 Surface area
 ------------
@@ -75,4 +75,4 @@ Vector magnitude
 
 Volume of Box
 ----------------
-.. doxygenfunction:: volume
+.. doxygenfunction:: volume(triclinicbox)
