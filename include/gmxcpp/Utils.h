@@ -63,20 +63,10 @@ using namespace std;
  * to another in the simulation. This function adjusts the vector such that if
  * it is longer than 1/2 the box size it accounts for the periodic boundary.
  * @param a Vector to be passed.
- * @param box The box dimensions.
+ * @param box The box dimensions (can be either triclinicbox or cubicbox).
  * @return Vector after pbc accounted for.
  */
 coordinates pbc(coordinates a, triclinicbox box);
-
-/**
- * @brief Adjusts for periodic boundary condition
- * @details User passes a vector, most likely a vector pointing from one atom
- * to another in the simulation. This function adjusts the vector such that if
- * it is longer than 1/2 the box size it accounts for the periodic boundary.
- * @param a Vector to be passed.
- * @param box The box dimensions.
- * @return Vector after pbc accounted for.
- */
 coordinates pbc(coordinates a, cubicbox box);
 
 /**
@@ -123,23 +113,18 @@ coordinates cross(coordinates a, coordinates b);
  * @return Distance
  * @param a First atom in distance calculation
  * @param b Second atom in distance calculation
- * @param box Box dimensions
+ * @param box Box dimensions (can be omitted such that pbc is not accounted
+ * for).
  */
 double distance(coordinates a, coordinates b, triclinicbox box);
-
-/** @brief Calculates the distance between atom a and atom b without pbc
- * accounting.
- * @return Distance
- * @param a First atom in distance calculation
- * @param b Second atom in distance calculation
- */
 double distance(coordinates a, coordinates b);
 
 /** @brief Calculates the distance squared between atom a and atom b.
  * @return Distance
  * @param a First atom in distance squared calculation
  * @param b Second atom in distance squared calculation
- * @param box Box dimensions
+ * @param box Box dimensions (can be triclinicbox or cubic box; or can be
+ * omitted such that pbc is not accounted for)
  */
 double distance2(coordinates a, coordinates b, triclinicbox box);
 double distance2(coordinates a, coordinates b, cubicbox box);

@@ -10,11 +10,11 @@ in ``gmxcpp/Clusters.h``.
 
 Bond vector
 -----------
-.. doxygenfunction:: bond_vector(coordinates atom1, coordinates atom2, triclinicbox box);
+.. doxygenfunction:: bond_vector(coordinates, coordinates, triclinicbox);
 
 Bond angle
 ----------
-.. doxygenfunction:: bond_angle
+.. doxygenfunction:: bond_angle(coordinates, coordinates, triclinicbox);
 
 Center a group of atoms around a point
 --------------------------------------
@@ -39,11 +39,11 @@ Dihedral angle
 
 Distance
 --------
-.. doxygenfunction:: distance
+.. doxygenfunction:: distance(coordinates, coordinates, triclinicbox);
 
 Distance squared
 ----------------
-.. doxygenfunction:: distance2
+.. doxygenfunction:: distance2(coordinates, coordinates, triclinicbox);
 
 Dot product
 -----------
