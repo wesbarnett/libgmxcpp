@@ -10,7 +10,7 @@ in ``gmxcpp/Clusters.h``.
 
 Bond vector
 -----------
-.. doxygenfunction:: bond_vector
+.. doxygenfunction:: bond_vector(coordinates atom1, coordinates atom2, triclinicbox box);
 
 Bond angle
 ----------
