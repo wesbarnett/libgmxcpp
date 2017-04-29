@@ -55,7 +55,7 @@ Geometric center
 
 Periodic boundary condition
 ---------------------------
-.. doxygengroup:: pbc
+.. doxygenfunction:: pbc(coordinates, cubicbox)
 
 Random points in a box
 ----------------------
