@@ -41,12 +41,8 @@
 // This header file is required for creating a Trajectory object
 #include "gmxcpp/Trajectory.h"
 
-// This header file is required for some of the command line things used below
-#include "gmxcpp/CommandLine.h"
-
 using namespace std;
 
-bool parseCommandLine(int argc, char *argv[], string *xtcfile, string *ndxfile);
 void print(Trajectory *traj, int first, int last, string group, string outfile);
 void printUsage(string program);
 
@@ -57,7 +53,7 @@ int main(int argc, char *argv[])
     const int first = 0;
     const int last = 5;
     string outfile = "out.dat";
-    if (argc != 3) {printUsage(argv[0]) return -1};
+    if (argc != 3) {printUsage(argv[0]); return -1;};
     string xtcfile = argv[1];
     string ndxfile = argv[2];
 
