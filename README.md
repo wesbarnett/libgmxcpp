@@ -1,5 +1,7 @@
 # libgmxcpp
 
+[![DOI](https://zenodo.org/badge/26054161.svg)](https://zenodo.org/badge/latestdoi/26054161)
+
 [![Documentation Status](https://readthedocs.org/projects/libgmxcpp/badge/?version=master)](http://libgmxcpp.readthedocs.io/en/master/)
 [![License](https://img.shields.io/aur/license/libgmxcpp.svg)](https://github.com/wesbarnett/libgmxcpp/blob/master/LICENSE)
 [![AUR
