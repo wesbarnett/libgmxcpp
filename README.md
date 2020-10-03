@@ -1,6 +1,11 @@
 # libgmxcpp
 
-**NOTE**: Since I am no longer an active GROMACS user, this code may not be updated for future versions of GROMACS. Parts of the library are known to be incompatible with GROMACS 2018+. If you are interested in keeping this project moving forward for future versions of GROMACS, please fork. The main incompatibility will be `Topology.cpp`. Other functionalities hopefully will not change much in the future for GROMACS.
+**Update 10/03/2020: Since I am no longer an active GROMACS user, this code will not be
+updated for future versions of GROMACS. Parts of the library are known to be
+incompatible with GROMACS 2018+. If you are interested in keeping this project moving
+forward for future versions of GROMACS, please fork. The main incompatibility will be
+`Topology.cpp`. Other functionalities hopefully will not change much in the future for
+GROMACS.**
 
 [![DOI](https://zenodo.org/badge/26054161.svg)](https://zenodo.org/badge/latestdoi/26054161)
 
